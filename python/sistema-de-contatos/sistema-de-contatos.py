@@ -33,35 +33,70 @@ app = Flask(__name__)
 '''
 Aqui é adicionado as configuracoes da aplicacao
 '''
-app.config.update(dict( DEBUG=True, SECRET_KEY='sistema-de-espera-key' ))
+app.config.update(dict( DEBUG=True, SECRET_KEY='sistema-de-contatos-key' ))
 
 @app.route('/')
 def index():
-    ultima_senha = ultima_senha_chamada()
-    ver_relatorio = ver_relatorio_paciente()
-    return render_template('exibe_painel.html', 
-			   ultima_senha = ultima_senha,
-			   ver_relatorio = ver_relatorio)
+    print("===>>>>index");  
+    conn = obtem_mariadb()    
+    import pprint;pprint.pprint(conn);
+    return render_template('exibe_painel.html')
   
 
-@app.route('/menu_senha', methods=['POST'])
-def menu_senha():
-  
-    tipo_menu = request.form
-    if 'gera_proxima_senha' in tipo_menu:
-        gera_proxima_senha_normal()
+@app.route('/novo_contato', methods=['GET'])
+def novo_contato():
+    print("===>>>>novo contato");
+    return render_template('novo_contato.html')
 
-    if 'gera_proxima_senha_prioridade' in tipo_menu: 
-        gera_proxima_senha_prioridade()
+@app.route('/salva_contato', methods=['POST'])
+def salva_contato():
+    conn = obtem_mariadb()    
+    print("func===>>>1")
+    try:
+	data_form = request.form 
+	print("func===>>>2")
+	import pprint;pprint.pprint(data_form);
+	print("func===>>>3")
+	if data_form['contato_nome'] == "":
+	    flash('favor, coloque o nome do contato!')
+	print("func===>>>4")  
+	if data_form['voltar_index'] == "cancelar":
+	    return render_template('exibe_painel.html')
 
-    if 'atende_proximo_paciente' in tipo_menu: 
-        atende_proximo_paciente()
+        print("func===>>>5")
+        with conn.cursor() as cursor:
+	    
+	    print("\n\n")
+            print("query===>>>")
+            query_insere_novo_contato = "
+            insert into painel
+            (nome,email,whatsapp,facebook,twitter,website,endereco,bairro,cidade,estado)
+            values
+            (
+            '"+data_form['contato_nome']+"',
+            '"+data_form['contato_email']+"',
+            '"+data_form['contato_whatsapp']+"',
+            '"+data_form['contato_facebook']+"',            
+            '"+data_form['contato_twitter']+"',
+            '"+data_form['contato_website']+"',
+            '"+data_form['contato_endereco']+"',
+            '"+data_form['contato_bairro']+"',
+            '"+data_form['contato_cidade']+"',
+            '"+data_form['contato_nome']+"'"
+            import pprint;pprint.pprint(query_insere_novo_contato);
+            print("\n\n\n")
+            print(query_insere_novo_contato)
+            
+	    cursor.execute(query_insere_novo_contato)
+            conn.commit()
+            flash('novo contato salvo com sucesso!')     
+            
+    finally:
+        conn.close()
 
-    return redirect(url_for('index'))
-
+    return render_template('novo_contato.html')    
 
 def ver_relatorio_paciente():
-
     conn = obtem_mariadb()
     try:
         with conn.cursor() as cursor:  
@@ -81,7 +116,6 @@ def ver_relatorio_paciente():
 
 
 def gera_proxima_senha_normal():
-  
     conn = obtem_mariadb()
     try:
         with conn.cursor() as cursor:
@@ -100,7 +134,6 @@ def gera_proxima_senha_normal():
 
 
 def gera_proxima_senha_prioridade():
-  
     conn = obtem_mariadb()
     try:
         with conn.cursor() as cursor:
@@ -119,7 +152,6 @@ def gera_proxima_senha_prioridade():
 
 
 def atende_proximo_paciente():
-  
     relatorio = ver_relatorio_paciente()  
     
     if relatorio['pacientes_aguardando_atendimento'] > 0:
@@ -163,7 +195,6 @@ def atende_proximo_paciente():
 
 
 def ultima_senha_chamada():
-  
     conn = obtem_mariadb()
     try:
         with conn.cursor() as cursor:
@@ -178,7 +209,7 @@ def obtem_mariadb():
     conn = pymysql.connect(host='localhost',
                              user='root',
                              password='123456',
-                             db='sistema_de_espera',
+                             db='sistema_de_contatos',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
     return conn

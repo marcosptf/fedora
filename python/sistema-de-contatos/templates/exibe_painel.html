@@ -1,40 +1,42 @@
 {% extends "layout.html" %}
 {% block body %}
-
-    <form action="/menu_senha" method="post" class="add-entry" >
-      <br/>
-      <dl>
-        <dd><input type="submit" name="adicionar_novo_contato" value="adicionar novo contato" />
-      </dl>
-      <br/>      
-      <table border="1">
-	<thead>
-	  <th>nome</th>
-	  <th>email</th>
-	  <th>whatsApp</th>
-	  <th>facebook</th>	  
-	  <th>twitter</th>	  
-	  <th>website</th>	  
-	  <th>endereco</th>	  
-	  <th>bairro</th>	  
-	  <th>cidade</th>	  
-	  <th>estado</th>	  
-	</thread>
-	<tbody>
-	  <tr>
-	    <td>{{ nome }}</td>
-	    <td>{{ email }}</td>
-	    <td>{{ whatsApp }}</td>
-	    <td>{{ facebook }}</td>
-	    <td>{{ twitter }}</td>
-	    <td>{{ website }}</td>
-	    <td>{{ endereco }}</td>
-	    <td>{{ bairro }}</td>
-	    <td>{{ cidade }}</td>
-	    <td>{{ estado }}</td>
-	  </tr>
-	</tbody>
-     </table>      
-    </form>
-    
+  <br/>
+  <dl>
+    <dd>
+      <a href="/novo_contato">
+	<button>
+	  adicionar novo contato
+	</button>
+      </a>
+  </dl>
+  <br/>      
+  <table border="1">
+    <thead>
+      <th>nome</th>
+      <th>email</th>
+      <th>whatsApp</th>
+      <th>facebook</th>	  
+      <th>twitter</th>	  
+      <th>website</th>	  
+      <th>endereco</th>	  
+      <th>bairro</th>	  
+      <th>cidade</th>	  
+      <th>estado</th>	  
+    </thread>
+    <tbody>
+      <tr>
+	<td>{{ nome }}</td>
+	<td>{{ email }}</td>
+	<td>{{ whatsApp }}</td>
+	<td>{{ facebook }}</td>
+	<td>{{ twitter }}</td>
+	<td>{{ website }}</td>
+	<td>{{ endereco }}</td>
+	<td>{{ bairro }}</td>
+	<td>{{ cidade }}</td>
+	<td>{{ estado }}</td>
+      </tr>
+    </tbody>
+  </table>      
+   
 {% endblock %}
