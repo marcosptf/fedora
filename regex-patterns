@@ -1,0 +1,8 @@
+/* alguns padroes que usei para recuperar os nomes de varios arquivos de um codigo fonte de um repositorio no git  */
+
+(" class="js-directory-link" id="[0-9a-z]*-[0-9a-z]*" title="[0-9]{4}-[0-9]{2}-[0-9]{2}_[A-Z0-9]*.xml">[0-9]{4}-[0-9]{2}-[0-9]{2}_[A-Z0-9]*.xml)
+([0-9]{4}-[0-9]{2}-[0-9]{2}_ISP[0-9]{3}.xml)$
+(" class="js-directory-link" id="[0-9a-z]*-[0-9a-z]*" title="[0-9]{4}-[0-9]{2}-[0-9]{2}_ISP[0-9]{3}.xml">)
+(" class="js-directory-link" id="[0-9a-z]-[0-9a-z]")
+(id="[0-9a-z]-[0-9a-z]")
+ 
