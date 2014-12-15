@@ -2,7 +2,7 @@ wget + SOAP
 
 como usar o wget para fazer post, e neste caso, autenticar, e enviar um xml para o servidor processar
 
-[root@localhost developer]# wget --http-user="usuario" --http-passwd="123456" --post-file="wsdl-teste-oi-tradeup.xml" http://200.225.84.43/nswebservice/mdv/ns_registration_mdv01.asp --output-document="wsdl-debug"
+[root@localhost developer]# wget --http-user="usuario" --http-passwd="123456" --post-file="wsdl-teste-oi-tradeup.xml" http://endpoint.com --output-document="wsdl-debug"
 --2014-12-15 08:56:44--  http://endpoint.com
 Connecting to 200.225.84.43:80... connected.
 HTTP request sent, awaiting response... 401 Access Denied
@@ -16,7 +16,7 @@ wsdl-debug                                100%[=================================
 2014-12-15 08:56:47 (25.6 MB/s) - ‘wsdl-debug’ saved [607/607]
 
 [root@localhost developer]# cat wsdl-debug
-<?xml version='1.0'?><NSPRODUCTS><HEADER><VERSION>43mdv010</VERSION><PARTNER>NETBR55</PARTNER><RETURNCODE>1000</RETURNCODE><STATUS>SUCCESS</STATUS><MESSAGE>[1000] Transaction is successful </MESSAGE></HEADER><DATA><CONFIRMATION>NETBR55_141215105645_OIS332331770393</CONFIRMATION><REFERENCE>OI3661418646559815</REFERENCE><NSREF>NCS507562792</NSREF><CUSTOMERID>ois332331770393</CUSTOMERID><EMAIL>ois332331770393@oi.com.br</EMAIL><PASSWORD>yW2oB6sT1y</PASSWORD><MCAFFEURL>http://br.mcafee.com/root/myaccount.asp?affid=907</MCAFFEURL><ITEMS><ITEM SKU='907-66226-srvc_1umma' QTY='3'/></ITEMS></DATA></NSPRODUCTS>
+<?xml version='1.0'?><NSPRODUCTS><HEADER><VERSION>43mdv010</VERSION><PARTNER>NETBR55</PARTNER><RETURNCODE>1000</RETURNCODE><STATUS>SUCCESS</STATUS><MESSAGE>[1000] Transaction is successful </MESSAGE></HEADER><DATA><CONFIRMATION>NETBR55_141215105645_OIS332331770393</CONFIRMATION><REFERENCE>OI3661418646559815</REFERENCE><NSREF>NCS507562792</NSREF><CUSTOMERID>ois332331770393</CUSTOMERID><EMAIL>ois332331770393@oi.com.br</EMAIL><PASSWORD>yW2oB6sT1y</PASSWORD><MCAFFEURL>http://br.mcafee.com/</MCAFFEURL><ITEMS><ITEM SKU='907-66226-srvc_1umma' QTY='3'/></ITEMS></DATA></NSPRODUCTS>
 
 
 
