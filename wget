@@ -2,8 +2,8 @@ wget + SOAP
 
 como usar o wget para fazer post, e neste caso, autenticar, e enviar um xml para o servidor processar
 
-[root@localhost developer]# wget --http-user="IG" --http-passwd="08igIGnEt24x" --post-file="wsdl-teste-oi-tradeup.xml" http://200.225.84.43/nswebservice/mdv/ns_registration_mdv01.asp --output-document="wsdl-debug"
---2014-12-15 08:56:44--  http://200.225.84.43/nswebservice/mdv/ns_registration_mdv01.asp
+[root@localhost developer]# wget --http-user="usuario" --http-passwd="123456" --post-file="wsdl-teste-oi-tradeup.xml" http://200.225.84.43/nswebservice/mdv/ns_registration_mdv01.asp --output-document="wsdl-debug"
+--2014-12-15 08:56:44--  http://endpoint.com
 Connecting to 200.225.84.43:80... connected.
 HTTP request sent, awaiting response... 401 Access Denied
 Connecting to 200.225.84.43:80... connected.
