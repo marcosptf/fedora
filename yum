@@ -6,5 +6,8 @@ $yum install yum-plugin-fastestmirror
 $yum install yum-fastestmirror
 vim /etc/yum.conf colocar a varievelplugins=1
 
+/* para procurar um programa no yum  */
+yum search java
+
 
 
