@@ -1,4 +1,10 @@
-para listar itens disponiveis:
+/* para listar itens disponiveis: */
 $ yum list \*mysql\* | grep dev
+
+/* para permitirmos o yum procurar alem dos repositorios oficiais de mirrors  */
+$yum install yum-plugin-fastestmirror
+$yum install yum-fastestmirror
+vim /etc/yum.conf colocar a varievelplugins=1
+
 
 
