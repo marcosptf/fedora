@@ -9,5 +9,7 @@ vim /etc/yum.conf colocar a varievelplugins=1
 /* para procurar um programa no yum  */
 yum search java
 
+/* este argumento ira pular partes que estao em conflito e instalar somente o que pode  */
+yum install --skip-broken  nome-do-programa
 
 
