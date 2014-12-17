@@ -1,0 +1,4 @@
+para listar itens disponiveis:
+$ yum list \*mysql\* | grep dev
+
+
