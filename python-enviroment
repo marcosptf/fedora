@@ -1,5 +1,6 @@
 --instalar o python-dev no computador
 sudo apt-get install -y build-essential git libmysqlclient-dev libxml2-dev libxslt1-dev libmemcached-dev python-greenlet-dev libevent-dev python-distribute python-dev libjpeg8-dev libfreetype6-dev liblcms1-dev gettext libncurses5 libncurses5-dev
+yum install -y build-essential git libmysqlclient-dev libxml2-dev libxslt1-dev libmemcached-dev python-greenlet-dev libevent-dev python-distribute python-dev libjpeg8-dev libfreetype6-dev liblcms1-dev gettext libncurses5 libncurses5-dev
 pip install boto
 pip install fabric
 
