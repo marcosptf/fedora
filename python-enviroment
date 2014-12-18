@@ -1,11 +1,17 @@
---instalar o python-dev no computador
+--instalar o python-dev no Debian
 sudo apt-get install -y build-essential git libmysqlclient-dev libxml2-dev libxslt1-dev libmemcached-dev python-greenlet-dev libevent-dev python-distribute python-dev libjpeg8-dev libfreetype6-dev liblcms1-dev gettext libncurses5 libncurses5-dev
 yum install git 
 pip install boto
 pip install fabric
 
---comando para instalar setuptools na ultima versao
+--instalar python-dev no fedora
+yum install python-devel
+yum install python-pip
+pip install setuptools
+pip install --upgrade setuptools
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python 
+pip install virtualenv
+
 
 --estes comandos n funcionaram no fedora
 yum install libmysqlclient-dev 
