@@ -1,8 +1,36 @@
 --instalar o python-dev no computador
 sudo apt-get install -y build-essential git libmysqlclient-dev libxml2-dev libxslt1-dev libmemcached-dev python-greenlet-dev libevent-dev python-distribute python-dev libjpeg8-dev libfreetype6-dev liblcms1-dev gettext libncurses5 libncurses5-dev
-yum install  git libmysqlclient-dev libxml2-dev libxslt1-dev libmemcached-dev python-greenlet-dev libevent-dev python-distribute python-dev libjpeg8-dev libfreetype6-dev liblcms1-dev gettext libncurses5 libncurses5-dev
+yum install git 
 pip install boto
 pip install fabric
 
 --comando para instalar setuptools na ultima versao
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python 
+
+--estes comandos n funcionaram no fedora
+yum install libmysqlclient-dev 
+yum install libxml2-dev 
+yum install libxslt1-dev 
+yum install libmemcached-dev 
+yum install python-greenlet-dev 
+yum install libevent-dev 
+yum install python-distribute 
+yum install python-dev 
+yum install libjpeg8-dev 
+yum install libfreetype6-dev 
+yum install liblcms1-dev 
+yum install gettext 
+yum install libncurses5 
+yum install libncurses5-devlibxml2-dev 
+yum install libxslt1-dev 
+yum install libmemcached-dev 
+yum install python-greenlet-dev 
+yum install libevent-dev 
+yum install python-distribute 
+yum install libjpeg8-dev 
+yum install libfreetype6-dev 
+yum install liblcms1-dev 
+yum install gettext 
+yum install libncurses5 
+yum install libncurses5-dev
+
