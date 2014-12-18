@@ -13,6 +13,13 @@ wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 pip install virtualenv
 yum install openssl
 yum install openssl-devel
+yum install openssl-devel.i686
+yum install openssl-perl.i686
+yum install openssl-static.i686
+yum install pyOpenSSL.i686
+yum install pyOpenSSL-doc.noarch
+yum install openssl.i686
+yum install openssl-libs.i686
 
 
 --estes comandos n funcionaram no fedora
