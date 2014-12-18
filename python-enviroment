@@ -68,3 +68,8 @@ yum install gettext
 yum install libncurses5 
 yum install libncurses5-dev
 
+--ERROR 2002: Can't connect to local MySQL server
+# mysql_install_db
+# chown -R mysql.mysql /var/lib/mysql
+# safe_mysqld &
+# mysql 
