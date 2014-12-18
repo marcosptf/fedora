@@ -73,3 +73,7 @@ yum install libncurses5-dev
 # chown -R mysql.mysql /var/lib/mysql
 # safe_mysqld &
 # mysql 
+# service mysqld stop
+# service mysqld start
+
+
