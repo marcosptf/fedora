@@ -20,6 +20,25 @@ yum install pyOpenSSL.i686
 yum install pyOpenSSL-doc.noarch
 yum install openssl.i686
 yum install openssl-libs.i686
+yum install MySQL-python.i686
+pip install Flask
+pip install Flask-SQLAlchemy
+pip install Flask-Testing
+pip install ipdb
+pip install Flask-Admin
+pip install Flask-Babel
+pip install Flask-KVSession
+pip install Flask-Login
+pip install Flask-Migrate
+pip install Flask-Script
+pip install Flask-WTF
+pip install Flask-FeatureFlags
+pip install Flask-Cache
+pip install Flask-Mail
+pip install MySQL-python
+pip install SQLAlchemy-Utils
+pip install tablib
+pip install SQLAlchemy
 
 
 --estes comandos n funcionaram no fedora
