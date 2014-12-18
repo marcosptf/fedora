@@ -11,6 +11,8 @@ pip install setuptools
 pip install --upgrade setuptools
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python 
 pip install virtualenv
+yum install openssl
+yum install openssl-devel
 
 
 --estes comandos n funcionaram no fedora
