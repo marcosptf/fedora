@@ -15,3 +15,4 @@ yum install --skip-broken  nome-do-programa
 /* yum kde */
 yum install @kde-desktop
 yum update @kde
+ 
