@@ -7,6 +7,7 @@ pip install fabric
 --instalar python-dev no fedora
 yum install gcc
 yum install gpp
+yum install gcc g++ gcc-c++
 yum install python-devel
 yum install python-pip
 pip install setuptools
