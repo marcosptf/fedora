@@ -12,4 +12,6 @@ yum search java
 /* este argumento ira pular partes que estao em conflito e instalar somente o que pode  */
 yum install --skip-broken  nome-do-programa
 
-
+/* yum kde */
+yum install @kde-desktop
+yum update @kde
