@@ -10,10 +10,6 @@ yum install gpp
 yum install gcc g++ gcc-c++
 yum install python-devel
 yum install python-pip
-pip install setuptools
-pip install --upgrade setuptools
-wget https://bootstrap.pypa.io/ez_setup.py -O - | python 
-pip install virtualenv
 yum install openssl
 yum install openssl-devel
 yum install openssl-devel.i686
@@ -24,6 +20,10 @@ yum install pyOpenSSL-doc.noarch
 yum install openssl.i686
 yum install openssl-libs.i686
 yum install MySQL-python.i686
+pip install setuptools
+pip install --upgrade setuptools
+wget https://bootstrap.pypa.io/ez_setup.py -O - | python 
+pip install virtualenv
 pip install Flask
 pip install Flask-SQLAlchemy
 pip install Flask-Testing
