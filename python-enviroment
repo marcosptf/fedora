@@ -5,6 +5,8 @@ pip install boto
 pip install fabric
 
 --instalar python-dev no fedora
+yum install gcc
+yum install gpp
 yum install python-devel
 yum install python-pip
 pip install setuptools
