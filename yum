@@ -5,6 +5,10 @@ $ yum list \*mysql\* | grep dev
 $yum install yum-plugin-fastestmirror
 $yum install yum-fastestmirror
 vim /etc/yum.conf colocar a varievelplugins=1
+wget http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm
+rpm -ivh rpmfusion-free-release-18.noarch.rpm
+wget http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-18.noarch.rpm
+rpm -ivh rpmfusion-nonfree-release-18.noarch.rpm
 
 /* para procurar um programa no yum  */
 yum search java
