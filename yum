@@ -22,3 +22,7 @@ yum update @kde
  
 /* lista de repositorios instalados */
 yum repolist
+
+/*  libs para assistir filmes mp4  */
+yum -y install AtomicParsley.i686 flac.i686 freeimage.i686 jorbis.noarch libdv.i686 libfc14audiodecoder.i686 libfc14audiodecoder-devel.i686 nxtvepg.i686 crystalhd-firmware.noarch gstreamer-plugin-crystalhd.i686 mingw32-flac.noarch perl-MIME-Base32.noarch gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer-plugins-bad-free-extras.i686 gstreamer-plugins-bad-free.i686 gstreamer-plugins-bad-free-devel.i686 gstreamer-plugins-bad-free-devel-docs.i686 gstreamer1-plugins-bad-free-extras.i686 mingw32-gstreamer-plugins-bad-free.noarch mingw64-gstreamer-plugins-bad-free.noarch
+
