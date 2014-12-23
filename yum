@@ -20,3 +20,5 @@ yum install --skip-broken  nome-do-programa
 yum install @kde-desktop
 yum update @kde
  
+/* lista de repositorios instalados */
+yum repolist
