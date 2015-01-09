@@ -1,3 +1,3 @@
 fedora
 ======
-shell scripts 
+shell scripts and yum commands
