@@ -6,3 +6,5 @@
 (" class="js-directory-link" id="[0-9a-z]-[0-9a-z]")
 (id="[0-9a-z]-[0-9a-z]")
  
+/* busca quebra d linha no final do texto em ambientes windows */
+\r\n
