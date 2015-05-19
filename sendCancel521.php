@@ -11,7 +11,7 @@ print("id=>".$mysqlFetch['id']."\n");
 print("xml=>".$mysqlFetch['xmlsend']."\n\n");
 
 $ch = curl_init();
-curl_setopt($ch,CURLOPT_URL,"http://oi.centrodeseguranca.com.br/nswebservice/LibMdvV2/ns_registration_mdv01.asp");
+curl_setopt($ch,CURLOPT_URL,"http://endpoint.com?wsdl");
 curl_setopt($ch,CURLOPT_HEADER, TRUE);
 curl_setopt($ch,CURLOPT_NOBODY, TRUE); // remove body
 curl_setopt($ch,CURLOPT_RETURNTRANSFER, TRUE);
