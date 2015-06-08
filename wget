@@ -26,7 +26,7 @@ GET form:
 curl "www.hotmail.com/when/junk.cgi?birthyear=1905&press=OK"
 
 POST form:
-curl -d "username=titans&password=titansgroup42" https://crm.clarocpfprotegido.com.br/users/token/
+curl -d "username=usuario&password=senha" https://it.yahoo.com/
 
 File Upload POST:
 curl -F upload=@localfilename -F press=OK [URL]
@@ -35,7 +35,7 @@ PUT:
 curl -T uploadfile www.uploadhttp.com/receive.cgi
 
 Auth:
-curl -utitans:titansgroup42 https://crm.clarocpfprotegido.com.br/users/token/tssbrasil
+curl -uusuario:senha https://it.yahoo.com/
 
 
 
