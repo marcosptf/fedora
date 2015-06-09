@@ -123,6 +123,15 @@ yum repolist
 
 /*  libs para assistir filmes mp4  */
 yum -y install AtomicParsley.i686 flac.i686 freeimage.i686 jorbis.noarch libdv.i686 libfc14audiodecoder.i686 libfc14audiodecoder-devel.i686 nxtvepg.i686 crystalhd-firmware.noarch gstreamer-plugin-crystalhd.i686 mingw32-flac.noarch perl-MIME-Base32.noarch gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer-plugins-bad-free-extras.i686 gstreamer-plugins-bad-free.i686 gstreamer-plugins-bad-free-devel.i686 gstreamer-plugins-bad-free-devel-docs.i686 gstreamer1-plugins-bad-free-extras.i686 mingw32-gstreamer-plugins-bad-free.noarch mingw64-gstreamer-plugins-bad-free.noarch
+yum install libmad 
+yum install vlc
+yum install mozilla-vlc (optional)
+
+/* suporte para .mp3 */
+yum install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools updates gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1
+yum install xmms-mp3
+yum install k3b-extras-freeworld 
+
 
 /* deletar pacotes instalados pelo yum */
 yum erase php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
