@@ -24,7 +24,6 @@ mysql_query("update test.xmlsend set xmlsent='1' where id='".$mysqlFetch['id']."
 print("resp=>".$httpCode." =>".$head);
 print("envio finalizado \n\n\n\n\n");
 curl_close($ch);
-
 sleep(0.5);
 }
 
