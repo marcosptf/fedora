@@ -25,6 +25,7 @@ http://qa.php.net/pftt.php
 
 -to run tests
 TEST_PHP_EXECUTABLE=`which php` php run-tests.php 
+phpunit bin2hex_001.phpt
+phpunit addcslashes_005.phpt
 
 
- 
