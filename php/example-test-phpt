@@ -1,0 +1,71 @@
+tests/func/012.phpt
+ 
++--TEST--
++addcslashes(); function test
++--CREDITS--
++ marcosptf - <marcosptf@yahoo.com.br>
++#phptestfest PHPSP on Google - Sao Paulo - Brazil - 2014-06-05
++--FILE--
++<?php
++echo addcslashes("zoo['.']","z..A");
++?>
++--EXPECTF--
++Warning: addcslashes(): Invalid '..'-range, '..'-range needs to be incrementing in %s on line %d
++\zoo['\.']
+ 
+tests/func/013.phpt View
+ 
++--TEST--
++addcslashes() function test
++--CREDITS--
++marcosptf - <marcosptf@yahoo.com.br>
++#phptestfest PHPSP on Google - Sao Paulo - Brazil - 2014-06-05
++--FILE--
++<?php
++echo addcslashes("zoo['.']","z..A");
++?>
++--EXPECT--
++\zoo['\.']
+ 
+tests/func/014.phpt View
+ 
++--TEST--
++addcslashes(); function test
++--CREDITS--
++#phptestfest PHPSP on Google - Sao Paulo - Brazil - 2014-06-05
++# <marcosptf@yahoo.com.br>
++--FILE--
++<?php
++echo addcslashes("foo[ ]","A..z");
++?>
++--EXPECT--
++\f\o\o\[ \]
+ 
+tests/func/015.phpt View
+ 
+ 
++--TEST--
++addslashes(); function test
++--CREDITS--
++marcosptf - <marcosptf@yahoo.com.br>
++#phptestfest PHPSP on Google - Sao Paulo - Brazil - 2014-06-05
++--FILE--
++<?php
++echo addslashes("do you like book's O'reilly?");
++?>
++--EXPECT--
++do you like book\'s O\'reilly?
+ 
+tests/func/016.phpt View
+ 
++--TEST--
++bin2hex(); function test
++--CREDITS--
++marcosptf - <marcosptf@yahoo.com.br>
++#phptestfest PHPSP on Google - Sao Paulo - Brazil - 2014-06-05
++--FILE--
++<?php
++echo bin2hex("123456");
++?>
++--EXPECT--
++313233343536 
