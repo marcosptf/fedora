@@ -1,1 +1,16 @@
+we can take a look what version need to do test on:
+http://qa.php.net/reports/run_tests.php
 
+we can run 'make test' to report tests
+http://qa.php.net/running-tests.php 
+ 
+write tests .phpt 
+http://qa.php.net/write-test.php
+
+
+
+
+
+
+
+ 
