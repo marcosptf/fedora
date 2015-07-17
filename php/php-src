@@ -2,6 +2,12 @@ this is my pull requests aproved:
 https://github.com/php/php-src/blob/PHP-7.0.0/ext/standard/tests/strings/addcslashes_005.phpt
 https://github.com/php/php-src/blob/PHP-7.0.0/ext/standard/tests/strings/bin2hex_001.phpt
 
+to compile source code:
+./buildconf
+./configure –enable-gcov
+make
+
+
 we can take a look what version need to do test on:
 http://qa.php.net/reports/run_tests.php
 
