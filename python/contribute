@@ -10,5 +10,6 @@ run this test first
 ./python -bb -E -Wd -m test -r -w -uall
 ./python Tools/scripts/run_tests.py
 
-
+writing tests to cpython
+Tests live in the Lib/test directory, where every file that includes tests has a test_ prefix.
 
