@@ -1,29 +1,29 @@
-this is my pull requests aproved:
+-this is my pull requests aproved:
 https://github.com/php/php-src/blob/PHP-7.0.0/ext/standard/tests/strings/addcslashes_005.phpt
 https://github.com/php/php-src/blob/PHP-7.0.0/ext/standard/tests/strings/bin2hex_001.phpt
 
-to compile source code:
+-to compile source code:
 ./buildconf
 ./configure –enable-gcov
 make
 
 
-we can take a look what version need to do test on:
+-we can take a look what version need to do test on:
 http://qa.php.net/reports/run_tests.php
 
-we can run 'make test' to report tests
+-we can run 'make test' to report tests
 http://qa.php.net/running-tests.php 
  
-write tests .phpt 
+-write tests .phpt 
 http://qa.php.net/write-test.php
 
-gcov
+-gcov
 http://gcov.php.net/
 
-we need to see how it work:
+-we need to see how it work:
 http://qa.php.net/pftt.php
 
-to run tests
+-to run tests
 TEST_PHP_EXECUTABLE=`which php` php run-tests.php 
 
 
