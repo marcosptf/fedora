@@ -1,0 +1,14 @@
+we want to contribute test code to src cpython
+https://docs.python.org/devguide/runtests.html
+
+run this test first
+./python -m test
+./python -m test -h
+./python -m test -v test_abc
+./python -m unittest -v test.test_abc.TestABC
+./python -m test -j0
+./python -bb -E -Wd -m test -r -w -uall
+./python Tools/scripts/run_tests.py
+
+
+
