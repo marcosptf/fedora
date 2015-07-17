@@ -2,6 +2,7 @@ we want to contribute test code to src cpython
 https://docs.python.org/devguide/runtests.html
 
 run this test first
+./configure --with-pydebug && make -j2
 ./python -m test
 ./python -m test -h
 ./python -m test -v test_abc
