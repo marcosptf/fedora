@@ -11,7 +11,8 @@ http://qa.php.net/running-tests.php
 write tests .phpt 
 http://qa.php.net/write-test.php
 
-
+gcov
+http://gcov.php.net/
 
 
 
