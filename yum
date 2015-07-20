@@ -63,6 +63,7 @@ pip install MySQL-python
 pip install SQLAlchemy-Utils
 pip install tablib
 pip install SQLAlchemy
+pip install pytest
 
 --estes comandos n funcionaram no fedora
 yum install libmysqlclient-dev
