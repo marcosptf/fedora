@@ -1,5 +1,23 @@
 Mercurial for git developers
 
+resorces:
 https://mercurial.selenic.com/wiki/UnderstandingMercurial
-
 http://hgbook.red-bean.com/read/
+$ man hg
+
+commands:
+#show status of current branch
+hg status
+
+#show branch
+hg branch
+
+#show a branch list
+hg branches -a
+
+#its like git pull
+hg update
+
+#change the branch without commit changes
+hg checkout 2.7 --clean
+ 
