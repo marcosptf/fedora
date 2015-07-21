@@ -1,10 +1,10 @@
-to get official repository
+#to get official repository
 hg clone https://hg.python.org/cpython
 
-we want to contribute test code to src cpython
+#we want to contribute test code to src cpython
 https://docs.python.org/devguide/runtests.html
 
-run this test first
+#run this test first
 chmod +x configure
 ./configure --with-pydebug && make -j2
 ./python -m test
@@ -15,6 +15,6 @@ chmod +x configure
 ./python -bb -E -Wd -m test -r -w -uall
 ./python Tools/scripts/run_tests.py
 
-writing tests to cpython
+#writing tests to cpython
 Tests live in the Lib/test directory, where every file that includes tests has a test_ prefix.
 
