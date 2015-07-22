@@ -16,6 +16,7 @@ hg branch
 hg branches -a
 
 #its like git pull
+hg pull
 hg update
 
 #change the branch without commit changes
