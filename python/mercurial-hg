@@ -18,6 +18,7 @@ hg branches -a
 #its like git pull
 hg pull
 hg update
+hg log
 
 #change the branch without commit changes
 hg checkout 2.7 --clean
