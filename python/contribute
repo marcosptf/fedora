@@ -1,29 +1,3 @@
-#to get official repository
-hg clone https://hg.python.org/cpython
-
-#we want to contribute test code to src cpython
-https://docs.python.org/devguide/runtests.html
-
-#install deps to run cpyton
-yum install g++ gcc-c++ clang 
-
-#run this test first
-chmod +x configure
-./configure --with-pydebug && make -j2
-./python -m test
-./python -m test -h
-./python -m test -v test_abc
-./python -m unittest -v test.test_abc.TestABC
-./python -m test -j0
-./python -bb -E -Wd -m test -r -w -uall
-./python Tools/scripts/run_tests.py
-
-#in some moment anythis is wrong, run it
-make clean
-
-#writing tests to cpython
-Tests live in the Lib/test directory, where every file that includes tests has a test_ prefix.
-
 #to be a core developer
 https://docs.python.org/devguide/coredev.html
 https://www.python.org/dev/peps/pep-0007/
@@ -36,8 +10,3 @@ http://pythonmentors.com
 
 #to be a doc helper
 https://docs.python.org/devguide/documenting.html
-
-#tmate - to access remote ssh pc
-yum install tmate
-tmate show-messages 
-
