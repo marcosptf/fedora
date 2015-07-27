@@ -15,6 +15,8 @@ chmod +x configure
 ./python -bb -E -Wd -m test -r -w -uall
 ./python Tools/scripts/run_tests.py
 
+#in some moment anythis is wrong, run it
+make clean
 
 #writing tests to cpython
 Tests live in the Lib/test directory, where every file that includes tests has a test_ prefix.
