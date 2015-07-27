@@ -15,6 +15,7 @@ chmod +x configure
 ./python -bb -E -Wd -m test -r -w -uall
 ./python Tools/scripts/run_tests.py
 
+
 #writing tests to cpython
 Tests live in the Lib/test directory, where every file that includes tests has a test_ prefix.
 
@@ -31,4 +32,7 @@ http://pythonmentors.com
 #to be a doc helper
 https://docs.python.org/devguide/documenting.html
 
+#tmate - to access remote ssh pc
+yum install tmate
+tmate show-messages 
 
