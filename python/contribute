@@ -4,6 +4,9 @@ hg clone https://hg.python.org/cpython
 #we want to contribute test code to src cpython
 https://docs.python.org/devguide/runtests.html
 
+#install deps to run cpyton
+yum install g++ gcc-c++ clang 
+
 #run this test first
 chmod +x configure
 ./configure --with-pydebug && make -j2
