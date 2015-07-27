@@ -20,6 +20,7 @@ chmod +x configure
 
 #in some moment anythis is wrong, run it
 make clean
+
 #writing tests to cpython
 Tests live in the Lib/test directory, where every file that includes tests has a test_ prefix.
 #to be a core developer
