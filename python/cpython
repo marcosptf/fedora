@@ -24,17 +24,6 @@ make clean
 #writing tests to cpython
 Tests live in the Lib/test directory, where every file that includes tests has a test_ prefix.
 
-#to be a core developer
-https://docs.python.org/devguide/coredev.html
-https://www.python.org/dev/peps/pep-0007/
-https://www.python.org/dev/buildbot/
-http://buildbot.python.org/all/waterfall?category=2.7.stable
-https://docs.python.org/devguide/communication.html
-https://www.python.org/psf/contrib/
-https://docs.python.org/devguide/faq.html#faq
-http://pythonmentors.com
-#to be a doc helper
-https://docs.python.org/devguide/documenting.html
 #tmate - to access remote ssh pc
 yum install tmate
 tmate show-messages
