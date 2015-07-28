@@ -3,9 +3,12 @@ contribute with netbeans
 +tutorial to write plugins
 https://platform.netbeans.org/tutorials/nbm-google.html
 
++tutorial how to write modules with netbeans
+
+
 +to contribute with code source
 http://wiki.netbeans.org/NewCommittersGuide
-
+hg clone http://hg.netbeans.org/main
 
 ===========================================================================
 
