@@ -1,1 +1,18 @@
+
++plugin name:
+Yahoo Search Toolbar
+
++web site plugin:
+https://github.com/marcosptf/YahooSearchToolbar/tree/v-5.1
+
++Describe Your Plugin - Summary * :
+This plugin is a new way to you make your search about code source more easy.
+Long Description (HTML tags OK) * :
+Its a toolbar that you can write search terms and after this choose what kind search engine you want research on the internet, and automatically will open your prefer web browser with the search opened.
+So easy to use, try today!
+
++Whats new in this version (HTML tags OK) :
+You can choose this search engine
+Yahoo!, Y! Developer,Y! Respostas,PHP,Zend,JQuery,MySqlDev,Stack Overflow,GUJ,Google,W3 Schools,GitHub
+
 https://platform.netbeans.org/tutorials/nbm-google.html
