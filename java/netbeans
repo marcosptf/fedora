@@ -1,3 +1,13 @@
+contribute with netbeans
+
++tutorial to write plugins
+https://platform.netbeans.org/tutorials/nbm-google.html
+
++to contribute with code source
+http://wiki.netbeans.org/NewCommittersGuide
+
+
+===========================================================================
 
 +plugin name:
 Yahoo Search Toolbar
@@ -15,4 +25,6 @@ So easy to use, try today!
 You can choose this search engine
 Yahoo!, Y! Developer,Y! Respostas,PHP,Zend,JQuery,MySqlDev,Stack Overflow,GUJ,Google,W3 Schools,GitHub
 
-https://platform.netbeans.org/tutorials/nbm-google.html
+===============================================================================
+
+
