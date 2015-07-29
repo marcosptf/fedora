@@ -10,6 +10,10 @@ https://platform.netbeans.org/tutorials/nbm-quick-start.html
 http://wiki.netbeans.org/NewCommittersGuide
 hg clone http://hg.netbeans.org/main
 
++project examples make with netbeans plataform jse
+https://platform.netbeans.org/screenshots.html
+
+
 ===========================================================================
 
 +plugin name:
