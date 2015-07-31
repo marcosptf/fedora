@@ -139,6 +139,3 @@ yum erase php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-
 ou
 yum remove php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
 
-
-
-
