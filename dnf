@@ -1,12 +1,7 @@
 /* para listar itens disponiveis: */
 $ dnf list \*mysql\* | grep dev
 
-/* para permitirmos o yum procurar alem dos repositorios oficiais de mirrors  */
-yum install yum-plugin-fastestmirror
-yum install yum-fastestmirror
-vim /etc/yum.conf colocar a varievelplugins=1
-#adicionando novos repositorios, pode rodar todos em lote
-
+/* adicionando novos repositorios, pode rodar todos em lote  */
 wget http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm
 rpm -ivh rpmfusion-free-release-18.noarch.rpm
 wget http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-18.noarch.rpm
@@ -16,33 +11,26 @@ rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release
 rpm -Uvh http://rpms.famillecollet.com/remi-release-19.rpm
 rpm -Uvh http://rpms.famillecollet.com/remi-release-20.rpm
 rpm -Uvh http://rpms.famillecollet.com/remi-release-21.rpm
-
-
+rpm -Uvh http://rpms.famillecollet.com/remi-release-22.rpm
 
 
 /* criando um ambiente python dev */
---instalar o python-dev no Debian
-sudo apt-get install -y build-essential git libmysqlclient-dev libxml2-dev libxslt1-dev libmemcached-dev python-greenlet-dev libevent-dev python-distribute python-dev libjpeg8-dev libfreetype6-dev liblcms1-dev gettext libncurses5 libncurses5-dev
-yum install git
-pip install boto
-pip install fabric
-
 --instalar python-dev no fedora
-yum install gcc
-yum install gpp
-yum install gcc g++ gcc-c++
-yum install python-devel
-yum install python-pip
-yum install openssl
-yum install openssl-devel
-yum install openssl-devel.i686
-yum install openssl-perl.i686
-yum install openssl-static.i686
-yum install pyOpenSSL.i686
-yum install pyOpenSSL-doc.noarch
-yum install openssl.i686
-yum install openssl-libs.i686
-yum install MySQL-python.i686
+dnf install gcc
+dnf install gpp
+dnf install gcc g++ gcc-c++
+dnf install python-devel
+dnf install python-pip
+dnf install openssl
+dnf install openssl-devel
+dnf install openssl-devel.i686
+dnf install openssl-perl.i686
+dnf install openssl-static.i686
+dnf install pyOpenSSL.i686
+dnf install pyOpenSSL-doc.noarch
+dnf install openssl.i686
+dnf install openssl-libs.i686
+dnf install MySQL-python.i686
 pip install setuptools
 pip install --upgrade setuptools
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
@@ -67,32 +55,6 @@ pip install tablib
 pip install SQLAlchemy
 pip install pytest
 
---estes comandos n funcionaram no fedora
-yum install libmysqlclient-dev
-yum install libxml2-dev
-yum install libxslt1-dev
-yum install libmemcached-dev
-yum install python-greenlet-dev
-yum install libevent-dev
-yum install python-distribute
-yum install python-dev
-yum install libjpeg8-dev
-yum install libfreetype6-dev
-yum install liblcms1-dev
-yum install gettext
-yum install libncurses5
-yum install libncurses5-devlibxml2-dev
-yum install libxslt1-dev
-yum install libmemcached-dev
-yum install python-greenlet-dev
-yum install libevent-dev
-yum install python-distribute
-yum install libjpeg8-dev
-yum install libfreetype6-dev
-yum install liblcms1-dev
-yum install gettext
-yum install libncurses5
-yum install libncurses5-dev
 --ERROR 2002: Can't connect to local MySQL server
 # mysql_install_db
 # chown -R mysql.mysql /var/lib/mysql
@@ -102,43 +64,42 @@ yum install libncurses5-dev
 # service mysqld start
 
 
-
 /* install php 5.6 e httpd */
 yum --enablerepo=remi,remi-php56 install httpd php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
 #use restart after update
 systemctl start httpd.service 
 
 /* install php 5.5 com php-unit e php-soap */
-yum install php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-gd php-mbstring php-mcrypt php-xml php-soap php-phpunit-PHPUnit.noarch
+dnf install php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-gd php-mbstring php-mcrypt php-xml php-soap php-phpunit-PHPUnit.noarch
 
 /* para procurar um programa no yum  */
-yum search java
+dnf search java
 
 /* este argumento ira pular partes que estao em conflito e instalar somente o que pode  */
-yum install --skip-broken  nome-do-programa
+dnf install --skip-broken  nome-do-programa
 
 /* yum kde */
-yum install @kde-desktop
-yum update @kde
+dnf install @kde-desktop
+dnf update @kde
  
 /* lista de repositorios instalados */
-yum repolist
+dnf repolist
 
 /*  libs para assistir filmes mp4  */
-yum -y install AtomicParsley.i686 flac.i686 freeimage.i686 jorbis.noarch libdv.i686 libfc14audiodecoder.i686 libfc14audiodecoder-devel.i686 nxtvepg.i686 crystalhd-firmware.noarch gstreamer-plugin-crystalhd.i686 mingw32-flac.noarch perl-MIME-Base32.noarch gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer-plugins-bad-free-extras.i686 gstreamer-plugins-bad-free.i686 gstreamer-plugins-bad-free-devel.i686 gstreamer-plugins-bad-free-devel-docs.i686 gstreamer1-plugins-bad-free-extras.i686 mingw32-gstreamer-plugins-bad-free.noarch mingw64-gstreamer-plugins-bad-free.noarch
-yum install libmad 
-yum install vlc
-yum install mozilla-vlc (optional)
+dnf -y install AtomicParsley.i686 flac.i686 freeimage.i686 jorbis.noarch libdv.i686 libfc14audiodecoder.i686 libfc14audiodecoder-devel.i686 nxtvepg.i686 crystalhd-firmware.noarch gstreamer-plugin-crystalhd.i686 mingw32-flac.noarch perl-MIME-Base32.noarch gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer-plugins-bad-free-extras.i686 gstreamer-plugins-bad-free.i686 gstreamer-plugins-bad-free-devel.i686 gstreamer-plugins-bad-free-devel-docs.i686 gstreamer1-plugins-bad-free-extras.i686 mingw32-gstreamer-plugins-bad-free.noarch mingw64-gstreamer-plugins-bad-free.noarch
+dnf install libmad 
+dnf install vlc
+dnf install mozilla-vlc (optional)
 
 /* suporte para .mp3 */
-yum install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools updates gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1
-yum install xmms-mp3
-yum install k3b-extras-freeworld 
+dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools updates gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1
+dnf install xmms-mp3
+dnf install k3b-extras-freeworld 
 
 
 /* deletar pacotes instalados pelo yum */
-yum erase php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+dnf erase php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
 ou
-yum remove php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+dnf remove php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
 
 
