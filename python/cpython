@@ -17,6 +17,7 @@ chmod +x configure
 ./python -m test -j0
 ./python -bb -E -Wd -m test -r -w -uall
 ./python Tools/scripts/run_tests.py
+make test
 
 #in some moment anythis is wrong, run it
 make clean
