@@ -29,3 +29,10 @@ Tests live in the Lib/test directory, where every file that includes tests has a
 yum install tmate
 tmate show-messages
 
+#py.test
+py.test tests/test_user_agent.py 
+py.test tests/features/views/user/test_external_password_recovery.py
+py.test test_base.py -k TestBackend.check_password #para testar metodo
+py.test test_base.py -s TestBackend.check_password #para usar ipdb
+
+
