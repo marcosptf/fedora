@@ -1,6 +1,19 @@
 #to get official repository
 hg clone https://hg.python.org/cpython
 
+#to be a core developer
+https://docs.python.org/devguide/coredev.html
+https://www.python.org/dev/peps/pep-0007/
+https://www.python.org/dev/buildbot/
+http://buildbot.python.org/all/waterfall?category=2.7.stable
+https://docs.python.org/devguide/communication.html
+https://www.python.org/psf/contrib/
+https://docs.python.org/devguide/faq.html#faq
+http://pythonmentors.com
+
+#to be a doc helper
+https://docs.python.org/devguide/documenting.html
+
 #we want to contribute test code to src cpython
 https://docs.python.org/devguide/runtests.html
 
