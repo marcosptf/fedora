@@ -1,3 +1,7 @@
++php-src - extension php with c
+http://www.phpclasses.org/blog/post/304-How-to-Create-a-PHP-C-Extension-to-Manipulate-Arrays--Part-1-Basic-Array-Class-Extension.html
+
+
 -this is my pull requests aproved:
 https://github.com/php/php-src/blob/PHP-7.0.0/ext/standard/tests/strings/addcslashes_005.phpt
 https://github.com/php/php-src/blob/PHP-7.0.0/ext/standard/tests/strings/bin2hex_001.phpt
