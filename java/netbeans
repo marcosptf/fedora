@@ -35,6 +35,25 @@ You can choose this search engine
 Yahoo!, Y! Developer,Y! Respostas,PHP,Zend,JQuery,MySqlDev,Stack Overflow,GUJ,Google,W3 Schools,GitHub
 
 ===============================================================================
++plugin name:
+StackOverflow
+
++web site plugin:
+https://github.com/marcosptf/stackoverflowNetbeansPlugin
+
++Describe Your Plugin - Summary * :
+This plugin is a new way to you make your search about code source more easy.
+
+Long Description (HTML tags OK) * :
+Its a toolbar that you can write search terms or tecnical questions, error messages, or anything else
+and automatically will open your prefer web browser with the search opened on the StackOverflow web site.
+So easy to use, try today!
+
++Whats new in this version (HTML tags OK) :
+Search on the StackOverflow more fast and easy.
+
+
+===============================================================================
 Hello NetCAT participants,
 
     first of all thanks to all who helped with 8.1 Beta testing! Your 
