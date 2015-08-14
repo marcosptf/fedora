@@ -23,3 +23,5 @@ hg log
 #change the branch without commit changes
 hg checkout 2.7 --clean
  
+#submit a patch to cpython hg
+https://docs.python.org/devguide/patch.html
