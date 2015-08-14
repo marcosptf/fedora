@@ -26,6 +26,9 @@ http://gcov.php.net/
 http://gcov.php.net/viewer.php?version=PHP_HEAD&func=tested_functions
 http://gcov.php.net/PHP_HEAD/lcov_html/ext/enchant/enchant.c.gcov.php
 
+-museum php
+http://museum.php.net/php1/
+
 -we need to see how it work:
 http://qa.php.net/pftt.php
 
