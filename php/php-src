@@ -37,4 +37,7 @@ TEST_PHP_EXECUTABLE=`which php` php run-tests.php
 phpunit bin2hex_001.phpt
 phpunit addcslashes_005.phpt
 
+-talks php
+http://talks.php.net/
+https://github.com/php/presentations
 
