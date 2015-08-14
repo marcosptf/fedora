@@ -23,8 +23,8 @@ http://qa.php.net/write-test.php
 
 -gcov
 http://gcov.php.net/
-to see what functions dont have a test:
 http://gcov.php.net/viewer.php?version=PHP_HEAD&func=tested_functions
+http://gcov.php.net/PHP_HEAD/lcov_html/ext/enchant/enchant.c.gcov.php
 
 -we need to see how it work:
 http://qa.php.net/pftt.php
