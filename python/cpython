@@ -48,4 +48,5 @@ py.test tests/features/views/user/test_external_password_recovery.py
 py.test test_base.py -k TestBackend.check_password #para testar metodo
 py.test test_base.py -s TestBackend.check_password #para usar ipdb
 
-
+#buildbot python
+http://buildbot.python.org/all/waterfall
