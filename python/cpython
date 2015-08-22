@@ -32,7 +32,7 @@ chmod +x configure
 ./python Tools/scripts/run_tests.py
 make test
 
-#in some moment anythis is wrong, run it
+#in some moment anything is wrong, run it
 make clean
 
 #writing tests to cpython
