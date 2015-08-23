@@ -1,6 +1,17 @@
 /* para listar itens disponiveis: */
 $ yum list \*mysql\* | grep dev
 
+
+/*  how to install libffi on fedora systems */
+ sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' \
+     -i include/Makefile.in &&
+ 
+ sed -e '/^includedir/ s/=.*$/=@includedir@/' \
+     -e 's/^Cflags: -I${includedir}/Cflags:/' \
+     -i libffi.pc.in        &&
+ 
+ ./configure --prefix=/usr --disable-static &&  make &&  make install
+
 /* para permitirmos o yum procurar alem dos repositorios oficiais de mirrors  */
 yum install yum-plugin-fastestmirror
 yum install yum-fastestmirror
