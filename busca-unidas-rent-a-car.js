@@ -108,6 +108,7 @@ function disableLoading()
 $(document).ready(function(){
 
 	$("#sltPreco1, #sltPreco2").numeric({ decimal: false, negative: false }, function() { alert("Informe somente números."); this.value = ""; this.focus(); });
+	
 /*******************************************************************************
 * Busca para a Maravilhosa Marca de Carros Fiat  :-)
 ********************************************************************************/
