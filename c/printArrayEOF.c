@@ -1,6 +1,10 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
+/*
+this character ==> '\0' is null, it is the end of array
+ */
+
 int getlines(char line[], int maxline);
 void copy(char to[], char from[]);
 
