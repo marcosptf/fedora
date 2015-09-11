@@ -6,7 +6,6 @@
 class ListaclientesControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
 {
 
-
     public function setUp()
     {
         $this->bootstrap = array($this, 'appBootstrap');
