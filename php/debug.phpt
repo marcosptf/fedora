@@ -16,7 +16,6 @@ $backEndDictType1 = "MYSPELL";
 $backEndDictType2 = "ISPELL";
 $dictTypeValue1 = 1;
 $dictTypeValue2 = 2;
-
 if (is_resource($broker)) {
     echo("OK\n");
     
