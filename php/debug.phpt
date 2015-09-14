@@ -1,52 +1,155 @@
 --TEST--
-proto bool enchant_broker_set_dict_path(resource broker, int dict_type, string value) function
-proto string enchant_broker_get_dict_path(resource broker, int dict_type) function
+bool openssl_pkcs12_export ( mixed $x509 , string &$out , mixed $priv_key , string $pass [, array $args ] ); function
+http://php.net/manual/en/function.openssl-pkcs12-export.php
 --CREDITS--
 marcosptf - <marcosptf@yahoo.com.br>
 --SKIPIF--
-<?php
-if(!extension_loaded('enchant')) die('skip, enchant not loader');
-if (!is_resource(enchant_broker_init())) {die("skip, resource dont load\n");}
-if (!is_array(enchant_broker_list_dicts(enchant_broker_init()))) {die("skip, dont has dictionary install in this machine! \n");}
+<?php if (!extension_loaded("openssl")) print "skip"; 
+if (OPENSSL_VERSION_NUMBER < 0x10000000) die("skip Output requires OpenSSL 1.0");
 ?>
 --FILE--
 <?php
-$broker = enchant_broker_init();
-$backEndDictType1 = "MYSPELL";
-$backEndDictType2 = "ISPELL";
-$dictTypeValue1 = 1;
-$dictTypeValue2 = 2;
-if (is_resource($broker)) {
-    echo("OK\n");
-    
-    if (enchant_broker_set_dict_path($broker, $dictTypeValue1, $backEndDictType1)) {
-        echo("OK\n");
-        
-        if (enchant_broker_set_dict_path($broker, $dictTypeValue2, $backEndDictType2)) {
-            echo("OK\n");
-                
-            if ( 
-                  (enchant_broker_get_dict_path($broker,$dictTypeValue1) == $backEndDictType1) && 
-                  (enchant_broker_get_dict_path($broker,$dictTypeValue2) == $backEndDictType2)            
-              ) {
-                   echo("OK\n");
+$cert = "file://" . dirname(__FILE__) . "/cert.crt";
+$bert = "file://" . dirname(__FILE__) . "/bug41033.pem";
+$sert = "file://" . dirname(__FILE__) . "/san-cert.pem";
+$cpca = dirname(__FILE__) . "/san-ca.pem";
+$utfl = dirname(__FILE__) . "/sni_server_domain1.pem";
+$args = array(
+               'extracerts' => $cpca,
+               'friendly_name' => 'My signed cert by CA certificate'
+              );
+openssl_pkcs12_export($cert, $cerificate_out, $private_key_resource, $passphrase, $args);
 
-            } else {
-                   echo("broker get dict path has failed \n");
-            }                    
-        
-        } else {
-           echo("broker set dict path {$backEndDictType2} has failed \n");
-        }
-    } else {
-        echo("broker set dict path {$backEndDictType1} has failed \n");
-    }
-} else {
-    echo("broker is not a resource; failed; \n");
-}
+/*  int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose);   */
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY));
+
+/* int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose [, array $cainfo = array() ] ); */
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER, array($cpca)));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN, array($cpca)));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY, array($cpca)));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER, array($cpca)));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN, array($cpca)));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY, array($cpca)));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER, array($cpca)));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN, array($cpca)));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY, array($cpca)));
+
+/* int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose [, array $cainfo = array() [, string $untrustedfile ]] ); function */
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
+var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY, array($cpca), $utfl));
 ?>
 --EXPECT--
-OK
-OK
-OK
-OK
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+int(-1)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
