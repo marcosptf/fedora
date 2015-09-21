@@ -62,6 +62,7 @@ pip install pytest
 # mysql
 # service mysqld stop
 # service mysqld start
+dnf install community-mysql community-mysql-test community-mysql-libs community-mysql-devel community-mysql-bench community-mysql-common community-mysql-server community-mysql-embedded community-mysql-embedded-devel
 
 
 /* install php 5.6 e httpd */
