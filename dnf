@@ -62,7 +62,27 @@ pip install pytest
 # mysql
 # service mysqld stop
 # service mysqld start
+
+--install mysqld
 dnf install community-mysql community-mysql-test community-mysql-libs community-mysql-devel community-mysql-bench community-mysql-common community-mysql-server community-mysql-embedded community-mysql-embedded-devel
+
+--recovery password mysql
+service mysqld stop
+mysqld_safe --init-file=recoveryPasswordMysql.sql --skip-grant-tables
+mysqld_safe --skip-grant-tables
+mysqld_safe --skip-grant-tables
+mysql
+use mysql;
+update user set password=PASSWORD("123456") where User='root';
+select * from user where User='root';
+flush privileges;
+exit;
+ps -aux | grep mysqld
+kill -9 19373 19528 20790
+service mysqld start
+service mysqld status
+
+
 
 
 /* install php 5.6 e httpd */
