@@ -139,6 +139,8 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub 
 
+# Attempts to ssh to GitHub, test connect;
+ssh -T git@github.com
 
 
 
