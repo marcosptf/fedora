@@ -124,3 +124,23 @@ ou
 dnf remove php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
 
 
+/* Generating SSH keys */
+# Lists the files in your .ssh directory, if they exist
+ls -al ~/.ssh
+
+# Creates a new ssh key, using the provided email as a label
+# Generating public/private rsa key pair.
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+# start the ssh-agent in the background
+eval "$(ssh-agent -s)"
+
+# Agent pid 59566
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub 
+
+
+
+
+
+
