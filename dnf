@@ -142,7 +142,12 @@ cat ~/.ssh/id_rsa.pub
 # Attempts to ssh to GitHub, test connect;
 ssh -T git@github.com
 
-
+/* composer php */
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
+php composer.phar require respect/data
+php composer.phar require respect/config
+php composer.phar require respect/relational
 
 
 
