@@ -149,5 +149,5 @@ php composer.phar require respect/data
 php composer.phar require respect/config
 php composer.phar require respect/relational
 
-
-
+/* php cli web server to develop  */
+php -S 0.0.0.0:8080 -t public/ public/index.php
