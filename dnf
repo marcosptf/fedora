@@ -151,3 +151,19 @@ php composer.phar require respect/relational
 
 /* php cli web server to develop  */
 php -S 0.0.0.0:8080 -t public/ public/index.php
+
+
+/* virtual host htpd || apache2 web server */
+<VirtualHost *:80>
+    ServerName site
+    DocumentRoot /var/www/html/site/public
+    <Directory /var/www/html/site/public>
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        <IfModule mod_authz_core.c>
+        Require all granted
+        </IfModule>
+    </Directory>
+</VirtualHost>
