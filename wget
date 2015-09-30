@@ -36,6 +36,3 @@ curl -T uploadfile www.uploadhttp.com/receive.cgi
 
 Auth:
 curl -uusuario:senha https://it.yahoo.com/
-
-
-
