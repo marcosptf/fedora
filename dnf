@@ -13,7 +13,6 @@ rpm -Uvh http://rpms.famillecollet.com/remi-release-20.rpm
 rpm -Uvh http://rpms.famillecollet.com/remi-release-21.rpm
 rpm -Uvh http://rpms.famillecollet.com/remi-release-22.rpm
 
-
 /* criando um ambiente python dev */
 --instalar python-dev no fedora
 dnf install gcc
