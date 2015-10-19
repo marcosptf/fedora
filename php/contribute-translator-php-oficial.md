@@ -92,3 +92,85 @@ svn revert --recursive .
 svn status
 svn commit
 ```
+
+
+
+# Dependências
+
+## EN - 1a. vez
+```
+cd ~/contribs/php-manual
+svn checkout https://svn.php.net/repository/phpdoc/modules/doc-en
+cd doc-en
+php doc-base/configure.php --enable-xml-details
+phd --docbook doc-base/.manual.xml --package PHP --format php --output mydocs
+```
+
+## EN - próximas vezes
+```
+cd ~/contribs/php-manual/doc-en
+svn update
+php doc-base/configure.php --enable-xml-details
+phd --docbook doc-base/.manual.xml --package PHP --format php --output mydocs
+```
+
+## WEB - 1a. vez
+```
+cd ~/contribs/php-manual
+git clone https://github.com/php/web-php.git
+rm -r `pwd`/web-php/manual/en
+ln -s `pwd`/doc-en/mydocs/php-web `pwd`/web-php/manual/en
+cd web-php
+php -S 0.0.0.0:4000
+```
+
+## WEB - próximas vezes
+```
+cd ~/contribs/php-manual/web-php
+git clean -df
+git checkout -- .
+git pull
+cd ~/contribs/php-manual
+rm -r `pwd`/web-php/manual/en
+ln -s `pwd`/doc-en/mydocs/php-web `pwd`/web-php/manual/en
+cd web-php
+php -S 0.0.0.0:4000
+```
+
+
+
+# Dependências
+
+## PT-BR - 1a. vez
+```
+cd ~/contribs/php-manual && \
+svn checkout https://svn.php.net/repository/phpdoc/modules/doc-pt_BR && \
+php doc-base/configure.php --enable-xml-details --with-lang=pt_BR && \
+phd --docbook doc-base/.manual.xml --package PHP --format php --output mydocs && \
+cd ~/contribs/php-manual && \
+git clone https://github.com/php/web-php.git && \
+ln -s `pwd`/doc-pt_BR/mydocs/php-web `pwd`/web-php/manual/pt_BR && \
+cd web-php && \
+php -S 0.0.0.0:4000
+
+```
+
+## PT-BR - próximas vezes
+```
+cd ~/contribs/php-manual/doc-pt_BR && \
+svn update && \
+php doc-base/configure.php --enable-xml-details --with-lang=pt_BR && \
+phd --docbook doc-base/.manual.xml --package PHP --format php --output mydocs && \
+cd ~/contribs/php-manual/web-php && \
+git clean -df && \
+git checkout -- . && \
+git pull && \
+cd ~/contribs/php-manual && \
+ln -s `pwd`/doc-pt_BR/mydocs/php-web `pwd`/web-php/manual/pt_BR && \
+cd web-php && \
+php -S 0.0.0.0:4000
+
+```
+
+
+
