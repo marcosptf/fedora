@@ -1,146 +1,31 @@
 --TEST--
-int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose [, array $cainfo = array() [, string $untrustedfile ]] ) function
+bool openssl_pkcs12_export ( mixed $x509 , string &$out , mixed $priv_key , string $pass [, array $args ] );
 --CREDITS--
 marcosptf - <marcosptf@yahoo.com.br>
 --SKIPIF--
 <?php if (!extension_loaded("openssl")) print "skip";
 if (OPENSSL_VERSION_NUMBER < 0x10000000) die("skip Output requires OpenSSL 1.0");
+if (!@openssl_pkey_new()) die("skip cannot create private key"); 
 ?>
 --FILE--
 <?php
-$cert = "file://" . dirname(__FILE__) . "/cert.crt";
-$bert = "file://" . dirname(__FILE__) . "/bug41033.pem";
-$sert = "file://" . dirname(__FILE__) . "/san-cert.pem";
-$cpca = dirname(__FILE__) . "/san-ca.pem";
-$utfl = dirname(__FILE__) . "/sni_server_domain1.pem";
-/* int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose); */
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY));
-/* int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose [, array $cainfo = array() ] ); */
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY, array($cpca)));
-/* int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose [, array $cainfo = array() [, string $untrustedfile ]] ); function */
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY, array($cpca), $utfl));
+/*  bool openssl_pkcs12_export ( mixed $x509 , string &$out , mixed $priv_key , string $pass [, array $args ] ); */
+openssl_pkcs12_export ( mixed $x509 , string &$out , mixed $priv_key , string $pass [, array $args ] );
+openssl_pkcs12_export ( mixed $x509 , string &$out , mixed $priv_key , string $pass);
+
+$pemFile = "bug37820cert.pem";
+$keyFile = "bug37820key.pem";
+$privkeyFilePem = "file://" . dirname(__FILE__) . "/{$keyFile}";
+$privkeyDirPem = __DIR__ . "/{$pemFile}";
+$passPhrase = "JavaIsBetterThanPython:-)";
+$cert = openssl_x509_read(file_get_contents($privkeyDirPem));
+$privkey = openssl_pkey_get_private($privkeyFilePem);
+var_dump($privkey);
+var_dump(openssl_pkcs12_export($cert, $out, $privkey, $passphrase));
+var_dump($out);
+
+
+
+
 ?>
 --EXPECT--
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
