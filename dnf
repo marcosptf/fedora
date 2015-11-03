@@ -227,4 +227,13 @@ curl -uusuario:senha https://it.yahoo.com/
 /* busca quebra d linha no final do texto em ambientes unix */
 \n
 ========================================================================================================
+/* how to install skype in fc  */
+dnf localinstall http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+dnf localinstall http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-1.el7.nux.noarch.rpm
+dnf localinstall http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+dnf install alsa-lib.i686 fontconfig.i686 freetype.i686 glib2.i686 libSM.i686 libXScrnSaver.i686 libXi.i686 libXrandr.i686 libXrender.i686 libXv.i686 libstdc++.i686 pulseaudio-libs.i686 qt.i686 qt-x11.i686 zlib.i686 qtwebkit.i686
+dnf install libcanberra-gtk2.i686 gtk2-engines.i686 PackageKit-gtk-module.i686
+
+wget --trust-server-names http://www.skype.com/go/getskype-linux-dynamic
+
 
