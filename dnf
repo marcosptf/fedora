@@ -115,10 +115,14 @@ dnf install xmms-mp3
 dnf install k3b-extras-freeworld 
 
 
-/* deletar pacotes instalados pelo yum */
+/* to remove packages installed by yum/dnf */
 dnf erase php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
-ou
+or
 dnf remove php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+or
+rpm -qva |grep php > /tmp/php_list
+for P in `cat /tmp/php_list` ; do dnf remove $P; done
+
 
 
 /* Generating SSH keys */
