@@ -34,7 +34,6 @@ comboPreco ="<option value=''>Selecione Preço...</option>"+
 
 buscaCmd="http://site.unidas.com.br/wp-content/themes/unidas/busca.cmd.php";
 
-
 function uncheckMarcas(){
 	//removeClass()
 	$("#fi").removeClass('marca_ativa');
