@@ -147,8 +147,9 @@ ssh -T git@github.com
 ssh-keygen -t rsa -b 4096 -C "marcosptf@yahoo.com.br"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+#put key on github repository
 ssh -T git@github.com
-cat ~/.ssh/id_rsa.pub 
 
 
 /* composer php */
