@@ -12,13 +12,26 @@ if (phpversion() < "5.3.0") {
 ?>
 --FILE--
 <?php
+<?php
 $arrayDate = DateTimeZone::listAbbreviations();
+$countryCode = array("??");
+$count = 0;
+
 foreach($arrayDate as $value){
+
     if(NULL != $value[0]['timezone_id']){
         $timeZone = new DateTimeZone($value[0]['timezone_id']);
-        print_r($timeZone->getLocation());
-        print_r(timezone_location_get($timeZone));
-    }
+        $timeZoneArray = $timeZone->getLocation();
+
+        if((!in_array($timeZoneArray['country_code'], $countryCode)) && (NULL != $timeZoneArray['country_code']) && ("" != $timeZoneArray['country_code'])) {
+            array_push($countryCode, $timeZoneArray['country_code']);
+            var_dump(timezone_location_get($timeZone));
+            var_dump($timeZoneArray);
+            #print("{$timeZoneArray['country_code']} \n");
+        }   
+    }   
 }
+
+
 ?>
 --EXPECTF--
