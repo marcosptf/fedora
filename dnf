@@ -241,4 +241,12 @@ dnf install libcanberra-gtk2.i686 gtk2-engines.i686 PackageKit-gtk-module.i686
 
 wget --trust-server-names http://www.skype.com/go/getskype-linux-dynamic
 
+========================================================================================================
+/* php manual pear desktop */
+Install: pear install doc.php.net/pman
+Upgrade: pear upgrade doc.php.net/pman
+Example usage: pman strlen
 
+
+
+=======================================================================================================
