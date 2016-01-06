@@ -247,6 +247,10 @@ Install: pear install doc.php.net/pman
 Upgrade: pear upgrade doc.php.net/pman
 Example usage: pman strlen
 
-
-
+=======================================================================================================
+/* after install android studio run these commands  */
+dnf install openjdk
+dnf install jre-8u66-linux-i586.rpm
+export JAVA_HOME=/usr/java/jdk1.8.0_25
+echo $JAVA_HOME
 =======================================================================================================
