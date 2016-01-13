@@ -50,11 +50,20 @@ http://m.app.vc/1360446/getById?preview=true
 javascript:window.open('http://m.app.vc/1360446/getById?preview=true', 'nestpick', 'width=400, height=550');
 
 +nestpick challenge
-Focus: PHP 5 OOP, MVC, Design Patterns, Symfony
-Focus: PHPUnit, PHP CodeSniffer, phpDoc
-Focus: REST, JSON, SOAP
-HTML5, CSS, Sass, jQuery, ExtJS, Angular, Ajax, Grunt
-Debian, Apache, Nginx, MySQL, Memcache, Solr, Redis
-Github, Kanban, Cucumber, Jenkins, Scrutiziner 
+-yeah:
+PHP,OOP,MVC ,PHPUnit
+REST, JSON, SOAP
+HTML5, CSS, Sass, jQuery, 
+Memcache, Solr, Redis
+Design Patterns, 
+Jenkins
+
+-noyeah:
+Symfony
+PHP CodeSniffer, 
+phpDoc
+ExtJS, Angular, Ajax, Grunt
+Debian, Apache, Nginx, MySQL, 
+Github, Kanban, Cucumber, Scrutiziner (?) 
 
 
