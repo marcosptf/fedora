@@ -67,3 +67,12 @@ Debian, Apache, Nginx, MySQL,
 Github, Kanban, Cucumber, Scrutiziner (?) 
 
 -nestpick android app
+
++firefox xpi
+https://developer.mozilla.org/en-US/Add-ons/Distribution
+about:config
+xpinstall.signatures.required
+http://olympia.readthedocs.org/en/latest/topics/api/signing.html
+https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
+https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#jpm_sign
+
