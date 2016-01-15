@@ -69,10 +69,13 @@ Github, Kanban, Cucumber, Scrutiziner (?)
 -nestpick android app
 
 +firefox xpi
+https://addons.mozilla.org/en-US/developers/addon/api/key/
 https://developer.mozilla.org/en-US/Add-ons/Distribution
 about:config
 xpinstall.signatures.required
 http://olympia.readthedocs.org/en/latest/topics/api/signing.html
+http://olympia.readthedocs.org/en/latest/topics/api/auth.html
 https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
 https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#jpm_sign
-
+https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Getting_Started_%28jpm%29
+https://developer.mozilla.org/en-US/Add-ons/Distribution
