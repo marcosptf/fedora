@@ -49,24 +49,30 @@ m.app.vc/nestpick?preview=storefront
 http://m.app.vc/1360446/getById?preview=true
 javascript:window.open('http://m.app.vc/1360446/getById?preview=true', 'nestpick', 'width=400, height=550');
 
-+nestpick challenge
--yeah:
++interview challenge
 PHP,OOP,MVC ,PHPUnit
 REST, JSON, SOAP
 HTML5, CSS, Sass, jQuery, 
 Memcache, Solr, Redis
 Design Patterns, 
 Jenkins
-
--noyeah:
 Symfony
 PHP CodeSniffer, 
 phpDoc
 ExtJS, Angular, Ajax, Grunt
 Debian, Apache, Nginx, MySQL, 
-Github, Kanban, Cucumber, Scrutiziner (?) 
+Github, Kanban, Cucumber, Scrutiziner
+backbone.js
+aws and devops
+code quality
+unit test
+scalability
+symphony2
+elastic search
+redis
+statefull/stateless
 
--nestpick android app
+
 
 +firefox xpi
 https://addons.mozilla.org/en-US/developers/addon/api/key/
