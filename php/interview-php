@@ -14,6 +14,13 @@ SOAP
 Memcached is an in-memory key-value store for small chunks of arbitrary data (strings, objects) 
 from results of database calls, API calls, or page rendering.
 
+
++search engine
+-Elasticsearch is a search server based on Lucene. It provides a distributed, multitenant-capable full-text 
+search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch is developed in Java 
+and is released as open source under the terms of the Apache License. Elasticsearch is the most popular 
+enterprise search engine followed by Apache Solr, also based on Lucene.[1]
+
 -Solr
 Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, 
 replication and load-balanced querying, automated failover and recovery, 
@@ -149,9 +156,6 @@ For example, it can refer to the capability of a system to increase its total ou
 load when resources (typically hardware) are added. An analogous meaning is implied when the word is
 used in an economic context, where scalability of a company implies that the underlying business model 
 offers the potential for economic growth within the company.
-
-symphony2
-elastic search
 
 +statefull
 In computer science and automata theory, the state of a digital logic circuit or computer program is a technical 
