@@ -103,6 +103,13 @@ Most of these design patterns are specifically concerned with communication betw
 
 +php frameworks
 -Symfony
+-zf
+
++php cms
+-wordpress
+-joomla
+-magento
+-drupal
 
 +php tools
 -PHP CodeSniffer, 
@@ -158,5 +165,31 @@ transaction that is unrelated to any previous request so that the communication 
 request and response. A stateless protocol does not require the server to retain session information or status 
 about each communications partner for the duration of multiple requests. In contrast, a protocol which requires 
 keeping of the internal state on the server is known as a stateful protocol.
+
++SOLID (object-oriented design)
+In computer programming, SOLID (Single responsibility, Open-closed, Liskov substitution, Interface segregation and
+Dependency inversion) is a mnemonic acronym introduced by Michael Feathers for the "first five principles" 
+named by Robert C. Martin[1][2] in the early 2000s[3] that stands for five basic principles of object-oriented programming 
+and design. The principles, when applied together, intend to make it more likely that a programmer will create a
+system that is easy to maintain and extend over time.[3] The principles of SOLID are guidelines that can be applied 
+while working on software to remove code smells by causing the programmer to refactor the software's source code 
+until it is both legible and extensible. It is part of an overall strategy of agile and Adaptive Software Development.[3]
+
+-Single responsibility principle
+ a class should have only a single responsibility (i.e. only one potential change in the software's specification 
+ should be able to affect the specification of the class) 
+ 
+-Open/closed principle
+“software entities … should be open for extension, but closed for modification.” 
+
+-Liskov substitution principle
+“objects in a program should be replaceable with instances of their subtypes without altering the correctness of 
+that program.” See also design by contract. 
+
+-Interface segregation principle
+“many client-specific interfaces are better than one general-purpose interface.”[8] 
+
+-Dependency inversion principle
+one should “Depend upon Abstractions. Do not depend upon concretions.”[8] 
 
 
