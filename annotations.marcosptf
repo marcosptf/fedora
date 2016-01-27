@@ -84,3 +84,9 @@ https://developer.mozilla.org/en-US/Add-ons/Distribution
 
 +android developer novatec
 
++netbeans modules
+http://wiki.netbeans.org/FaqRunningOnJre
+./bin/netbeans --jdkhome /usr/lib/jvm/java-1.8.0-openjdk
+
+
+
