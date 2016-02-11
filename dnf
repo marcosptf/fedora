@@ -254,3 +254,9 @@ dnf install jre-8u66-linux-i586.rpm
 export JAVA_HOME=/usr/java/jdk1.8.0_25
 echo $JAVA_HOME
 =======================================================================================================
+/* create simbolic link with ln command to solve a problem in andoid SDK */
+
+ln -s  <original file> <file target link>
+ln -s  /usr/bin/adb /root/Android/Sdk/platform-tools/adb
+when someone call '/root/Android/Sdk/platform-tools/adb' the ln will call '/usr/bin/adb'
+=======================================================================================================
