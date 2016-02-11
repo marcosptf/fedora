@@ -256,7 +256,11 @@ echo $JAVA_HOME
 =======================================================================================================
 /* create simbolic link with ln command to solve a problem in andoid SDK */
 
+touch /root/Android/Sdk/platform-tools/adb
 ln -s  <original file> <file target link>
 ln -s  /usr/bin/adb /root/Android/Sdk/platform-tools/adb
 when someone call '/root/Android/Sdk/platform-tools/adb' the ln will call '/usr/bin/adb'
+
+ls -lart
+lrwxrwxrwx.  1 root root      12 Feb 10 22:57 /root/Android/Sdk/platform-tools/adb -> /usr/bin/adb
 =======================================================================================================
