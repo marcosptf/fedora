@@ -91,4 +91,3 @@ https://developer.mozilla.org/en-US/Add-ons/Distribution
 +netbeans modules
 http://wiki.netbeans.org/FaqRunningOnJre
 ./usr/local/netbeans-8.0.2/bin/netbeans --jdkhome /usr/lib/jvm/java-1.8.0-openjdk
-
