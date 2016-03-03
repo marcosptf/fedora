@@ -32,8 +32,8 @@ public class Solution {
 
     public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
-            String s, content, content2,  space = "";
-            Integer contentInt = 16;
+            String s, content, content2,  space = "", zero = "";
+            Integer contentInt = 16, contentInts = 3;
         
             System.out.println("================================");
             for(int i = 0 ;i < 3; i++){
@@ -41,7 +41,9 @@ public class Solution {
                 content = sc.next();
                 content2 = sc.next();
                                     
-                if (content2.length() < 3){
+                if (content2.length() == 1){
+                    content2 = "00" + content2;
+                } else if (content2.length() == 2){
                     content2 = "0" + content2;
                 }
                 
