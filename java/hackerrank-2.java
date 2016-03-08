@@ -38,14 +38,11 @@ Print "Weird" if the number is weird. Otherwise, print "Not Weird". Do not print
 
             Scanner sc=new Scanner(System.in);
             int n=sc.nextInt();            
-            String ans="";
-            
-            if(n%2==1) {
+            String ans="Not Weird";
+
+            if((n%2==1) || (n>=6 && n<=20)) {
               ans = "Weird";
-            } else {
-              ans = "Not Weird";  
             }
             System.out.println(ans);
-            
         }
     }
