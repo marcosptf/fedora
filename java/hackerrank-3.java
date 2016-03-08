@@ -8,6 +8,32 @@ Welcome to HackerRank Java tutorials
 String: Welcome to HackerRank Java tutorials!
 Double: 3.1415
 Int: 42
+
+============================ error ==================================
+Nice try, but you did not pass this test case.
+
+Input (stdin)
+
+42
+3.1415
+Welcome to Hackerrank Java tutorials!
+
+Your Output (stdout)
+
+String: Welcome
+Double: 3.1415
+Int: 42
+
+Expected Output
+
+String: Welcome to Hackerrank Java tutorials!
+Double: 3.1415
+Int: 42
+
+Compiler Message
+
+Wrong Answer
+=====================================================================
 */
 
 import java.util.Scanner;
