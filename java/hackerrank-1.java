@@ -13,19 +13,19 @@ In this problem, you need to read 3 integers from stdin and print them in stdout
 42
 100
 125
-
 */
+
 import java.util.*;
 
 public class Solution {
 
     public static void main(String[] args) {
       Scanner sc=new Scanner(System.in);
-
-      int value = sc.nextInt();
-      while(value > 0){
-          System.out.println(value);
+      int value = 0;
+        
+      while(sc.hasNextInt()) {
           value = sc.nextInt();
-      }  
+          System.out.println(value);
+      }
     }
 }
