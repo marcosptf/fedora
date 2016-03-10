@@ -1,155 +1,248 @@
 --TEST--
-bool openssl_pkcs12_export ( mixed $x509 , string &$out , mixed $priv_key , string $pass [, array $args ] ); function
-http://php.net/manual/en/function.openssl-pkcs12-export.php
+mixed openssl_pkcs7_verify ( string $filename , int $flags [, string $outfilename [, array $cainfo [, string $extracerts [, string $content ]]]] );
 --CREDITS--
 marcosptf - <marcosptf@yahoo.com.br>
 --SKIPIF--
-<?php if (!extension_loaded("openssl")) print "skip"; 
+<?php 
+if (!extension_loaded("openssl")) print "skip";
 if (OPENSSL_VERSION_NUMBER < 0x10000000) die("skip Output requires OpenSSL 1.0");
 ?>
 --FILE--
 <?php
-$cert = "file://" . dirname(__FILE__) . "/cert.crt";
-$bert = "file://" . dirname(__FILE__) . "/bug41033.pem";
-$sert = "file://" . dirname(__FILE__) . "/san-cert.pem";
-$cpca = dirname(__FILE__) . "/san-ca.pem";
-$utfl = dirname(__FILE__) . "/sni_server_domain1.pem";
-$args = array(
-               'extracerts' => $cpca,
-               'friendly_name' => 'My signed cert by CA certificate'
-              );
-openssl_pkcs12_export($cert, $cerificate_out, $private_key_resource, $passphrase, $args);
+$pemFile = "san-cert.pem";
+$emlFile = "test_sample_message.eml";
+$caFile = "san-ca.pem";
+$outFile1 = "outFile1.out";
+$outFile2 = "outFile2.out";
+$outFile3 = "outFile3.out";
+$outFile4 = "outFile4.out";
+$outFile5 = "outFile5.out";
+$fileEml = __DIR__ . DIRECTORY_SEPARATOR . "{$emlFile}";
+$fileCa = __DIR__ . DIRECTORY_SEPARATOR . "{$caFile}";
+$extraCerts = __DIR__ . DIRECTORY_SEPARATOR . "{$pemFile}";
+$outFileName1 = __DIR__ . DIRECTORY_SEPARATOR . "{$outFile1}";
+$outFileName2 = __DIR__ . DIRECTORY_SEPARATOR . "{$outFile2}";
+$outFileName3 = __DIR__ . DIRECTORY_SEPARATOR . "{$outFile3}";
+$outFileName4 = __DIR__ . DIRECTORY_SEPARATOR . "{$outFile4}";
+$outFileName5 = __DIR__ . DIRECTORY_SEPARATOR . "{$outFile5}";
+fopen($outFileName1, $fileCreateFileWrite);
+fopen($outFileName2, $fileCreateFileWrite);
+fopen($outFileName3, $fileCreateFileWrite);
+fopen($outFileName4, $fileCreateFileWrite);
+fopen($outFileName5, $fileCreateFileWrite);
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_TEXT));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_BINARY));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOINTERN));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOVERIFY));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCHAIN));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCERTS));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOATTR));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_DETACHED));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOSIGS));
 
-/*  int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose);   */
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_TEXT, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_TEXT, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_TEXT, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_TEXT, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_TEXT, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
 
-/* int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose [, array $cainfo = array() ] ); */
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN, array($cpca)));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY, array($cpca)));
 
-/* int openssl_x509_checkpurpose ( mixed $x509cert , int $purpose [, array $cainfo = array() [, string $untrustedfile ]] ); function */
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($cert, X509_PURPOSE_ANY, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($bert, X509_PURPOSE_ANY, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_CLIENT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_NS_SSL_SERVER, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_SMIME_ENCRYPT, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_CRL_SIGN, array($cpca), $utfl));
-var_dump(openssl_x509_checkpurpose($sert, X509_PURPOSE_ANY, array($cpca), $utfl));
+
+
+
+
+string(0) ""
+string(0) ""
+string(0) ""
+string(0) ""
+
+
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_BINARY, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_BINARY, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_BINARY, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_BINARY, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_BINARY, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
+
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOINTERN, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOINTERN, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOINTERN, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOINTERN, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOINTERN, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
+
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOVERIFY, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOVERIFY, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOVERIFY, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOVERIFY, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOVERIFY, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
+
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCHAIN, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCHAIN, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCHAIN, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCHAIN, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCHAIN, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
+
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCERTS, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCERTS, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCERTS, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCERTS, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOCERTS, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
+
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOATTR, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOATTR, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOATTR, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+print(openssl_pkcs7_verify($fileEml, PKCS7_NOATTR, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOATTR, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
+
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_DETACHED, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_DETACHED, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_DETACHED, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_DETACHED, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_DETACHED, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
+
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOSIGS, $outFileName1));
+print(file_get_contents($outFileName1));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOSIGS, $outFileName2, null));
+print(file_get_contents($outFileName2));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOSIGS, $outFileName3, array()));
+print(file_get_contents($outFileName3));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOSIGS, $outFileName4, array($fileCa)));
+print(file_get_contents($outFileName4));
+var_dump(openssl_pkcs7_verify($fileEml, PKCS7_NOSIGS, $outFileName5, array($fileCa), $extraCerts));
+print(file_get_contents($outFileName5));
 ?>
---EXPECT--
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-bool(false)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-int(-1)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
-bool(true)
+--CLEAN--
+<?php
+unlink($outFileName1);
+unlink($outFileName2);
+unlink($outFileName3);
+unlink($outFileName4);
+unlink($outFileName5);
+unset($pemFile);
+unset($emlFile);
+unset($caFile);
+unset($outFile1);
+unset($outFile2);
+unset($outFile3);
+unset($outFile4);
+unset($outFile5);
+unset($fileEml);
+unset($fileCa);
+unset($extraCerts);
+unset($outFileName1);
+unset($outFileName2);
+unset($outFileName3);
+unset($outFileName4);
+unset($outFileName5);
+?>
+--EXPECTF--
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+ 
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+%iint(%i)
+int(%i)
+
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+int(%i)
+
+Warning: openssl_pkcs7_verify() expects parameter %d to be array, null given in %s on line %d
+int(%i)
+int(%i)
+int(%i)
+int(%i)
