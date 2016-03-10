@@ -1,0 +1,199 @@
++php
+OOP
+MVC
+PHPUnit
+
++web services
+REST 
+restful
+JSON
+SOAP
+
++cache
+-Memcache 
+Memcached is an in-memory key-value store for small chunks of arbitrary data (strings, objects) 
+from results of database calls, API calls, or page rendering.
+
+
++search engine
+-Elasticsearch is a search server based on Lucene. It provides a distributed, multitenant-capable full-text 
+search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch is developed in Java 
+and is released as open source under the terms of the Apache License. Elasticsearch is the most popular 
+enterprise search engine followed by Apache Solr, also based on Lucene.[1]
+
+-Solr
+Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, 
+replication and load-balanced querying, automated failover and recovery, 
+centralized configuration and more. Solr powers the search and navigation 
+features of many of the world's largest internet sites. 
+
++database-memory
+-Redis
+Redis is an open source (BSD licensed), in-memory data structure store, used as database, 
+cache and message broker. It supports data structures such as strings, hashes, lists, sets, 
+sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries. 
+Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of
+on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+
++database-relational
+-mysql
+-mssqlserver
+-pgsql
+
++database-nosql
+-mongo
+-Redis
+
+-Key-Value Cache 	
+Coherence, eXtreme Scale, GigaSpaces, GemFire, Hazelcast, Infinispan, JBoss Cache, Memcached, Repcached, Terracotta, Velocity
+
+-Key-Value Store 	
+Flare, Keyspace, RAMCloud, SchemaFree, Hyperdex, Aerospike
+
+-Key-Value Store (Eventually-Consistent) 	
+DovetailDB, Oracle NoSQL Database, Dynamo, Riak, Dynomite, MotionDb, Voldemort, SubRecord
+
+-Key-Value Store (Ordered) 	
+Actord, FoundationDB, Lightcloud, LMDB, Luxio, MemcacheDB, NMDB, Scalaris, TokyoTyrant
+
+-Data-Structures Server 	
+Redis
+
+-Tuple Store 	
+Apache River, Coord, GigaSpaces
+
+-Object Database 	
+DB4O, Objectivity/DB, Perst, Shoal, ZopeDB
+
+-Document Store 	
+Clusterpoint, Couchbase, CouchDB, DocumentDB, Lotus Notes, MarkLogic, MongoDB, Qizx, RethinkDB, XML-databases
+Wide Column Store 	BigTable, Cassandra, Druid, HBase, Hypertable, KAI, KDI, OpenNeptune, Qbase
+
+
++Design Patterns
+-Creational
+Creational patterns are ones that create objects for you, rather than having you instantiate objects directly. This gives your program more flexibility in deciding which objects need to be created for a given case.
+
+    -Abstract factory pattern groups object factories that have a common theme.
+    -Builder pattern constructs complex objects by separating construction and representation.
+    -Factory method pattern creates objects without specifying the exact class to create.
+    -Prototype pattern creates objects by cloning an existing object.
+    -Singleton pattern restricts object creation for a class to only one instance.
+
+-Structural
+These concern class and object composition. They use inheritance to compose interfaces and define ways to compose objects to obtain new functionality.
+    -Adapter allows classes with incompatible interfaces to work together by wrapping its own interface around that of an already existing class.
+    -Bridge decouples an abstraction from its implementation so that the two can vary independently.
+    -Composite composes zero-or-more similar objects so that they can be manipulated as one object.
+    -Decorator dynamically adds/overrides behaviour in an existing method of an object.
+    -Facade provides a simplified interface to a large body of code.
+    -Flyweight reduces the cost of creating and manipulating a large number of similar objects.
+    -Proxy provides a placeholder for another object to control access, reduce cost, and reduce complexity.
+
+-Behavioral
+Most of these design patterns are specifically concerned with communication between objects.
+    -Chain of responsibility delegates commands to a chain of processing objects.
+    -Command creates objects which encapsulate actions and parameters.
+    -Interpreter implements a specialized language.
+    -Iterator accesses the elements of an object sequentially without exposing its underlying representation.
+    -Mediator allows loose coupling between classes by being the only class that has detailed knowledge of their methods.
+    -Memento provides the ability to restore an object to its previous state (undo).
+    -Observer is a publish/subscribe pattern which allows a number of observer objects to see an event.
+    -State allows an object to alter its behavior when its internal state changes.
+    -Strategy allows one of a family of algorithms to be selected on-the-fly at runtime.
+    -Template method defines the skeleton of an algorithm as an abstract class, allowing its subclasses to provide concrete behavior.
+    -Visitor separates an algorithm from an object structure by moving the hierarchy of methods into one object.
+
++Continuous integration
+-Jenkins
+-travis
+
++php frameworks
+-Symfony
+-zf
+
++php cms
+-wordpress
+-joomla
+-magento
+-drupal
+
++php tools
+-PHP CodeSniffer, 
+-phpDoc
+
++js
+ExtJS 
+Angular 
+Ajax 
+Grunt
+backbone.js
+Cucumber
+Scrutiziner
+
++scrum
+Kanban
+
++clean code
+-write good and understand name to variables and functions
+-little functions
+-Low Coupling
+-tdd
+-code refactory
+
++devOps
+aws
+
++tdd
+py.test
+junit
+phpunit
+
++scalability
+Scalability is the capability of a system, network, or process to handle a growing amount of work, 
+or its potential to be enlarged in order to accommodate that growth.[1] 
+For example, it can refer to the capability of a system to increase its total output under an increased 
+load when resources (typically hardware) are added. An analogous meaning is implied when the word is
+used in an economic context, where scalability of a company implies that the underlying business model 
+offers the potential for economic growth within the company.
+
++statefull
+In computer science and automata theory, the state of a digital logic circuit or computer program is a technical 
+term for all the stored information, at a given instant in time, to which the circuit or program has access.
+[1] The output of a digital circuit or computer program at any time is completely determined by its current 
+inputs and its state.
+
++stateless
+In computing, a stateless protocol is a communications protocol that treats each request as an independent
+transaction that is unrelated to any previous request so that the communication consists of independent pairs of
+request and response. A stateless protocol does not require the server to retain session information or status 
+about each communications partner for the duration of multiple requests. In contrast, a protocol which requires 
+keeping of the internal state on the server is known as a stateful protocol.
+
++SOLID (object-oriented design)
+In computer programming, SOLID (Single responsibility, Open-closed, Liskov substitution, Interface segregation and
+Dependency inversion) is a mnemonic acronym introduced by Michael Feathers for the "first five principles" 
+named by Robert C. Martin[1][2] in the early 2000s[3] that stands for five basic principles of object-oriented programming 
+and design. The principles, when applied together, intend to make it more likely that a programmer will create a
+system that is easy to maintain and extend over time.[3] The principles of SOLID are guidelines that can be applied 
+while working on software to remove code smells by causing the programmer to refactor the software's source code 
+until it is both legible and extensible. It is part of an overall strategy of agile and Adaptive Software Development.[3]
+
+-Single responsibility principle
+ a class should have only a single responsibility (i.e. only one potential change in the software's specification 
+ should be able to affect the specification of the class) 
+ 
+-Open/closed principle
+“software entities … should be open for extension, but closed for modification.” 
+
+-Liskov substitution principle
+“objects in a program should be replaceable with instances of their subtypes without altering the correctness of 
+that program.” See also design by contract. 
+
+-Interface segregation principle
+“many client-specific interfaces are better than one general-purpose interface.”[8] 
+
+-Dependency inversion principle
+one should “Depend upon Abstractions. Do not depend upon concretions.”[8] 
+
+

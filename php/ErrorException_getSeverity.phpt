@@ -39,5 +39,9 @@ int(%d)
 NULL
 string(%d) "%s"
 int(%d)
+<<<<<<< HEAD
 string(%d) "%s"
+=======
+string(%d) "%a"
+>>>>>>> 55ce793816ac7cea49b111562491e38863c07824
 array();
