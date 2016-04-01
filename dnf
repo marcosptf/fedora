@@ -1,6 +1,17 @@
 /* para listar itens disponiveis: */
 $ dnf list \*mysql\* | grep dev
 
+/* compilar codigo fonte php */
+sudo su;cd ~apt-get updateapt-get install autoconf git make build-essential re2c bison libxml2-dev libssl-devgit clone https://github.com/php/php-src.git;cd php-srcsudo autoconf./buildconf --forcemkdir ~/php7./configure --prefix=/root/php7make;make installcd /root/php7/bin/./php -v
+PHP 7.0.4 (cli) (built: Mar 24 2016 19:50:36) ( NTS )
+Copyright (c) 1997-2016 The PHP Group
+Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
+
+isso roda blz na imagem official docker debian
+para quem nao ta por dentro do docker segue como criar o container
+docker run -dt —name debian01 debiandocker exec -it debian01 bash
+
+
 /* adicionando novos repositorios, pode rodar todos em lote  */
 wget http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm
 rpm -ivh rpmfusion-free-release-18.noarch.rpm
