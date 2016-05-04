@@ -199,6 +199,18 @@ php -S 0.0.0.0:8080 -t public/ public/index.php
     </Directory>
 </VirtualHost>
 
+/* exemplo de virtual host */
+<VirtualHost *:80>
+        ServerName regulacao.my
+        ServerAlias *.regulacao.my
+        DocumentRoot /home/lucas/workspace/regulacao
+<Directory /home/lucas/workspace/regulacao/>
+    Options All
+    AllowOverride all
+    Require all granted
+</Directory>
+</VirtualHost>
+
 
 ========================================================================================================
 wget + SOAP
