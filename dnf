@@ -1,7 +1,22 @@
 /* para listar itens disponiveis: */
 $ dnf list \*mysql\* | grep dev
 
-/* comando symphony para linkar os templates css com o diretorio web/ */
+/* comandos symfony */
+sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+symfony new my_project 2.7
+sudo symfony new my_project 2.7
+symfony new my_project 2.7
+curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+symfony new my_project 2.7
+sudo chmod a+x /usr/local/bin/symfony
+symfony new projeto-exemplo 2.7
+chmod +777 * -R
+php app/console 
+php app/console generate:bundle
+php app/console doctrine:generate:entity
+php app/console doctrine:generate:crud
+php app/console doctrine:schema:update --force
+#comando symphony para linkar os templates css com o diretorio web
 sudo php app/console assets:install --symlink
 
 /* comando git para ignorar o versionamento de permissoes */
@@ -13,10 +28,9 @@ PHP 7.0.4 (cli) (built: Mar 24 2016 19:50:36) ( NTS )
 Copyright (c) 1997-2016 The PHP Group
 Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
 
-isso roda blz na imagem official docker debian
-para quem nao ta por dentro do docker segue como criar o container
+/* isso roda blz na imagem official docker debian
+para quem nao ta por dentro do docker segue como criar o container */
 docker run -dt —name debian01 debiandocker exec -it debian01 bash
-
 
 /* adicionando novos repositorios, pode rodar todos em lote  */
 wget http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm
