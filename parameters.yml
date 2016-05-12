@@ -1,0 +1,18 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 192.168.111.132
+    database_port: null
+    database_name: osinfo2
+    database_user: jneves
+    database_password: duo@2016
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    #captcha
+    gregwar_length: 4
+    gregwar_distortion: false
+    gregwar_max_front_lines: 0
+    gregwar_max_behind_lines: 0
+
+    secret: fba0ee1bf476aff1660a7d89776fb88519aa8a38
