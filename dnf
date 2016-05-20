@@ -1,6 +1,14 @@
 /* para listar itens disponiveis: */
 $ dnf list \*mysql\* | grep dev
 
+/* behat commands */
+#create feature basic to behat
+./vendor/behat/behat/bin/behat --init
+ 
+#run behat 
+./vendor/behat/behat/bin/behat
+
+
 /* comandos symfony */
 sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
 symfony new my_project 2.7
