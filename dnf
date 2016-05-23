@@ -126,6 +126,71 @@ Available commands:
   twig:lint                            Lints a template and outputs encountered errors
  yaml
   yaml:lint                            Lints a file and outputs encountered errors
+#$ sudo php app/console doctrine:generate:entity
+[sudo] password for desenvolvimento: 
+
+                                             
+  Welcome to the Doctrine2 entity generator  
+                                             
+
+
+This command helps you generate Doctrine2 entities.
+
+First, you need to give the entity name you want to generate.
+You must use the shortcut notation like AcmeBlogBundle:Post.
+
+The Entity shortcut name: repasse                                                                                                                     
+ The entity name must contain a : ("repasse" given, expecting something like AcmeBlogBundle:Blog/Post) 
+The Entity shortcut name: NameBundle:ComponentName
+
+Determine the format to use for the mapping information.
+
+Configuration format (yml, xml, php, or annotation) [annotation]: yml                                                                                 
+
+Instead of starting with a blank entity, you can add some fields now.
+Note that the primary key will be added automatically (named id).
+
+Available types: array, simple_array, json_array, object, 
+boolean, integer, smallint, bigint, string, text, datetime, datetimetz, 
+date, time, decimal, float, binary, blob, guid.
+
+New field name (press <return> to stop adding fields): name_column_id 
+Field type [integer]: ubteger                                                                                                                         
+ Invalid type "ubteger". 
+Field type [integer]: integer                                                                                                                         
+
+New field name (press <return> to stop adding fields): column_two
+Field type [string]: 
+Field length [255]: 30
+
+New field name (press <return> to stop adding fields): column_three
+Field type [string]: decimal                                                                                                                          
+
+New field name (press <return> to stop adding fields): contrato_data_ultima_atualizacao
+Field type [string]: datetime
+
+New field name (press <return> to stop adding fields): 
+
+Do you want to generate an empty repository class [no]? yes
+
+                             
+  Summary before generation  
+                             
+
+You are going to generate a "NameBundle:ComponentName" Doctrine2 entity
+using the "yml" format.
+
+Do you confirm generation [yes]? yes
+
+                     
+  Entity generation  
+                     
+
+Generating the entity code: OK
+
+                                               
+  You can now start using the generated code!  
+                                               
 
 
 /* comando git para ignorar o versionamento de permissoes */
