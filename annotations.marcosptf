@@ -1,13 +1,10 @@
-desenvolvimento@desenvolvimento ~/developer/debug $ virtualenv .venv/
-New python executable in /home/desenvolvimento/developer/debug/.venv/bin/python
-Installing setuptools, pip, wheel...done.
-desenvolvimento@desenvolvimento ~/developer/debug $ ls -lart
-total 12
-drwxrwxrwx 11 root            root 4096 Mai 31 11:42 ..
-drwxr-xr-x  3 desenvolvimento sudo 4096 Mai 31 11:50 .
-drwxr-xr-x  6 desenvolvimento sudo 4096 Mai 31 11:50 .venv
-desenvolvimento@desenvolvimento ~/developer/debug $ . .venv/bin/activate
-(.venv) desenvolvimento@desenvolvimento ~/developer/debug $ 
+Alguns links que podem lhe ajudar:
+
+http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+https://pages.apigee.com/rs/apigee/images/api-design-ebook-2012-03.pdf
+https://www.youtube.com/watch?v=hdSrT4yjS1g
+http://nordicapis.com/blog/
+http://python-eve.org/
 
 =================================================================
 http://trampos.co/marcosptf
