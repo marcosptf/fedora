@@ -191,11 +191,17 @@ Generating the entity code: OK
                                                
   You can now start using the generated code!  
                                                
-/* comando git q previne o auto commit */
+/* comando git q previne o fast foward de modo que ele mante a referencia da arvore ao realizar o merge */
 git merge --no-ff
+
+/* comando git q previne o auto commit ao realizar o merge */
+git merge --no-commit
 
 /* comando git para ignorar o versionamento de permissoes */
 git config core.fileMode false  
+
+/* sobrepoe um arquivo com o de outra branch */
+git checkout origin/AnotherBranch algumArquivo.marcosptf
 
 /* compilar codigo fonte php */
 sudo su;cd ~apt-get updateapt-get install autoconf git make build-essential re2c bison libxml2-dev libssl-devgit clone https://github.com/php/php-src.git;cd php-srcsudo autoconf./buildconf --forcemkdir ~/php7./configure --prefix=/root/php7make;make installcd /root/php7/bin/./php -v
