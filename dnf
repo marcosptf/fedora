@@ -191,7 +191,8 @@ Generating the entity code: OK
                                                
   You can now start using the generated code!  
                                                
-
+/* comando git q previne o auto commit */
+git merge --no-ff
 
 /* comando git para ignorar o versionamento de permissoes */
 git config core.fileMode false  
