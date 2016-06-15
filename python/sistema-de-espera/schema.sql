@@ -1,6 +1,6 @@
-drop table if exists entries;
-create table entries (
-  id integer primary key autoincrement,
-  title text not null,
-  'text' text not null
+
+create table painel (
+ id integer primary key autoincrement,
+ senha_prioridade integer default 0,
+ senha_atendida   integer default 0
 );
