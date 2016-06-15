@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     sistema de pontos
-    ~~~~~~
 
     Esta aplicacao exemplo Flask, eh um simulador de sistema de espera.
     Flask and sqlite3.
-
-    :copyright: (c) 2015 by Armin Ronacher.
-    :license: BSD, see LICENSE for more details.
 """
 
 import os
@@ -35,8 +31,6 @@ def connecta_sqlite():
     rv = sqlite3.connect(app.config['DATABASE'])
     rv.row_factory = sqlite3.Row
     return rv
-
-
 def inicializa_sqlite():
     """Initializes the database."""
     sq = obtem_sqlite()
@@ -66,29 +60,30 @@ def fecha_sqlite(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
-
 @app.route('/')
 def exibe_painel():
     sqlite = obtem_sqlite()
-    resp = sqlite.execute('select title, text from entries order by id desc')
+    resp = sqlite.execute('select id from display where atendido=0 order by senha_prioridade desc limit 1')
     dados = resp.fetchall()
+
+    if hasattr(dados, 'id'):
+        sqlite.execute('update display set atendido=1 where id = ?', dados['id']) #tem que testar e ver se eh assim msm :-)
+
     return render_template('exibe_painel.html', dados=dados)
 
 
-@app.route('/add', methods=['POST'])
-def add_entry():
-    if not session.get('logged_in'):
-        abort(401)
+@app.route('/pega-senha', methods=['POST'])
+def pega_senha():
     sqlite = obtem_sqlite()
     sqlite.execute('insert into entries (title, text) values (?, ?)',
                [request.form['title'], request.form['text']])
     sqlite.commit()
     flash('New entry was successfully posted')
-    return redirect(url_for('show_entries'))
+    return render_template('pega_senha.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/pega-senha-prioridade', methods=['POST'])
+def pega_senha_prioridade():
     error = None
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
@@ -99,11 +94,12 @@ def login():
             session['logged_in'] = True
             flash('You were logged in')
             return redirect(url_for('show_entries'))
-    return render_template('login.html', error=error)
-
-
+    return render_template('pega-senha-prioridade.html')
+    
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
     return redirect(url_for('show_entries'))
+
+
