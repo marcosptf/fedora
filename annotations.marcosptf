@@ -41,10 +41,13 @@ https://fedoramagazine.org/koschei-reducing-bugs-saving-time/
 https://nblocalization.netbeans.org
 https://leanpub.com/nbp4beginners
 http://forums.netbeans.org
+http://wiki.netbeans.org/FaqRunningOnJre
+./usr/local/netbeans-8.0.2/bin/netbeans --jdkhome /usr/lib/jvm/java-1.8.0-openjdk
 
 =================================================================
 +flask
 http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+http://click.pocoo.org/5/
 
 =================================================================
 +fiat
@@ -58,14 +61,15 @@ https://education.oracle.com/pls/web_prod-plq-dad/db_pages.getpage?page_id=654&g
 http://www.kasolution.com.br/Microsoft/---/Curso/M/N/MS%20SQL%20Server
 
 =================================================================
-http://desigrejado.blogspot.com.br/p/juridico.html
-http://furtoreligioso.blogspot.com.br
-http://www.modoeditora.com.br/livros-ver/a-verdade-sobre-o-cristianismo-enganos-da-religiao-crista/143
-http://denatran.serpro.gov.br/
-https://www.cifraclub.com.br/juninho-do-banjo/
-http://trampos.co/marcosptf
-https://bugs.php.net/bug.php?id=70890&thanks=3
-http://computerworld.com.br/home-office-dez-otimos-sites-para-encontrar-um-trabalho-remoto
++wikimedia
+https://www.mediawiki.org/wiki/Starter_kit
+https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker
+https://www.mediawiki.org/wiki/Quality_Assurance/Features_testing
+https://www.mediawiki.org/wiki/How_to_contribute
+https://wikitech.wikimedia.org/wiki/Main_Page
+https://gerrit.wikimedia.org/r/#/q/status:open,n,z
+https://www.mediawiki.org/wiki/Developer_access
+https://www.mediawiki.org/wiki/Gerrit
 
 =================================================================
 +bdd
@@ -75,6 +79,16 @@ https://github.com/ipij/symfony2-behat-example
 https://github.com/behave/behave
 
 =================================================================
++annotations
+http://desigrejado.blogspot.com.br/p/juridico.html
+http://furtoreligioso.blogspot.com.br
+http://www.modoeditora.com.br/livros-ver/a-verdade-sobre-o-cristianismo-enganos-da-religiao-crista/143
+http://denatran.serpro.gov.br/
+https://www.cifraclub.com.br/juninho-do-banjo/
+http://trampos.co/marcosptf
+https://bugs.php.net/bug.php?id=70890&thanks=3
+http://computerworld.com.br/home-office-dez-otimos-sites-para-encontrar-um-trabalho-remoto
+
 #rp - mostra me tua gloria
 http://www.cifraclub.com.br/renascer-praise/mostra-me-tua-gloria/
 https://www.youtube.com/watch?v=VRnIy04MkL0
@@ -122,10 +136,6 @@ https://github.com/php/php-src/pull/347/files
 -alemanizando -> tudo sobre a alemanha
 -vida na alemanha by marubarby
 
-m.app.vc/nestpick?preview=storefront
-http://m.app.vc/1360446/getById?preview=true
-javascript:window.open('http://m.app.vc/1360446/getById?preview=true', 'nestpick', 'width=400, height=550');
-
 +interview challenge
 PHP,OOP,MVC ,PHPUnit
 REST, JSON, SOAP
@@ -160,10 +170,5 @@ https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
 https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#jpm_sign
 https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Getting_Started_%28jpm%29
 https://developer.mozilla.org/en-US/Add-ons/Distribution
-
-
-+netbeans modules
-http://wiki.netbeans.org/FaqRunningOnJre
-./usr/local/netbeans-8.0.2/bin/netbeans --jdkhome /usr/lib/jvm/java-1.8.0-openjdk
 
 
