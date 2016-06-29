@@ -190,6 +190,10 @@ Generating the entity code: OK
 
                                                
   You can now start using the generated code!  
+                           
+/* git config */
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
                                                
 /* comando git q previne o fast foward de modo que ele mante a referencia da arvore ao realizar o merge */
 git merge --no-ff
