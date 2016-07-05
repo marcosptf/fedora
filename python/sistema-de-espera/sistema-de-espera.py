@@ -21,6 +21,7 @@ Isto significa que, o flask, fará uso do componente relationship que está dent
 '''
 import os, sys
 import pymysql.cursors
+#remover estas importacoes e ver se continua funcionando
 from sqlalchemy import Column, ForeignKey, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -36,12 +37,15 @@ app = Flask(__name__)
 '''
 Aqui é adicionado as configuracoes da aplicacao
 '''
-app.config.update(dict( DEBUG=True, SECRET_KEY='sistema-de-espera' ))
+app.config.update(dict( DEBUG=True, SECRET_KEY='sistema-de-espera-key' ))
 
 @app.route('/')
 def index():
     ultima_senha = ultima_senha_chamada()
-    return render_template('exibe_painel.html', ultima_senha=ultima_senha)
+    ver_relatorio = ver_relatorio_paciente()
+    return render_template('exibe_painel.html', 
+			   ultima_senha = ultima_senha,
+			   ver_relatorio = ver_relatorio)
 
 @app.route('/menu_senha', methods=['POST'])
 def menu_senha():
@@ -58,6 +62,26 @@ def menu_senha():
 
     return redirect(url_for('index'))
 
+
+def ver_relatorio_paciente():
+
+    conn = obtem_mariadb()
+
+    try:
+        with conn.cursor() as cursor:  
+            query_relatorio_paciente = """
+            select
+            (select count(id) from painel where senha_atendida = '1') as pacientes_atendidos,
+
+            (select count(id) from painel where senha_atendida = '0') as pacientes_aguardando_atendimento,
+
+            (select count(id) from painel where senha_atendida = '0' and senha_prioridade = '1') as pacientes_prioridade_aguardando_atendimento;
+            """
+            cursor.execute(query_relatorio_paciente)
+            return cursor.fetchone()  
+            
+    finally:
+        conn.close()	  
 
 def gera_proxima_senha_normal():
     conn = obtem_mariadb()
@@ -94,7 +118,6 @@ def gera_proxima_senha_prioridade():
             
     finally:
         conn.close()
-    
 
 
 def atende_proximo_paciente():
@@ -129,7 +152,6 @@ def atende_proximo_paciente():
 
     finally:
         conn.close()
-    
 
 
 def ultima_senha_chamada():
