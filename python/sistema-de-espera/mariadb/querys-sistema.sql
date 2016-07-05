@@ -1,22 +1,19 @@
-
 select * from painel;
 
-/* insert para senha normal */
+/* insert para criar senha normal */
 insert into painel
-(senha_prioridade,senha_atendida)
+(senha_prioridade, senha_atendida, ultima_senha_atendida)
 values
-(default, default);
+(default, default, default);
 
-/* insert para senha_prioridade */
+/* insert para criar senha_prioridade */
 insert into painel
-(senha_prioridade,senha_atendida)
+(senha_prioridade, senha_atendida, ultima_senha_atendida)
 values
-(1, default);
-
-select * from painel;
+(1, default, default);
 
 
-/* 
+/*************************************************************************
 Esta query ira trazer o proximo cliente a ser atendido seguindo esta regra:
 
 1)Proximo ao ser atendido
@@ -40,25 +37,59 @@ senha_prioridade igual a zero e "order by id asc", ou seja, por ordem de chegada
 
 Em todos os casos acima, quando o atendente chama a proxima senha, é rodada
 uma query atualizando este paciente como senha_atendida igual a um, para que na proxima chamada de senha, ele nao seja novamente comtemplado.
-
-
 */
+/* zera a ultima senha atendida, esta query roda somente 
+quando ja tem dados na tabela */
+update   painel
+set      ultima_senha_atendida = '0';
+
+/* quem eh o proximo paciente */
 select 	 id 
 from 	 painel 
-where 	 senha_atendida=0 
+where 	 senha_atendida = '0'
 order by senha_prioridade desc,
          id asc
 limit    1;
 
+/* query para deixar a senha atual como atendida */
+update   painel
+set      ultima_senha_atendida = '1',
+         senha_atendida = '1'
+where    id = '5';
+
+/* query para trazer a ultima senha chamada */
+select   id 
+from     painel
+where    ultima_senha_atendida = '1';
 
 
 
 
+/*************************************************************************/
+
+select * from painel;
 
 
++botao proxima senha
+update   painel
+set      ultima_senha_atendida = '0';
 
+--resultado desta query vai no update
+  select 	 id 
+  from 	 painel 
+  where 	 senha_atendida = '0'
+  order by senha_prioridade desc,
+	  id asc
+  limit    1;
 
+update   painel
+set      ultima_senha_atendida = '1',
+         senha_atendida = '1'
+where    id = '8';
 
-
++exibe ultima_senha_atendida
+select   id 
+from     painel
+where    ultima_senha_atendida = '1';
 
 
