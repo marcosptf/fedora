@@ -21,10 +21,6 @@ Isto significa que, o flask, fará uso do componente relationship que está dent
 '''
 import os, sys
 import pymysql.cursors
-#remover estas importacoes e ver se continua funcionando
-from sqlalchemy import Column, ForeignKey, Integer, String, create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
@@ -46,11 +42,12 @@ def index():
     return render_template('exibe_painel.html', 
 			   ultima_senha = ultima_senha,
 			   ver_relatorio = ver_relatorio)
+  
 
 @app.route('/menu_senha', methods=['POST'])
 def menu_senha():
+  
     tipo_menu = request.form
-
     if 'gera_proxima_senha' in tipo_menu:
         gera_proxima_senha_normal()
 
@@ -66,7 +63,6 @@ def menu_senha():
 def ver_relatorio_paciente():
 
     conn = obtem_mariadb()
-
     try:
         with conn.cursor() as cursor:  
             query_relatorio_paciente = """
@@ -83,9 +79,10 @@ def ver_relatorio_paciente():
     finally:
         conn.close()	  
 
-def gera_proxima_senha_normal():
-    conn = obtem_mariadb()
 
+def gera_proxima_senha_normal():
+  
+    conn = obtem_mariadb()
     try:
         with conn.cursor() as cursor:
             query_gera_senha_normal = """
@@ -101,9 +98,10 @@ def gera_proxima_senha_normal():
     finally:
         conn.close()
 
-def gera_proxima_senha_prioridade():
-    conn = obtem_mariadb()
 
+def gera_proxima_senha_prioridade():
+  
+    conn = obtem_mariadb()
     try:
         with conn.cursor() as cursor:
             query_gera_senha_prioridade = """
@@ -121,42 +119,46 @@ def gera_proxima_senha_prioridade():
 
 
 def atende_proximo_paciente():
-    conn = obtem_mariadb()
-
-    try:
-        with conn.cursor() as cursor:
-            query_atendido = "update painel set ultima_senha_atendida = '0';"
-            cursor.execute(query_atendido)
-            conn.commit()
+  
+    relatorio = ver_relatorio_paciente()  
+    
+    if relatorio['pacientes_aguardando_atendimento'] > 0:
+        conn = obtem_mariadb()
+        try:
+            with conn.cursor() as cursor:
+	      
+                query_atendido = "update painel set ultima_senha_atendida = '0';"
+                cursor.execute(query_atendido)
+                conn.commit()
             
-            query_proximo_paciente = """
-            select   id 
-            from     painel 
-            where    senha_atendida = '0'
-            order by senha_prioridade desc,
-	             id asc
-            limit    1;            
-            """
-            cursor.execute(query_proximo_paciente)
-            resp_proximo_paciente =  cursor.fetchone()
+                query_proximo_paciente = """
+                select   id 
+                from     painel 
+                where    senha_atendida = '0'
+                order by senha_prioridade desc,
+	                 id asc
+                limit    1;            
+                """
+                cursor.execute(query_proximo_paciente)
+                resp_proximo_paciente =  cursor.fetchone()
             
-            query_atualiza_painel = """
-            update   painel
-            set      ultima_senha_atendida = '1',
-                     senha_atendida = '1'
-            where    id = '%s';
-            """
-            cursor.execute(query_atualiza_painel, resp_proximo_paciente['id'])
-            conn.commit()            
-            flash('Chamando Proximo Paciente')
+                query_atualiza_painel = """
+                update   painel
+                set      ultima_senha_atendida = '1',
+                         senha_atendida = '1'
+                where    id = '%s';
+                """
+                cursor.execute(query_atualiza_painel, resp_proximo_paciente['id'])
+                conn.commit()            
+                flash('Chamando Proximo Paciente')
 
-    finally:
-        conn.close()
+        finally:
+            conn.close()
 
 
 def ultima_senha_chamada():
+  
     conn = obtem_mariadb()
-
     try:
         with conn.cursor() as cursor:
             sql = "select id from painel where ultima_senha_atendida = '1';"
@@ -174,8 +176,6 @@ def obtem_mariadb():
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
     return conn
-
-
  
 
 if __name__ == '__main__'  :
