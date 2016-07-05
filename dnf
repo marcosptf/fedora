@@ -234,7 +234,7 @@ rpm -Uvh http://rpms.famillecollet.com/remi-release-22.rpm
 dnf install gcc
 dnf install gpp
 dnf install gcc g++ gcc-c++
-dnf install python-devel
+dnf install python-devel python-devel 
 dnf install python-pip
 dnf install openssl
 dnf install openssl-devel
@@ -279,8 +279,8 @@ pip install pytest
 # service mysqld start
 
 --install mysqld
-dnf install community-mysql community-mysql-test community-mysql-libs community-mysql-devel community-mysql-bench community-mysql-common community-mysql-server community-mysql-embedded community-mysql-embedded-devel
-
+dnf install community-mysql community-mysql-test community-mysql-libs community-mysql-devel community-mysql-bench community-mysql-common community-mysql-server community-mysql-embedded community-mysql-embedded-devel python-devel mysql-devel
+ 
 --recovery password mysql
 service mysqld stop
 mysqld_safe --init-file=recoveryPasswordMysql.sql --skip-grant-tables
