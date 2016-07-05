@@ -20,6 +20,7 @@ Isto significa que, o flask, fará uso do componente relationship que está dent
 
 '''
 import os, sys
+import pymysql.cursors
 from sqlalchemy import Column, ForeignKey, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -35,41 +36,125 @@ app = Flask(__name__)
 '''
 Aqui é adicionado as configuracoes da aplicacao
 '''
-app.config.update(dict( DEBUG=True ))
+app.config.update(dict( DEBUG=True, SECRET_KEY='sistema-de-espera' ))
 
 @app.route('/')
 def index():
-    dados = ""  
-    return render_template('exibe_painel.html', dados=dados)
-  
-@app.route('/proxima-senha')  
-def proxima_senha():  
-    mariadb_ = obtem_mariadb()
+    ultima_senha = ultima_senha_chamada()
+    return render_template('exibe_painel.html', ultima_senha=ultima_senha)
 
-    return render_template('exibe_painel.html', dados=dados)
+@app.route('/menu_senha', methods=['POST'])
+def menu_senha():
+    tipo_menu = request.form
 
+    if 'gera_proxima_senha' in tipo_menu:
+        gera_proxima_senha_normal()
 
-create table painel (
- id integer primary key auto_increment,
- senha_prioridade integer default 0,
- senha_atendida   integer default 0
-);
+    if 'gera_proxima_senha_prioridade' in tipo_menu: 
+        gera_proxima_senha_prioridade()
 
-def obtem_mariadb();
-pass
-  
-def gera_proxima_senha():
-    resp = sqlite.execute('select id from display where atendido=0 order by senha_prioridade desc limit 1')
-    dados = resp.fetchall()
+    if 'atende_proximo_paciente' in tipo_menu: 
+        atende_proximo_paciente()
 
-    if hasattr(dados, 'id'):
-        sqlite.execute('update display set atendido=1 where id = ?', dados['id']) #tem que testar e ver se eh assim msm :-)
-  
+    return redirect(url_for('index'))
 
 
+def gera_proxima_senha_normal():
+    conn = obtem_mariadb()
+
+    try:
+        with conn.cursor() as cursor:
+            query_gera_senha_normal = """
+            insert into painel
+            (senha_prioridade, senha_atendida, ultima_senha_atendida)
+            values
+            (default, default, default);
+            """
+            cursor.execute(query_gera_senha_normal)
+            conn.commit()
+            flash('Senha Normal Gerada')            
+            
+    finally:
+        conn.close()
+
+def gera_proxima_senha_prioridade():
+    conn = obtem_mariadb()
+
+    try:
+        with conn.cursor() as cursor:
+            query_gera_senha_prioridade = """
+            insert into painel
+            (senha_prioridade, senha_atendida, ultima_senha_atendida)
+            values
+            (1, default, default);
+            """
+            cursor.execute(query_gera_senha_prioridade)
+            conn.commit()
+            flash('Senha Prioridade Gerada')            
+            
+    finally:
+        conn.close()
+    
 
 
+def atende_proximo_paciente():
+    conn = obtem_mariadb()
 
+    try:
+        with conn.cursor() as cursor:
+            query_atendido = "update painel set ultima_senha_atendida = '0';"
+            cursor.execute(query_atendido)
+            conn.commit()
+            
+            query_proximo_paciente = """
+            select   id 
+            from     painel 
+            where    senha_atendida = '0'
+            order by senha_prioridade desc,
+	             id asc
+            limit    1;            
+            """
+            cursor.execute(query_proximo_paciente)
+            resp_proximo_paciente =  cursor.fetchone()
+            
+            query_atualiza_painel = """
+            update   painel
+            set      ultima_senha_atendida = '1',
+                     senha_atendida = '1'
+            where    id = '%s';
+            """
+            cursor.execute(query_atualiza_painel, resp_proximo_paciente['id'])
+            conn.commit()            
+            flash('Chamando Proximo Paciente')
+
+    finally:
+        conn.close()
+    
+
+
+def ultima_senha_chamada():
+    conn = obtem_mariadb()
+
+    try:
+        with conn.cursor() as cursor:
+            sql = "select id from painel where ultima_senha_atendida = '1';"
+            cursor.execute(sql)
+            return cursor.fetchone()
+    finally:
+        conn.close()    
+
+      
+def obtem_mariadb():
+    conn = pymysql.connect(host='localhost',
+                             user='root',
+                             password='123456',
+                             db='sistema_de_espera',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+    return conn
+
+
+ 
 
 if __name__ == '__main__'  :
     app.run()
