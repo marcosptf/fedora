@@ -62,34 +62,23 @@ select   id
 from     painel
 where    ultima_senha_atendida = '1';
 
+/* relatorio de atendimento */
+select
+(select count(id) from painel where senha_atendida = '1') as pacientes_atendidos,
 
+(select count(id) from painel where senha_atendida = '0') as pacientes_aguardando_atendimento,
+
+(select count(id) from painel where senha_atendida = '0' and senha_prioridade = '1') as pacientes_prioridade_aguardando_atendimento;
+
+  
 
 
 /*************************************************************************/
 
-select * from painel;
-
-
-+botao proxima senha
-update   painel
-set      ultima_senha_atendida = '0';
-
---resultado desta query vai no update
-  select 	 id 
-  from 	 painel 
-  where 	 senha_atendida = '0'
-  order by senha_prioridade desc,
-	  id asc
-  limit    1;
-
-update   painel
-set      ultima_senha_atendida = '1',
-         senha_atendida = '1'
-where    id = '8';
-
-+exibe ultima_senha_atendida
-select   id 
-from     painel
-where    ultima_senha_atendida = '1';
-
-
+    
+    
+    
+    
+    
+    
+    
