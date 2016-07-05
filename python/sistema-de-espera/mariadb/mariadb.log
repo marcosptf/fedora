@@ -8,7 +8,8 @@ create database sistema_de_espera
 create table painel (
  id integer primary key auto_increment,
  senha_prioridade integer default 0,
- senha_atendida   integer default 0
+ senha_atendida   integer default 0,
+ ultima_senha_atendida integer default 0
 )
 --------------
 
