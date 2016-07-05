@@ -1,11 +1,16 @@
 {% extends "layout.html" %}
 {% block body %}
 
-    <form action="" method="post" class="add-entry">
+    <form action="/menu_senha" method="post" class="add-entry" >
       <dl>
-        <dd><input type="submit" value="gera proxima senha" />
-        <dd><input type="submit" value="gera proxima senha prioridade" />
-        <dd><input type="submit" value="atende proximo paciente" />
+        <dd><span>senha do paciente:</span>
+        <dd><span>{{ ultima_senha.id }}</span>
+      </dl>    
+      <br/>
+      <dl>
+        <dd><input type="submit" name="gera_proxima_senha" value="Gera Proxima Senha Normal" />
+        <dd><input type="submit" name="gera_proxima_senha_prioridade" value="Gera Proxima Senha Prioridade" />
+        <dd><input type="submit" name="atende_proximo_paciente" value="Atende Proximo Paciente" />
       </dl>
     </form>
 
