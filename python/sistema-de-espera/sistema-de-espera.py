@@ -126,9 +126,15 @@ def atende_proximo_paciente():
         conn = obtem_mariadb()
         try:
             with conn.cursor() as cursor:
-	      
-                query_atendido = "update painel set ultima_senha_atendida = '0';"
-                cursor.execute(query_atendido)
+
+                ultimo_paciente = ultima_senha_chamada()
+
+                query_atendido = """
+                update    painel 
+                set       ultima_senha_atendida = '0'
+                where     id = '%s';
+                """
+                cursor.execute(query_atendido, ultimo_paciente['id'])
                 conn.commit()
             
                 query_proximo_paciente = """
