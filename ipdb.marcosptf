@@ -53,3 +53,92 @@ Você pode alterar o valor de variáveis ao mesmo tempo percorrendo o seu códig
 Conclusão de tabulação de uso e introspecção
 
 Isto é específico para usuários ipdb, desde que o pdb não tem essa funcionalidade. Conclusão de tabulação tornou-se segunda natureza para mim. É incrivelmente útil quando estiver trabalhando com objetos que você realmente não conhece. Dizem que você notar uma coisa objeto após pp locals() e curioso sobre isso. Simplesmente digitando coisa. pressionando tab irá listar todas as propriedades e métodos que pertencem a coisa e vai continuar a ' conclusão automática ' enquanto você digita mais cartas.
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+(.venv)![root@localhost flask-ipdb]# python manage.py runserver
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+> /root/develop/fedora/python/flask-ipdb/manage.py(22)index()
+     20 def index():
+     21     import ipdb; ipdb.set_trace();
+---> 22     func_um = funcao_um()
+     23     func_dois = funcao_dois()
+     24     resp = func_um + func_dois
+
+
+ipdb> n
+> /root/develop/fedora/python/flask-ipdb/manage.py(23)index()
+     21     import ipdb; ipdb.set_trace();
+     22     func_um = funcao_um()
+---> 23     func_dois = funcao_dois()
+     24     resp = func_um + func_dois
+     25     #import ipdb; ipdb.set_trace();
+
+ipdb> s
+--Call--
+> /root/develop/fedora/python/flask-ipdb/manage.py(16)funcao_dois()
+     14     return "funcao um "
+     15 
+---> 16 def funcao_dois():
+     17     return 'funcao dois'
+     18 
+
+ipdb> n
+> /root/develop/fedora/python/flask-ipdb/manage.py(17)funcao_dois()
+     15 
+     16 def funcao_dois():
+---> 17     return 'funcao dois'
+     18 
+     19 @app.route('/')
+
+ipdb> n
+--Return--
+'funcao dois'
+> /root/develop/fedora/python/flask-ipdb/manage.py(17)funcao_dois()
+     15 
+     16 def funcao_dois():
+---> 17     return 'funcao dois'
+     18 
+     19 @app.route('/')
+
+ipdb> n
+> /root/develop/fedora/python/flask-ipdb/manage.py(24)index()
+     22     func_um = funcao_um()
+     23     func_dois = funcao_dois()
+---> 24     resp = func_um + func_dois
+     25     #import ipdb; ipdb.set_trace();
+     26     return resp
+
+ipdb> func_um
+'funcao um '
+ipdb> 
+> /root/develop/fedora/python/flask-ipdb/manage.py(26)index()
+     24     resp = func_um + func_dois
+     25     #import ipdb; ipdb.set_trace();
+---> 26     return resp
+     27 
+     28 if __name__ == '__main__'  :
+
+ipdb> func_dois
+'funcao dois'
+ipdb> resp
+'funcao um funcao dois'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
