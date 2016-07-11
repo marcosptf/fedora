@@ -1,0 +1,55 @@
+Uma introdução ao Python depuração
+
+Todos os desenvolvedores sabem encontrar e esmagar insetos vem com o território da escrita sã, estável e software de alto desempenho. Num dia bom, depuração pode ser trivial, mas todos já estivemos lá: executando testes e demonstrações de impressão de leitura às 23:00 e quase perdendo nossas mentes sobre o desaparecimento de objetos de usuário ou diferindo de comportamento entre dois servidores. Às vezes a abordagem rudimentar de instruções de depuração de log ou salpicando imprime em todo o código funciona bem o suficiente, mas existem maneiras melhores para inspecionar seu aplicativo durante a execução.
+
+PDB, o depurador Python, é um depurador interativo que faz parte da biblioteca padrão do Python. Poderoso em ação e simples de usam, o pdb deve ser considerada como uma parte essencial de seu fluxo de trabalho regular e depuração. PDB permite-lhe saltar para um shell no arbitrários pontos de interrupção em seu código, onde você pode imprimir as variáveis e objetos, pode passar a alteração de código linha por linha, os valores dos objetos na mosca e muito mais.
+
+
+Melhor do que o pdb é ipdb, uma substituição de terceiros que mantém toda a funcionalidade do pdb e adiciona suporte IPython para o shell interativo, como conclusão de tabulação, introspecção de objeto, retornos de monitoramento mais amigáveis, suporte a cores e um balde de funções mágicas (que estão fora do escopo deste artigo). A linha inferior é que você pode usar ipdb como pdb, mas sua experiência de usuário será muito mais agradável. Pip de $ simplesmente instalar ipdb para instalar este pacote.
+
+
+Neste post, vou explicar alguns comandos pdb para você começar imediatamente, mostrar alguns truques básicos para aumentar os seus níveis de felicidade e incluem uma sessão curta de exemplo para ilustrar uma experiência de depuração do mundo real que poderia ter sido enlouquecedor, mas tornou-se trivial usando esta ferramenta. Claro, há muito mais para pdb (e IPython). Considere isto como uma introdução.
+
+
+Começando com os depuradores
+
+Para definir os pontos de interrupção, adicionar importação ipdb; IPDB.set_trace() onde você quer saltar para o depurador. Uma vez que você chegar a um ponto de interrupção, você será dado um shell interativo e algumas linhas de código em torno de seu ponto de interrupção para o contexto.
+
+Comandos essenciais
+
+A maioria dos comandos do pdb tem aliases de uma letra. Pressionar enter irá geralmente repete o último comando.
+
+n[ext]
+
+n simplesmente continua a execução do programa para a próxima linha na função atual. Este será seu comando digitado a maioria.
+
+s[tep]
+
+s passos para a seguinte linha de código executável, seja dentro de um método chamado ou apenas na linha seguinte. Penso isto como "entrar" para dentro de uma função ou método de encapsulamento.
+
+c[ontinue]
+
+c continues program execution until another breakpoint is hit.
+
+l[ist] [first[, last]]
+
+l lists a larger portion of code–11 lines–moving down the file with successive calls. You can optionally provide a line number to center the view on, as well as a second number for a range.
+
+p[rint] and pp
+
+p and pp are print and pretty-print. pp uses the pprint module. I use pp almost exclusively.
+
+a[rgs]
+
+a is one of my favorites. It prints out all the arguments the current function received.
+
+j[ump] line_number
+
+j will jump to the given line of code, actually skipping the execution of anything between.
+
+Change variables
+
+Você pode alterar o valor de variáveis ao mesmo tempo percorrendo o seu código. Sabe o valor atual de doodad.widget irá falhar o programa e quer testar uma alternativa? Altere esse widget! Quero ver o que significaria uma response.status_code de 418 de uma API externa para o seu site? Mude essa status_code!
+Conclusão de tabulação de uso e introspecção
+
+Isto é específico para usuários ipdb, desde que o pdb não tem essa funcionalidade. Conclusão de tabulação tornou-se segunda natureza para mim. É incrivelmente útil quando estiver trabalhando com objetos que você realmente não conhece. Dizem que você notar uma coisa objeto após pp locals() e curioso sobre isso. Simplesmente digitando coisa. pressionando tab irá listar todas as propriedades e métodos que pertencem a coisa e vai continuar a ' conclusão automática ' enquanto você digita mais cartas.
