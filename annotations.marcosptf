@@ -230,7 +230,7 @@ https://developer.mozilla.org/en-US/Add-ons/Distribution
 
 +comandos docker
 sudo dnf install docker-engine --allowerasing
-
+https://docs.docker.com/engine/installation/linux/fedora/
 
 +anotações perrella
 https://open.spotify.com/artist/02EWL0taCvBqFSXAMUca6d
