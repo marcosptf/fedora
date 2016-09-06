@@ -13,6 +13,9 @@ systemctl restart NetworkManager
 nmcli con down [nome-da-conexao]
 nmcli con up [nome-da-conexao]
 
+/* comandos docker */
+sudo dnf install docker-engine --allowerasing
+https://docs.docker.com/engine/installation/linux/fedora/
 
 /* comandos symfony */
 sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
