@@ -8,6 +8,11 @@ $ dnf list \*mysql\* | grep dev
 #run behat 
 ./vendor/behat/behat/bin/behat
 
+/* comandos para resolver problemas de conexao fedora */
+systemctl restart NetworkManager
+nmcli con down [nome-da-conexao]
+nmcli con up [nome-da-conexao]
+
 
 /* comandos symfony */
 sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
