@@ -228,6 +228,9 @@ https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#jpm_sign
 https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Getting_Started_%28jpm%29
 https://developer.mozilla.org/en-US/Add-ons/Distribution
 
++comandos docker
+sudo dnf install docker-engine --allowerasing
+
 
 +anotações perrella
 https://open.spotify.com/artist/02EWL0taCvBqFSXAMUca6d
