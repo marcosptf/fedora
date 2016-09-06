@@ -16,6 +16,13 @@ nmcli con up [nome-da-conexao]
 /* comandos docker */
 sudo dnf install docker-engine --allowerasing
 https://docs.docker.com/engine/installation/linux/fedora/
+#comando para subir
+sudo dnf install docker-engine
+sudo systemctl enable docker.service
+sudo systemctl start docker
+sudo docker-compose up
+
+
 
 /* comandos symfony */
 sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
