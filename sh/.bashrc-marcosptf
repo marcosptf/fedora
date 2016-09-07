@@ -5,7 +5,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias as='source /home/marcosptf/developer-master/as.sh'
 alias nb='source /home/marcosptf/developer-master/netbeans-8.0.2.sh'
-alias cache='source /home/marcosptf/developer-master/cacheclear.sh'
+alias ccache='source /home/marcosptf/developer-master/cacheclear.sh'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
