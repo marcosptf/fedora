@@ -1,0 +1,11 @@
+#vim ~/.gitconfig
+#alias para git log
+[alias]
+        lg = log --graph --pretty=format:'[%cn]%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[branch]
+        autosetuprebase = always
+[merge]
+       ff = no
+       commit = no
+[pull]
+       rebase = true
