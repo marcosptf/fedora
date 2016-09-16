@@ -1,3 +1,5 @@
+#vim ~/.bashrc
+#source ~/.bashrc
 # .bashrc
 # User specific aliases and functions
 alias rm='rm -i'
@@ -6,6 +8,7 @@ alias mv='mv -i'
 alias as='source /home/marcosptf/developer-master/as.sh'
 alias nb='source /home/marcosptf/developer-master/netbeans-8.0.2.sh'
 alias ccache='source /home/marcosptf/developer-master/cacheclear.sh'
+alias fem='git config --global user.name "Fabio Perrella e Marcos Paulo" ; git config user.name'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
