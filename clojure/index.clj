@@ -188,3 +188,43 @@ user=> (def vectors [1 2 3 4])
 #'user/vectors
 user=> (type vectors)
 clojure.lang.PersistentVector
+
+user=> 
+
+user=> (defn velocity [espaco tempo] (/espaco tempo  ))
+
+RuntimeException Invalid token: /espaco  clojure.lang.Util.runtimeException (Util.java:221)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: tempo in this context, compiling:(/tmp/form-init8923393782825834364.clj:1:1010) 
+RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+user=> 
+
+user=> (defn velocity [espaco tempo] (/ espaco tempo  ))
+#'user/velocity
+user=> 
+
+user=> (velocity 50 100)
+1/2
+user=> 
+
+user=> (velocity 50 0.5)
+100.0
+user=> 
+
+user=> (fn [espaco tempo] (/ espaco tempo))
+#object[user$eval1298$fn__1299 0x1def8b6c "user$eval1298$fn__1299@1def8b6c"]
+user=> 
+
+user=> (3 5)
+
+ClassCastException java.lang.Long cannot be cast to clojure.lang.IFn  user/eval1302 (form-init8923393782825834364.clj:1)
+user=> 
+
+user=> (fn [espaco tempo] (/ espaco tempo)) 50 0.5
+#object[user$eval1304$fn__1305 0xd8d2db9 "user$eval1304$fn__1305@d8d2db9"]
+50
+0.5
+user=> (def numeros [1 2 3 4])
+#'user/numeros
+user=> (map #(inc %) numeros)
+(2 3 4 5)
