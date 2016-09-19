@@ -111,3 +111,23 @@ number'
 user=> (type number)
 java.lang.Long
 user=> 
+
+
+user=> (def person {:address {:street "test"}})
+#'user/person
+user=> 
+
+user=> (:address person)
+{:street "test"}
+user=> 
+
+user=> (person :address)
+{:street "test"}
+user=> 
+
+user=> (:street (person :address))
+"test"
+user=> 
+
+user=> (:street (:address person))
+"test"
