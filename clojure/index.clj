@@ -228,3 +228,6 @@ user=> (def numeros [1 2 3 4])
 #'user/numeros
 user=> (map #(inc %) numeros)
 (2 3 4 5)
+
+user=> (let [number 10] (+ number 1))
+11
