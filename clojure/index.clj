@@ -135,3 +135,56 @@ user=> (:street (:address person))
 
 user=> (-> person :address :street)
 "test"
+
+user=> (def numero#{1 2 3 "teste"})
+#'user/numero#
+user=> (type numero)
+
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: numero in this context, compiling:(/tmp/form-init8923393782825834364.clj:1:1) 
+user=> 
+
+user=> (def numero #{1 2 3 "teste"})
+#'user/numero
+user=> 
+
+user=> (type numero)
+clojure.lang.PersistentHashSet
+user=> 
+
+user=> (first numero)
+1
+user=> 
+
+user=> '(1 2 3 4)
+(1 2 3 4)
+user=> (1 2 3 4)
+
+ClassCastException java.lang.Long cannot be cast to clojure.lang.IFn  user/eval1281 (form-init8923393782825834364.clj:1)
+user=> 
+
+user=> (def lista '(1 2 3 4))
+#'user/lista
+user=> 
+
+user=> (first lista)
+1
+user=> (nth lista)
+
+ArityException Wrong number of args (1) passed to: core/nth  clojure.lang.AFn.throwArity (AFn.java:429)
+user=> (nth lista 1)
+2
+user=> 
+
+user=> (type lista)
+clojure.lang.PersistentList
+user=> 
+
+user=> (def vector [1 2 3 4])
+WARNING: vector already refers to: #'clojure.core/vector in namespace: user, being replaced by: #'user/vector
+#'user/vector
+user=> 
+
+user=> (def vectors [1 2 3 4])
+#'user/vectors
+user=> (type vectors)
+clojure.lang.PersistentVector
