@@ -131,3 +131,7 @@ user=>
 
 user=> (:street (:address person))
 "test"
+
+
+user=> (-> person :address :street)
+"test"
