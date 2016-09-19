@@ -231,3 +231,34 @@ user=> (map #(inc %) numeros)
 
 user=> (let [number 10] (+ number 1))
 11
+
+user=> 
+
+user=> 
+
+user=> (def cruzeirao {:name "cruzerao" :brasileirao 4})
+#'user/cruzeirao
+user=> (= 10 10)
+true
+user=> (= 10 5)
+false
+user=> (if (= (:brasileirao cruzerao) 4)(println "tetra")(println "ta errado")
+  #_=> 
+  #_=> (if (= (:brasileirao cruzerao) 4)(println "tetra")(println "ta errado"))
+  #_=> 
+  #_=> (if (= (:brasileirao cruzerao) 4)(println "tetra")(println "ta errado")))
+
+CompilerException java.lang.RuntimeException: Too many arguments to if, compiling:(/tmp/form-init8923393782825834364.clj:1:1) 
+user=> (if (= (:brasileirao cruzerao) 4)(println "tetra")(println "ta errado"))
+
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: cruzerao in this context, compiling:(/tmp/form-init8923393782825834364.clj:1:8) 
+user=> 
+
+user=> 
+
+user=> (if (= (:brasileirao cruzerao) 4)(println "tetra")(println "ta errado"))
+
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: cruzerao in this context, compiling:(/tmp/form-init8923393782825834364.clj:1:8) 
+user=> (if (= (:brasileirao cruzeirao) 4)(println "tetra")(println "ta errado"))
+tetra
+nil
