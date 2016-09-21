@@ -1,9 +1,16 @@
 
 +clojure
 http://leiningen.org/#install
-criar um diretorio clojure neste repositorio
+#criar um diretorio clojure neste repositorio
 http://clojuredocs.org/
 
+#how to create a new test
+guest-XBBB2a@LW13390:~/clojure$ ./lein.sh new app dna-to-rna
+Generating a project called dna-to-rna based on the 'app' template.
+
+#rodando o projeto
+guest-XBBB2a@LW13390:~/clojure/dna-to-rna$ .././lein.sh run
+Hello, World!
 
 guest-3Yg0XH@LW13390:~$ mkdir clojure
 guest-3Yg0XH@LW13390:~$ cd clojure/
