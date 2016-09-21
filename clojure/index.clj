@@ -1,3 +1,10 @@
+
++clojure
+http://leiningen.org/#install
+criar um diretorio clojure neste repositorio
+http://clojuredocs.org/
+
+
 guest-3Yg0XH@LW13390:~$ mkdir clojure
 guest-3Yg0XH@LW13390:~$ cd clojure/
 guest-3Yg0XH@LW13390:~/clojure$ vim arquivo.sh
