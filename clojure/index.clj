@@ -269,3 +269,49 @@ CompilerException java.lang.RuntimeException: Unable to resolve symbol: cruzerao
 user=> (if (= (:brasileirao cruzeirao) 4)(println "tetra")(println "ta errado"))
 tetra
 nil
+
+
+user=> (defn campeao
+  #_=>   [titulos]
+  #_=>   (case titulos
+  #_=>     4 "tetra"
+  #_=>     3 "tri"))
+#'user/campeao
+user=> (campeao 3)
+"tri"
+user=> 
+
+user=> (for [number [1 2 3 4]])
+
+ArityException Wrong number of args (1) passed to: core/for  clojure.lang.Compiler.macroexpand1 (Compiler.java:6781)
+user=> (for [number [1 2 3 4]]
+  #_=>   (+ 2 number))
+(3 4 5 6)
+user=> 
+
+user=> (loop [x 10]
+  #_=>   (when (> x 1)
+  #_=>     (println x)
+  #_=>     (recur (- x 2)))
+  #_=> 
+  #_=> )
+10
+8
+6
+4
+2
+nil
+user=> 
+
+user=> 
+
+user=> (loop [x 10]
+  #_=>   (when (> x 1)
+  #_=>     (println x)
+  #_=>     (recur (- x 2))))
+10
+8
+6
+4
+2
+nil
