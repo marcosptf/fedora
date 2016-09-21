@@ -21,6 +21,17 @@ http://www.badboylifestyle.com/wp-content/uploads/2012/05/BadBoyPCV.pdf
 
 =================================================================
 +urgents tasks
+-cfp 
+https://cfp.sunshinephp.com/
+
+-[fix commits php-src]
+
+-pendencias lm-email
+palestra php7 + psr + programacao funcional php
+firefox toolbar lm-mail
+php code coverage
+php code sniffer / code quality
+
 -gulp
 -node
 -rcmail
