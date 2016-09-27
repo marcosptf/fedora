@@ -293,6 +293,13 @@ http://clojuredocs.org/
 #php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
 +tasks:
 1)PHP at the Core: A Hacker's Guide
+http://devzone.zend.com/303/extension-writing-part-i-introduction-to-php-and-zend/
+http://swig.org/
+http://www.sitepoint.com/getting-started-php-extension-development-via-php-cpp/
+https://blog.engineyard.com/2014/writing-php-extensions-with-zephir
+http://www.hackingwithphp.com/20/0/0/writing-extensions
+http://talks.php.net/show/extending-php-ffm2003/5
+http://truelogic.org/wordpress/2015/09/05/writing-php-extensions-part-1-overview/
 http://www.gnu.org/software/m4/manual/m4.html
 https://secure.php.net/manual/en/internals2.php
 http://www.phpinternalsbook.com/
