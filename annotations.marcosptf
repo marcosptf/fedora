@@ -266,18 +266,6 @@ https://developer.mozilla.org/en-US/Add-ons/Distribution
 https://open.spotify.com/artist/02EWL0taCvBqFSXAMUca6d
 https://training.docker.com/self-paced-training
 
-+commits php-src
-https://github.com/php/php-src/pull/1804 [okey]
-https://github.com/php/php-src/pull/1815 [okey][monitorar]
-https://github.com/php/php-src/pull/1813 [corrigir]
-https://github.com/php/php-src/pull/1811 [corrigir]
-https://github.com/php/php-src/pull/1807 [corrigir]
-https://github.com/php/php-src/pull/1598 [corrigir]
-https://github.com/php/php-src/pull/1597 [corrigir]
-https://github.com/php/php-src/pull/1594 [corrigir]
-https://github.com/php/php-src/pull/1553 [corrigir]
-https://github.com/php/php-src/pull/1819 [corrigir]
-
 +musicas da banda
 https://www.youtube.com/watch?v=VLTePjx-2i4
 https://www.youtube.com/watch?v=hg1HU-wHelk
@@ -295,3 +283,98 @@ https://www.youtube.com/watch?v=sxdmw4tJJ1Y
 http://leiningen.org/#install
 criar um diretorio clojure neste repositorio
 http://clojuredocs.org/
+
+
+
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
++tasks:
+1)PHP at the Core: A Hacker's Guide
+http://www.gnu.org/software/m4/manual/m4.html
+https://secure.php.net/manual/en/internals2.php
+http://www.phpinternalsbook.com/
+https://wiki.php.net/internals/references
+http://blog.ircmaxell.com/2012/03/phps-source-code-for-php-developers.html
+http://nikic.github.io/2012/03/16/Understanding-PHPs-internal-function-definitions.html
+https://github.com/php/php-src/blob/master/CODING_STANDARDS
+http://imasters.com.br/desenvolvimento/como-criar-uma-extensao-php-c-para-manipular-arrays-parte-01-extensao-basica-de-uma-classe-array/?utm_source=iMasters&utm_campaign=3dcfd2c19a-ds_2015_08_18&utm_medium=email&utm_term=0_c1528e6ab3-3dcfd2c19a-359905737
+https://github.com/marcosptf/fedora/issues/39
+2)reading c code from https://github.com/php/php-src/tree/master/Zend
+3)install last version of fedora, and compile last version of php and run test and report bugs
+4)write new tests to php-src
+5)try resolve bugs on http://bugs.php.net
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+http://php.net/manual/en/ziparchive.unchangename.php
+http://php.net/manual/en/ziparchive.unchangeindex.php
+http://php.net/manual/en/ziparchive.unchangeall.php
+http://php.net/manual/en/ziparchive.unchangearchive.php
+http://php.net/manual/en/sqlite3.busytimeout.php
+http://php.net/manual/en/pdo.getavailabledrivers.php
+http://php.net/manual/en/reflectionparameter.isarray.php
+http://php.net/manual/en/datetimezone.getlocation.php
+http://php.net/manual/en/errorexception.getseverity.php
+http://php.net/manual/en/function.curl-multi-info-read.php
+http://php.net/manual/en/function.stream-bucket-prepend.php
+http://php.net/manual/en/function.stream-get-transports.php
+http://php.net/manual/en/function.stream-get-wrappers.php
+http://php.net/manual/en/function.set-file-buffer.php
+http://php.net/manual/en/function.stream-socket-enable-crypto.php
+http://php.net/manual/en/function.stream-socket-sendto.php
+http://php.net/manual/en/function.stream-socket-recvfrom.php
+http://php.net/manual/en/function.stream-socket-get-name.php
+http://php.net/manual/en/function.dns-get-record.php
+http://php.net/manual/en/function.dns-get-mx.php
+http://php.net/manual/en/function.checkdnsrr.php
+http://php.net/manual/en/function.gethostname.php
+http://php.net/manual/en/function.ignore-user-abort.php
+http://php.net/manual/en/function.connection-status.php
+http://php.net/manual/en/function.connection-aborted.php
+http://php.net/manual/en/function.setrawcookie.php
+http://php.net/manual/en/function.memory-get-peak-usage.php
+http://php.net/manual/en/function.forward-static-call-array.php
+http://php.net/manual/en/function.php-ini-scanned-files.php
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
++!!!php tests failure!!!
+
+2)http://php.net/manual/en/function.openssl-dh-compute-key.php
+2.1 - i don't have idia what to do with 2 param ( resource $dh_key )
+2.2 - i coudn't found this resource anywhere => resource $dh_key
+
+https://github.com/php/php-src/pull/1804 [okey]
+https://github.com/php/php-src/pull/1815 [okey][monitorar]
+https://github.com/php/php-src/pull/1813 [corrigir]
+https://github.com/php/php-src/pull/1811 [corrigir]
+https://github.com/php/php-src/pull/1807 [corrigir]
+https://github.com/php/php-src/pull/1598 [corrigir]
+https://github.com/php/php-src/pull/1597 [corrigir]
+https://github.com/php/php-src/pull/1594 [corrigir]
+https://github.com/php/php-src/pull/1553 [corrigir]
+https://github.com/php/php-src/pull/1819 [corrigir]
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+resolve open bugs from 
+https://bugs.php.net/search.php?limit=30&order_by=id&direction=DESC&cmd=display&status=Open&bug_type=All
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
++new tests case to php functions - gcov - functions without .phpt
+http://gcov.php.net/viewer.php?version=PHP_HEAD&func=tested_functions
+http://php.net/manual/en/function.date-interval-format.php
+http://php.net/manual/en/function.zlib-get-coding-type.php
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
++anothers modules with 0.0% gcov tests
+http://gcov.php.net/PHP_HEAD/lcov_html/usr/include/curl/typecheck-gcc.h.gcov.php
+http://gcov.php.net/PHP_HEAD/lcov_html/TSRM/tsrm_strtok_r.c.gcov.php
+http://gcov.php.net/PHP_HEAD/lcov_html/sapi/cli/index.php
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
+#php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
