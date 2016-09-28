@@ -297,6 +297,7 @@ http://clojuredocs.org/
 
 +tasks:
 1)PHP at the Core: A Hacker's Guide
+https://www.amazon.com/Building-Custom-Extensions-Blake-Schwendiman/dp/1411601882/ref=pd_bxgy_14_img_2/164-3020391-7023345?ie=UTF8&psc=1&refRID=59RKNKK622PMHHZ4GEWH
 http://talks.php.net/index.php/Internals
 http://www.firephp.org
 https://xdebug.org
@@ -390,6 +391,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 http://gcov.php.net/PHP_HEAD/lcov_html/usr/include/curl/typecheck-gcc.h.gcov.php
 http://gcov.php.net/PHP_HEAD/lcov_html/TSRM/tsrm_strtok_r.c.gcov.php
 http://gcov.php.net/PHP_HEAD/lcov_html/sapi/cli/index.php
+
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 #php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
