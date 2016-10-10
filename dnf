@@ -1,6 +1,26 @@
 /* para listar itens disponiveis: */
 $ dnf list \*mysql\* | grep dev
 
+/* comandos linux */
+#lista a situação do usao da memoria em tempo real
+free -h
+
+#uso do espaço em disco em tempo real
+df -h
+
+#todas as informaçõe do processador
+cat /proc/cpuinfo
+
+#todas as informaçõe da memoria
+cat /proc/meminfo
+
+#todas as informaçõe das placas do computador
+lspci
+
+#onde esta o executavel do programa
+which gcc
+
+
 /* behat commands */
 #create feature basic to behat
 ./vendor/behat/behat/bin/behat --init
