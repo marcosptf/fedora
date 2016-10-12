@@ -47,6 +47,8 @@ sudo systemctl start docker
 sudo docker-compose up
 #comando para deletar/remover um conteiner
 sudo docker rm <nome-do-conteiner>
+#comando para fazer o build das dependencias do projeto
+docker-compose build
 
 /* comandos symfony */
 sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
