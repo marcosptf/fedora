@@ -62,7 +62,6 @@ docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q) 
 
 
-
 /* comandos symfony */
 sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
 symfony new my_project 2.7
