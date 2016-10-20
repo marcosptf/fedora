@@ -49,6 +49,19 @@ sudo docker-compose up
 sudo docker rm <nome-do-conteiner>
 #comando para fazer o build das dependencias do projeto
 docker-compose build
+-remover container que não usa:
+docker rm `docker ps --no-trunc -aq`
+
+-remover imagens:
+docker images -q |xargs docker rmi
+
+-Para todos os containers
+docker stop $(docker ps -a -q)
+
+-Remover todos os containers
+docker rm $(docker ps -a -q) 
+
+
 
 /* comandos symfony */
 sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
