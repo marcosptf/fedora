@@ -1,8 +1,19 @@
+--SKIPIF--
+<?php
+if (getenv("SKIP_ONLINE_TESTS")) { die('skip: online test'); }
+?>
+if (!in_array("unix", stream_get_transports())) die("SKIP unix domain sockets unavailable");
+if (!stristr(PHP_OS, "Linux")) die('skip abstract namespace is a Linux-only feature');
+if (getenv("SKIP_ONLINE_TESTS")) { die('skip: online test'); }
+if (getenv("SKIP_SLOW_TESTS")) die("skip slow test");
+if (getenv("SKIP_ONLINE_TESTS")) die("skip test requiring internet connection");
+if (getenv("SKIP_ONLINE_TESTS")) die("skip online test");
+
 /* para listar itens disponiveis: */
 $ dnf list \*mysql\* | grep dev
 
 /* comandos linux */
-#lista a situação do usao da memoria em tempo real
+#lista a situação do uso da memoria em tempo real
 free -h
 
 #uso do espaço em disco em tempo real
