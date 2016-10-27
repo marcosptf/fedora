@@ -300,6 +300,21 @@ http://clojuredocs.org/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
 #php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
 #php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
@@ -315,19 +330,20 @@ https://www.youtube.com/watch?v=AloIn2t7bWc => Developing a Resizable-Indexed Ar
 https://www.youtube.com/watch?v=vLD4cUHMT5I => Episode 73 - PHP 7 Extension Development with Joe Watkins
 https://www.youtube.com/watch?v=_arORgEVl-M => Hacking on PHP 7 with Joe Watkins - Part 1
 https://www.youtube.com/watch?v=f9N-v-JUbTQ => Hacking on PHP 7 with Joe Watkins - Part 2
-
+http://blog.krakjoe.ninja/
+http://threedevsandamaybe.com/
 http://www.nasm.us/
 http://www.assemblyprogressivo.net
 https://en.wikipedia.org/wiki/Bitwise_operation
 https://en.wikipedia.org/wiki/Binary_number
 https://en.wikipedia.org/wiki/Bit
 http://php.net/manual/en/language.operators.bitwise.php
+https://www.amazon.com/dp/067232704X/?tag=stackoverfl08-20
 https://www.amazon.com/Building-Custom-Extensions-Blake-Schwendiman/dp/1411601882/ref=pd_bxgy_14_img_2/164-3020391-7023345?ie=UTF8&psc=1&refRID=59RKNKK622PMHHZ4GEWH
 http://talks.php.net/index.php/Internals
 http://www.firephp.org
 https://xdebug.org
 https://wiki.php.net/internals/references
-https://www.amazon.com/dp/067232704X/?tag=stackoverfl08-20
 https://www.scribd.com/document/18171982/PHP-Compiler-Internals
 http://nikic.github.io
 http://docstore.mik.ua/orelly/weblinux2/php/ch14_01.htm
@@ -413,6 +429,13 @@ http://gcov.php.net/PHP_HEAD/lcov_html/TSRM/tsrm_strtok_r.c.gcov.php
 http://gcov.php.net/PHP_HEAD/lcov_html/sapi/cli/index.php
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+
+
+
+
 #php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
 #php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
 #php-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-srcphp-src#
