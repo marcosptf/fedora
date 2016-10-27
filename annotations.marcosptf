@@ -308,6 +308,14 @@ http://clojuredocs.org/
 
 +tasks:
 1)PHP at the Core: A Hacker's Guide
+https://www.youtube.com/watch?v=5smkrsG-vQY => Episode 26 - PHP Internals, pthreads and PHPDBG
+https://www.youtube.com/watch?v=yUiOKBJA9jM => Episode 40 - News on PHP 7, and how PHP internally works 
+https://www.youtube.com/watch?v=5FoHyfu8meM => PHP Extension Development for Beginners with Joe Watkins
+https://www.youtube.com/watch?v=AloIn2t7bWc => Developing a Resizable-Indexed Array as a PHP Extension 
+https://www.youtube.com/watch?v=vLD4cUHMT5I => Episode 73 - PHP 7 Extension Development with Joe Watkins
+https://www.youtube.com/watch?v=_arORgEVl-M => Hacking on PHP 7 with Joe Watkins - Part 1
+https://www.youtube.com/watch?v=f9N-v-JUbTQ => Hacking on PHP 7 with Joe Watkins - Part 2
+
 http://www.nasm.us/
 http://www.assemblyprogressivo.net
 https://en.wikipedia.org/wiki/Bitwise_operation
