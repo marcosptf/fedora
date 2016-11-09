@@ -1,0 +1,46 @@
+programacao funcional php 
+
+#funcao anonima php
+php > $hello = function(){print("hello!");};
+php > print($hello());
+hello!
+
+#funcao anonima php com parametros
+php > $soma = function($a, $b){print($a+$b);};
+php > print($soma(4,5));
+9
+
+#funcao anonima no php nao acessa escopo externo, pois tem escopo proprio
+php > $name = "koalah";
+php > $sayHello = function(){print("hello {$name}");};
+php > print($sayHello());
+
+#uma closure consegue acessar o escopo externo
+php > $name = "koalah";
+php > $sayHello = function() use ($name){print("hello {$name}");};
+php > print($sayHello());
+hello koalah
+
+
+
+#usando um callback e closure para retornar valores de um array
+$users = [
+['id' => 1, name => 'Alice', age => 20, working => true ],
+['id' => 2, name => 'Bob', age => 15, working => false ],
+['id' => 3, name => 'Carol', age => 17, working => false ],
+['id' => 4, name => 'Daniel', age => 25, working => true ],
+['id' => 5, name => 'Emma', age => 31, working => true ]
+];
+
+function attr($field){
+return function ($user) use ($field){
+ return $user[$field];
+};
+}
+
+$userName = array_map(attr('name'),$users);
+$userAge = array_map(attr('age'),$users);
+
+var_dump($userName);
+var_dump($userAge);
+
