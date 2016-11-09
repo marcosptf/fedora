@@ -1,0 +1,50 @@
+#instanciando uma classe e usando varias classes que estao no mesmo namespace;
+class ca {public function fa(){print("ca::fa;");} }
+class cb {public function fb(){print("cb::fb;");} }
+class cc {public function fc(){print("cc::fc;");} }
+class cd {public function fd(){print("cd::fd;");} }
+class debug_i extends ca { public function __construct(){   ca::fa(); cb::fb(); cc::fc(); cd::fd(); }  }
+$debug = new debug_i();
+ca::fa;cb::fb;cc::fc;cd::fd;
+
+#realizando multiplas heranças com traits
+trait Hello{public function sayHello(){print("hello ");}}
+trait World{public function sayWorld(){print("world ");}}               
+trait How{public function sayHow(){print(",how ");}}               
+trait Are{public function sayAre(){print("are ");}}          
+trait You{public function sayYou(){print("You!");}}          
+class TalkClass{use Hello,World,How,Are,You;public function sayHi(){ print("Hi! "); }}
+$talk = new TalkClass();$talk->sayHi();$talk->sayHello();$talk->sayWorld();$talk->sayHow();$talk->sayAre();$talk->sayYou();
+
+#herança multiplas por interfaces
+interface inter_a{}
+interface inter_b{}
+interface inter_c{}
+interface inter_d{}
+class debug_inter implements inter_a, inter_b, inter_c, inter_d{ public function __construct(){print("class implements multiples interfaces");}}
+$debug_class_inter = new debug_inter();
+
+#trait eh como se fosse uma classe, mais nao eh uma classe
+trait Hello{public function sayHello(){print("hello ");}}
+$trait = new Hello();
+PHP Fatal error:  Cannot instantiate trait Hello in php shell code on line 1
+PHP Stack trace:
+PHP   1. {main}() php shell code:0
+PHP   2. debug_a->__construct() php shell code:1
+PHP   3. {main}() php shell code:0
+PHP   4. debug_a->__construct() php shell code:1
+PHP   5. {main}() php shell code:0
+PHP   6. debug_a->__construct() php shell code:1
+PHP   7. {main}() php shell code:0
+PHP   8. debug_e->__construct() php shell code:1
+PHP   9. {main}() php shell code:0
+PHP  10. debug_h->__construct() php shell code:1
+PHP  11. {main}() php shell code:0
+PHP  12. {main}() php shell code:0
+PHP  13. {main}() php shell code:0
+PHP  14. {main}() php shell code:0
+PHP  15. {main}() php shell code:0
+PHP  16. {main}() php shell code:0
+PHP  17. {main}() php shell code:0
+PHP  18. {main}() php shell code:0
+PHP  19. {main}() php shell code:0
