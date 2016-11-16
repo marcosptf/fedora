@@ -15,9 +15,6 @@ rcmail.addEventListener('responseaftermark', rcube_render_mailboxlist)
     .addEventListener('responseafterrefresh', rcube_render_mailboxlist)
     .addEventListener('afterimport-messages', function(){ rcmail_ui.show_popup('uploadform', false); });
 }
-
-
-
 _task=mail&_action=refresh
 
 "queryString": [
