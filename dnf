@@ -1,3 +1,8 @@
+/* mongodb status */
+service mongod stop
+service mongod status
+service mongod start
+
 --SKIPIF--
 <?php
 if (getenv("SKIP_ONLINE_TESTS")) { die('skip: online test'); }
