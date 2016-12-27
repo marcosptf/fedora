@@ -586,4 +586,34 @@ coloque a sua idade12
 >>> print(mensagem)
 voce eh menor, ainda nao pode dirigir
 
+
+=======================================================================================================
+/* fedora 24 virtualbox */
+
+Making the bios change and edit the selinux solved my problem of installing virtualbox 5.11 over fedora 25. 
+Thanks.
+
+There are the instructions that I've followed:
+
+# install virtualbox on fedora 25
+
+# start session as root; then open a terminal and 
+# install this prerrequisites
+
+dnf update
+dnf install binutils qt gcc make patch libgomp glibc-headers glibc-devel
+dnf install kernel-devel-$(uname -r)
+dnf install kernel-headers-$(uname -r)
+dnf install dkms
+
+# then start the config utillity
+sudo /sbin/vboxconfig
+
+# if there are errors, with the 'modprobe vboxdrv' command there 
+# are 2 solutions
+
+SOL-1: edit the /etc/selinux/config file and set SELINUX=disabled and reboot.
+SOL.2: Problem solved by changing "Windows UEFI" to "Other OS/Legacy" in motherboard Secure Boot options.
+
+
 =======================================================================================================
