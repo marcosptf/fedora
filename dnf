@@ -376,7 +376,7 @@ yum --enablerepo=remi,remi-php56 install httpd php php-common php-pecl-apcu php-
 systemctl start httpd.service 
 
 /* install php 5.5 com php-unit e php-soap */
-dnf install php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-gd php-mbstring php-mcrypt php-xml php-soap php-phpunit-PHPUnit.noarch
+dnf install php php-ldap php-pear-Net-LDAP2 php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-gd php-mbstring php-mcrypt php-xml php-soap php-phpunit-PHPUnit.noarch
 
 /* para procurar um programa no yum  */
 dnf search java
