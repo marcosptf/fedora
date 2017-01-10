@@ -456,11 +456,22 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 2.1 - i don't have idia what to do with 2 param ( resource $dh_key )
 2.2 - i coudn't found this resource anywhere => resource $dh_key
 
-https://github.com/php/php-src/pull/1804 [okey]
-https://github.com/php/php-src/pull/1815 [okey][monitorar]
-https://github.com/php/php-src/pull/1807 [monitorar]
-https://github.com/php/php-src/pull/1813 [corrigir]
-https://github.com/php/php-src/pull/1811 [corrigir]
++pr pendents:
+https://github.com/php/php-src/pull/1553
+https://github.com/php/php-src/pull/1810
+https://github.com/php/php-src/pull/1807
+https://github.com/php/php-src/pull/1806
+https://github.com/php/php-src/pull/1803
+https://github.com/php/php-src/pull/1770
+
++pr closed:
+https://github.com/php/php-src/pull/1815
+https://github.com/php/php-src/pull/1813
+https://github.com/php/php-src/pull/1812
+https://github.com/php/php-src/pull/1811
+https://github.com/php/php-src/pull/1787
+https://github.com/php/php-src/pull/1641
+
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 resolve open bugs from 
