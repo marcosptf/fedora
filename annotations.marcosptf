@@ -461,6 +461,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 +pr pendents:
 https://github.com/php/php-src/pull/1803 #fixed-waint-answer
 https://github.com/php/php-src/pull/1770 #fixing
+http://php.net/manual/en/errorexception.getseverity.php
+http://php.net/manual/en/function.set-error-handler.php
+http://php.net/manual/en/function.debug-backtrace.php
+
 https://github.com/php/php-src/pull/1810
 https://github.com/php/php-src/pull/1806
 
