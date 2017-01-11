@@ -459,12 +459,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 2.2 - i coudn't found this resource anywhere => resource $dh_key
 
 +pr pendents:
-https://github.com/php/php-src/pull/1553 #fixing
-https://github.com/php/php-src/pull/1810 #fixing
-https://github.com/php/php-src/pull/1807
+https://github.com/php/php-src/pull/1803 #fixed-waint-answer
+https://github.com/php/php-src/pull/1770 #fixing
+https://github.com/php/php-src/pull/1810
 https://github.com/php/php-src/pull/1806
-https://github.com/php/php-src/pull/1803
-https://github.com/php/php-src/pull/1770
 
 +pr closed:
 https://github.com/php/php-src/pull/1815
