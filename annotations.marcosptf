@@ -1,8 +1,16 @@
 =================================================================
 +ler depois
 
-->php7
+->from-php5-to-php7-migration
 https://blog.blackfire.io/php-7-performance-improvements-packed-arrays.html
+https://secure.php.net/manual/pt_BR/migration70.php
+https://secure.php.net/manual/pt_BR/types.comparisons.php
+https://secure.php.net/manual/pt_BR/language.errors.php7.php
+https://secure.php.net/manual/pt_BR/function.dl.php
+https://secure.php.net/manual/pt_BR/migration70.incompatible.php
+https://secure.php.net/manual/pt_BR/migration70.new-features.php
+http://stackoverflow.com/questions/32636163/how-to-migrate-php-code-between-versions-5-7-without-rewriting-or-reviewing-al
+
 
 ->habilitacao jetsky marinha
 http://brmar.com.br/frame_curso_motonauta.html
