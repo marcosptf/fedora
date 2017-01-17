@@ -13,6 +13,16 @@ https://secure.php.net/manual/pt_BR/function.dl.php
 https://secure.php.net/manual/pt_BR/migration70.incompatible.php
 https://secure.php.net/manual/pt_BR/migration70.new-features.php
 http://stackoverflow.com/questions/32636163/how-to-migrate-php-code-between-versions-5-7-without-rewriting-or-reviewing-al
+->roundcube-php7-issues
+https://github.com/roundcube/roundcubemail/search?q=php7&type=Issues&utf8=%E2%9C%93
+->roundcube-php7-commits
+https://github.com/roundcube/roundcubemail/commit/e71de17602c2c13beee9d9f2be2e664d6a80926d
+https://github.com/roundcube/roundcubemail/commit/3193a5e5d28a33f507b7eef6ba7df932ca149007
+https://github.com/roundcube/roundcubemail/commit/d72e5afb47b68151ac5912dbd52732b41c84cb5c
+https://github.com/roundcube/roundcubemail/commit/7bbb86f78aad9c9ed71054e9e5f9ab01a9c04b17
+https://github.com/roundcube/roundcubemail/commit/0389faa32794f09836907f7a073908b282bb4022
+https://github.com/roundcube/roundcubemail/commit/1b39d9a6c744a393e7930c2493cc2ddc9c9e95bf
+https://github.com/roundcube/roundcubemail/commit/36bd93f1384ccf3f3ccd6fa884ad594d1b486367
 
 
 ->habilitacao jetsky marinha
