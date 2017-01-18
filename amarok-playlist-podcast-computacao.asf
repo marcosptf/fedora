@@ -13,8 +13,8 @@
   </entry>
   <entry>
     <ref href="http://www.phpclasses.org/blog/post/498/file/793/name/Lately-In-PHP-78.mp3"/>
-    <title>Lately-In-PHP-78.mp3</title>
-    <author>Unknown</author>
+    <title>Lately in PHP podcast episode 78</title>
+    <author>Manuel Lemos and Arturs Sosins</author>
   </entry>
   <entry>
     <ref href="http://www.phpclasses.org/blog/post/509/file/805/name/Lately-In-PHP-79.mp3"/>
@@ -149,6 +149,11 @@
   <entry>
     <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_027_java.mp3"/>
     <title>hipsters_027_java.mp3</title>
+    <author>Unknown</author>
+  </entry>
+  <entry>
+    <ref href="http://feeds.feedburner.com/CastalioPodcastMP3?format=xml"/>
+    <title>CastalioPodcastMP3</title>
     <author>Unknown</author>
   </entry>
 </asx>
