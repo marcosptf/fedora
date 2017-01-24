@@ -450,6 +450,8 @@ https://github.com/marcosptf/fedora/issues/39
 3)install last version of fedora, and compile last version of php and run test and report bugs
 4)write new tests to php-src
 5)try resolve bugs on http://bugs.php.net
+#how to write a new function to php from c code
+https://github.com/php/php-src/pull/2206/files
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 http://php.net/manual/en/ziparchive.unchangename.php
