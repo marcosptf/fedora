@@ -1,0 +1,5 @@
+sudo mkdir /data  
+sudo mkdir /data/sistema-urna-eletronica
+sudo chmod -Rf 777 /data 
+mongod --dbpath /data/sistema-urna-eletronica
+

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <form action="/escolha_seu_candidato" method="post" class="add-entry" >
+      <br/>
+      <dl>
+	<dd><label for="titulo_do_eleitor">insira o seu titulo de eleitor</label>
+        <dd><input type="text" name="titulo_do_eleitor" id="titulo_do_eleitor" value="" />
+        <br/><br/>
+        <dd><input type="submit" name="escolha_candidato" value="Escolha já seu candidato à presidência do brasil" />
+      </dl>
+      <br/>      
+    </form>
+    
+{% endblock %}

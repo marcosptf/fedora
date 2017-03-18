@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <form action="/confirma_candidato" method="post" class="add-entry" >
+      <br/>
+      <br/>      
+      <table border="1">
+	<thead>
+	  <th>
+	    <input type="image" src="img/carioca-panico.jpg" alt="Submit" width="48" height="48" />
+	  </th>
+	  <th>
+	    <input type="image" src="img/danilo-gentili.jpg" alt="Submit" width="48" height="48" />
+	  </th>
+	  <th>
+	    <input type="image" src="img/rafinha-bastos.jpg" alt="Submit" width="48" height="48" />
+	  </th>
+	  <th>
+	    <input type="image" src="img/sergio-mallandro.jpg" alt="Submit" width="48" height="48" />
+	  </th>
+	</thread>
+	<tbody>
+	  <tr>
+	    <td>
+	      <input type="submit" name="candidato_carioca" value="Carioca do Panico" />
+	    </td>
+	    <td>
+	      <input type="submit" name="candidato_danilo" value="Danilo Gentili" />
+	    </td>
+	    <td>
+	      <input type="submit" name="candidato_rafinha" value="Rafinha Bastos" />
+	    </td>
+	    <td>
+	      <input type="submit" name="candidato_sergio" value="Sergio Mallandro" />
+	    </td>
+	  </tr>
+	</tbody>
+     </table>          
+      <br/>      
+      <br/>
+    </form>
+    
+{% endblock %}
