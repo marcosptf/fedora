@@ -25,6 +25,22 @@ A partir do pacote sqlalchemy.orm, me traga o componente relationship;
 
 Isto significa que, o flask, fará uso do componente relationship que está dentro do pacote sqlalchemy.orm;
 
+
+#comandos usados para criar database no pymongo
+>>> from pymongo import MongoClient
+>>> client = MongoClient()
+>>> client
+MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True)
+>>> 
+>>> db = client.urna_database
+>>> db
+Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'urna_database')
+>>> collection = db.urna_collection
+>>> collection
+Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'urna_database'), u'urna_collection')
+>>> 
+
+
 '''
 import os, sys
 import pymysql.cursors
