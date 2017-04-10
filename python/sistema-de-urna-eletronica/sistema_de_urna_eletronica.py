@@ -43,7 +43,7 @@ Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, t
 
 '''
 import os, sys
-from pymongo import MongoClient
+import pymysql.cursors
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
