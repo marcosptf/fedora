@@ -103,7 +103,6 @@ def ver_relatorio_paciente():
 
 
 def gera_proxima_senha_normal():
-  
     conn = obtem_mongodb()
     try:
         with conn.cursor() as cursor:
@@ -122,7 +121,6 @@ def gera_proxima_senha_normal():
 
 
 def gera_proxima_senha_prioridade():
-  
     conn = obtem_mongodb()
     try:
         with conn.cursor() as cursor:
@@ -185,7 +183,6 @@ def atende_proximo_paciente():
 
 
 def ultima_senha_chamada():
-  
     conn = obtem_mongodb()
     try:
         with conn.cursor() as cursor:

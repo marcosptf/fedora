@@ -477,8 +477,10 @@ pprint.pprint(collection.find_one({"_id": post_id}))
 from pymongo import MongoClient
 client = MongoClient()
 
+#criando um novo database
 db = client.urna_eletronica_db
 
+#criando uma nova collection
 collection = db.urna_eletronica_collection
 
 db
@@ -486,28 +488,91 @@ collection
 
 #criando um novo registro para ser inserido na collection
 import datetime
-votacao = { 
-"titulo-eleitor": "1234567890",
-"candidato-escolhido": "danilo-gentili!",
-"data-votacao": datetime.datetime.utcnow()
-}
 
 votacao
 
+#insercao de um novo registro
 post_id = collection.insert_one(votacao).inserted_id
 
-post_id
 
+
+votacao = { 
+"titulo-eleitor": "1234567890",
+"candidato-escolhido": "carioca-panico",
+"data-votacao": datetime.datetime.utcnow()
+}
+collection.insert_one(votacao).inserted_id
+votacao = { 
+"titulo-eleitor": "1234567890",
+"candidato-escolhido": "danilo-gentili",
+"data-votacao": datetime.datetime.utcnow()
+}
+collection.insert_one(votacao).inserted_id
+collection.insert_one(votacao).inserted_id
+collection.insert_one(votacao).inserted_id
+votacao = { 
+"titulo-eleitor": "1234567890",
+"candidato-escolhido": "joselito-hermes-e-renato",
+"data-votacao": datetime.datetime.utcnow()
+}
+collection.insert_one(votacao).inserted_id
+votacao = { 
+"titulo-eleitor": "1234567890",
+"candidato-escolhido": "carioca-panico",
+"data-votacao": datetime.datetime.utcnow()
+}
+collection.insert_one(votacao).inserted_id
+votacao = { 
+"titulo-eleitor": "1234567890",
+"candidato-escolhido": "danilo-gentili",
+"data-votacao": datetime.datetime.utcnow()
+}
+collection.insert_one(votacao).inserted_id
+votacao = { 
+"titulo-eleitor": "1234567890",
+"candidato-escolhido": "rafinha-bastos",
+"data-votacao": datetime.datetime.utcnow()
+}
+collection.insert_one(votacao).inserted_id
+votacao = { 
+"titulo-eleitor": "1234567890",
+"candidato-escolhido": "sergio-mallandro",
+"data-votacao": datetime.datetime.utcnow()
+}
+collection.insert_one(votacao).inserted_id
+
+
+#estatistica de quantidade de votos por candidatos
+collection.find({"candidato-escolhido": "danilo-gentili"}).count()
+collection.find({"candidato-escolhido": "carioca-panico"}).count()
+collection.find({"candidato-escolhido": "joselito-hermes-e-renato"}).count()
+collection.find({"candidato-escolhido": "rafinha-bastos"}).count()
+collection.find({"candidato-escolhido": "sergio-mallandro"}).count()
+
+
+post_id
 db.collection_names(include_system_collections=False)
 
-import pprint
-
-pprint.pprint(collection.find_one())
+import pprint;pprint.pprint(collection.find_one());
 
 post_id
 pprint.pprint(collection.find_one({"_id": post_id}))
 
+>>> 
+>>> for colect in collection.find():
+...     pprint.pprint(colect['candidato-escolhido'])
+... 
+u'danilo-gentili!'
+u'danilo-gentili!'
+u'carioca-panico'
+u'danilo-gentili'
+u'joselito-hermes-e-renato'
+u'carioca-panico'
+u'danilo-gentili'
+u'rafinha-bastos'
+u'sergio-mallandro'
 
+collection.find({"candidato-escolhido": "danilo-gentili"}).count()
 
 #interator para registros de uma collection
 >>> for post in posts.find():
@@ -537,3 +602,18 @@ pprint.pprint(collection.find_one({"_id": post_id}))
 #contagem dos registros encontrados
 >>> posts.find({"author": "Mike"}).count()
 1
+
+
+==========================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
