@@ -63,9 +63,7 @@ def index():
     ultima_senha = ultima_senha_chamada()
     ver_relatorio = ver_relatorio_paciente()
     return render_template('index_urna.html', 
-			   ultima_senha = ultima_senha,
 			   ver_relatorio = ver_relatorio)
-  
 
 @app.route('/identificacao_do_eleitor', methods=['POST'])
 def identificacao_do_eleitor():
@@ -200,9 +198,7 @@ def ultima_senha_chamada():
       
 def obtem_mongodb():
     #MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True)
-    conn = MongoClient("mongodb://localhost:27017")
-    return conn
- 
+    return MongoClient("mongodb://localhost:27017")
 
 if __name__ == '__main__'  :
     app.run()
