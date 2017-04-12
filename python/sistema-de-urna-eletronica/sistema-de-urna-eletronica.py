@@ -60,10 +60,10 @@ app.config.update(dict( DEBUG=True, SECRET_KEY='sistema-de-urna-eletronica-key' 
 
 @app.route('/')
 def index():
-    ultima_senha = ultima_senha_chamada()
-    ver_relatorio = ver_relatorio_paciente()
-    return render_template('index_urna.html', 
-			   ver_relatorio = ver_relatorio)
+    #ultima_senha = ultima_senha_chamada()
+    #ver_relatorio = ver_relatorio_paciente()
+    return render_template('index_urna.html')
+			   #,ver_relatorio = ver_relatorio)
 
 @app.route('/identificacao_do_eleitor', methods=['POST'])
 def identificacao_do_eleitor():
@@ -83,23 +83,23 @@ def confirma_candidato():
 def confirma_voto():
     return render_template('voto_confirmado.html')
 
-def ver_relatorio_paciente():
-    conn = obtem_mongodb()
-    try:
-        with conn.cursor() as cursor:  
-            query_relatorio_paciente = """
-            select
-            (select count(id) from painel where senha_atendida = '1') as pacientes_atendidos,
+#def ver_relatorio_paciente():
+    #conn = obtem_mongodb()
+    #try:
+        #with conn.cursor() as cursor:  
+            #query_relatorio_paciente = """
+            #select
+            #(select count(id) from painel where senha_atendida = '1') as pacientes_atendidos,
 
-            (select count(id) from painel where senha_atendida = '0') as pacientes_aguardando_atendimento,
+            #(select count(id) from painel where senha_atendida = '0') as pacientes_aguardando_atendimento,
 
-            (select count(id) from painel where senha_atendida = '0' and senha_prioridade = '1') as pacientes_prioridade_aguardando_atendimento;
-            """
-            cursor.execute(query_relatorio_paciente)
-            return cursor.fetchone()  
+            #(select count(id) from painel where senha_atendida = '0' and senha_prioridade = '1') as pacientes_prioridade_aguardando_atendimento;
+            #"""
+            #cursor.execute(query_relatorio_paciente)
+            #return cursor.fetchone()  
             
-    finally:
-        conn.close()	  
+    #finally:
+        #conn.close()	  
 
 
 def gera_proxima_senha_normal():
@@ -182,15 +182,15 @@ def atende_proximo_paciente():
             conn.close()
 
 
-def ultima_senha_chamada():
-    conn = obtem_mongodb()
-    try:
-        with conn.cursor() as cursor:
-            sql = "select id from painel where ultima_senha_atendida = '1';"
-            cursor.execute(sql)
-            return cursor.fetchone()
-    finally:
-        conn.close()    
+#def ultima_senha_chamada():
+    #conn = obtem_mongodb()
+    #try:
+        #with conn.cursor() as cursor:
+            #sql = "select id from painel where ultima_senha_atendida = '1';"
+            #cursor.execute(sql)
+            #return cursor.fetchone()
+    #finally:
+        #conn.close()    
 
       
 def obtem_mongodb():
