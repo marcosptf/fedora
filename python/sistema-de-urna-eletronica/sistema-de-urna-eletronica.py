@@ -58,30 +58,80 @@ Aqui é adicionado as configuracoes da aplicacao
 '''
 app.config.update(dict( DEBUG=True, SECRET_KEY='sistema-de-urna-eletronica-key' ))
 
+eleitor = ""
+candidato = ""
+
+
 @app.route('/')
 def index():
     #ultima_senha = ultima_senha_chamada()
     #ver_relatorio = ver_relatorio_paciente()
     return render_template('index_urna.html')
+                         
 			   #,ver_relatorio = ver_relatorio)
 
-@app.route('/identificacao_do_eleitor', methods=['POST'])
+@app.route('/identificacao_do_eleitor', methods=['GET'])
 def identificacao_do_eleitor():
     return render_template('eleitor.html')
 
-
 @app.route('/escolha_seu_candidato', methods=['POST'])
 def escolha_seu_candidato():
+    data_form = request.form  
+    session['eleitor'] = data_form['titulo_do_eleitor']
+    import pprint;pprint.pprint(eleitor);
     return render_template('candidato.html')
-
 
 @app.route('/confirma_candidato', methods=['POST'])
 def confirma_candidato():
-    return render_template('confirma_candidato.html')
+    data_form = request.form  
+    session['candidato'] = data_form['candidato']
+    import pprint;pprint.pprint(eleitor);pprint.pprint(candidato);  
+    return render_template('confirma_candidato.html',
+			   candidato=session['candidato'],
+			   eleitor=session['eleitor'])
 
 @app.route('/confirma_voto', methods=['POST'])
 def confirma_voto():
-    return render_template('voto_confirmado.html')
+    import datetime
+#session['candidato'],
+#session['eleitor']  
+    from pymongo import MongoClient
+    client = MongoClient()
+    db = client.urna_eletronica_db
+    collection = db.urna_eletronica_collection
+    votacao = { 
+    "titulo-eleitor": session['eleitor'],
+    "candidato-escolhido": session['candidato'],
+    "data-votacao": datetime.datetime.utcnow()
+    }
+    collection.insert_one(votacao).inserted_id
+  
+    return render_template('voto_confirmado.html',
+			   eleitor=eleitor)
+
+@app.route('/relatorio_votacao', methods=['GET'])
+def relatorio_votacao():
+    from pymongo import MongoClient
+    client = MongoClient()
+    db = client.urna_eletronica_db
+    collection = db.urna_eletronica_collection
+    danilo = collection.find({"candidato-escolhido": "danilo-gentili"}).count()
+    carioca = collection.find({"candidato-escolhido": "carioca-panico"}).count()
+    rafinha = collection.find({"candidato-escolhido": "rafinha-bastos"}).count()
+    sergio = collection.find({"candidato-escolhido": "sergio-mallandro"}).count()
+    total = (danilo + carioca + rafinha + sergio)
+    import pprint;
+    pprint.pprint(danilo);
+    pprint.pprint(carioca);
+    pprint.pprint(rafinha);
+    pprint.pprint(sergio);
+    pprint.pprint(total);
+    return render_template('relatorio_votacao.html',
+			   danilo=danilo,
+			   carioca=carioca,
+			   rafinha=rafinha,
+			   sergio=sergio,
+			   total=total)  
 
 #def ver_relatorio_paciente():
     #conn = obtem_mongodb()

@@ -3,9 +3,11 @@
 
     <form action="/confirma_voto" method="post" class="add-entry" >
       <br/>
-      <dl>
+      <dl> 
+	<dd><label for="candidato_escolhido">eleitor:</label>
+        <dd><input type="text" name="eleitor" id="eleitor" value="{{eleitor}}" disabled />      
 	<dd><label for="candidato_escolhido">candidato escolhido:</label>
-        <dd><input type="text" name="candidato_escolhido" id="candidato_escolhido" value="" disabled />
+        <dd><input type="text" name="candidato_escolhido" id="candidato_escolhido" value="{{candidato}}" disabled />
         <br/><br/>
         <dd><input type="submit" name="escolha_candidato" value="confirmar voto" />
       </dl>

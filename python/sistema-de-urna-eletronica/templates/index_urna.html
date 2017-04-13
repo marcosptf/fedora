@@ -1,12 +1,26 @@
 {% extends "layout.html" %}
 {% block body %}
 
-    <form action="/identificacao_do_eleitor" method="post" class="add-entry" >
+<!--     <form action="#" method="get" class="add-entry" > -->
       <br/>
       <dl>
-        <dd><input type="submit" name="escolha_candidato" value="Escolha já seu candidato à presidência do brasil" />
+        <dd>
+        <a href="/identificacao_do_eleitor">
+         <button>
+	  Escolha já seu candidato à presidência do brasil
+         </button>
+        </a>
       </dl>
       <br/>      
-    </form>
+      <dl>
+        <dd>
+        <a href="/relatorio_votacao">
+         <button>
+	  Relatório de votação
+         </button>
+        </a>        
+      </dl>
+      <br/> 
+<!--     </form> -->
     
 {% endblock %}
