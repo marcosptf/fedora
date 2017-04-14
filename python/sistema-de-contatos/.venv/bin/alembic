@@ -1,4 +1,4 @@
-#!/root/develop/fedora/python/sistema-de-espera/.venv/bin/python2
+#!/root/NetBeansProjects/fedora/python/sistema-de-contatos/.venv/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'alembic==0.8.6','console_scripts','alembic'
 __requires__ = 'alembic==0.8.6'
 import sys

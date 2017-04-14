@@ -1,1 +1,1 @@
-/usr/lib64/python2.7/ntpath.py
+/usr/lib/python2.7/ntpath.py

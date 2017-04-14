@@ -8,9 +8,30 @@ Data structures that power Requests.
 
 """
 
+import os
 import collections
+from itertools import islice
 
-from .compat import OrderedDict
+
+class IteratorProxy(object):
+    """docstring for IteratorProxy"""
+    def __init__(self, i):
+        self.i = i
+        # self.i = chain.from_iterable(i)
+
+    def __iter__(self):
+        return self.i
+
+    def __len__(self):
+        if hasattr(self.i, '__len__'):
+            return len(self.i)
+        if hasattr(self.i, 'len'):
+            return self.i.len
+        if hasattr(self.i, 'fileno'):
+            return os.fstat(self.i.fileno()).st_size
+
+    def read(self, n):
+        return "".join(islice(self.i, None, n))
 
 
 class CaseInsensitiveDict(collections.MutableMapping):
@@ -25,7 +46,7 @@ class CaseInsensitiveDict(collections.MutableMapping):
     case of the last key to be set, and ``iter(instance)``,
     ``keys()``, ``items()``, ``iterkeys()``, and ``iteritems()``
     will contain case-sensitive keys. However, querying and contains
-    testing is case insensitive::
+    testing is case insensitive:
 
         cid = CaseInsensitiveDict()
         cid['Accept'] = 'application/json'
@@ -42,7 +63,7 @@ class CaseInsensitiveDict(collections.MutableMapping):
 
     """
     def __init__(self, data=None, **kwargs):
-        self._store = OrderedDict()
+        self._store = dict()
         if data is None:
             data = {}
         self.update(data, **kwargs)

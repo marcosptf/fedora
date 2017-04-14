@@ -32,7 +32,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/root/develop/fedora/python/sistema-de-espera/.venv"
+set -gx VIRTUAL_ENV "/root/NetBeansProjects/fedora/python/sistema-de-contatos/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

@@ -39,7 +39,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/root/develop/fedora/python/sistema-de-espera/.venv"
+VIRTUAL_ENV="/root/NetBeansProjects/fedora/python/sistema-de-contatos/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
