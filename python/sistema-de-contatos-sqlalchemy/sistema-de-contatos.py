@@ -8,6 +8,15 @@ http://docs.sqlalchemy.org/en/rel_1_1/orm/tutorial.html
 http://docs.sqlalchemy.org/en/rel_1_1/orm/mapper_config.html
 http://docs.sqlalchemy.org/en/rel_1_1/orm/relationships.html
 
+
+import sqlalchemy
+from sqlalchemy import create_engine
+engine = create_engine("mysql://root@localhost/sistema_de_contatos",
+                        )
+
+
+
+
 """
 
 '''
@@ -257,15 +266,6 @@ def atende_proximo_paciente():
 
         finally:
             conn.close()
-
-def obtem_mariadb():
-    conn = pymysql.connect(host='localhost',
-                           user='root',
-                           password='123456',
-                           db='sistema_de_contatos',
-                           charset='utf8mb4',
-                           cursorclass=pymysql.cursors.DictCursor)
-    return conn
 
 if __name__ == '__main__'  :
     app.run()
