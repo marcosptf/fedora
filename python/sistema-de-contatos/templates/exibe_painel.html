@@ -22,20 +22,26 @@
       <th>bairro</th>	  
       <th>cidade</th>	  
       <th>estado</th>	  
+      <th>edita contato</th>
+      <th>deleta contato</th>      
     </thread>
     <tbody>
+    {% for contato in contatos %}
       <tr>
-	<td>{{ nome }}</td>
-	<td>{{ email }}</td>
-	<td>{{ whatsApp }}</td>
-	<td>{{ facebook }}</td>
-	<td>{{ twitter }}</td>
-	<td>{{ website }}</td>
-	<td>{{ endereco }}</td>
-	<td>{{ bairro }}</td>
-	<td>{{ cidade }}</td>
-	<td>{{ estado }}</td>
+	<td>{{ contato.nome }}</td>
+	<td>{{ contato.email }}</td>
+	<td>{{ contato.whatsapp }}</td>
+	<td>{{ contato.facebook }}</td>
+	<td>{{ contato.twitter }}</td>
+	<td>{{ contato.website }}</td>
+	<td>{{ contato.endereco }}</td>
+	<td>{{ contato.bairro }}</td>
+	<td>{{ contato.cidade }}</td>
+	<td>{{ contato.estado }}</td>
+	<td><a href="/editar_contato?id={{ contato.id }}">editar</a></td>
+	<td><a href="/deletar_contato?id={{ contato.id }}">deletar</a></td>
       </tr>
+     {% endfor %} 
     </tbody>
   </table>      
    
