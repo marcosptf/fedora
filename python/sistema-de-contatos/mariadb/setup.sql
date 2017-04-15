@@ -27,23 +27,3 @@ create table contatos (
 show tables;
 show create table contatos;
 select * from contatos;
-
-	conn = obtem_mariadb()	
-        with conn.cursor() as cursor:
-            query_insere_novo_contato = """
-            insert into painel
-            (nome,email,whatsapp,facebook,twitter,website,endereco,bairro,cidade,estado)
-            values
-            ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');
-            """
-	    cursor.execute(query_insere_novo_contato,
-			    data_form['contato_nome'],
-			    data_form['contato_email'],
-			    data_form['contato_whatsapp'],
-			    data_form['contato_facebook'],
-			    data_form['contato_twitter'],
-			    data_form['contato_website'],
-			    data_form['contato_endereco'],
-			    data_form['contato_bairro'],
-			    data_form['contato_cidade'],
-			    data_form['contato_estado'])            
