@@ -1,0 +1,48 @@
+six
+SQLAlchemy>=0.8.0
+toolz>=0.4.1
+
+[phone]
+phonenumbers<5.6b1
+
+[password]
+passlib >= 1.6, < 2.0
+
+[url]
+furl >= 0.3.5
+
+[arrow]
+arrow>=0.3.4
+
+[timezone]
+python-dateutil
+
+[test]
+pytest==2.2.3
+Pygments>=1.2
+Jinja2>=2.3
+docutils>=0.10
+flexmock>=0.9.7
+psycopg2>=2.5.1
+pymysql
+phonenumbers<5.6b1
+passlib >= 1.6, < 2.0
+furl >= 0.3.5
+arrow>=0.3.4
+python-dateutil
+Babel>=1.3
+anyjson>=0.3.3
+ipaddr
+colour>=0.0.4
+
+[babel]
+Babel>=1.3
+
+[anyjson]
+anyjson>=0.3.3
+
+[ipaddress]
+ipaddr
+
+[color]
+colour>=0.0.4
