@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-    sistema de pontos
+    sistema de contatos feito com sqlalchemy
 
-    Esta aplicacao exemplo Flask, eh um simulador de sistema de espera.
-    Flask and sqlite3.
+http://docs.sqlalchemy.org/en/rel_1_1/intro.html
+http://docs.sqlalchemy.org/en/rel_1_1/orm/index.html
+http://docs.sqlalchemy.org/en/rel_1_1/orm/tutorial.html
+http://docs.sqlalchemy.org/en/rel_1_1/orm/mapper_config.html
+http://docs.sqlalchemy.org/en/rel_1_1/orm/relationships.html
+
 """
 
 '''
