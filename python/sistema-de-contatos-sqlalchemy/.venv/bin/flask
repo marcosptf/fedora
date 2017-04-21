@@ -1,4 +1,4 @@
-#!/root/NetBeansProjects/fedora/python/sistema-de-contatos/.venv/bin/python
+#!/root/NetBeansProjects/fedora/python/sistema-de-contatos-sqlalchemy/.venv/bin/python
 
 # -*- coding: utf-8 -*-
 import re

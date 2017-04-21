@@ -4,6 +4,8 @@
 
 http://docs.sqlalchemy.org/en/rel_1_1/intro.html
 http://docs.sqlalchemy.org/en/rel_1_1/orm/index.html
+http://docs.sqlalchemy.org/en/latest/core/engines.html
+http://docs.sqlalchemy.org/en/rel_1_1/core/tutorial.html
 http://docs.sqlalchemy.org/en/rel_1_1/orm/tutorial.html
 http://docs.sqlalchemy.org/en/rel_1_1/orm/mapper_config.html
 http://docs.sqlalchemy.org/en/rel_1_1/orm/relationships.html
@@ -11,8 +13,11 @@ http://docs.sqlalchemy.org/en/rel_1_1/orm/relationships.html
 
 import sqlalchemy
 from sqlalchemy import create_engine
-engine = create_engine("mysql://root@localhost/sistema_de_contatos",
-                        )
+#engine = create_engine('postgresql://scott:tiger@localhost:5432/mydatabase')
+engine = create_engine("mysql://root:123456@localhost:3306/sistema_de_contatos", echo=True)
+
+
+
 
 
 

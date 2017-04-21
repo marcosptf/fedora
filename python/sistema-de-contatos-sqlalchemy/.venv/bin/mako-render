@@ -1,4 +1,4 @@
-#!/root/NetBeansProjects/fedora/python/sistema-de-contatos/.venv/bin/python
+#!/root/NetBeansProjects/fedora/python/sistema-de-contatos-sqlalchemy/.venv/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'Mako==1.0.4','console_scripts','mako-render'
 __requires__ = 'Mako==1.0.4'
 import sys

@@ -1,4 +1,4 @@
-#!/root/NetBeansProjects/fedora/python/sistema-de-contatos/.venv/bin/python
+#!/root/NetBeansProjects/fedora/python/sistema-de-contatos-sqlalchemy/.venv/bin/python
 # This file is part of the twill source distribution.
 #
 # twill is a extensible scriptlet language for testing Web apps,

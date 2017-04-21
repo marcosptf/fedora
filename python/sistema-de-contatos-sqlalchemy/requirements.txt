@@ -42,3 +42,4 @@ traitlets==4.2.1
 twill==1.8.0
 Werkzeug==0.11.10
 WTForms==2.1
+MySQL-python==1.2.5

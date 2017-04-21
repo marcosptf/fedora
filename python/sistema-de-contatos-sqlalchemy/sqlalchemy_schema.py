@@ -6,7 +6,7 @@ class Contatos(Base):
     __tablename__ = "contatos"
     
     id = Column(Integer, primary_key=True)
-    name = Column(String(250)) #colocar not null
+    nome = Column(String(250)) #colocar not null
     email = Column(String(50))
     whatsapp = Column(String(12))
     facebook = Column(String(50))
