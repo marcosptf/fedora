@@ -106,34 +106,34 @@ def busca_contato(id):
         pass
  
 def salva_contato_query(data_form):
-
+    
     try:
         if(data_form['id'] == "" ):
-            add_novo_contato = Contatos(nome = data_form['nome'],
-                                        email = data_form['email'],
-                                        whatsapp = data_form['whatsapp'],
-                                        facebook = data_form['facebook'],
-                                        twitter = data_form['twitter'],
-                                        website = data_form['website'],
-                                        endereco = data_form['endereco'],
-                                        bairro = data_form['bairro'],
-                                        cidade = data_form['cidade'],
-                                        estado = data_form['estado'],)
+            add_novo_contato = Contatos(nome = data_form['contato_nome'],
+                                        email = data_form['contato_email'],
+                                        whatsapp = data_form['contato_whatsapp'],
+                                        facebook = data_form['contato_facebook'],
+                                        twitter = data_form['contato_twitter'],
+                                        website = data_form['contato_website'],
+                                        endereco = data_form['contato_endereco'],
+                                        bairro = data_form['contato_bairro'],
+                                        cidade = data_form['contato_cidade'],
+                                        estado = data_form['contato_estado'])
             session.add(add_novo_contato)
             session.commit()
 
         else:
-            contato = session.query(Contatos).filter_by(id=data_form['id']).first()
-            contato.nome = data_form['nome']
-            contato.email = data_form['email']
-            contato.whatsapp = data_form['whatsapp']
-            contato.facebook = data_form['facebook']
-            contato.twitter = data_form['twitter']
-            contato.website = data_form['website']
-            contato.endereco = data_form['endereco']
-            contato.bairro = data_form['bairro']
-            contato.cidade = data_form['cidade']
-            contato.estado = data_form['estado']
+            atualiza_contato = session.query(Contatos).filter_by(id=data_form['id']).first()
+            atualiza_contato.nome = data_form['contato_nome']
+            atualiza_contato.email = data_form['contato_email']
+            atualiza_contato.whatsapp = data_form['contato_whatsapp']
+            atualiza_contato.facebook = data_form['contato_facebook']
+            atualiza_contato.twitter = data_form['contato_twitter']
+            atualiza_contato.website = data_form['contato_website']
+            atualiza_contato.endereco = data_form['contato_endereco']
+            atualiza_contato.bairro = data_form['contato_bairro']
+            atualiza_contato.cidade = data_form['contato_cidade']
+            atualiza_contato.estado = data_form['contato_estado']
 
             session.commit()
 
