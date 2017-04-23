@@ -16,12 +16,6 @@ from sqlalchemy import create_engine
 #engine = create_engine('postgresql://scott:tiger@localhost:5432/mydatabase')
 engine = create_engine("mysql://root:123456@localhost:3306/sistema_de_contatos", echo=True)
 
-
-
-
-
-
-
 """
 
 '''
@@ -41,12 +35,20 @@ import os, sys
 import pymysql.cursors
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy_base import engine
+from sqlalchemy_schema import Contatos
 
 '''
 Aqui é criado a aplicacao flask
 '''
 app = Flask(__name__)
 
+'''
+criando uma instancia de session
+'''
+Session = sessionmaker(bind=engine)
+session = Session()
 
 '''
 Aqui é adicionado as configuracoes da aplicacao
@@ -63,7 +65,6 @@ def index():
 def editar_contato():
     data_form = request.form
     contatos = busca_contato(request.args.get('id'))
-    import pprint;pprint.pprint(contatos)
     return render_template('editar_contato.html',
                            contatos=contatos)
 
@@ -77,200 +78,76 @@ def deletar_contato():
 def novo_contato():
     return render_template('novo_contato.html')
 
-def apaga_contato(id):
-    conn = obtem_mariadb()
-    try:
-        with conn.cursor() as cursor:
-            sql = """
-            delete from contatos
-            where id=%s;
-            """ % id
-            cursor.execute(sql)
-            return conn.commit()
-    finally:
-        conn.close()    
-
-def busca_contato(id):
-    conn = obtem_mariadb()
-    try:
-        with conn.cursor() as cursor:
-            sql = """
-            select id, nome, email, whatsapp, facebook, twitter, website, endereco, bairro, cidade, estado 
-            from contatos
-            where id='%s';
-            """ % id
-            print(sql)
-            cursor.execute(sql)
-            return cursor.fetchone()
-    finally:
-        conn.close()    
-
 @app.route('/salva_contato', methods=['POST'])
 def salva_contato():
     data_form = request.form 
-    print("js==>1")
+
     if data_form['contato_nome'] == "":
         flash('favor, coloque o nome do contato!')
-    print("js==>2")
+
     if data_form['voltar_index'] == "cancelar":
         return redirect(url_for('index'))
 
-    print("js==>3")
     salva_contato_query(data_form)
-    print("js==>4")
     return redirect(url_for('index'))
 
-def salva_contato_query(data_form):
-    print("js==>5")      
-    conn = obtem_mariadb()    
+def apaga_contato(id):
+    try:
+        contato = session.query(Contatos).filter_by(id=id).first()
+        session.delete(contato)
+        session.commit()
+    finally:
+        pass
 
-    try:      
-        with conn.cursor() as cursor:
-            if(data_form['id'] == "" ):
-	        print("js==>7")
-                query_salva_contato = """
-                insert into contatos
-                (nome,email,whatsapp,facebook,twitter,website,endereco,bairro,cidade,estado)
-                values
-                ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')
-                """ . format(data_form['contato_nome'],
-                             data_form['contato_email'],
-                             data_form['contato_whatsapp'],
-                             data_form['contato_facebook'],            
-                             data_form['contato_twitter'],
-                             data_form['contato_website'],
-                             data_form['contato_endereco'],
-                             data_form['contato_bairro'],
-                             data_form['contato_cidade'],
-                             data_form['contato_estado'])
-                print("js==>8")
-            else:
-                print("js==>9")
-                query_salva_contato = """
-                update   contatos
-                set      nome = '{}',
-                         email = '{}',
-                         whatsapp = '{}',
-                         facebook = '{}',
-                         twitter = '{}',
-                         website = '{}',
-                         endereco = '{}',
-                         bairro = '{}',
-                         cidade = '{}',
-                         estado = '{}'
-                where    id='{}';
-                """  . format(data_form['contato_nome'],
-                              data_form['contato_email'],
-                              data_form['contato_whatsapp'],
-                              data_form['contato_facebook'],            
-                              data_form['contato_twitter'],
-                              data_form['contato_website'],
-                              data_form['contato_endereco'],
-                              data_form['contato_bairro'],
-                              data_form['contato_cidade'],
-                              data_form['contato_estado'],
-                              data_form['id'])                
-		print("js==>10")
-	    print(query_salva_contato)
-            cursor.execute(query_salva_contato)
-            print("js==>11")
-            conn.commit()
-            print("js==>12")
-            flash('contato salvo com sucesso!')     
+def busca_contato(id):
+    try:
+        return session.query(Contatos).filter_by(id=id).first()
+    finally:
+        pass
+ 
+def salva_contato_query(data_form):
+
+    try:
+        if(data_form['id'] == "" ):
+            add_novo_contato = Contatos(nome = data_form['nome'],
+                                        email = data_form['email'],
+                                        whatsapp = data_form['whatsapp'],
+                                        facebook = data_form['facebook'],
+                                        twitter = data_form['twitter'],
+                                        website = data_form['website'],
+                                        endereco = data_form['endereco'],
+                                        bairro = data_form['bairro'],
+                                        cidade = data_form['cidade'],
+                                        estado = data_form['estado'],)
+            session.add(add_novo_contato)
+            session.commit()
+
+        else:
+            contato = session.query(Contatos).filter_by(id=data_form['id']).first()
+            contato.nome = data_form['nome']
+            contato.email = data_form['email']
+            contato.whatsapp = data_form['whatsapp']
+            contato.facebook = data_form['facebook']
+            contato.twitter = data_form['twitter']
+            contato.website = data_form['website']
+            contato.endereco = data_form['endereco']
+            contato.bairro = data_form['bairro']
+            contato.cidade = data_form['cidade']
+            contato.estado = data_form['estado']
+
+            session.commit()
+
+        flash('contato salvo com sucesso!')     
             
     finally:
-        conn.close()
+        pass
 
 def listar_contatos():
-    conn = obtem_mariadb()
     try:
-        with conn.cursor() as cursor:  
-            query_relatorio_paciente = """
-	    select id, nome, email, whatsapp, facebook, twitter, website, endereco, bairro, cidade, estado 
-	    from contatos
-	    order by id asc;
-            """
-            cursor.execute(query_relatorio_paciente)
-            return cursor.fetchall()  
+        return session.query(Contatos).order_by(Contatos.id)
             
     finally:
-        conn.close()	  
-
-def gera_proxima_senha_normal():
-    conn = obtem_mariadb()
-    try:
-        with conn.cursor() as cursor:
-            query_gera_senha_normal = """
-            insert into painel
-            (senha_prioridade, senha_atendida, ultima_senha_atendida)
-            values
-            (default, default, default);
-            """
-            cursor.execute(query_gera_senha_normal)
-            conn.commit()
-            flash('Senha Normal Gerada')            
-            
-    finally:
-        conn.close()
-
-def gera_proxima_senha_prioridade():
-    conn = obtem_mariadb()
-    try:
-        with conn.cursor() as cursor:
-            query_gera_senha_prioridade = """
-            insert into painel
-            (senha_prioridade, senha_atendida, ultima_senha_atendida)
-            values
-            (1, default, default);
-            """
-            cursor.execute(query_gera_senha_prioridade)
-            conn.commit()
-            flash('Senha Prioridade Gerada')            
-            
-    finally:
-        conn.close()
-
-def atende_proximo_paciente():
-    relatorio = ver_relatorio_paciente()  
-    
-    if relatorio['pacientes_aguardando_atendimento'] > 0:
-        conn = obtem_mariadb()
-        try:
-            with conn.cursor() as cursor:
-
-                ultimo_paciente = ultima_senha_chamada()
-
-                query_atendido = """
-                update    painel 
-                set       ultima_senha_atendida = '0'
-                where     id = '%s';
-                """
-                cursor.execute(query_atendido, ultimo_paciente['id'])
-                conn.commit()
-            
-                query_proximo_paciente = """
-                select   id 
-                from     painel 
-                where    senha_atendida = '0'
-                order by senha_prioridade desc,
-	                 id asc
-                limit    1;            
-                """
-                cursor.execute(query_proximo_paciente)
-                resp_proximo_paciente =  cursor.fetchone()
-            
-                query_atualiza_painel = """
-                update   painel
-                set      ultima_senha_atendida = '1',
-                         senha_atendida = '1'
-                where    id = '%s';
-                """
-                cursor.execute(query_atualiza_painel, resp_proximo_paciente['id'])
-                conn.commit()            
-                flash('Chamando Proximo Paciente')
-
-        finally:
-            conn.close()
+        pass
 
 if __name__ == '__main__'  :
     app.run()

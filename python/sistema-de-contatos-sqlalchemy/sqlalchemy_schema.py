@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
 
+#criando um mapper da tabela
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
+from sqlalchemy_base import engine
+
+Base = declarative_base()
+Base.metadata.create_all(engine)
 
 class Contatos(Base):
-    __tablename__ = "contatos"
-    
+    __tablename__ = 'contatos'
+
     id = Column(Integer, primary_key=True)
-    nome = Column(String(250)) #colocar not null
+    nome = Column(String(250))
     email = Column(String(50))
     whatsapp = Column(String(12))
     facebook = Column(String(50))
@@ -16,14 +22,11 @@ class Contatos(Base):
     bairro = Column(String(50))
     cidade = Column(String(50))
     estado = Column(String(50))
-    
+
     def __repr__(self):
         return """
-        <Contatos(name='%s', email='%s', whatsapp='%s', facebook='%s', twitter='%s', website='%s',
+        <Contatos(nome='%s', email='%s', whatsapp='%s', facebook='%s', twitter='%s', website='%s',
         endereco='%s',bairro='%s',cidade='%s',estado='%s')>
         """ % (self.id, self.nome, self.email, self.whatsapp, self.facebook, self.twitter,self.website,
         self.endereco, self.bairro, self.cidade, self.estado)
-
-
-
 
