@@ -144,3 +144,28 @@ KeyboardInterrupt
 >>> 
 KeyboardInterrupt
 >>> 
+>>> 
+>>> def index():
+...     def a():
+...         print("a") 
+...         def aa():
+...             print("aa")
+...             def aaa():
+...                 print("aaa")
+...                 def aaaa():
+...                     print("aaaa")
+...                     def aaaaa():
+...                         print("aaaaa")
+...                     aaaaa()
+...                 aaaa()
+...             aaa()
+...         aa()                
+...     a()
+... 
+>>> index()
+a
+aa
+aaa
+aaaa
+aaaaa
+>>> 
