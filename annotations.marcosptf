@@ -488,6 +488,14 @@ http://nikic.github.io/2012/03/16/Understanding-PHPs-internal-function-definitio
 https://github.com/php/php-src/blob/master/CODING_STANDARDS
 http://imasters.com.br/desenvolvimento/como-criar-uma-extensao-php-c-para-manipular-arrays-parte-01-extensao-basica-de-uma-classe-array/?utm_source=iMasters&utm_campaign=3dcfd2c19a-ds_2015_08_18&utm_medium=email&utm_term=0_c1528e6ab3-3dcfd2c19a-359905737
 https://github.com/marcosptf/fedora/issues/39
+https://www.slideshare.net/pierrej/extending-php-7-the-basics
+https://www.slideshare.net/NicoLoubser1/php-internals
+https://nikic.github.io/2015/05/05/Internal-value-representation-in-PHP-7-part-1.html
+http://jpauli.github.io/2016/01/14/php-7-objects.html
+https://pt.slideshare.net/nikita_ppv/php-7-what-changed-internally-php-barcelona-2015
+
+
+
 2)reading c code from https://github.com/php/php-src/tree/master/Zend
 3)install last version of fedora, and compile last version of php and run test and report bugs
 4)write new tests to php-src
