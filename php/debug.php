@@ -21,3 +21,16 @@ function a(){
 	eeeee();
 }
 a();
+#====>
+#abbcccddddeeeeeeeeee
+
+
+$b = "varb";
+
+$a = function () use ($b) {
+	return("php-debugger=>{$b}");
+};
+
+var_export($a());
+#===>
+#'php-debugger=>varb'
