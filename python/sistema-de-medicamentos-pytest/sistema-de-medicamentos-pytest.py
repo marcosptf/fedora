@@ -20,136 +20,15 @@ app.config.update(dict( DEBUG="True", SECRET_KEY='sistema-de-medicamentos-key' )
 
 @app.route('/')
 def index():
-    #contatos = listar_contatos()
-    contatos = ""
+    medicamentos = listar_medicamentos()
     return render_template('exibe_painel.html',
-                           contatos=contatos)
-
-@app.route('/editar_contato', methods=['GET'])
-def editar_contato():
-    data_form = request.form
-    contatos = busca_contato(request.args.get('id'))
-    import pprint;pprint.pprint(contatos)
-    return render_template('editar_contato.html',
-                           contatos=contatos)
-
-@app.route('/deletar_contato', methods=['GET'])
-def deletar_contato():
-    apaga_contato(request.args.get('id'))
-    flash('contato deletado com sucesso!')
-    return redirect(url_for('index'))
-
-@app.route('/novo_contato', methods=['GET'])
-def novo_contato():
-    return render_template('novo_contato.html')
-
-def apaga_contato(id):
-    conn = obtem_mariadb()
-    try:
-        with conn.cursor() as cursor:
-            sql = """
-            delete from contatos
-            where id=%s;
-            """ % id
-            cursor.execute(sql)
-            return conn.commit()
-    finally:
-        conn.close()    
-
-def busca_contato(id):
-    conn = obtem_mariadb()
-    try:
-        with conn.cursor() as cursor:
-            sql = """
-            select id, nome, email, whatsapp, facebook, twitter, website, endereco, bairro, cidade, estado 
-            from contatos
-            where id='%s';
-            """ % id
-            print(sql)
-            cursor.execute(sql)
-            return cursor.fetchone()
-    finally:
-        conn.close()    
-
-@app.route('/salva_contato', methods=['POST'])
-def salva_contato():
-    data_form = request.form 
-    print("js==>1")
-    if data_form['contato_nome'] == "":
-        flash('favor, coloque o nome do contato!')
-    print("js==>2")
-    if data_form['voltar_index'] == "cancelar":
-        return redirect(url_for('index'))
-
-    print("js==>3")
-    salva_contato_query(data_form)
-    print("js==>4")
-    return redirect(url_for('index'))
-
-def salva_contato_query(data_form):
-    print("js==>5")      
-    conn = obtem_mariadb()    
-
-    try:      
-        with conn.cursor() as cursor:
-            if(data_form['id'] == "" ):
-	        print("js==>7")
-                query_salva_contato = """
-                insert into contatos
-                (nome,email,whatsapp,facebook,twitter,website,endereco,bairro,cidade,estado)
-                values
-                ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')
-                """ . format(data_form['contato_nome'],
-                             data_form['contato_email'],
-                             data_form['contato_whatsapp'],
-                             data_form['contato_facebook'],            
-                             data_form['contato_twitter'],
-                             data_form['contato_website'],
-                             data_form['contato_endereco'],
-                             data_form['contato_bairro'],
-                             data_form['contato_cidade'],
-                             data_form['contato_estado'])
-                print("js==>8")
-            else:
-                print("js==>9")
-                query_salva_contato = """
-                update   contatos
-                set      nome = '{}',
-                         email = '{}',
-                         whatsapp = '{}',
-                         facebook = '{}',
-                         twitter = '{}',
-                         website = '{}',
-                         endereco = '{}',
-                         bairro = '{}',
-                         cidade = '{}',
-                         estado = '{}'
-                where    id='{}';
-                """  . format(data_form['contato_nome'],
-                              data_form['contato_email'],
-                              data_form['contato_whatsapp'],
-                              data_form['contato_facebook'],            
-                              data_form['contato_twitter'],
-                              data_form['contato_website'],
-                              data_form['contato_endereco'],
-                              data_form['contato_bairro'],
-                              data_form['contato_cidade'],
-                              data_form['contato_estado'],
-                              data_form['id'])                
-		print("js==>10")
-	    print(query_salva_contato)
-            cursor.execute(query_salva_contato)
-            print("js==>11")
-            conn.commit()
-            print("js==>12")
-            flash('contato salvo com sucesso!')     
-            
-    finally:
-        conn.close()
+                           medicamentos=medicamentos)
 
 def listar_medicamentos():
+
     medicamentos_json = {
-        "doril": [{
+        "medicamento": [{
+            "nome": "doril",
             "preco": 3.50,
             "quantidade-comprimidos": 20,
             "desconto-aposentados": "True",
@@ -157,8 +36,8 @@ def listar_medicamentos():
             "farmacia-popular": "True",
             "generico": "False",
             "miligramas": "400mg"
-        }],
-        "resfenol": [{
+        },{
+            "nome": "resfenol",
             "preco": 4.00,
             "quantidade-comprimidos": 10,
             "desconto-aposentados": "True",
@@ -166,8 +45,8 @@ def listar_medicamentos():
             "farmacia-popular": "False",
             "generico": "False",
             "miligramas": "100mg"
-        }],
-        "benegrip": [{
+        },{
+            "nome": "benegrip",
             "preco": 7.50,
             "quantidade-comprimidos": 30,
             "desconto-aposentados": "True",
@@ -175,8 +54,8 @@ def listar_medicamentos():
             "farmacia-popular": "False",
             "generico": "False",
             "miligramas": "20mg"
-        }],
-        "buscopan": [{
+        },{
+            "nome": "buscopan",
             "preco": 5.50,
             "quantidade-comprimidos": 20,
             "desconto-aposentados": "True",
@@ -184,8 +63,8 @@ def listar_medicamentos():
             "farmacia-popular": "True",
             "generico": "False",
             "miligramas": "40mg"
-        }],
-        "paracetamol": [{
+        },{
+            "nome": "paracetamol",
             "preco": 4.50,
             "quantidade-comprimidos": 20,
             "desconto-aposentados": "True",
@@ -193,8 +72,8 @@ def listar_medicamentos():
             "farmacia-popular": "True",
             "generico": "False",
             "miligramas": "40mg"
-        }],
-        "neosaldina": [{
+        },{
+            "nome": "neosaldina",
             "preco": 3.00,
             "quantidade-comprimidos": 10,
             "desconto-aposentados": "False",
@@ -202,8 +81,8 @@ def listar_medicamentos():
             "farmacia-popular": "False",
             "generico": "False",
             "miligramas": "200mg"
-        }],
-        "miltigrip": [{
+        },{
+            "nome": "multigrip",
             "preco": 6.50,
             "quantidade-comprimidos": 20,
             "desconto-aposentados": "True",
@@ -213,91 +92,7 @@ def listar_medicamentos():
             "miligramas": "40mg"
         }]
     }
-
-def gera_proxima_senha_normal():
-    conn = obtem_mariadb()
-    try:
-        with conn.cursor() as cursor:
-            query_gera_senha_normal = """
-            insert into painel
-            (senha_prioridade, senha_atendida, ultima_senha_atendida)
-            values
-            (default, default, default);
-            """
-            cursor.execute(query_gera_senha_normal)
-            conn.commit()
-            flash('Senha Normal Gerada')            
-            
-    finally:
-        conn.close()
-
-def gera_proxima_senha_prioridade():
-    conn = obtem_mariadb()
-    try:
-        with conn.cursor() as cursor:
-            query_gera_senha_prioridade = """
-            insert into painel
-            (senha_prioridade, senha_atendida, ultima_senha_atendida)
-            values
-            (1, default, default);
-            """
-            cursor.execute(query_gera_senha_prioridade)
-            conn.commit()
-            flash('Senha Prioridade Gerada')            
-            
-    finally:
-        conn.close()
-
-def atende_proximo_paciente():
-    relatorio = ver_relatorio_paciente()  
-    
-    if relatorio['pacientes_aguardando_atendimento'] > 0:
-        conn = obtem_mariadb()
-        try:
-            with conn.cursor() as cursor:
-
-                ultimo_paciente = ultima_senha_chamada()
-
-                query_atendido = """
-                update    painel 
-                set       ultima_senha_atendida = '0'
-                where     id = '%s';
-                """
-                cursor.execute(query_atendido, ultimo_paciente['id'])
-                conn.commit()
-            
-                query_proximo_paciente = """
-                select   id 
-                from     painel 
-                where    senha_atendida = '0'
-                order by senha_prioridade desc,
-	                 id asc
-                limit    1;            
-                """
-                cursor.execute(query_proximo_paciente)
-                resp_proximo_paciente =  cursor.fetchone()
-            
-                query_atualiza_painel = """
-                update   painel
-                set      ultima_senha_atendida = '1',
-                         senha_atendida = '1'
-                where    id = '%s';
-                """
-                cursor.execute(query_atualiza_painel, resp_proximo_paciente['id'])
-                conn.commit()            
-                flash('Chamando Proximo Paciente')
-
-        finally:
-            conn.close()
-
-def obtem_mariadb():
-    conn = pymysql.connect(host='localhost',
-                           user='root',
-                           password='123456',
-                           db='sistema_de_contatos',
-                           charset='utf8mb4',
-                           cursorclass=pymysql.cursors.DictCursor)
-    return conn
+    return medicamentos_json
 
 if __name__ == '__main__'  :
     app.run()

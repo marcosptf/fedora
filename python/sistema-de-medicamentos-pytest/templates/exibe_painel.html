@@ -1,47 +1,31 @@
 {% extends "layout.html" %}
 {% block body %}
-  <br/>
-  <dl>
-    <dd>
-      <a href="/novo_contato">
-	<button>
-	  adicionar novo contato
-	</button>
-      </a>
-  </dl>
-  <br/>      
+  <br/>     
+ 
   <table border="1">
     <thead>
-      <th>nome</th>
-      <th>email</th>
-      <th>whatsApp</th>
-      <th>facebook</th>	  
-      <th>twitter</th>	  
-      <th>website</th>	  
-      <th>endereco</th>	  
-      <th>bairro</th>	  
-      <th>cidade</th>	  
-      <th>estado</th>	  
-      <th>edita contato</th>
-      <th>deleta contato</th>      
+        <th> nome </th>
+        <th> miligramas  </th>
+        <th> quantidade-comprimidos  </th>
+        <th> desconto-gestantes  </th>
+        <th> preco  </th>
+        <th> farmacia-popular  </th>
+        <th> desconto-aposentados  </th>
+        <th> generico  </th>
     </thread>
     <tbody>
-    {% for contato in contatos %}
+{% for remedio in medicamentos.medicamento %}
       <tr>
-	<td>{{ contato.nome }}</td>
-	<td>{{ contato.email }}</td>
-	<td>{{ contato.whatsapp }}</td>
-	<td>{{ contato.facebook }}</td>
-	<td>{{ contato.twitter }}</td>
-	<td>{{ contato.website }}</td>
-	<td>{{ contato.endereco }}</td>
-	<td>{{ contato.bairro }}</td>
-	<td>{{ contato.cidade }}</td>
-	<td>{{ contato.estado }}</td>
-	<td><a href="/editar_contato?id={{ contato.id }}">editar</a></td>
-	<td><a href="/deletar_contato?id={{ contato.id }}">deletar</a></td>
+	<td> {{ remedio['nome'] }} </td>
+	<td> {{ remedio['miligramas'] }}  </td>
+	<td> {{ remedio['quantidade-comprimidos'] }}  </td>
+	<td> {{ remedio['desconto-gestantes'] }}  </td>
+	<td>R$ {{ remedio['preco'] }}  </td>
+	<td> {{ remedio['farmacia-popular'] }}  </td>
+	<td> {{ remedio['desconto-aposentados'] }}  </td>
+	<td> {{ remedio['generico'] }}  </td>
       </tr>
-     {% endfor %} 
+{% endfor %}
     </tbody>
   </table>      
    
