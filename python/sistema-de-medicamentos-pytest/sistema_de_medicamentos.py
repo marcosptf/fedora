@@ -43,7 +43,7 @@ def listar_medicamentos():
             "desconto-aposentados": "True",
             "desconto-gestantes": "True",
             "farmacia-popular": "False",
-            "generico": "False",
+            "generico": "True",
             "miligramas": "100mg"
         },{
             "nome": "benegrip",
@@ -70,7 +70,7 @@ def listar_medicamentos():
             "desconto-aposentados": "True",
             "desconto-gestantes": "True",
             "farmacia-popular": "True",
-            "generico": "False",
+            "generico": "True",
             "miligramas": "40mg"
         },{
             "nome": "neosaldina",
@@ -88,7 +88,7 @@ def listar_medicamentos():
             "desconto-aposentados": "True",
             "desconto-gestantes": "False",
             "farmacia-popular": "False",
-            "generico": "False",
+            "generico": "True",
             "miligramas": "40mg"
         }]
     }
