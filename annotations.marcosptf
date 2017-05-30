@@ -5,9 +5,16 @@
 http://python-3-patterns-idioms-test.readthedocs.io/en/latest/index.html
 #book pense em python
 https://penseallen.github.io/PensePython2e/
+#python 3 book
+https://wizardforcel.gitbooks.io/sicp-in-python/content/0.html
 
-#css
-https://css-tricks.com/
+#podcast
+https://papolivre.org/
+http://devnaestrada.com.br/
+http://hipsters.tech/
+https://talkpython.fm/
+http://castalio.info/
+http://threedevsandamaybe.com/
 
 #lista de cursos de python gratis pela web
 http://www.linuxpro.com.br/2017/04/python-do-basico-ao-profissional/
@@ -347,9 +354,6 @@ https://www.youtube.com/watch?v=OXEZHYa1aaY
 +Jesus não fundou o cristianismo (ED René Kivitz)
 https://www.youtube.com/watch?v=6a5aWPf7BTI
 
-+como criar uma nova funcao no php-src
-https://github.com/php/php-src/pull/347/files
-
 +http://alertarondonia.com.br/noticia/orgao-oficial-da-maconaria-brasileira-revela-lista-contendo-110-nomes-de-macons-famosos,brasil,13100.html
 
 +canal youtube
@@ -497,7 +501,8 @@ https://nikic.github.io/2015/05/05/Internal-value-representation-in-PHP-7-part-1
 http://jpauli.github.io/2016/01/14/php-7-objects.html
 https://pt.slideshare.net/nikita_ppv/php-7-what-changed-internally-php-barcelona-2015
 
-
++como criar uma nova funcao no php-src
+https://github.com/php/php-src/pull/347/files
 
 2)reading c code from https://github.com/php/php-src/tree/master/Zend
 3)install last version of fedora, and compile last version of php and run test and report bugs
