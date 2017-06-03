@@ -11,6 +11,44 @@ https://penseallen.github.io/PensePython2e/
 #python 3 book
 https://wizardforcel.gitbooks.io/sicp-in-python/content/0.html
 
+#frameworks python
+http://flask.pocoo.org/
+https://docs.djangoproject.com/en/1.11/
+https://plone.org/
+
+#frameworks php
+https://magento.com/
+http://www.yiiframework.com/
+http://symfony.com/
+https://laravel.com/
+https://cakephp.org/
+https://phalconphp.com/en/
+https://framework.zend.com/
+https://apigility.org/
+https://www.drupal.org/
+https://fatfreeframework.com/3.6/home
+https://fuelphp.com/
+http://get-simple.info/
+http://www.antradar.com/docs-gyroscope-doc
+https://www.horde.org/
+https://www.impresspages.org/
+https://www.jamroom.net/
+https://www.joomla.org/
+https://www.kajona.de/
+http://kohanaframework.org/
+http://li3.me/
+https://nette.org/en/
+http://www.novius-os.org/
+http://www.pradoframework.net/site/
+https://processwire.com/
+https://silex.sensiolabs.org/
+https://www.silverstripe.org/
+https://www.skytells.net/
+http://demo.unix-world.org/smart-framework/
+https://twistphp.com/
+https://typo3.org/
+http://www.xoops.org/
+
 #podcast
 https://papolivre.org/
 http://devnaestrada.com.br/
@@ -23,6 +61,7 @@ http://threedevsandamaybe.com/
 http://www.linuxpro.com.br/2017/04/python-do-basico-ao-profissional/
 
 #programacao assembly
+https://0xax.gitbooks.io/linux-insides/
 github.com/gurugio/lowlevelprogramming-university
 https://github.com/gurugio/book_assembly_8086
 
@@ -466,6 +505,7 @@ https://www.youtube.com/watch?v=vLD4cUHMT5I => Episode 73 - PHP 7 Extension Deve
 https://www.youtube.com/watch?v=_arORgEVl-M => Hacking on PHP 7 with Joe Watkins - Part 1
 https://www.youtube.com/watch?v=f9N-v-JUbTQ => Hacking on PHP 7 with Joe Watkins - Part 2
 http://blog.krakjoe.ninja/
+https://en.wikipedia.org/wiki/C_POSIX_library
 http://threedevsandamaybe.com/
 http://www.nasm.us/
 http://pt.cppreference.com/w/c
@@ -479,6 +519,8 @@ https://www.amazon.com/Building-Custom-Extensions-Blake-Schwendiman/dp/141160188
 http://talks.php.net/index.php/Internals
 http://www.firephp.org
 https://xdebug.org
+http://www.php-debugger.com/dbg/
+http://phpdebugbar.com/
 https://wiki.php.net/internals/references
 https://www.scribd.com/document/18171982/PHP-Compiler-Internals
 http://nikic.github.io
