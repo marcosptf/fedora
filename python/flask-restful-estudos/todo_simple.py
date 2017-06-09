@@ -38,5 +38,3 @@ if __name__ == '__main__':
 #>>> put('http://localhost:5000/todo2', data={'data': 'Change my brakepads'}).json()
 #{u'todo2': u'Change my brakepads'}
 #>>> get('http://localhost:5000/todo2').json()
-
-{u'todo2': u'Change my brakepads'}
