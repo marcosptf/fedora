@@ -4,10 +4,6 @@
 https://www.codingame.com/start
 
 
-
-
-
-
 youtubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutube
 youtubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutube
 youtubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutube
@@ -138,6 +134,12 @@ youtubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyoutubeyou
 
 
 
+#instalando pip && virtualenv windows - usando o cmd - nao funciona no powershell
+wget https://bootstrap.pypa.io/get-pip.py [enter]
+python get-pip.py [enter]
+pip install virtualenv [enter]
+virtualenv .venv [enter]
+.venv\Scripts\activate [enter]
 
 
 #provas que o livro - milionario mora ao lado - diz a verdade
