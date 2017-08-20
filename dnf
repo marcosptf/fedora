@@ -3,6 +3,21 @@ service mongod stop
 service mongod status
 service mongod start
 
+/*  Creating USB Media on the Linux command line  */
+$ dmesg|tail
+[288954.686557] usb 2-1.8: New USB device strings: Mfr=0, Product=1, SerialNumber=2
+[288954.686559] usb 2-1.8: Product: USB Storage
+[288954.686562] usb 2-1.8: SerialNumber: 000000009225
+[288954.712590] usb-storage 2-1.8:1.0: USB Mass Storage device detected
+[288954.712687] scsi host6: usb-storage 2-1.8:1.0
+[288954.712809] usbcore: registered new interface driver usb-storage
+[288954.716682] usbcore: registered new interface driver uas
+[288955.717140] scsi 6:0:0:0: Direct-Access     Generic  STORAGE DEVICE   9228 PQ: 0 ANSI: 0
+[288955.717745] sd 6:0:0:0: Attached scsi generic sg4 type 0
+[288961.876382] sd 6:0:0:0: [sdd] Attached SCSI removable disk
+# dd if=/path/to/Fedora-Live-Security-x86_64-21.iso of=/dev/sdd
+
+
 --SKIPIF--
 <?php
 if (getenv("SKIP_ONLINE_TESTS")) { die('skip: online test'); }

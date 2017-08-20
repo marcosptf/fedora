@@ -18,7 +18,6 @@ class TestClass():
         assert med.sistema.medicamento_doril() in med.lista['medicamento'][0]['nome']
 
     def test_retorna_medicamento_generico(self):
-        generico = []
         med = MedicamentoClass()
         assert_medicamento_generico = ['resfenol', 'paracetamol', 'multigrip']
         assert med.sistema.medicamento_generico() == assert_medicamento_generico
@@ -31,7 +30,7 @@ class TestClass():
     def test_retorna_medicamento_desconto_aposentado(self):
         med = MedicamentoClass()
         assert_medicamento_desconto_aposentado = ['doril', 'resfenol', 'benegrip', 'buscopan', 'paracetamol', 'multigrip']
-        assert med.sistema.medicamento_desconto_aposentado() == ['doril', 'resfenol', 'benegrip', 'buscopan', 'paracetamol', 'multigrip']
+        assert med.sistema.medicamento_desconto_aposentado() == assert_medicamento_desconto_aposentado
 
     def test_retorna_medicamento_farmacia_popular(self):
         med = MedicamentoClass()
