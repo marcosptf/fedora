@@ -20,7 +20,8 @@ auth-flask-login - mt bom funcoinana mt bem - completo
 -post de um blog
 -comentarios
 -criacao de post
-
+-camada de cache com redis
+-trocar sqlite por PostgreSql ???
 """
 
 
