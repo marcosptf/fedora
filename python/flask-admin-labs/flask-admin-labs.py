@@ -22,6 +22,9 @@ auth-flask-login - mt bom funcoinana mt bem - completo
 -criacao de post
 -camada de cache com redis
 -trocar sqlite por PostgreSql ???
+-camada de log:
+https://pypi.python.org/pypi/Flask-Json-Syslog/0.1.28
+testar esta lib, esta 2 anos desatualizada
 """
 
 
@@ -49,62 +52,6 @@ app.config['SQLALCHEMY_ECHO'] = flask_app_config['SQLALCHEMY_ECHO']
 db = SQLAlchemy(app)
 
 
-# Create user model.
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(100))
-    last_name = db.Column(db.String(100))
-    login = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(120))
-    password = db.Column(db.String(64))
-
-    # Flask-Login integration
-    def is_authenticated(self):
-        return True
-
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        return self.id
-
-    # Required for administrative interface
-    def __unicode__(self):
-        return self.username
-
-
-# Define login and registration forms (for flask-login)
-class LoginForm(form.Form):
-    login = fields.StringField(validators=[validators.required()])
-    password = fields.PasswordField(validators=[validators.required()])
-
-    def validate_login(self, field):
-        user = self.get_user()
-
-        if user is None:
-            raise validators.ValidationError('Invalid user')
-
-        # we're comparing the plaintext pw with the the hash from the db
-        if not check_password_hash(user.password, self.password.data):
-        # to compare plain text passwords use
-        # if user.password != self.password.data:
-            raise validators.ValidationError('Invalid password')
-
-    def get_user(self):
-        return db.session.query(User).filter_by(login=self.login.data).first()
-
-
-class RegistrationForm(form.Form):
-    login = fields.StringField(validators=[validators.required()])
-    email = fields.StringField()
-    password = fields.PasswordField(validators=[validators.required()])
-
-    def validate_login(self, field):
-        if db.session.query(User).filter_by(login=self.login.data).count() > 0:
-            raise validators.ValidationError('Duplicate username')
 
 
 # Initialize flask-login
