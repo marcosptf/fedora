@@ -1,3 +1,6 @@
+#this is a example app 
+#dont remove code!
+
 import os
 from flask import Flask, url_for, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
