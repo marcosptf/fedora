@@ -5,6 +5,7 @@ import flask_login as login
 from flask import Flask, url_for, redirect, render_template, request
 from login_form import LoginForm
 from registration_form import RegistrationForm
+from model.user import User
 
 # Create customized index view class that handles login & registration
 class MyAdminIndexView(admin.AdminIndexView):
