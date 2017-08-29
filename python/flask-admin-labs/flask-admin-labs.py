@@ -37,11 +37,9 @@ import flask_admin as admin
 from flask_admin.contrib import sqla
 from flask_admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
-from app.config import config
-from app.form import init
-from app.form import admin_index
-from app.model import model_view
-from app.model import user
+from config import config
+from form import init, admin_index
+from model import model_view, user, build
 
 # Create Flask application
 app = Flask(__name__)
@@ -64,7 +62,7 @@ def index():
 init.init_login(app)
 
 # Create admin
-admin = admin.Admin(app, 'Example: Auth', index_view=admin_index.MyAdminIndexView(), base_template='app/my_master.html')
+admin = admin.Admin(app, 'Example: Auth', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
 
 # Add view
 admin.add_view(model_view.MyModelView(user.User, db.session))
@@ -76,7 +74,7 @@ if __name__ == '__main__':
     app_dir = os.path.realpath(os.path.dirname(__file__))
     database_path = os.path.join(app_dir, app.config['DATABASE_FILE'])
     if not os.path.exists(database_path):
-        build_sample_db()
+        build.build_sample_db(db)
 
     # Start app
     app.run(debug=True)
