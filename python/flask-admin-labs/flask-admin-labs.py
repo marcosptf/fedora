@@ -25,6 +25,12 @@ auth-flask-login - mt bom funcoinana mt bem - completo
 -camada de log:
 https://pypi.python.org/pypi/Flask-Json-Syslog/0.1.28
 testar esta lib, esta 2 anos desatualizada
+
+
+#dependencia para instalar psycopg2
+dnf install libpqxx-devel libpqxx
+
+
 """
 
 

@@ -1,4 +1,7 @@
 
+#postgresql+psycopg2://user:password@host:port/dbname[?key=value&key=value...]
+#
+
 flask_app_config = {
   'SECRET_KEY' : '123456790',
   'DATABASE_FILE' : 'sqlite/sample_db.sqlite',
