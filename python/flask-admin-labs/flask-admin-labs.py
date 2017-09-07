@@ -29,9 +29,11 @@ testar esta lib, esta 2 anos desatualizada
 +tutorial sqlalchemy + postgresql
 https://suhas.org/sqlalchemy-tutorial/
 
-
 #dependencia para instalar psycopg2
 dnf install libpqxx-devel libpqxx
+
+#deletar todos os arquivos .pyc
+find . -name '*.pyc' -print | xargs /bin/rm -rfv
 
 
 """
@@ -41,51 +43,38 @@ from flask import Flask, url_for, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from wtforms import form, fields, validators
 import flask_admin as admin
-
 from flask_admin.contrib import sqla
 from flask_admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
 from config import config
 from form import init, admin_index
 from model import model_view, user, build
+from flask_script import Manager
 
-# Create Flask application
 app = Flask(__name__)
-
-# Create dummy secrey key so we can use sessions
 app.config['SECRET_KEY'] = config.flask_app_config['SECRET_KEY']
-
-# Create in-memory database
 app.config['DATABASE_FILE'] = config.flask_app_config['DATABASE_FILE']
 app.config['SQLALCHEMY_DATABASE_URI'] = config.flask_app_config['SQLALCHEMY_DATABASE_URI'] + config.flask_app_config['DATABASE_FILE']
 app.config['SQLALCHEMY_ECHO'] = config.flask_app_config['SQLALCHEMY_ECHO']
 db = SQLAlchemy(app)
 
-# Flask views
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# Initialize flask-login
 init.init_login(app)
 
-# Create admin
 admin = admin.Admin(app, 'Example: Auth', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
-
-# Add view
 admin.add_view(model_view.MyModelView(user.User, db.session))
+
+manager = Manager(app)
+
+@manager.command
+def setup_db():
+    build.build_sample_db(db)
 
 
 if __name__ == '__main__':
-
-    # Build a sample db on the fly, if one does not exist yet.
-    app_dir = os.path.realpath(os.path.dirname(__file__))
-    database_path = os.path.join(app_dir, app.config['DATABASE_FILE'])
-    if not os.path.exists(database_path):
-        build.build_sample_db(db)
-
-    # Start app
-    app.run(debug=True)
-
+    manager.run(debug=True)
 
 
