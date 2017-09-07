@@ -53,8 +53,8 @@ from flask_script import Manager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config.flask_app_config['SECRET_KEY']
-app.config['DATABASE_FILE'] = config.flask_app_config['DATABASE_FILE']
-app.config['SQLALCHEMY_DATABASE_URI'] = config.flask_app_config['SQLALCHEMY_DATABASE_URI'] + config.flask_app_config['DATABASE_FILE']
+#app.config['DATABASE_FILE'] = config.flask_app_config['DATABASE_FILE']
+app.config['SQLALCHEMY_DATABASE_URI'] = config.flask_app_config['SQLALCHEMY_DATABASE_URI'] #+ config.flask_app_config['DATABASE_FILE']
 app.config['SQLALCHEMY_ECHO'] = config.flask_app_config['SQLALCHEMY_ECHO']
 db = SQLAlchemy(app)
 
@@ -71,10 +71,9 @@ manager = Manager(app)
 
 @manager.command
 def setup_db():
-    build.build_sample_db(db)
-
+    build.build_sample_db()
 
 if __name__ == '__main__':
-    manager.run(debug=True)
+    manager.run()
 
 
