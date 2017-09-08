@@ -3,6 +3,15 @@ service mongod stop
 service mongod status
 service mongod start
 
+
+/* instalando pip && virtualenv windows - usando o cmd - nao funciona no powershell */
+wget https://bootstrap.pypa.io/get-pip.py [enter]
+python get-pip.py [enter]
+pip install virtualenv [enter]
+virtualenv .venv [enter]
+.venv\Scripts\activate [enter]
+
+
 /*  Creating USB Media on the Linux command line  */
 $ dmesg|tail
 [288954.686557] usb 2-1.8: New USB device strings: Mfr=0, Product=1, SerialNumber=2
