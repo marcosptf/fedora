@@ -200,14 +200,6 @@ https://github.com/bpesquet/thejsway?utm_campaign=explore-email&utm_medium=email
 #pothix
 https://eu-e-o-pothix.tumblr.com/
 
-#instalando pip && virtualenv windows - usando o cmd - nao funciona no powershell
-wget https://bootstrap.pypa.io/get-pip.py [enter]
-python get-pip.py [enter]
-pip install virtualenv [enter]
-virtualenv .venv [enter]
-.venv\Scripts\activate [enter]
-
-
 #provas que o livro - milionario mora ao lado - diz a verdade
 https://br.yahoo.com/vida-estilo/10-bilionarios-com-habitos-incompativeis-com-sua-fortuna-091602513.html
 
