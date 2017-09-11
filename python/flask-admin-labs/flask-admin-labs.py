@@ -78,9 +78,14 @@ admin.add_view(model_view.MyModelView(user.User, db.session))
 
 manager = Manager(app)
 
+#python flask-admin-labs.py setup_db
 @manager.command
 def setup_db():
-    build.build_sample_db()
+    #build.build_sample_db()
+    from model import build_sqlalchemy
+    build_sqlalchemy.dropDB()
+    build_sqlalchemy.createDB()
+    
 
 if __name__ == '__main__':
     manager.run()

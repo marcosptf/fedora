@@ -6,9 +6,6 @@ from werkzeug.security import generate_password_hash
 import sqlalchemy
 from sqlalchemy import Table, Column, Integer, String
 
-#conn = None
-#meta = None
-
 def connect(user='postgres', password='', db='postgres', host='localhost', port=5432):
 
     url = 'postgresql://{}:{}@{}:{}/{}'
