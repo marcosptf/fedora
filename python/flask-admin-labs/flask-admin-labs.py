@@ -7,6 +7,15 @@ https://pypi.python.org/pypi/Flask-Cache-Redis-Cluster/0.0.5
 https://pypi.python.org/pypi/Flask-PyMemcache/0.0.5
 https://pypi.python.org/pypi/Flask-Login/0.4.0
 https://pypi.python.org/pypi/Flask-Admin/1.5.0
+https://docs.python.org/2/tutorial/datastructures.html
+https://flask-script.readthedocs.io/en/latest/
+https://suhas.org/sqlalchemy-tutorial/
+http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Table
+https://www.elephantsql.com/?gclid=EAIaIQobChMIy9fUqaeT1gIVnLrACh2jpwQ_EAAYASAAEgJ8TvD_BwE
+https://www.postgresql.org/docs/9.6/static/sql-expressions.html
+http://docs.sqlalchemy.org/en/latest/dialects/postgresql.html#module-sqlalchemy.dialects.postgresql.psycopg2
+https://pypi.python.org/pypi?%3Aaction=search&term=psycopg2&submit=search
+http://flask-admin.readthedocs.io/en/latest/advanced/
 
 +tentar ver quais os de exemplos podem nos ajudar para criar um 
 blog completo com camada de cache/login/admin:
