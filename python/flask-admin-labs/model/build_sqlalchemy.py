@@ -3,7 +3,6 @@
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Table, Column, Integer, String
 
@@ -25,6 +24,9 @@ criando uma instancia de session
 '''
 Session = sessionmaker(bind=engine)
 session = Session()
+
+#vamos retirar daqui esta classe e criar uma entidade num outro arquivo e deixar este aki somente para
+#para criar/deletar base via linha de comando
 
 """
 class Usuario(Base):
@@ -62,6 +64,7 @@ usuarios = [
     { "nome":"java4", "login":"java4", "email":"java@java.com", "senha":"123456"  }        
 ]
 
+#funciona muito bem sem warnings
 def createDB():
     #Base.metadata.create_all(engine)
     metadata.create_all(engine)
@@ -69,7 +72,10 @@ def createDB():
     conn = engine.connect()
     conn.execute(usuario.insert(), usuarios)
     #engine.execute(metadata.tables['usuario'].insert, usuarios)    
-    
+
+#funciona bem mais esta gerando warnings    
+#debuga depois isto
+#possivel solucao seria agente fazer uma validacao para ver se existe algo a ser deletado antes
 def dropDB():
     #Base.metadata.drop_all(engine)
     metadata.drop_all(engine)
