@@ -1,3 +1,4 @@
+#este exemplo de build tables n funciona pode deletar isto
 
 import string
 import random
