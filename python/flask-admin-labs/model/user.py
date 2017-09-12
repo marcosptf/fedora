@@ -1,3 +1,4 @@
+#refatorar esta entidade user para usuario e a sua nova realidade, e colocar tudo para pt-br
 
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
