@@ -44,7 +44,15 @@ dnf install libpqxx-devel libpqxx
 #deletar todos os arquivos .pyc
 find . -name '*.pyc' -print | xargs /bin/rm -rfv
 
-
+#refatoracao
+1.refatorar a model para funcionar o sqlalchemy orm para persistencias
+2.testar para ver se o flask-admin funciona corretamento com o postgresql
+3.criar uma tela inicial simples para o blog
+4.criar uma nova tela no admin para criar posts
+5.na tela do blog, exibir os posts
+6.no front, cada titulo do blog deve ser um permalink para uma pagina daquele post
+7.na pagina deste post deve mostrar o post completo + opcao para comentarios publicos
+8.depois vamos aplicar o memcached para a camada front no blog
 """
 
 import os
@@ -62,8 +70,7 @@ from flask_script import Manager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config.flask_app_config['SECRET_KEY']
-#app.config['DATABASE_FILE'] = config.flask_app_config['DATABASE_FILE']
-app.config['SQLALCHEMY_DATABASE_URI'] = config.flask_app_config['SQLALCHEMY_DATABASE_URI'] #+ config.flask_app_config['DATABASE_FILE']
+app.config['SQLALCHEMY_DATABASE_URI'] = config.flask_app_config['SQLALCHEMY_DATABASE_URI']
 app.config['SQLALCHEMY_ECHO'] = config.flask_app_config['SQLALCHEMY_ECHO']
 db = SQLAlchemy(app)
 
