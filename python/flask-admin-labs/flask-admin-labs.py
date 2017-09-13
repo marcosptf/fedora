@@ -65,7 +65,7 @@ from flask_admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
 from config import config
 from form import init, admin_index
-from model import model_view, user, build, build_sqlalchemy
+from model import model_view, usuario, inicializa_db
 from flask_script import Manager
 
 app = Flask(__name__)
@@ -85,11 +85,11 @@ admin.add_view(model_view.MyModelView(user.User, db.session))
 
 manager = Manager(app)
 
-#python flask-admin-labs.py setup_db
+#python flask-admin-labs.py gera_db
 @manager.command
-def setup_db():
-    build_sqlalchemy.dropDB()
-    build_sqlalchemy.createDB()
+def gera_db():
+    inicializa_db.deleta_db()
+    inicializa_db.cria_db()
     
 if __name__ == '__main__':
     manager.run()
