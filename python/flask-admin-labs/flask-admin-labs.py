@@ -46,6 +46,12 @@ find . -name '*.pyc' -print | xargs /bin/rm -rfv
 
 #refatoracao
 1.refatorar a model para funcionar o sqlalchemy orm para persistencias
+colocar estes arquivos como deprecated:
+build.py
+build_sqlalchemy.py
+postgres.py
+user.py
+    
 2.testar para ver se o flask-admin funciona corretamento com o postgresql
 3.criar uma tela inicial simples para o blog
 4.criar uma nova tela no admin para criar posts
