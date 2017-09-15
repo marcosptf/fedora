@@ -22,6 +22,21 @@ class Usuario(Base):
     senha = Column(String(250))
     schema='public'
 
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
+    def __unicode__(self):
+        return self.nome
+
     def __repr__(self):
         return """
         <Usuario(nome='%s', login='%s', email='%s', senha='%s')>

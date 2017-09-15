@@ -1,6 +1,9 @@
 
 from wtforms import form, fields, validators
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.orm import sessionmaker
+from model import obtem_db as pg
+from model.usuario import Usuario
 
 class LoginForm(form.Form):
   
@@ -8,7 +11,9 @@ class LoginForm(form.Form):
     senha = fields.PasswordField(validators=[validators.required()])
 
     def obtem_login(self):
-        return db.session.query(Usuario).filter_by(login=self.login.data).first()
+        Session = sessionmaker(bind=pg.obtem_engine())
+        session = Session()
+        return session.query(Usuario).filter_by(login=self.login.data).first()
 
     def validate_login(self, field):
         usuario = self.obtem_login()

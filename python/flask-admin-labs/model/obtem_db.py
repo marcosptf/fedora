@@ -18,7 +18,3 @@ def obtem_metadata():
     engine = obtem_engine()
     return sqlalchemy.MetaData(bind=engine, reflect=True)
 
-#Base = declarative_base()
-#Session = sessionmaker(bind=engine)
-#session = Session()
-

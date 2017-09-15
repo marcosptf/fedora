@@ -6,6 +6,9 @@ from flask import Flask, url_for, redirect, render_template, request
 from login_form import LoginForm
 from registration_form import RegistrationForm
 from model.usuario import Usuario
+from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.orm import sessionmaker
+from model import obtem_db as pg
 
 # Create customized index view class that handles login & registration
 class MyAdminIndexView(admin.AdminIndexView):
@@ -20,7 +23,7 @@ class MyAdminIndexView(admin.AdminIndexView):
     def login_view(self):
         form = LoginForm(request.form)
         if helpers.validate_form_on_submit(form):
-            user = form.get_user()
+            user = form.obtem_login()
             login.login_user(user)
 
         if login.current_user.is_authenticated:
@@ -35,14 +38,16 @@ class MyAdminIndexView(admin.AdminIndexView):
         form = RegistrationForm(request.form)
         
         if helpers.validate_form_on_submit(form):
+            Session = sessionmaker(bind=pg.obtem_engine())
+            session = Session()
             usuario = Usuario()
             form.populate_obj(usuario)
             usuario.senha = generate_password_hash(form.password.data)
-            db.session.add(usuario)
-            db.session.commit()
-
-            login.login_user(user)
+            session.add(usuario)
+            session.commit()
+            login.login_user(usuario)
             return redirect(url_for('.index'))
+
         link = '<p>ja tem uma conta? <a href="' + url_for('.login_view') + '">acesse</a></p>'
         self._template_args['form'] = form
         self._template_args['link'] = link
