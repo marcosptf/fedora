@@ -35,7 +35,7 @@ posts_tabela = Table('posts', metadata,
     Column('data_post', String), #mudar para timestamp
     Column('permalink_post', String),
     schema='public'
-)	
+)
 
 comentarios_tabela = Table('comentarios', metadata, 
     Column('id', Integer, primary_key=True),
@@ -43,7 +43,7 @@ comentarios_tabela = Table('comentarios', metadata,
     Column('texto_comentario_post', String),
     Column('data_comentario_post', String), #mudar para timestamp
     schema='public'
-)	
+)
 
 def cria_db():
     metadata.create_all(engine)

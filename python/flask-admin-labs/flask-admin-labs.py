@@ -59,10 +59,24 @@ user.py
 6.no front, cada titulo do blog deve ser um permalink para uma pagina daquele post
 7.na pagina deste post deve mostrar o post completo + opcao para comentarios publicos
 8.depois vamos aplicar o memcached para a camada front no blog
+
+
+
+#exemplo de query sqlalchemy usando session
+from sqlalchemy.orm import sessionmaker
+from model import obtem_db as pg
+
+Session = sessionmaker(bind=pg.obtem_engine())
+session = Session()
+
+contato = session.query(Contatos).filter_by(id=id).first()
+session.delete(contato)
+session.commit()
+
 """
 
 import os
-from flask import Flask, url_for, redirect, render_template, request
+from flask import Flask, url_for, redirect, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 from wtforms import form, fields, validators
 import flask_admin as admin
@@ -71,7 +85,8 @@ from flask_admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
 from config import config
 from form import init, admin_index
-from model import model_view, usuario, inicializa_db
+from model import inicializa_db
+from model import model_view, usuario
 from flask_script import Manager
 
 app = Flask(__name__)
@@ -87,7 +102,7 @@ def index():
 init.init_login(app)
 
 admin = admin.Admin(app, 'Example: Auth', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
-admin.add_view(model_view.MyModelView(user.User, db.session))
+admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))
 
 manager = Manager(app)
 

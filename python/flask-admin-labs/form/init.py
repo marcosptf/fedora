@@ -9,5 +9,5 @@ def init_login(app):
     # Create user loader function
     @login_manager.user_loader
     def load_user(user_id):
-        return db.session.query(User).get(user_id)
+        return db.session.query(Usuario).get(user_id)
 

@@ -1,25 +1,24 @@
 
 from wtforms import form, fields, validators
+from werkzeug.security import generate_password_hash, check_password_hash
 
-# Define login and registration forms (for flask-login)
 class LoginForm(form.Form):
+  
     login = fields.StringField(validators=[validators.required()])
-    password = fields.PasswordField(validators=[validators.required()])
+    senha = fields.PasswordField(validators=[validators.required()])
+
+    def obtem_login(self):
+        return db.session.query(Usuario).filter_by(login=self.login.data).first()
 
     def validate_login(self, field):
-        user = self.get_user()
+        usuario = self.obtem_login()
 
-        if user is None:
-            raise validators.ValidationError('Invalid user')
+        if usuario is None:
+            raise validators.ValidationError('usuario invalido')
 
-        # we're comparing the plaintext pw with the the hash from the db
-        if not check_password_hash(user.password, self.password.data):
-        # to compare plain text passwords use
-        # if user.password != self.password.data:
-            raise validators.ValidationError('Invalid password')
+        if not check_password_hash(usuario.senha, self.senha.data):
+            raise validators.ValidationError('senha incorreta')
 
-    def get_user(self):
-        return db.session.query(User).filter_by(login=self.login.data).first()
 
 
 

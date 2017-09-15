@@ -6,19 +6,19 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Table, Column, Integer, String
-from model import postgres as pg
+from model import obtem_db as pg
 
-metadata = pg.obtem_metadata_postgres()
-engine = pg.obtem_engine_postgres()
+metadata = pg.obtem_metadata()
+engine = pg.obtem_engine()
 Base = declarative_base()
 
 class Comentarios(Base):
     __tablename__ = 'comentarios'
 
-    id = Column(Integer, primary_key=True),
-    permalink_comentario_post = Column('permalink_comentario_post', String)
-    texto_comentario_post = Column('texto_comentario_post', String),
-    data_comentario_post = Column('data_comentario_post', String),
+    id = Column(Integer, primary_key=True)
+    permalink_comentario_post = Column(String(250))
+    texto_comentario_post = Column(String(250))
+    data_comentario_post = Column(String(250))
     schema='public'
 
     def __repr__(self):
