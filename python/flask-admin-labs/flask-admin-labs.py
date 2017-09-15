@@ -51,8 +51,9 @@ build.py
 build_sqlalchemy.py
 postgres.py
 user.py
-    
 2.testar para ver se o flask-admin funciona corretamento com o postgresql
+
+
 3.criar uma tela inicial simples para o blog
 4.criar uma nova tela no admin para criar posts
 5.na tela do blog, exibir os posts
