@@ -87,7 +87,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from config import config
 from form import init, admin_index
 from model import inicializa_db
-from model import model_view, usuario
+from model import model_view, usuario, posts, comentarios
 from flask_script import Manager
 
 app = Flask(__name__)
@@ -102,8 +102,10 @@ def index():
 
 init.init_login(app)
 
-admin = admin.Admin(app, 'Example: Auth', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
+admin = admin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
 admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))
+admin.add_view(model_view.MyModelView(posts.Posts, db.session))
+admin.add_view(model_view.MyModelView(comentarios.Comentarios, db.session))
 
 manager = Manager(app)
 

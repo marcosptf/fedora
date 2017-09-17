@@ -6,7 +6,7 @@ from model import obtem_db as pg
 from model.usuario import Usuario
 
 class LoginForm(form.Form):
-  
+
     login = fields.StringField(validators=[validators.required()])
     senha = fields.PasswordField(validators=[validators.required()])
 
@@ -23,9 +23,5 @@ class LoginForm(form.Form):
 
         if not check_password_hash(usuario.senha, self.senha.data):
             raise validators.ValidationError('senha incorreta')
-
-
-
-
 
 
