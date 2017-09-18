@@ -11,6 +11,7 @@ from sqlalchemy.orm import sessionmaker
 from model import obtem_db as pg
 from model.posts import Posts
 from model.usuario import Usuario
+from model.model_view import MyModelView
 from datetime import datetime
 
 # Create customized index view class that handles login & registration
@@ -41,22 +42,24 @@ class MyAdminIndexView(admin.AdminIndexView):
     @expose('/criapost/', methods=('GET', 'POST'))
     def criapost(self):
         print("route-criapost-admin");
-        #form = CriaPostForm(request.form)
-        #form.obtem_cria_post()
         data_form = request.form
-        #data_form['texto_post']
-        #data_form['titulo_post']
         Session = sessionmaker(bind=pg.obtem_engine())
         session = Session()
         posts = Posts()
+        
+        mv = MyModelView(Usuario, session)
+        
+        #return session.query(Usuario).filter_by(id=id).first()
+        print("debugger===>>>")
+        import pprint
+        pp = pprint.PrettyPrinter(indent=4)
+        pp.pprint(mv.id)
+        
         posts.titulo_post = data_form['titulo_post']
         posts.texto_post = data_form['texto_post']
-        #pendencias
-        #criar timestamp para o data post
-        #crir vinculo de post x usuario
-        data_post = datetime.now()
-        #troca espacos por '-'
-        permalink_post = None
+        posts.data_post = datetime.now()
+        posts.permalink_post = posts.titulo_post.replace(" ", "-")
+        #posts.usuario_id = 
         session.add(posts)
         session.commit()
         return super(MyAdminIndexView, self).index()
