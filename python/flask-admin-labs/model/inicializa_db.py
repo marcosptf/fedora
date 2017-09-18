@@ -29,6 +29,7 @@ usuario_tabela = Table('usuario', metadata,
     schema='public'
 )
 
+#http://docs.sqlalchemy.org/en/latest/orm/mapping_styles.html#classical-mappings
 posts_tabela = Table('posts', metadata, 
     Column('id', Integer, primary_key=True, autoincrement=True),
     Column('titulo_post', String(25)),
