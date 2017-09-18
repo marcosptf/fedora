@@ -3,10 +3,10 @@
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import Table, Column, Integer, String
+from sqlalchemy import Table, Column, Integer, String, Text, TIMESTAMP, ForeignKey
 from model import obtem_db as pg
+from DateTime import DateTime
 
 metadata = pg.obtem_metadata()
 engine = pg.obtem_engine()
@@ -20,37 +20,50 @@ usuarios_dados = [
 ]
 
 usuario_tabela = Table('usuario', metadata, 
-    Column('id', Integer, primary_key=True),
-    Column('nome', String),
-    Column('login', String),
-    Column('email', String),
-    Column('senha', String),
+    Column('id', Integer, primary_key=True, autoincrement=True),
+    Column('nome', String(50)),
+    Column('login', String(25)),
+    Column('email', String(50)),
+    Column('senha', String(25)),
     schema='public'
 )
 
 posts_tabela = Table('posts', metadata, 
-    Column('id', Integer, primary_key=True),
-    Column('titulo_post', String),
-    Column('texto_post', String),
-    Column('data_post', String), #mudar para timestamp
-    Column('permalink_post', String),
+    Column('id', Integer, primary_key=True, autoincrement=True),
+    Column('titulo_post', String(25)),
+    Column('texto_post', Text),
+    Column('data_post', TIMESTAMP(timezone=True)),
+    Column('permalink_post', String(25)),
+#    Column('usuario_id', Integer, ForeignKey('usuario.id')),
+    Column('usuario_id', Integer),
     schema='public'
 )
 
 comentarios_tabela = Table('comentarios', metadata, 
-    Column('id', Integer, primary_key=True),
-    Column('permalink_comentario_post', String),
-    Column('texto_comentario_post', String),
-    Column('data_comentario_post', String), #mudar para timestamp
+    Column('id', Integer, primary_key=True, autoincrement=True),
+#    Column('permalink_post_id', Integer, ForeignKey('posts.id')),
+    Column('permalink_post_id', Integer),
+    Column('texto_comentario_post', Text),
+    Column('data_comentario_post', TIMESTAMP(timezone=True)),
     schema='public'
 )
 
+#http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.MetaData.drop_all
+tables = [usuario_tabela, posts_tabela, comentarios_tabela]
+checkfirst = True
+
 def cria_db():
-    metadata.create_all(engine)
+    metadata.create_all(engine, tables, checkfirst)
+    #for i in tables:
+    #    i.create(engine)
+    #usuario_tabela.create(engine)
+    #posts_tabela.create(engine)
+    #comentarios_tabela.create(engine)
+
     conn = engine.connect()
     conn.execute(usuario_tabela.insert(), usuarios_dados)
     
 def deleta_db():
-    metadata.drop_all(engine)
+    metadata.drop_all(engine, tables, checkfirst)
 
 
