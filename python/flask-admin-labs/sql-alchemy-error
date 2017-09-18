@@ -1,0 +1,63 @@
+(.venv)[root@localhost flask-admin-labs]# python flask-admin-labs.py gera_db
+/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/flask_sqlalchemy/__init__.py:839: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+Traceback (most recent call last):
+  File "flask-admin-labs.py", line 119, in <module>
+    manager.run()
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/flask_script/__init__.py", line 417, in run
+    result = self.handle(argv[0], argv[1:])
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/flask_script/__init__.py", line 386, in handle
+    res = handle(*args, **config)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/flask_script/commands.py", line 216, in __call__
+    return self.run(*args, **kwargs)
+  File "flask-admin-labs.py", line 116, in gera_db
+    inicializa_db.cria_db()
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/model/inicializa_db.py", line 56, in cria_db
+    i.create(engine)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/schema.py", line 756, in create
+    checkfirst=checkfirst)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1929, in _run_visitor
+    conn._run_visitor(visitorcallable, element, **kwargs)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1538, in _run_visitor
+    **kwargs).traverse_single(element)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/visitors.py", line 121, in traverse_single
+    return meth(obj, **kw)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/ddl.py", line 767, in visit_table
+    include_foreign_key_constraints=include_foreign_key_constraints
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/ddl.py", line 68, in _execute_on_connection
+    return connection._execute_ddl(self, multiparams, params)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 996, in _execute_ddl
+    if not self.schema_for_object.is_default else None)
+  File "<string>", line 1, in <lambda>
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 436, in compile
+    return self._compiler(dialect, bind=bind, **kw)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/ddl.py", line 26, in _compiler
+    return dialect.ddl_compiler(dialect, self, **kw)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/compiler.py", line 216, in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/compiler.py", line 242, in process
+    return obj._compiler_dispatch(self, **kwargs)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/visitors.py", line 81, in _compiler_dispatch
+    return meth(self, **kw)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/compiler.py", line 2354, in visit_create_table
+    create.include_foreign_key_constraints)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/compiler.py", line 2401, in create_table_constraints
+    for constraint in constraints
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/compiler.py", line 2399, in <genexpr>
+    p for p in
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/compiler.py", line 2407, in <genexpr>
+    not getattr(constraint, 'use_alter', False)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/compiler.py", line 242, in process
+    return obj._compiler_dispatch(self, **kwargs)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/visitors.py", line 81, in _compiler_dispatch
+    return meth(self, **kw)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/compiler.py", line 2598, in visit_foreign_key_constraint
+    remote_table = list(constraint.elements)[0].column.table
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 764, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/root/NetBeansProjects/fedora/python/flask-admin-labs/.venv/lib/python2.7/site-packages/sqlalchemy/sql/schema.py", line 1858, in column
+    tablekey)
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'posts.usuario_id' could not find table 'usuario' with which to generate a foreign key to target column 'id'
+
