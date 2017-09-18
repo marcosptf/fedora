@@ -12,11 +12,12 @@ metadata = pg.obtem_metadata()
 engine = pg.obtem_engine()
 
 usuarios_dados = [
-    { "nome":"java",  "login":"java", "email":"java@java.com", "senha":"123456"  },
-    { "nome":"java1", "login":"java1", "email":"java@java.com", "senha":"123456"  },
-    { "nome":"java2", "login":"java2", "email":"java@java.com", "senha":"123456"  },
-    { "nome":"java3", "login":"java3", "email":"java@java.com", "senha":"123456"  },
-    { "nome":"java4", "login":"java4", "email":"java@java.com", "senha":"123456"  }        
+    { "nome":"admin usuario",  "login":"admin", "email":"admin@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+    { "nome":"java",  "login":"java", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+    { "nome":"java1", "login":"java1", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+    { "nome":"java2", "login":"java2", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+    { "nome":"java3", "login":"java3", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+    { "nome":"java4", "login":"java4", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
 ]
 
 usuario_tabela = Table('usuario', metadata, 
@@ -24,7 +25,7 @@ usuario_tabela = Table('usuario', metadata,
     Column('nome', String(50)),
     Column('login', String(25)),
     Column('email', String(50)),
-    Column('senha', String(25)),
+    Column('senha', String(100)),
     schema='public'
 )
 
@@ -52,6 +53,8 @@ comentarios_tabela = Table('comentarios', metadata,
 tables = [usuario_tabela, posts_tabela, comentarios_tabela]
 checkfirst = True
 
+#http://docs.sqlalchemy.org/en/latest/core/metadata.html
+#http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
 def cria_db():
     metadata.create_all(engine, tables, checkfirst)
     #for i in tables:

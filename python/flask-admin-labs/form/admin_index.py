@@ -11,6 +11,7 @@ from sqlalchemy.orm import sessionmaker
 from model import obtem_db as pg
 from model.posts import Posts
 from model.usuario import Usuario
+from datetime import datetime
 
 # Create customized index view class that handles login & registration
 class MyAdminIndexView(admin.AdminIndexView):
@@ -53,7 +54,8 @@ class MyAdminIndexView(admin.AdminIndexView):
         #pendencias
         #criar timestamp para o data post
         #crir vinculo de post x usuario
-        data_post = None 
+        data_post = datetime.now()
+        #troca espacos por '-'
         permalink_post = None
         session.add(posts)
         session.commit()
