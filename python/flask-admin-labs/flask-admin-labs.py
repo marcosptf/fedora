@@ -52,15 +52,14 @@ build_sqlalchemy.py
 postgres.py
 user.py
 2.testar para ver se o flask-admin funciona corretamento com o postgresql
-
-
 3.criar uma tela inicial simples para o blog
-4.criar uma nova tela no admin para criar posts
+==>>>4.criar uma nova tela no admin para criar posts
 5.na tela do blog, exibir os posts
 6.no front, cada titulo do blog deve ser um permalink para uma pagina daquele post
 7.na pagina deste post deve mostrar o post completo + opcao para comentarios publicos
 8.depois vamos aplicar o memcached para a camada front no blog
-
+9.criar logs usando:
+https://docs.python.org/2/howto/logging.html
 
 
 #exemplo de query sqlalchemy usando session
