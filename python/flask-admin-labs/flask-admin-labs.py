@@ -60,7 +60,7 @@ user.py
 8.depois vamos aplicar o memcached para a camada front no blog
 9.criar logs usando:
 https://docs.python.org/2/howto/logging.html
-
+http://flask.pocoo.org/docs/0.12/errorhandling/#error-logging-tools
 
 #exemplo de query sqlalchemy usando session
 from sqlalchemy.orm import sessionmaker
