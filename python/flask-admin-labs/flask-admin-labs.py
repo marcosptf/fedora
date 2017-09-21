@@ -8,6 +8,7 @@ https://pypi.python.org/pypi/Flask-PyMemcache/0.0.5
 https://pypi.python.org/pypi/Flask-Login/0.4.0
 https://pypi.python.org/pypi/Flask-Admin/1.5.0
 https://docs.python.org/2/tutorial/datastructures.html
+http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
 https://flask-script.readthedocs.io/en/latest/
 https://suhas.org/sqlalchemy-tutorial/
 http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Table
@@ -85,7 +86,7 @@ from flask_admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
 from config import config
 from form import init, admin_index
-from model import inicializa_db
+from model import inicializa_db_labs
 from model import model_view, usuario, posts, comentarios
 from flask_script import Manager
 
@@ -111,8 +112,8 @@ manager = Manager(app)
 #python flask-admin-labs.py gera_db
 @manager.command
 def gera_db():
-    inicializa_db.deleta_db()
-    inicializa_db.cria_db()
+    inicializa_db_labs.deleta_db()
+    inicializa_db_labs.cria_db()
     
 if __name__ == '__main__':
     manager.run()
