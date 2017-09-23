@@ -86,8 +86,7 @@ from flask_admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
 from config import config
 from form import init, admin_index
-from model import inicializa_db_labs
-from model import model_view, usuario, posts, comentarios
+from model import model_view, usuario, posts, comentarios, inicializa_db_labs
 from flask_script import Manager
 
 app = Flask(__name__)
@@ -98,9 +97,16 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    print("session-user===>>>>>")
-    print(session['usuario_id'])
+
     return render_template('index.html')
+
+@app.route('/exibe_posts/<string:post_permalink>')
+def exibe_posts(post_permalink):
+    Session = sessionmaker(bind=pg.obtem_engine())
+    sessionmk = Session()
+
+    posts_links = sessionmk.query(posts.Posts).filter_by(permalink_post=post_permalink).first()
+    return render_template('index.html', posts_links=posts_links)
 
 init.init_login(app)
 

@@ -1,8 +1,13 @@
 <html>
     <body>
-    <p>esta sera a tela do front blog</p>
+    <p>blog</p>
         <div>
-            <a href="{{ url_for('admin.index') }}">Go to admin!</a>
+            <a href="{{ url_for('admin.index') }}">acesse o admin!</a>
         </div>
+        <div>
+            <p>lista de posts</p>
+            {{ posts_links }}
+        <div>
     </body>
 </html>
+  

@@ -25,6 +25,6 @@ class Posts(Base):
 
     def __repr__(self):
         return """
-        <Posts(titulo_post='%s', texto_post='%s', data_post='%s', permalink_post='%s')>
-        """ % (self.id, self.titulo_post, self.texto_post, self.data_post, self.permalink_post)
+        <Posts(titulo_post='%s', texto_post='%s', data_post='%s', permalink_post='%s', usuario_id='%s')>  
+        """ % (self.id, self.titulo_post, self.texto_post, self.data_post, self.permalink_post, self.usuario_id ) 
 
