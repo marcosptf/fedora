@@ -5,14 +5,20 @@ from model import obtem_db as pg
 from model import usuario
 
 class RegistrationForm(form.Form):
+  
+    """
+    aqui a qtd de propriedades eh exatamente os campos html 
+    que serao criados no form
+    """
+    nome  = fields.StringField(validators=[validators.required()])
     login = fields.StringField(validators=[validators.required()])
-    email = fields.StringField()
-    password = fields.PasswordField(validators=[validators.required()])
+    email = fields.StringField(validators=[validators.required()])
+    senha = fields.PasswordField(validators=[validators.required()])
 
     def validate_login(self, field):
         Session = sessionmaker(bind=pg.obtem_engine())
-        session = Session()
+        sessionmk = Session()
 
-        if session.query(usuario.Usuario).filter_by(login=self.login.data).count() > 0:
+        if sessionmk.query(usuario.Usuario).filter_by(login=self.login.data).count() > 0:
             raise validators.ValidationError('usuario duplicado')
 

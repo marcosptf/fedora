@@ -2,7 +2,7 @@
 import flask_admin as admin 
 from flask_admin import helpers, expose
 import flask_login as login
-from flask import Flask, url_for, redirect, render_template, request
+from flask import Flask, url_for, redirect, render_template, request, session
 from login_form import LoginForm
 from cria_post_form import CriaPostForm
 from registration_form import RegistrationForm
@@ -20,6 +20,8 @@ class MyAdminIndexView(admin.AdminIndexView):
     @expose('/')
     def index(self):
         print("route-root-admin");
+        print("session-user===>>>>>")
+        print(session['usuario_id'])
         if not login.current_user.is_authenticated:
             return redirect(url_for('.login_view'))
         return super(MyAdminIndexView, self).index()
@@ -34,7 +36,7 @@ class MyAdminIndexView(admin.AdminIndexView):
 
         if login.current_user.is_authenticated:
             return redirect(url_for('.index'))
-        link = '<p>nao tem conta ainda ?<a href="' + url_for('.register_view') + '">crie uma conta agora!</a></p>'
+        link = '<p>nao tem conta ainda ?<a href="' + url_for('.register_view') + '"> crie uma conta agora!</a></p>'
         self._template_args['form'] = form
         self._template_args['link'] = link
         return super(MyAdminIndexView, self).index()
@@ -44,24 +46,19 @@ class MyAdminIndexView(admin.AdminIndexView):
         print("route-criapost-admin");
         data_form = request.form
         Session = sessionmaker(bind=pg.obtem_engine())
-        session = Session()
+
+        sessionmk = Session()
         posts = Posts()
-        
-        mv = MyModelView(Usuario, session)
-        
-        #return session.query(Usuario).filter_by(id=id).first()
-        print("debugger===>>>")
-        import pprint
-        pp = pprint.PrettyPrinter(indent=4)
-        pp.pprint(mv.id)
+        usuario = Usuario()
+        mv = MyModelView(Usuario, sessionmk)
         
         posts.titulo_post = data_form['titulo_post']
         posts.texto_post = data_form['texto_post']
         posts.data_post = datetime.now()
         posts.permalink_post = posts.titulo_post.replace(" ", "-")
-        #posts.usuario_id = 
-        session.add(posts)
-        session.commit()
+        posts.usuario_id = session['usuario_id']
+        sessionmk.add(posts)
+        sessionmk.commit()
         return super(MyAdminIndexView, self).index()
 
     @expose('/register/', methods=('GET', 'POST'))
@@ -74,7 +71,7 @@ class MyAdminIndexView(admin.AdminIndexView):
             session = Session()
             usuario = Usuario()
             form.populate_obj(usuario)
-            usuario.senha = generate_password_hash(form.password.data)
+            usuario.senha = generate_password_hash(form.senha.data)
             session.add(usuario)
             session.commit()
             login.login_user(usuario)

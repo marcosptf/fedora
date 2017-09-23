@@ -16,8 +16,8 @@ class CriaPostForm(form.Form):
 
     def obtem_login(self):
         Session = sessionmaker(bind=pg.obtem_engine())
-        session = Session()
-        return session.query(Usuario).filter_by(login=self.login.data).first()
+        sessionmk = Session()
+        return sessionmk.query(Usuario).filter_by(login=self.login.data).first()
 
     def validate_login(self, field):
         usuario = self.obtem_login()

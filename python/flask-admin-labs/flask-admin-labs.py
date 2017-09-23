@@ -98,6 +98,8 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
+    print("session-user===>>>>>")
+    print(session['usuario_id'])
     return render_template('index.html')
 
 init.init_login(app)

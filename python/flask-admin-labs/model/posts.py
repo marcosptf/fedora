@@ -20,6 +20,7 @@ class Posts(Base):
     texto_post = Column(String(250))
     data_post = Column(String(250))
     permalink_post = Column(String(250))
+    usuario_id = Column(Integer)
     schema='public'
 
     def __repr__(self):

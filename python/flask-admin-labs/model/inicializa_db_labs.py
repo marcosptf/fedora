@@ -99,7 +99,6 @@ class Posts(Base):
     usuario_id = Column('usuario_id', Integer, ForeignKey('usuario.id'))
     schema='public'
 
-
     def __repr__(self):
         return """
         <Posts(titulo_post='%s', texto_post='%s', data_post='%s', permalink_post='%s', usuario_id='%s')>
@@ -112,7 +111,7 @@ class Comentarios(Base):
     permalink_comentario_post = Column(String(250))
     texto_comentario_post = Column(String(250))
     data_comentario_post = Column(String(250))
-    permalink_post_id = Column('permalink_post_id', Integer, ForeignKey('posts.id')),
+    permalink_post_id = Column('permalink_post_id', Integer, ForeignKey('posts.id'))
     schema='public'
 
     def __repr__(self):
