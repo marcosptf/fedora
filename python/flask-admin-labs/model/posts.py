@@ -3,10 +3,10 @@
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import Table, Column, Integer, String
+from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy import Table, Column, Integer, String, ForeignKey
 from model import obtem_db as pg
+from model import usuario
 
 metadata = pg.obtem_metadata()
 engine = pg.obtem_engine()
@@ -20,7 +20,8 @@ class Posts(Base):
     texto_post = Column(String(250))
     data_post = Column(String(250))
     permalink_post = Column(String(250))
-    usuario_id = Column(Integer)
+    usuario_id = Column('usuario_id', Integer, ForeignKey('usuario.id'))
+    usuarios = relationship("Usuario")
     schema='public'
 
     def __repr__(self):

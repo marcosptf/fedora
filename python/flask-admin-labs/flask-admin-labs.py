@@ -64,6 +64,8 @@ https://docs.python.org/2/howto/logging.html
 http://flask.pocoo.org/docs/0.12/errorhandling/#error-logging-tools
 
 #exemplo de query sqlalchemy usando session
+#mais exemplos:
+#http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
 from sqlalchemy.orm import sessionmaker
 from model import obtem_db as pg
 
@@ -88,6 +90,8 @@ from config import config
 from form import init, admin_index
 from model import model_view, usuario, posts, comentarios, inicializa_db_labs
 from flask_script import Manager
+from model import obtem_db as pg
+from sqlalchemy.orm import sessionmaker
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config.flask_app_config['SECRET_KEY']
@@ -97,8 +101,19 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
+    Session = sessionmaker(bind=pg.obtem_engine())
+    sessionmk = Session()
 
-    return render_template('index.html')
+    #posts_links = sessionmk.query(posts.Posts).filter_by(id=1).first()
+    #posts_query = sessionmk.query(posts.Posts, usuario.Usuario).filter(usuario.Usuario.id == posts.Posts.usuario_id).all()
+    posts_query = sessionmk.query(posts.Posts).join(usuario.Usuario).filter(usuario.Usuario.id == posts.Posts.usuario_id).all()
+    pq = posts_query.all()
+    
+#    for q in pq:
+#        print("debugger-query=>")
+#        print(q['titulo_post'])
+
+    return render_template('index.html', posts_links=posts_query)
 
 @app.route('/exibe_posts/<string:post_permalink>')
 def exibe_posts(post_permalink):

@@ -4,7 +4,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy import Table, Column, Integer, String
 from model import obtem_db as pg
 
@@ -20,6 +20,7 @@ class Usuario(Base):
     login = Column(String(250))
     email = Column(String(250))
     senha = Column(String(250))
+    usuarios = relationship("Posts")
     schema='public'
 
     def is_authenticated(self):

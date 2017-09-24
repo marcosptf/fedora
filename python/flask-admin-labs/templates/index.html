@@ -6,7 +6,14 @@
         </div>
         <div>
             <p>lista de posts</p>
-            {{ posts_links }}
+            {% for posts in posts_links %}
+            <ul>
+                <li>titulo to post: {{ posts.titulo_post }}</li>
+                <li>{{ posts.data_post }}</li>
+                <li><a href="{{ posts.permalink_post }}">acesso ao post completo</a> </li>
+                <li>{{ posts.login }}</li>
+            </ul>
+            {% endfor %}
         <div>
     </body>
 </html>
