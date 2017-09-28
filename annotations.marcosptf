@@ -634,6 +634,8 @@ travisCI
 jenkins
 newrelic
 
++monitoracao
+
 
 +seguranca:
 selinux
