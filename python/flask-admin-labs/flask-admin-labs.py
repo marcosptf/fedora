@@ -89,7 +89,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from config import config
 from form import init, admin_index
 #from model import model_view, posts, usuario, comentarios, inicializa_db_labs
-from model import tables, inicializa_db_labs
+from model import tables
 from flask_script import Manager
 from model import obtem_db as pg
 from sqlalchemy.orm import sessionmaker
@@ -128,7 +128,7 @@ init.init_login(app)
 
 admin = admin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
 #admin.add_view(model_view.MyModelView(posts.Posts, db.session))
-admin.add_view(tables.MyModelView(tables.Usuario, db.session))
+#admin.add_view(tables.MyModelView(tables.Usuario, db.session))
 #admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))
 #admin.add_view(model_view.MyModelView(comentarios.Comentarios, db.session))
 
@@ -137,8 +137,12 @@ manager = Manager(app)
 #python flask-admin-labs.py gera_db
 @manager.command
 def gera_db():
-    inicializa_db_labs.deleta_db()
-    inicializa_db_labs.cria_db()
+    tables.cria_db()
+    
+#python flask-admin-labs.py deleta_db
+@manager.command
+def deleta_db():
+    tables.deleta_db()
     
 if __name__ == '__main__':
     manager.run()

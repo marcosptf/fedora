@@ -20,12 +20,13 @@ class Comentarios(Base):
     permalink_comentario_post = Column(String(250))
     texto_comentario_post = Column(String(250))
     data_comentario_post = Column(String(250))
+    post_id = Column(Integer, ForeignKey('posts.id'))
     schema='public'
 
     def __repr__(self):
         return """
-        <Comentarios(id='%s', permalink_comentario_post='%s', texto_comentario_post='%s', data_comentario_post='%s')>
-        """ % (self.id, self.permalink_comentario_post, self.texto_comentario_post, self.data_comentario_post)
+        <Comentarios(id='%s', permalink_comentario_post='%s', texto_comentario_post='%s', data_comentario_post='%s', post_id='%s')>
+        """ % (self.id, self.permalink_comentario_post, self.texto_comentario_post, self.data_comentario_post, self.post_id)
 
 class Posts(Base):
     __tablename__ = 'posts'
@@ -36,14 +37,12 @@ class Posts(Base):
     data_post = Column(String(250))
     permalink_post = Column(String(250))
     usuario_id = Column(Integer, ForeignKey('usuario.id'))
-    #posts_rel = relationship("Usuario", back_populates="usuario_rel")
-    posts_rel = relationship("Usuario", foreign_keys="[Posts.usuario_id]")
     schema='public'
 
     def __repr__(self):
         return """
-        <Posts(titulo_post='%s', texto_post='%s', data_post='%s', permalink_post='%s', usuario_id='%s', posts_rel='%s')>  
-        """ % (self.id, self.titulo_post, self.texto_post, self.data_post, self.permalink_post, self.usuario_id, self.posts_rel) 
+        <Posts(titulo_post='%s', texto_post='%s', data_post='%s', permalink_post='%s', usuario_id='%s')>  
+        """ % (self.id, self.titulo_post, self.texto_post, self.data_post, self.permalink_post, self.usuario_id) 
 
 class Usuario(Base):
     __tablename__ = 'usuario'
@@ -53,8 +52,6 @@ class Usuario(Base):
     login = Column(String(250))
     email = Column(String(250))
     senha = Column(String(250))
-    usuario_rel = relationship("Posts", foreign_keys=["Usuario.id"])
-    #posts_rel = relationship("Usuario", foreign_keys="[Posts.usuario_id]")
     schema='public'
 
     def is_authenticated(self):
@@ -63,7 +60,7 @@ class Usuario(Base):
     def is_active(self):
         return True
 
-      def is_anonymous(self):
+    def is_anonymous(self):
         return False
 
     def get_id(self):
@@ -74,8 +71,8 @@ class Usuario(Base):
 
     def __repr__(self):
         return """
-        <Usuario(nome='%s', login='%s', email='%s', senha='%s', usuario_rel='%s')>
-        """ % (self.id, self.nome, self.login, self.email, self.senha, self.usuario_rel)
+        <Usuario(nome='%s', login='%s', email='%s', senha='%s')>
+        """ % (self.id, self.nome, self.login, self.email, self.senha)
 
 # Create customized model view class
 class MyModelView(sqla.ModelView):
@@ -85,6 +82,12 @@ class MyModelView(sqla.ModelView):
 
     def obtem_usuario(self):
         return login
+
+def cria_db():
+    Base.metadata.create_all(engine)
+
+def deleta_db():
+    Base.metadata.drop_all(engine)
 
 
 
