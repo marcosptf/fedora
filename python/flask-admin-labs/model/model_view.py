@@ -1,7 +1,7 @@
 
 import flask_login as login
 from flask_admin.contrib import sqla
-from model import posts
+#from model import posts
 
 # Create customized model view class
 class MyModelView(sqla.ModelView):

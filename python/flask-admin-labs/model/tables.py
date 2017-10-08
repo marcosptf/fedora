@@ -11,7 +11,7 @@ from flask_admin.contrib import sqla
 
 metadata = pg.obtem_metadata()
 engine = pg.obtem_engine()
-Base = declarative_base()
+Base = declarative_base(engine, metadata, )
 
 class Comentarios(Base):
     __tablename__ = 'comentarios'
@@ -37,6 +37,7 @@ class Posts(Base):
     data_post = Column(String(250))
     permalink_post = Column(String(250))
     usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    usuario_rel = relationship("Usuario")
     schema='public'
 
     def __repr__(self):
@@ -52,6 +53,7 @@ class Usuario(Base):
     login = Column(String(250))
     email = Column(String(250))
     senha = Column(String(250))
+    usuario_rel = relationship("Posts")
     schema='public'
 
     def is_authenticated(self):
@@ -84,7 +86,29 @@ class MyModelView(sqla.ModelView):
         return login
 
 def cria_db():
+
     Base.metadata.create_all(engine)
+
+    usuarios_dados = [
+        { "nome":"admin usuario",  "login":"admin", "email":"admin@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+        { "nome":"java",  "login":"java", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+        { "nome":"java1", "login":"java1", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+        { "nome":"java2", "login":"java2", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+        { "nome":"java3", "login":"java3", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+        { "nome":"java4", "login":"java4", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
+    ]
+
+    posts = Posts()
+    #usuario = Usuario()
+    #usuario.nome = usuarios_dados['0']['nome']
+    #usuario.login = usuarios_dados['0']['login']
+    #usuario.email = usuarios_dados['0']['email']
+    #usuario.senha = usuarios_dados['0']['senha']
+
+    #Session = sessionmaker(bind=pg.obtem_engine())
+    #sessionmk = Session()
+    #sessionmk.add(usuario)
+    #sessionmk.commit()
 
 def deleta_db():
     Base.metadata.drop_all(engine)

@@ -82,7 +82,6 @@ import os
 from flask import Flask, url_for, redirect, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 from wtforms import form, fields, validators
-import flask_admin as admin
 from flask_admin.contrib import sqla
 from flask_admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -104,7 +103,7 @@ db = SQLAlchemy(app)
 def index():
     Session = sessionmaker(bind=pg.obtem_engine())
     sessionmk = Session()
-
+    init_flask_login()
     #posts_links = sessionmk.query(posts.Posts).filter_by(id=1).first()
     #posts_query = sessionmk.query(posts.Posts, usuario.Usuario).filter(usuario.Usuario.id == posts.Posts.usuario_id).all()
     posts_query = sessionmk.query(tables.Posts).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
@@ -120,23 +119,24 @@ def index():
 def exibe_posts(post_permalink):
     Session = sessionmaker(bind=pg.obtem_engine())
     sessionmk = Session()
-
+    init_flask_login()
     posts_links = sessionmk.query(tables.Posts).filter_by(permalink_post=post_permalink).first()
     return render_template('index.html', posts_links=posts_links)
 
-init.init_login(app)
-
-admin = admin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
-#admin.add_view(model_view.MyModelView(posts.Posts, db.session))
-#admin.add_view(tables.MyModelView(tables.Usuario, db.session))
-#admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))
-#admin.add_view(model_view.MyModelView(comentarios.Comentarios, db.session))
+def init_flask_login():
+    import flask_admin as fadmin
+    init.init_login(app)
+    cadmin = fadmin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
+    #admin.add_view(model_view.MyModelView(posts.Posts, db.session))
+    cadmin.add_view(tables.MyModelView(tables.Usuario, db.session))
+    #admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))
+    #admin.add_view(model_view.MyModelView(comentarios.Comentarios, db.session))
 
 manager = Manager(app)
 
 #python flask-admin-labs.py gera_db
 @manager.command
-def gera_db():
+def cria_db():
     tables.cria_db()
     
 #python flask-admin-labs.py deleta_db
@@ -146,5 +146,6 @@ def deleta_db():
     
 if __name__ == '__main__':
     manager.run()
+
 
 
