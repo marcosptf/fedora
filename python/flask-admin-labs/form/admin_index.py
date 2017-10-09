@@ -1,5 +1,5 @@
 
-import flask_admin as admin 
+import flask_admin as fadmin 
 from flask_admin import helpers, expose
 import flask_login as login
 from flask import Flask, url_for, redirect, render_template, request, session
@@ -15,7 +15,7 @@ from model.model_view import MyModelView
 from datetime import datetime
 
 # Create customized index view class that handles login & registration
-class MyAdminIndexView(admin.AdminIndexView):
+class MyAdminIndexView(fadmin.AdminIndexView):
 
     @expose('/')
     def index(self):

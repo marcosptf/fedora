@@ -11,7 +11,7 @@ from flask_admin.contrib import sqla
 
 metadata = pg.obtem_metadata()
 engine = pg.obtem_engine()
-Base = declarative_base(engine, metadata, )
+Base = declarative_base()
 
 class Comentarios(Base):
     __tablename__ = 'comentarios'
@@ -82,8 +82,8 @@ class MyModelView(sqla.ModelView):
     def is_accessible(self):
         return login.current_user.is_authenticated
 
-    def obtem_usuario(self):
-        return login
+    #def obtem_usuario(self):
+        #return login
 
 def cria_db():
 
@@ -98,7 +98,7 @@ def cria_db():
         { "nome":"java4", "login":"java4", "email":"java@java.com", "senha":"pbkdf2:sha256:50000$lndESREy$b44b387c8c1ccdf2a501effccd58843eb24c84fec9e18b3c000c21ee446414ac"  },
     ]
 
-    posts = Posts()
+    #posts = Posts()
     #usuario = Usuario()
     #usuario.nome = usuarios_dados['0']['nome']
     #usuario.login = usuarios_dados['0']['login']

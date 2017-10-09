@@ -127,8 +127,9 @@ def init_flask_login():
     import flask_admin as fadmin
     init.init_login(app)
     cadmin = fadmin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
-    #admin.add_view(model_view.MyModelView(posts.Posts, db.session))
     cadmin.add_view(tables.MyModelView(tables.Usuario, db.session))
+    
+    #admin.add_view(model_view.MyModelView(posts.Posts, db.session))
     #admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))
     #admin.add_view(model_view.MyModelView(comentarios.Comentarios, db.session))
 
