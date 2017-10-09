@@ -1,6 +1,17 @@
 =================================================================
 +ler depois
 
+#framework-tests
+https://github.com/teamcapybara/capybara
+https://github.com/sebastianbergmann/phpunit
+https://github.com/pytest-dev/pytest
+https://github.com/adw0rd/salad-py3
+https://github.com/Behat/Behat
+https://github.com/junit-team/junit4
+http://codeception.com/
+http://rspec.info/
+https://cucumber.io/
+
 #api-php-frameworks
 https://swagger.io/
 https://api-platform.com/docs/distribution/
