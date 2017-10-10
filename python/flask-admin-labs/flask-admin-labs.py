@@ -76,6 +76,10 @@ contato = session.query(Contatos).filter_by(id=id).first()
 session.delete(contato)
 session.commit()
 
+#implementar logs
+https://logbook.readthedocs.io/en/stable/
+https://pypi.python.org/pypi/logzero
+
 """
 
 import os
