@@ -187,7 +187,10 @@ def init_flask_login():
     cadmin = fadmin.Admin(app)
     
     #tentar fazer conforme este exemplo:
-    #https://stackoverflow.com/questions/33698104/flask-admin-editing-relationship-giving-me-object-representation-of-foreign-key
+    #exemplo mais basico possivel ===>>>
+    #1.https://flask-admin.readthedocs.io/en/v1.0.7/db_sqla/
+    #2.https://stackoverflow.com/questions/33698104/flask-admin-editing-relationship-giving-me-object-representation-of-foreign-key
+    #3.http://flask-admin.readthedocs.io/en/latest/api/mod_contrib_sqla/
     
     #quando descomenta estas linhas error SQLAlchemy
     cadmin.add_view(tables.MyModelView(Posts, db.session))
