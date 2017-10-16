@@ -110,28 +110,85 @@ def index():
     init_flask_login()
     #posts_links = sessionmk.query(posts.Posts).filter_by(id=1).first()
     #posts_query = sessionmk.query(posts.Posts, usuario.Usuario).filter(usuario.Usuario.id == posts.Posts.usuario_id).all()
-    posts_query = sessionmk.query(tables.Posts).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
-    pq = posts_query.all()
+    
+    #posts_query = sessionmk.query(tables.Posts).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
+#    pq = posts_query.all()
     
 #    for q in pq:
 #        print("debugger-query=>")
 #        print(q['titulo_post'])
 
-    return render_template('index.html', posts_links=posts_query)
+    return render_template('index.html', posts_links=None)
 
-@app.route('/exibe_posts/<string:post_permalink>')
-def exibe_posts(post_permalink):
-    Session = sessionmaker(bind=pg.obtem_engine())
-    sessionmk = Session()
-    init_flask_login()
-    posts_links = sessionmk.query(tables.Posts).filter_by(permalink_post=post_permalink).first()
-    return render_template('index.html', posts_links=posts_links)
+#@app.route('/exibe_posts/<string:post_permalink>')
+#def exibe_posts(post_permalink):
+#    Session = sessionmaker(bind=pg.obtem_engine())
+#    sessionmk = Session()
+#    init_flask_login()
+#    posts_links = sessionmk.query(tables.Posts).filter_by(permalink_post=post_permalink).first()
+#    return render_template('index.html', posts_links=posts_links)
+
+
+from sqlalchemy import Integer, String
+class Posts(db.Model):
+    __tablename__ = 'posts'
+    id = db.Column(Integer, primary_key=True)
+    titulo_post = db.Column(String(250))
+    texto_post = db.Column(String(250))
+    data_post = db.Column(String(250))
+    permalink_post = db.Column(String(250))
+    usuario_id = db.Column(Integer)
+    schema='public'
+    def __repr__(self):
+        return """
+        <Posts(titulo_post='%s', texto_post='%s', data_post='%s', permalink_post='%s', usuario_id='%s')>  
+        """ % (self.id, self.titulo_post, self.texto_post, self.data_post, self.permalink_post, self.usuario_id) 
+class Usuario(db.Model):
+    __tablename__ = 'usuario'
+    id = db.Column(Integer, primary_key=True)
+    nome = db.Column(String(250))
+    login = db.Column(String(250))
+    email = db.Column(String(250))
+    senha = db.Column(String(250))
+    schema='public'
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
+    def __unicode__(self):
+        return self.nome
+
+    def __repr__(self):
+        return """
+        <Usuario(nome='%s', login='%s', email='%s', senha='%s')>
+        """ % (self.id, self.nome, self.login, self.email, self.senha)
+
+
 
 def init_flask_login():
     import flask_admin as fadmin
+    
+    #example app.py
+    #admin.add_view(MyModelView(User, db.session))
     init.init_login(app)
-    cadmin = fadmin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
-    cadmin.add_view(tables.MyModelView(tables.Usuario, db.session))
+    
+    #o erro que esta dando naotem absolutamente nada a ver
+    #com os parametros da instancia abaixo ===>>>
+    #cadmin = fadmin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
+    cadmin = fadmin.Admin(app)
+    
+    #quando descomenta estas linhas error SQLAlchemy
+    cadmin.add_view(tables.MyModelView(Posts, db.session))
+    cadmin.add_view(tables.MyModelView(Usuario, db.session))
     
     #admin.add_view(model_view.MyModelView(posts.Posts, db.session))
     #admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))

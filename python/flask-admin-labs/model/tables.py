@@ -20,7 +20,8 @@ class Comentarios(Base):
     permalink_comentario_post = Column(String(250))
     texto_comentario_post = Column(String(250))
     data_comentario_post = Column(String(250))
-    post_id = Column(Integer, ForeignKey('posts.id'))
+    post_id = Column(Integer)
+    #post_id = Column(Integer, ForeignKey('posts.id'))
     schema='public'
 
     def __repr__(self):
@@ -36,8 +37,9 @@ class Posts(Base):
     texto_post = Column(String(250))
     data_post = Column(String(250))
     permalink_post = Column(String(250))
-    usuario_id = Column(Integer, ForeignKey('usuario.id'))
-    usuario_rel = relationship("Usuario")
+    usuario_id = Column(Integer)
+    #usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    #usuario_rel = relationship("Usuario")
     schema='public'
 
     def __repr__(self):
@@ -53,7 +55,7 @@ class Usuario(Base):
     login = Column(String(250))
     email = Column(String(250))
     senha = Column(String(250))
-    usuario_rel = relationship("Posts")
+    #usuario_rel = relationship("Posts")
     schema='public'
 
     def is_authenticated(self):
