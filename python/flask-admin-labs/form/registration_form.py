@@ -2,7 +2,8 @@
 from wtforms import form, fields, validators
 from sqlalchemy.orm import sessionmaker
 from model import obtem_db as pg
-from model import usuario
+#from model import usuario
+from model import tables
 
 class RegistrationForm(form.Form):
   
@@ -19,6 +20,6 @@ class RegistrationForm(form.Form):
         Session = sessionmaker(bind=pg.obtem_engine())
         sessionmk = Session()
 
-        if sessionmk.query(usuario.Usuario).filter_by(login=self.login.data).count() > 0:
+        if sessionmk.query(tables.Usuario).filter_by(login=self.login.data).count() > 0:
             raise validators.ValidationError('usuario duplicado')
 

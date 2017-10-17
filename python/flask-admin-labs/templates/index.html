@@ -2,18 +2,18 @@
     <body>
     <p>blog</p>
         <div>
-            <a href="{#{ url_for('admin.index') }#}">acesse o admin!</a>
+            <a href="{{ url_for('admin.index') }}">acesse o admin!</a>
         </div>
         <div>
             <p>lista de posts</p>
-            {#% for posts in posts_links %#}
+            {% for posts in posts_links %}
             <ul>
-                <li>titulo to post: {#{ posts.titulo_post }#}</li>
-                <li>{#{ posts.data_post }#}</li>
-                <li><a href="{#{ posts.permalink_post }#}">acesso ao post completo</a> </li>
-                <li>{#{ posts.login }#}</li>
+                <li>titulo to post: {{ posts.titulo_post }}</li>
+                <li>{{ posts.data_post }}</li>
+                <li><a href="{{ posts.permalink_post }}">acesso ao post completo</a> </li>
+                <li>{{ posts.login }}</li>
             </ul>
-            {#% endfor %#}
+            {% endfor %}
         <div>
     </body>
 </html>

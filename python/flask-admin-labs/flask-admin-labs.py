@@ -86,7 +86,7 @@ import os
 from flask import Flask, url_for, redirect, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 from wtforms import form, fields, validators
-from flask_admin.contrib import sqla
+#from flask_admin.contrib import sqla
 from flask_admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
 from config import config
@@ -110,15 +110,12 @@ def index():
     init_flask_login()
     #posts_links = sessionmk.query(posts.Posts).filter_by(id=1).first()
     #posts_query = sessionmk.query(posts.Posts, usuario.Usuario).filter(usuario.Usuario.id == posts.Posts.usuario_id).all()
-    
-    #posts_query = sessionmk.query(tables.Posts).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
+    pq = sessionmk.query(tables.Posts).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
 #    pq = posts_query.all()
-    
 #    for q in pq:
 #        print("debugger-query=>")
 #        print(q['titulo_post'])
-
-    return render_template('index.html', posts_links=None)
+    return render_template('index.html', posts_links=pq)
 
 #@app.route('/exibe_posts/<string:post_permalink>')
 #def exibe_posts(post_permalink):
@@ -127,51 +124,6 @@ def index():
 #    init_flask_login()
 #    posts_links = sessionmk.query(tables.Posts).filter_by(permalink_post=post_permalink).first()
 #    return render_template('index.html', posts_links=posts_links)
-
-
-from sqlalchemy import Integer, String
-class Posts(db.Model):
-    __tablename__ = 'posts'
-    id = db.Column(Integer, primary_key=True)
-    titulo_post = db.Column(String(250))
-    texto_post = db.Column(String(250))
-    data_post = db.Column(String(250))
-    permalink_post = db.Column(String(250))
-    usuario_id = db.Column(Integer)
-    schema='public'
-    def __repr__(self):
-        return """
-        <Posts(titulo_post='%s', texto_post='%s', data_post='%s', permalink_post='%s', usuario_id='%s')>  
-        """ % (self.id, self.titulo_post, self.texto_post, self.data_post, self.permalink_post, self.usuario_id) 
-class Usuario(db.Model):
-    __tablename__ = 'usuario'
-    id = db.Column(Integer, primary_key=True)
-    nome = db.Column(String(250))
-    login = db.Column(String(250))
-    email = db.Column(String(250))
-    senha = db.Column(String(250))
-    schema='public'
-
-    def is_authenticated(self):
-        return True
-
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        return self.id
-
-    def __unicode__(self):
-        return self.nome
-
-    def __repr__(self):
-        return """
-        <Usuario(nome='%s', login='%s', email='%s', senha='%s')>
-        """ % (self.id, self.nome, self.login, self.email, self.senha)
-
 
 
 def init_flask_login():
@@ -183,8 +135,8 @@ def init_flask_login():
     
     #o erro que esta dando naotem absolutamente nada a ver
     #com os parametros da instancia abaixo ===>>>
-    #cadmin = fadmin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
-    cadmin = fadmin.Admin(app)
+    cadmin = fadmin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
+    #cadmin = fadmin.Admin(app)
     
     #tentar fazer conforme este exemplo:
     #exemplo mais basico possivel ===>>>
@@ -192,9 +144,12 @@ def init_flask_login():
     #2.https://stackoverflow.com/questions/33698104/flask-admin-editing-relationship-giving-me-object-representation-of-foreign-key
     #3.http://flask-admin.readthedocs.io/en/latest/api/mod_contrib_sqla/
     
+    
     #quando descomenta estas linhas error SQLAlchemy
-    cadmin.add_view(tables.MyModelView(Posts, db.session))
-    cadmin.add_view(tables.MyModelView(Usuario, db.session))
+    #from flask.ext.admin.contrib.sqla import ModelView
+    from flask_admin.contrib.sqla import ModelView
+    cadmin.add_view(ModelView(tables.Posts, db.session))
+    cadmin.add_view(ModelView(tables.Usuario, db.session))
     
     #admin.add_view(model_view.MyModelView(posts.Posts, db.session))
     #admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))
