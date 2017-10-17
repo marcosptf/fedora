@@ -103,7 +103,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = config.flask_app_config['SQLALCHEMY_DATA
 app.config['SQLALCHEMY_ECHO'] = config.flask_app_config['SQLALCHEMY_ECHO']
 db = SQLAlchemy(app)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     Session = sessionmaker(bind=pg.obtem_engine())
     sessionmk = Session()
@@ -117,13 +117,13 @@ def index():
 #        print(q['titulo_post'])
     return render_template('index.html', posts_links=pq)
 
-#@app.route('/exibe_posts/<string:post_permalink>')
-#def exibe_posts(post_permalink):
-#    Session = sessionmaker(bind=pg.obtem_engine())
-#    sessionmk = Session()
-#    init_flask_login()
-#    posts_links = sessionmk.query(tables.Posts).filter_by(permalink_post=post_permalink).first()
-#    return render_template('index.html', posts_links=posts_links)
+@app.route('/exibe_posts/<string:post_permalink>')
+def exibe_posts(post_permalink):
+    Session = sessionmaker(bind=pg.obtem_engine())
+    sessionmk = Session()
+    init_flask_login()
+    posts_links = sessionmk.query(tables.Posts).filter_by(permalink_post=post_permalink).first()
+    return render_template('index.html', posts_links=posts_links)
 
 
 def init_flask_login():
@@ -150,6 +150,7 @@ def init_flask_login():
     from flask_admin.contrib.sqla import ModelView
     cadmin.add_view(ModelView(tables.Posts, db.session))
     cadmin.add_view(ModelView(tables.Usuario, db.session))
+    cadmin.add_view(ModelView(tables.Comentarios, db.session))
     
     #admin.add_view(model_view.MyModelView(posts.Posts, db.session))
     #admin.add_view(model_view.MyModelView(usuario.Usuario, db.session))
