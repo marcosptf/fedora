@@ -123,6 +123,10 @@ def exibe_posts(post_permalink):
     sessionmk = Session()
     init_flask_login()
     posts_links = sessionmk.query(tables.Posts).filter_by(permalink_post=post_permalink).first()
+    print(posts_links.titulo_post)
+    print(posts_links.texto_post)
+    print(posts_links.data_post)
+    print(posts_links.permalink_post)
     return render_template('index.html', posts_links=posts_links)
 
 

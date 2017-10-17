@@ -10,7 +10,7 @@
             <ul>
                 <li>titulo to post: {{ posts.titulo_post }}</li>
                 <li>{{ posts.data_post }}</li>
-                <li><a href="{{ posts.permalink_post }}">acesso ao post completo</a> </li>
+                <li><a href="/exibe_posts/{{ posts.permalink_post }}">acesso ao post completo</a> </li>
                 <li>{{ posts.login }}</li>
             </ul>
             {% endfor %}
