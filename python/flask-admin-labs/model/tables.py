@@ -38,6 +38,7 @@ class Posts(Base):
     data_post = Column(String(250))
     permalink_post = Column(String(250))
     usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    #code refactory, verificar se precisa desta linha abaixo
     usuario_rel = relationship("Usuario")
     schema='public'
 
@@ -54,6 +55,7 @@ class Usuario(Base):
     login = Column(String(250))
     email = Column(String(250))
     senha = Column(String(250))
+    #code refactory, verificar se precisa desta linha abaixo
     usuario_rel = relationship("Posts")
     schema='public'
 

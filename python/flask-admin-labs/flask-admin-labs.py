@@ -130,6 +130,12 @@ def exibe_posts(post_permalink):
     print(posts_links.permalink_post)
     return render_template('index.html', posts_links=posts_links)
 
+@app.template_filter('strftime')
+def _jinja2_filter_datetime(date):
+    from dateutil.parser import *
+    date = parse(date)
+    format='%d-%m-%Y %X'
+    return date.strftime(format)
 
 def init_flask_login():
     import flask_admin as fadmin
