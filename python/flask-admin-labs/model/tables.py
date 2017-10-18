@@ -37,7 +37,6 @@ class Posts(Base):
     texto_post = Column(String(250))
     data_post = Column(String(250))
     permalink_post = Column(String(250))
-    usuario_id = Column(Integer)
     usuario_id = Column(Integer, ForeignKey('usuario.id'))
     usuario_rel = relationship("Usuario")
     schema='public'

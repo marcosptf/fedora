@@ -110,7 +110,8 @@ def index():
     init_flask_login()
     #posts_links = sessionmk.query(posts.Posts).filter_by(id=1).first()
     #posts_query = sessionmk.query(posts.Posts, usuario.Usuario).filter(usuario.Usuario.id == posts.Posts.usuario_id).all()
-    pq = sessionmk.query(tables.Posts).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
+    #pq = sessionmk.query(tables.Posts).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
+    pq = sessionmk.query(tables.Posts.titulo_post, tables.Posts.data_post, tables.Posts.permalink_post, tables.Usuario.login).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
 #    pq = posts_query.all()
 #    for q in pq:
 #        print("debugger-query=>")
