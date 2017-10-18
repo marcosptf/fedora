@@ -1,0 +1,26 @@
+<html>
+    <body>
+
+    <p>blog</p>
+
+        <div>
+            <a href="{{ url_for('admin.index') }}">acesse o admin!</a>
+        </div>
+        <br/>
+        
+        <div>
+            <a href="{{ url_for('.index') }}">index do blog</a>
+        </div>
+        <br/>
+
+        <div>
+            <b>titulo to post: {{ post.titulo_post|upper }}</b>
+            <p> texto do post:{{ post.texto_post }} </p>
+            <br/>
+	    <p>data do post:{{ post.data_post|strftime }}</p>
+	    <p>autor do post:{{ post.login }}</p>
+        <div>
+
+    </body>
+</html>
+  
