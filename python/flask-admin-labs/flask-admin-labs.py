@@ -123,18 +123,19 @@ def exibe_posts(post_permalink):
     Session = sessionmaker(bind=pg.obtem_engine())
     sessionmk = Session()
     init_flask_login()
-    posts_links = sessionmk.query(tables.Posts).filter_by(permalink_post=post_permalink).first()
+    posts_links = sessionmk.query(tables.Posts.texto_post, tables.Posts.titulo_post, tables.Posts.data_post, tables.Posts.permalink_post, tables.Usuario.login).filter_by(permalink_post=post_permalink).first()
     print(posts_links.titulo_post)
     print(posts_links.texto_post)
     print(posts_links.data_post)
     print(posts_links.permalink_post)
-    return render_template('index.html', posts_links=posts_links)
+    return render_template('exibe_posts.html', post=posts_links)
+    #return redirect(url_for('index'))
 
 @app.template_filter('strftime')
 def _jinja2_filter_datetime(date):
     from dateutil.parser import *
     date = parse(date)
-    format='%d-%m-%Y %X'
+    format='%d/%m/%Y %X'
     return date.strftime(format)
 
 def init_flask_login():
