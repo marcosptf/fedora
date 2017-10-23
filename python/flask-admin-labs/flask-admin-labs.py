@@ -96,6 +96,7 @@ from model import tables
 from flask_script import Manager
 from model import obtem_db as pg
 from sqlalchemy.orm import sessionmaker
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config.flask_app_config['SECRET_KEY']
@@ -118,18 +119,41 @@ def index():
 #        print(q['titulo_post'])
     return render_template('index.html', posts_links=pq)
 
-@app.route('/exibe_posts/<string:post_permalink>')
+@app.route('/salva_comentario_post', methods=['POST'])
+def salva_comentario_post():
+    data_form = request.form 
+    print("salva-comentario-post")
+    #if data_form['comentario'] != "":
+    salva_comentario(data_form)
+    print("salva-comentario")
+    #return redirect(url_for('.exibe_posts', data_form['permalink_post']))
+    return redirect(url_for('.index'))
+
+def salva_comentario(dados_post):
+    Session = sessionmaker(bind=pg.obtem_engine())
+    sessionmk = Session()
+    print("inserindo comentario===>")
+    print(dados_post['comentario'])
+    print(dados_post['permalink_post'])
+    print(dados_post['post_id'])
+    #novo_comentario = tables.Comentarios(tables.Comentarios.permalink_comentario_post=dados_post['permalink_post'], tables.Comentarios.texto_comentario_post=dados_post['comentario'], tables.Comentarios.data_comentario_post="", tables.Comentarios.post_id=dados_post['post_id'])
+    novo_comentario = tables.Comentarios(permalink_comentario_post=dados_post['permalink_post'], texto_comentario_post=dados_post['comentario'], data_comentario_post=datetime.now(), post_id=dados_post['post_id'])
+    sessionmk.add(novo_comentario)
+    sessionmk.commit()
+
+@app.route('/exibe_posts/<string:post_permalink>', methods=['GET'])
 def exibe_posts(post_permalink):
     Session = sessionmaker(bind=pg.obtem_engine())
     sessionmk = Session()
     init_flask_login()
     #posts_links = sessionmk.query(tables.Posts.texto_post, tables.Posts.titulo_post, tables.Posts.data_post, tables.Posts.permalink_post, tables.Usuario.login).filter_by(permalink_post=post_permalink).first()
-    posts_links = sessionmk.query(tables.Posts.texto_post, tables.Posts.titulo_post, tables.Posts.data_post, tables.Posts.permalink_post, tables.Usuario.login).filter(tables.Posts.permalink_post==post_permalink).filter(tables.Posts.usuario_id==tables.Usuario.id).first()    
+    posts_links = sessionmk.query(tables.Posts.id, tables.Posts.texto_post, tables.Posts.titulo_post, tables.Posts.data_post, tables.Posts.permalink_post, tables.Usuario.login).filter(tables.Posts.permalink_post==post_permalink).filter(tables.Posts.usuario_id==tables.Usuario.id).first()
+    posts_comentarios = sessionmk.query(tables.Comentarios.texto_comentario_post,tables.Comentarios.data_comentario_post).filter(tables.Comentarios.post_id==posts_links.id).all()    
     print(posts_links.titulo_post)
     print(posts_links.texto_post)
     print(posts_links.data_post)
     print(posts_links.permalink_post)
-    return render_template('exibe_posts.html', post=posts_links)
+    return render_template('exibe_posts.html', post=posts_links, posts_comentarios=posts_comentarios)
     #return redirect(url_for('index'))
 
 @app.template_filter('strftime')
