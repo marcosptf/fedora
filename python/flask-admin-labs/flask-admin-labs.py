@@ -126,8 +126,8 @@ def salva_comentario_post():
     #if data_form['comentario'] != "":
     salva_comentario(data_form)
     print("salva-comentario")
-    #return redirect(url_for('.exibe_posts', data_form['permalink_post']))
-    return redirect(url_for('.index'))
+    return redirect(url_for('.exibe_posts', post_permalink=data_form['permalink_post']))
+    #return redirect(url_for('.index'))
 
 def salva_comentario(dados_post):
     Session = sessionmaker(bind=pg.obtem_engine())
