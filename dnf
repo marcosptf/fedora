@@ -3,6 +3,22 @@ service mongod stop
 service mongod status
 service mongod start
 
+/* Git Flow */
+git flow init
+git flow feature start DEMANDAS-7052
+git flow feature finish DEMANDAS-6752
+
++git flow hotfix
+git flow hotfix start <release>
+git commit -am ""
+git push origin hotfix/<release>
+git flow hotfix finish <release>
+git checkout develop
+git push origin develop
+git checkout master
+git push origin master
+git push origin tag <release>
+https://github.com/nvie/gitflow
 
 /* instalando pip && virtualenv windows - usando o cmd - nao funciona no powershell */
 wget https://bootstrap.pypa.io/get-pip.py [enter]
