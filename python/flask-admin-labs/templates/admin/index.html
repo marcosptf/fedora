@@ -5,19 +5,36 @@
 
     <div>
         {% if current_user.is_authenticated %}
-        <h1>Blog Admin</h1>
+<!--        <h1>Blog Admin</h1>
         <p class="lead">
            crie seu post
         </p>
-        
         <form method="POST" action="/admin/criapost/" >
           <input type="text" name="titulo_post" value="" />
           <br/>
          <textarea name="texto_post" rows="4" cols="50"></textarea> 
          <br/>
          <button class="btn" type="submit" >criar novo post</button>         
-        </form>
+        </form>-->
 
+        <h1>Blog Admin - posts</h1>
+	  <table border="1">
+	  <thead>
+	  <tr>
+	    <td><b>quantidade de usuarios</b></td>
+	    <td><b>quantidade de posts</b></td>
+	    <td><b>quantidade de comentarios</b></td>
+	  </tr>
+	  </thead>
+	  <tbody>
+	  <tr>
+	    <td>{{ qtde_usuarios }} </td>
+	    <td>{{ qtde_posts }} </td>
+	    <td>{{ qtde_comentarios }}</td>
+	  </tr>
+	  </tbody>
+	  </table>
+	  <br/>
         {% else %}
 
         <form method="POST" action="">

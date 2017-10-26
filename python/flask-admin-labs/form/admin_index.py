@@ -20,11 +20,18 @@ class MyAdminIndexView(fadmin.AdminIndexView):
 
     @expose('/')
     def index(self):
-        print("route-root-admin");
-        print("session-user===>>>>>")
-        #print(session.usuario_id'])
+
         if not login.current_user.is_authenticated:
             return redirect(url_for('.login_view'))
+	
+        Session = sessionmaker(bind=pg.obtem_engine())
+        sessionmk = Session()	
+        qtde_usuarios = sessionmk.query(tables.Usuario).count()
+        qtde_posts = sessionmk.query(tables.Posts).count()
+        qtde_comentarios = sessionmk.query(tables.Comentarios).count()
+        self._template_args['qtde_usuarios'] = qtde_usuarios
+        self._template_args['qtde_posts'] = qtde_posts
+        self._template_args['qtde_comentarios'] = qtde_comentarios
         return super(MyAdminIndexView, self).index()
 
     @expose('/login/', methods=('GET', 'POST'))
