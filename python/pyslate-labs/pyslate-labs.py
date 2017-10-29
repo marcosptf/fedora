@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+#lib usada para este labs
+#https://pypi.python.org/pypi/pyslate/1.1
 from flask import Flask
 app = Flask(__name__)
 #>>> from pyslate.pyslate import Pyslate
