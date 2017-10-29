@@ -48,7 +48,8 @@ class MyAdminIndexView(fadmin.AdminIndexView):
         self._template_args['form'] = form
         self._template_args['link'] = link
         return super(MyAdminIndexView, self).index()
-      
+
+    #DEPRECATED      
     @expose('/criapost/', methods=('GET', 'POST'))
     def criapost(self):
         print("route-criapost-admin");
