@@ -8,3 +8,4 @@ SQLAlchemy
 DateTime
 dateutils
 pyslate
+Flask-PyMemcache

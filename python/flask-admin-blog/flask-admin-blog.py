@@ -11,12 +11,24 @@ from flask_script import Manager
 from model import obtem_db as pg
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
+from memcached import flask_pymemcache
+import pymemcache.client
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config.flask_app_config['SECRET_KEY']
 app.config['SQLALCHEMY_DATABASE_URI'] = config.flask_app_config['SQLALCHEMY_DATABASE_URI']
 app.config['SQLALCHEMY_ECHO'] = config.flask_app_config['SQLALCHEMY_ECHO']
+app.config['PYMEMCACHE'] = {
+    'server': (config.flask_app_config['PYMEMCACHE_HOST'], config.flask_app_config['PYMEMCACHE_PORT']),
+    'key_prefix': config.flask_app_config['PYMEMCACHE_KEY_PREFIX'],
+    'close_on_teardown': config.flask_app_config['PYMEMCACHE_CLOSE'],
+    'connect_timeout': config.flask_app_config['PYMEMCACHE_TIMEOUT_CONN'],
+    'timeout': config.flask_app_config['PYMEMCACHE_TIMEOUT'],
+    'no_delay': config.flask_app_config['PYMEMCACHE_NO_DELAY'],
+}
+
 db = SQLAlchemy(app)
+pymc = pymemcache.client.Client((config.flask_app_config['PYMEMCACHE_HOST'], config.flask_app_config['PYMEMCACHE_PORT']))
 
 #example:
 #http://localhost:5000/en
@@ -25,6 +37,11 @@ db = SQLAlchemy(app)
 def index(lang):
     from pyslate.pyslate import Pyslate
     from pyslate.backends.json_backend import JsonBackend
+
+    memcache = flask_pymemcache.FlaskPyMemcache()    
+    memcache.init_app(app)
+    memcache.client.set(b'foo', b'ola memcached!')
+    #return 'aplicacao flask python, %s!' % memcache.client.get(b'foo')
 
     titulo = Pyslate(lang, backend=JsonBackend("translations.json"))
     Session = sessionmaker(bind=pg.obtem_engine())
