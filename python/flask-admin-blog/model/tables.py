@@ -85,9 +85,6 @@ class MyModelView(sqla.ModelView):
     def is_accessible(self):
         return login.current_user.is_authenticated
 
-    #def obtem_usuario(self):
-        #return login
-
 def cria_db():
 
     Base.metadata.create_all(engine)

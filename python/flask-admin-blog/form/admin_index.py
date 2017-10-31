@@ -9,7 +9,6 @@ from registration_form import RegistrationForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import sessionmaker
 from model import obtem_db as pg
-from model.model_view import MyModelView
 from datetime import datetime
 from model import tables
 
@@ -44,27 +43,6 @@ class MyAdminIndexView(fadmin.AdminIndexView):
         link = '<p>nao tem conta ainda ?<a href="' + url_for('.register_view') + '"> crie uma conta agora!</a></p>'
         self._template_args['form'] = form
         self._template_args['link'] = link
-        return super(MyAdminIndexView, self).index()
-
-    #DEPRECATED      
-    @expose('/criapost/', methods=('GET', 'POST'))
-    def criapost(self):
-        print("route-criapost-admin");
-        data_form = request.form
-        Session = sessionmaker(bind=pg.obtem_engine())
-
-        sessionmk = Session()
-        posts = tables.Posts()
-        usuario = tables.Usuario()
-        mv = MyModelView(tables.Usuario, sessionmk)
-        
-        posts.titulo_post = data_form['titulo_post']
-        posts.texto_post = data_form['texto_post']
-        posts.data_post = datetime.now()
-        posts.permalink_post = posts.titulo_post.replace(" ", "-")
-        posts.usuario_id = session['usuario_id']
-        sessionmk.add(posts)
-        sessionmk.commit()
         return super(MyAdminIndexView, self).index()
 
     @expose('/register/', methods=('GET', 'POST'))
