@@ -48,7 +48,6 @@ class MyAdminIndexView(fadmin.AdminIndexView):
         posts.usuario_id = session['usuario_id']
         sessionmk.add(posts)
         sessionmk.commit()
-        #return super(MyAdminIndexView, self).index()
         return redirect(url_for('.index'))
 
     @expose('/login/', methods=('GET', 'POST'))
