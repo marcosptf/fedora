@@ -1,0 +1,9 @@
+Flask
+Flask-Admin
+Flask-SQLAlchemy
+Flask-Login>=0.3.0
+psycopg2
+Flask-Script
+SQLAlchemy
+DateTime
+dateutils

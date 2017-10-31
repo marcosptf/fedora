@@ -1,0 +1,63 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+{{ super() }}
+<div class="row-fluid">
+
+    <div>
+        {% if current_user.is_authenticated %}
+<!--        <h1>Blog Admin</h1>
+        <p class="lead">
+           crie seu post
+        </p>
+        <form method="POST" action="/admin/criapost/" >
+          <input type="text" name="titulo_post" value="" />
+          <br/>
+         <textarea name="texto_post" rows="4" cols="50"></textarea> 
+         <br/>
+         <button class="btn" type="submit" >criar novo post</button>         
+        </form>-->
+
+        <h1>Blog Admin - posts</h1>
+	  <table border="1">
+	  <thead>
+	  <tr>
+	    <td><b>quantidade de usuarios</b></td>
+	    <td><b>quantidade de posts</b></td>
+	    <td><b>quantidade de comentarios</b></td>
+	  </tr>
+	  </thead>
+	  <tbody>
+	  <tr>
+	    <td>{{ qtde_usuarios }} </td>
+	    <td>{{ qtde_posts }} </td>
+	    <td>{{ qtde_comentarios }}</td>
+	  </tr>
+	  </tbody>
+	  </table>
+	  <br/>
+        {% else %}
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() if form.hidden_tag }}
+            {% for f in form if f.type != 'CSRFTokenField' %}
+            <div>
+            {{ f.label }}
+            {{ f }}
+            {% if f.errors %}
+            <ul>
+                {% for e in f.errors %}
+                <li>{{ e }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            </div>
+            {% endfor %}
+            <button class="btn" type="submit">Blog Admin</button>
+        </form>
+        {{ link | safe }}
+        {% endif %}
+    </div>
+
+    <a class="btn btn-primary" href="/"><i class="icon-arrow-left icon-white"></i> Back</a>
+</div>
+{% endblock body %}

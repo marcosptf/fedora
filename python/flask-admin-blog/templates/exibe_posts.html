@@ -1,0 +1,46 @@
+<html>
+    <body>
+
+    <p>blog</p>
+
+        <div>
+            <a href="{{ url_for('admin.index') }}">acesse o admin!</a>
+        </div>
+        <br/>
+        
+        <div>
+            <a href="{{ url_for('.index') }}">index do blog</a>
+        </div>
+        <br/>
+
+        <div>
+            <b>titulo to post: {{ post.titulo_post|upper }}</b>
+            <p> texto do post:{{ post.texto_post }} </p>
+            <br/>
+	    <p>data do post:{{ post.data_post|strftime }}</p>
+	    <p>autor do post:{{ post.login }}</p>
+        <div>
+        <br/>
+        <br/>
+
+        <div>
+            <form name="comentario-form" action="/salva_comentario_post" method="post" >
+              <p><label for="comentario">insira um comentario<label></p>
+              <p><input name="comentario" type="text" value="" /></p>
+              <input name="permalink_post" type="hidden" value="{{ post.permalink_post }}" />
+              <input name="post_id" type="hidden" value="{{ post.id }}" />
+              <p><input name="insere-comentario" type="submit" value="inserir comentario" /></p>
+            </form>
+	    <br/>
+	    <br/>	      
+            
+            <b>comentarios:</b>
+            {% for comentario in posts_comentarios %}
+              <p> texto do post:{{ comentario.texto_comentario_post }} </p>
+	      <p>data do post:{{ comentario.data_comentario_post|strftime }}</p>
+	      <br/>
+            {% endfor %}
+        <div>
+    </body>
+</html>
+  
