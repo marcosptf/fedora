@@ -7,3 +7,4 @@ Flask-Script
 SQLAlchemy
 DateTime
 dateutils
+pyslate

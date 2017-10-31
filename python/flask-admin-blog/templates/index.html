@@ -5,10 +5,10 @@
             <a href="{{ url_for('admin.index') }}">acesse o admin!</a>
         </div>
         <div>
-            <p>lista de posts</p>
+            <p>{{ titulo_index }}</p>
             {% for posts in posts_links %}
             <ul>
-                <li>titulo to post: {{ posts.titulo_post|upper }}</li>
+                <li>{{ post_index }}: {{ posts.titulo_post|upper }}</li>
                 <li>{{ posts.data_post|strftime }}</li>
                 <li><a href="/exibe_posts/{{ posts.permalink_post }}">acesso ao post completo</a> </li>
                 <li>{{ posts.login }}</li>

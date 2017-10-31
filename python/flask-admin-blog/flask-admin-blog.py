@@ -18,13 +18,20 @@ app.config['SQLALCHEMY_DATABASE_URI'] = config.flask_app_config['SQLALCHEMY_DATA
 app.config['SQLALCHEMY_ECHO'] = config.flask_app_config['SQLALCHEMY_ECHO']
 db = SQLAlchemy(app)
 
-@app.route('/', methods=['GET'])
-def index():
+#example:
+#http://localhost:5000/en
+#http://localhost:5000/pt
+@app.route('/<string:lang>', methods=['GET'])
+def index(lang):
+    from pyslate.pyslate import Pyslate
+    from pyslate.backends.json_backend import JsonBackend
+
+    titulo = Pyslate(lang, backend=JsonBackend("translations.json"))
     Session = sessionmaker(bind=pg.obtem_engine())
     sessionmk = Session()
     init_flask_login()
     pq = sessionmk.query(tables.Posts.titulo_post, tables.Posts.data_post, tables.Posts.permalink_post, tables.Usuario.login).join(tables.Usuario).filter(tables.Usuario.id == tables.Posts.usuario_id).all()
-    return render_template('index.html', posts_links=pq)
+    return render_template('index.html', posts_links=pq, titulo_index=titulo.translate("titulo_index_blog"), post_index=titulo.translate("titulo_index_post"))
 
 @app.route('/salva_comentario_post', methods=['POST'])
 def salva_comentario_post():
