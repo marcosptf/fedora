@@ -27,6 +27,10 @@ pip install virtualenv [enter]
 virtualenv .venv [enter]
 .venv\Scripts\activate [enter]
 
+#instalar no fedora netflix
+https://sourceforge.net/projects/chromium-bsu/
+dnf install kdegames
+dnf install kaffeine
 
 /*  Creating USB Media on the Linux command line  */
 $ dmesg|tail
