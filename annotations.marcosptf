@@ -4,23 +4,6 @@
 #fiat-marea
 https://carro.mercadolivre.com.br/MLB-914789161-marea-weekend-24-hlx-automatica-gasolina-motor-okm-_JM
 
-#framework-tests
-https://github.com/teamcapybara/capybara
-https://github.com/sebastianbergmann/phpunit
-https://github.com/pytest-dev/pytest
-https://github.com/adw0rd/salad-py3
-https://github.com/Behat/Behat
-https://github.com/junit-team/junit4
-http://codeception.com/
-http://rspec.info/
-https://cucumber.io/
-https://johnnunemaker.com/httparty/
-http://keeptesting.com.br/2015/03/23/testando-suas-apis-com-httparty/
-
-#api-php-frameworks
-https://swagger.io/
-https://api-platform.com/docs/distribution/
-
 #maratona-sesc-com-raissa
 https://www.sescsp.org.br/programacao/133585_GAROTA+HACKER+CLUBE#/content=programacao
 https://www.sescsp.org.br/programacao/131166_BRINCADEIRAS+CORPORAIS
@@ -47,17 +30,11 @@ https://github.com/rohe/pyjwkest?utm_campaign=explore-email&utm_medium=email&utm
 #medicina alternativa
 http://www.plantasmedicinaisefitoterapia.com/temas/medicina-alternativa/
 
-#instalar no fedora netflix
-https://sourceforge.net/projects/chromium-bsu/
-dnf install kdegames
-dnf install kaffeine
-
 #vinho-tannat
 https://www.wine.com.br/vinhos/salton-classic-tannat-2015/prod16842.html
 https://www.wine.com.br/vinhos/pueblo-del-sol-roble-tannat-2015/prod15588.html
 https://terereshop.com.br/erva-mate/erva-mate-pagliosa-premium-vacuo-1kg-3883.html
 http://www.vinhospagliosa.com.br/web/  
-
 
 #vim
 https://vim-adventures.com/
@@ -128,103 +105,6 @@ http://python-3-patterns-idioms-test.readthedocs.io/en/latest/index.html
 https://penseallen.github.io/PensePython2e/
 #python 3 book
 https://wizardforcel.gitbooks.io/sicp-in-python/content/0.html
-
-#frameworks web python
-http://flask.pocoo.org/
-https://docs.djangoproject.com/en/1.11/
-http://priestc.github.io/giotto/
-https://pypi.python.org/pypi/grok/
-https://github.com/Pylons/pylons
-http://www.reahl.org/
-https://bitbucket.org/akorn/wheezy.web
-https://pypi.python.org/pypi/Zope2
-https://pypi.python.org/pypi/Glashammer
-http://karrigell.sourceforge.net/en/index.html
-https://github.com/stanfeldman/kiss.py
-http://www.lino-framework.org/
-http://www.nagare.org/
-http://www.innoscript.org/
-https://pypi.python.org/pypi/Pylatte
-https://pypi.python.org/pypi/tipfy
-http://www.tornadoweb.org/en/stable/
-https://github.com/watsonpy/watson-framework
-https://webapp2.readthedocs.io/en/latest/
-http://www.webbot.ws/Home
-https://pypi.python.org/pypi/WebCore
-http://www.turbogears.org/
-http://www.web2py.com/
-https://www.cubicweb.org/
-http://webpy.org/
-https://cito.github.io/w4py/
-http://werkzeug.pocoo.org/
-http://whiff.sourceforge.net/
-http://bottlepy.org/docs/dev/
-https://wiki.python.org/moin/CherryPy
-http://flask.pocoo.org/
-https://github.com/timothycrosley/hug
-https://trypyramid.com/
-https://wiki.python.org/moin/Albatross
-https://github.com/gertcuykens/wsgi-design
-http://bluebream.zope.org/
-https://pypi.python.org/pypi/bobo
-http://circuitsframework.com/
-https://github.com/mahmoud/clastic
-https://pypi.python.org/pypi/Nevow
-http://falconframework.org/
-https://github.com/pyGrowler/Growler
-https://github.com/allisson/gunstar/
-http://morepath.readthedocs.io/en/latest/index.html
-http://pycnic.nullism.com/
-https://web.archive.org/web/20161103223750/http://pythonpaste.org:80/
-https://www.stroeder.com/pyweblib.html
-http://quixote.ca/
-https://github.com/channelcat/sanic
-https://github.com/aTechs/Spinne/
-https://pythonhosted.org/weblayer/
-https://wiki.python.org/moin/WebStack
-https://pypi.python.org/pypi/WSGIServlets
-https://wid.gy/
-
-#Python-CMS
-http://www.dreamcss.com/2015/11/python-based-cms.html
-https://wagtail.io/
-http://mezzanine.jupo.org/
-https://www.django-cms.org/en/
-https://plone.org/
-
-#frameworks php
-https://magento.com/
-http://www.yiiframework.com/
-http://symfony.com/
-https://laravel.com/
-https://cakephp.org/
-https://phalconphp.com/en/
-https://framework.zend.com/
-https://apigility.org/
-https://www.drupal.org/
-https://fatfreeframework.com/3.6/home
-https://fuelphp.com/
-http://get-simple.info/
-http://www.antradar.com/docs-gyroscope-doc
-https://www.horde.org/
-https://www.impresspages.org/
-https://www.jamroom.net/
-https://www.joomla.org/
-https://www.kajona.de/
-http://kohanaframework.org/
-http://li3.me/
-https://nette.org/en/
-http://www.novius-os.org/
-http://www.pradoframework.net/site/
-https://processwire.com/
-https://silex.sensiolabs.org/
-https://www.silverstripe.org/
-https://www.skytells.net/
-http://demo.unix-world.org/smart-framework/
-https://twistphp.com/
-https://typo3.org/
-http://www.xoops.org/
-https://www.mediawiki.org/wiki/MediaWiki
 
 #lista de cursos de python gratis pela web
 http://www.linuxpro.com.br/2017/04/python-do-basico-ao-profissional/
