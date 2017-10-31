@@ -61,7 +61,9 @@ def init_flask_login():
     
     init.init_login(app)
     cadmin = fadmin.Admin(app, 'Blog Admin', index_view=admin_index.MyAdminIndexView(), base_template='my_master.html')
-    cadmin.add_view(ModelView(tables.Posts, db.session))
+    #aqui nos podemos usar a view do posts criada pelo flask-admin;
+    #deixamos comentada porque vamos usar a nossa propria customizada para criar posts
+    #cadmin.add_view(ModelView(tables.Posts, db.session))
     cadmin.add_view(ModelView(tables.Usuario, db.session))
     cadmin.add_view(ModelView(tables.Comentarios, db.session))
 
