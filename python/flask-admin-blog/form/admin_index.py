@@ -12,10 +12,7 @@ from model import obtem_db as pg
 from model.model_view import MyModelView
 from datetime import datetime
 from model import tables
-#from model.posts import Posts
-#from model.usuario import Usuario
 
-# Create customized index view class that handles login & registration
 class MyAdminIndexView(fadmin.AdminIndexView):
 
     @expose('/')
@@ -95,4 +92,3 @@ class MyAdminIndexView(fadmin.AdminIndexView):
     def logout_view(self):
         login.logout_user()
         return redirect(url_for('.index'))
-

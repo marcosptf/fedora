@@ -3,7 +3,6 @@ from wtforms import form, fields, validators
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import sessionmaker
 from model import obtem_db as pg
-#from model.usuario import Usuario
 from model import tables
 
 class LoginForm(form.Form):
@@ -24,5 +23,4 @@ class LoginForm(form.Form):
 
         if not check_password_hash(usuario.senha, self.senha.data):
             raise validators.ValidationError('senha incorreta')
-
 

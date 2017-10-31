@@ -3,17 +3,12 @@ from wtforms import form, fields, validators
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import sessionmaker
 from model import obtem_db as pg
-#from model.usuario import Usuario
 from model import tables
 
 class CriaPostForm(form.Form):
 
     titulo_post = fields.StringField(validators=[validators.required()])
     texto_post = fields.StringField(validators=[validators.required()])
-
-    def obtem_cria_post(self):
-        print(titulo_post.data);
-        print(texto_post.data);
 
     def obtem_login(self):
         Session = sessionmaker(bind=pg.obtem_engine())
@@ -28,5 +23,4 @@ class CriaPostForm(form.Form):
 
         if not check_password_hash(usuario.senha, self.senha.data):
             raise validators.ValidationError('senha incorreta')
-
 

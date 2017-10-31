@@ -7,10 +7,6 @@ from model import tables
 
 class RegistrationForm(form.Form):
   
-    """
-    aqui a qtd de propriedades eh exatamente os campos html 
-    que serao criados no form
-    """
     nome  = fields.StringField(validators=[validators.required()])
     login = fields.StringField(validators=[validators.required()])
     email = fields.StringField(validators=[validators.required()])
