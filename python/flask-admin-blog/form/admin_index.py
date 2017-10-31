@@ -11,6 +11,7 @@ from sqlalchemy.orm import sessionmaker
 from model import obtem_db as pg
 from datetime import datetime
 from model import tables
+from model.model_view import MyModelView
 
 class MyAdminIndexView(fadmin.AdminIndexView):
 
@@ -29,6 +30,26 @@ class MyAdminIndexView(fadmin.AdminIndexView):
         self._template_args['qtde_posts'] = qtde_posts
         self._template_args['qtde_comentarios'] = qtde_comentarios
         return super(MyAdminIndexView, self).index()
+
+    @expose('/criapost/', methods=('GET', 'POST'))
+    def criapost(self):
+        data_form = request.form
+        Session = sessionmaker(bind=pg.obtem_engine())
+
+        sessionmk = Session()
+        posts = tables.Posts()
+        usuario = tables.Usuario()
+        mv = MyModelView(tables.Usuario, sessionmk)
+        
+        posts.titulo_post = data_form['titulo_post']
+        posts.texto_post = data_form['texto_post']
+        posts.data_post = datetime.now()
+        posts.permalink_post = posts.titulo_post.replace(" ", "-")
+        posts.usuario_id = session['usuario_id']
+        sessionmk.add(posts)
+        sessionmk.commit()
+        #return super(MyAdminIndexView, self).index()
+        return redirect(url_for('.index'))
 
     @expose('/login/', methods=('GET', 'POST'))
     def login_view(self):
