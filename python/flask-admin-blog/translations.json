@@ -1,0 +1,10 @@
+{
+    "titulo_index_blog": {
+        "en": "posts list",
+        "pt": "lista de posts"
+    },
+    "titulo_index_post": {
+        "en": "post title",
+        "pt": "titulo do post"
+    }
+}
