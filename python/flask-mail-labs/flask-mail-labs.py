@@ -25,8 +25,8 @@ Aqui é adicionado as configuracoes da aplicacao
     MAIL_PORT='587'
     MAIL_USE_TLS=True
     MAIL_USE_SSL=True
-    MAIL_USERNAME='marcosptf@yahoo.com.br'
-    MAIL_PASSWORD='TFSystems&java289755'
+    MAIL_USERNAME=''
+    MAIL_PASSWORD=''
     MAIL_DEBUG : default app.debug
     MAIL_DEFAULT_SENDER : default None
     MAIL_MAX_EMAILS : default None
@@ -37,7 +37,7 @@ Aqui é adicionado as configuracoes da aplicacao
 app.config.update(dict(DEBUG=True, SECRET_KEY='sistema-de-espera-key',
                 MAIL_SERVER='smtp.gmail.com', MAIL_PORT='587',
 				MAIL_USE_TLS=True, MAIL_USE_SSL=True, 
-				MAIL_USERNAME='marcosptf@yahoo.com.br', MAIL_PASSWORD='TFSystems&java289755'))
+				MAIL_USERNAME='', MAIL_PASSWORD=''))
 mail.init_app(app)
 
 @app.route('/', methods=['GET', 'POST'])
