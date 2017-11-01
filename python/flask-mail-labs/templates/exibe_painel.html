@@ -3,30 +3,28 @@
 
     <form action="/menu_senha" method="post" class="add-entry" >
       <dl>
-        <dd><span>senha do paciente:</span>
-        <dd><span>{{ ultima_senha.id }}</span>
+        <dd><span>para:</span>
+        <dd><span><input name="email_para" value="" type="text" /></span>
+        <dd><span>com copia:</span>
+        <dd><span><input name="email_com_copia" value="" type="text" /></span>		
+        <dd><span>assunto:</span>
+        <dd><span><input name="email_assunto" value="" type="text" /></span>
+        <dd><span>anexo(s):</span>
+        <dd><span><input name="email_anexo" value="" type="file" /></span>	
+        <dd><span>mensagem:</span>
+        <dd><span><textarea rows="4" cols="50" name="email_mensagem"></textarea></span>
+		<!--
+		implementar:
+		->anexo de arquivos
+		->no para e com copia fazer funcao que permita colocar varios emails separados por virgula
+		->
+		-->
       </dl>    
       <br/>
       <dl>
-        <dd><input type="submit" name="gera_proxima_senha" value="Gera Proxima Senha Normal" />
-        <dd><input type="submit" name="gera_proxima_senha_prioridade" value="Gera Proxima Senha Prioridade" />
-        <dd><input type="submit" name="atende_proximo_paciente" value="Atende Proximo Paciente" />        
+        <dd><input type="submit" name="email_envio" value="enviar email" />        
       </dl>
       <br/>      
-      <table border="1">
-	<thead>
-	  <th>Pacientes Atendidos</th>
-	  <th>Pacientes Aguardando Atendimento</th>
-	  <th>Pacientes de Prioridade Aguardando Atendimento</th>
-	</thread>
-	<tbody>
-	  <tr>
-	    <td>{{ ver_relatorio.pacientes_atendidos }}</td>
-	    <td>{{ ver_relatorio.pacientes_aguardando_atendimento }}</td>
-	    <td>{{ ver_relatorio.pacientes_prioridade_aguardando_atendimento }}</td>
-	  </tr>
-	</tbody>
-     </table>      
     </form>
     
 {% endblock %}
