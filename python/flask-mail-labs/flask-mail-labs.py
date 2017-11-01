@@ -9,7 +9,8 @@ https://github.com/mattupstate/flask-mail
 2.fazer tela para receber estes dados e responder como enviado com sucesso ou erro
 
 """
-from flask import Flask
+from flask import Flask, request, session, g, redirect, url_for, abort, \
+     render_template, flash
 from flask_mail import Mail, Message
 
 '''
@@ -20,45 +21,46 @@ mail = Mail(app)
 
 '''
 Aqui é adicionado as configuracoes da aplicacao
+    MAIL_SERVER='smtp.gmail.com'
+    MAIL_PORT='587'
+    MAIL_USE_TLS=True
+    MAIL_USE_SSL=True
+    MAIL_USERNAME='marcosptf@yahoo.com.br'
+    MAIL_PASSWORD='TFSystems&java289755'
+    MAIL_DEBUG : default app.debug
+    MAIL_DEFAULT_SENDER : default None
+    MAIL_MAX_EMAILS : default None
+    MAIL_SUPPRESS_SEND : default app.testing
+    MAIL_ASCII_ATTACHMENTS : default False
 '''
-app.config.update(dict( DEBUG=True, SECRET_KEY='sistema-de-espera-key' ))
+
+app.config.update(dict(DEBUG=True, SECRET_KEY='sistema-de-espera-key',
+                MAIL_SERVER='smtp.gmail.com', MAIL_PORT='587',
+				MAIL_USE_TLS=True, MAIL_USE_SSL=True, 
+				MAIL_USERNAME='marcosptf@yahoo.com.br', MAIL_PASSWORD='TFSystems&java289755'))
 mail.init_app(app)
 
-
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    ultima_senha = ultima_senha_chamada()
-    ver_relatorio = ver_relatorio_paciente()
-    return render_template('exibe_painel.html', 
-			   ultima_senha = ultima_senha,
-			   ver_relatorio = ver_relatorio)
-  
-
-@app.route('/menu_senha', methods=['POST'])
-def menu_senha():
-  
-    tipo_menu = request.form
-    if 'gera_proxima_senha' in tipo_menu:
-        gera_proxima_senha_normal()
-
-    if 'gera_proxima_senha_prioridade' in tipo_menu: 
-        gera_proxima_senha_prioridade()
-
-    if 'atende_proximo_paciente' in tipo_menu: 
-        atende_proximo_paciente()
-
-    return redirect(url_for('index'))
-
-def envia_email():
-    msg = Message("Hello", sender="from@example.com", recipients=["to@example.com"])
-#   msg.recipients = ["you@example.com"]
-#   msg.add_recipient("somebodyelse@example.com")
-msg = Message("Hello", sender=("Me", "me@example.com"))
-assert msg.sender == "Me <me@example.com>"
-#msg.body = "testing"
-msg.html = "<b>testing</b>"
+    #envia_email(request.form)
+	msg = Message("assunto do email", sender="marcosptf@yahoo.com.br", 
+                recipients="marcos.santana@fs.com.br", body="texto do email")
+	mail.send(msg)
+    return render_template('exibe_painel.html')
 
 """
+def envia_email(email_form):
+    msg = Message(email_form['email_assunto'], sender="marcosptf@yahoo.com.br", recipients=email_form['email_para'])
+    msg.recipients = ["you@example.com"]
+    msg.add_recipient(email_form['email_com_copia'])
+    msg.body = email_form['email_mensagem']
+    #msg.html = "<b>testing</b>"
+    #msg = Message("Hello", sender=("Me", "me@example.com"))
+    #with app.open_resource(email_form['email_anexo']) as fp:
+    #    msg.attach(email_form['email_anexo'], "image/png", fp.read())	
+	
+	mail.send(msg)
+
 #example send lt mails
 #The connection to your email host is kept alive and closed automatically once all the messages have been sent.
 with mail.connect() as conn:
