@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <form action="/menu_senha" method="post" class="add-entry" >
+      <dl>
+        <dd><span>para:</span>
+        <dd><span><input name="email_para" value="" type="text" /></span>
+        <dd><span>com copia:</span>
+        <dd><span><input name="email_com_copia" value="" type="text" /></span>		
+        <dd><span>assunto:</span>
+        <dd><span><input name="email_assunto" value="" type="text" /></span>
+        <dd><span>anexo(s):</span>
+        <dd><span><input name="email_anexo" value="" type="file" /></span>	
+        <dd><span>mensagem:</span>
+        <dd><span><textarea rows="4" cols="50" name="email_mensagem"></textarea></span>
+		<!--
+		implementar:
+		->anexo de arquivos
+		->no para e com copia fazer funcao que permita colocar varios emails separados por virgula
+		->
+		-->
+      </dl>    
+      <br/>
+      <dl>
+        <dd><input type="submit" name="email_envio" value="enviar email" />        
+      </dl>
+      <br/>      
+    </form>
+    
+{% endblock %}
