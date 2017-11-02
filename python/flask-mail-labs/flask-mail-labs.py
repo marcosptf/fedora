@@ -3,6 +3,8 @@
 Flask mail
 https://pythonhosted.org/Flask-Mail/
 https://github.com/mattupstate/flask-mail
+exemplo de como se implementa envio de email smtp por php
+https://www.gn10.com.br/blog/dicas/envie-emails-php-smtp-gmail-google-apps/
 
 #pendencias
 1.fazer tela para preencher dados para enviar no email
@@ -25,8 +27,8 @@ Aqui é adicionado as configuracoes da aplicacao
     MAIL_PORT='587'
     MAIL_USE_TLS=True
     MAIL_USE_SSL=True
-    MAIL_USERNAME=''
-    MAIL_PASSWORD=''
+    MAIL_USERNAME='marcosptf@yahoo.com.br'
+    MAIL_PASSWORD='xxx'
     MAIL_DEBUG : default app.debug
     MAIL_DEFAULT_SENDER : default None
     MAIL_MAX_EMAILS : default None
@@ -37,15 +39,14 @@ Aqui é adicionado as configuracoes da aplicacao
 app.config.update(dict(DEBUG=True, SECRET_KEY='sistema-de-espera-key',
                 MAIL_SERVER='smtp.gmail.com', MAIL_PORT='587',
 				MAIL_USE_TLS=True, MAIL_USE_SSL=True, 
-				MAIL_USERNAME='', MAIL_PASSWORD=''))
+				MAIL_USERNAME='marcosptf@gmail.com', MAIL_PASSWORD='xxx'))
 mail.init_app(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     #envia_email(request.form)
-	msg = Message("assunto do email", sender="marcosptf@yahoo.com.br", 
-                recipients="marcos.santana@fs.com.br", body="texto do email")
-	mail.send(msg)
+    msg = Message("assunto do email", sender="marcosptf@yahoo.com.br", recipients="marcos.santana@fs.com.br", body="texto do email")
+    mail.send(msg)
     return render_template('exibe_painel.html')
 
 """
@@ -79,5 +80,14 @@ with app.open_resource("image.png") as fp:
 """
 
 if __name__ == '__main__'  :
+#http://werkzeug.pocoo.org/docs/0.12/serving/
+    import ssl
+    from werkzeug.serving import run_simple	
+    ctx = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+    #ctx.load_cert_chain('ssl.cert', 'ssl.key')
     app.run()
+    #run_simple('localhost', 4000, app, ssl_context=ctx)
+
+
+
 
