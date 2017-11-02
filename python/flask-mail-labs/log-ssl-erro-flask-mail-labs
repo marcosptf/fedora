@@ -1,0 +1,61 @@
+(.winvenv) c:\xampp\htdocs\fedora\python\flask-mail-labs>python flask-mail-labs.py runserver
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 102-099-106
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [02/Nov/2017 09:50:45] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\flask-mail-labs.py", line 47, in index
+    mail.send(msg)
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask_mail.py", line 491, in send
+    with self.connect() as connection:
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask_mail.py", line 144, in __enter__
+    self.host = self.configure_host()
+  File "c:\xampp\htdocs\fedora\python\flask-mail-labs\.winvenv\lib\site-packages\flask_mail.py", line 156, in configure_host
+    host = smtplib.SMTP_SSL(self.mail.server, self.mail.port)
+  File "c:\users\marcos.santana\appdata\local\programs\python\python36-32\Lib\smtplib.py", line 1030, in __init__
+    source_address)
+  File "c:\users\marcos.santana\appdata\local\programs\python\python36-32\Lib\smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "c:\users\marcos.santana\appdata\local\programs\python\python36-32\Lib\smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "c:\users\marcos.santana\appdata\local\programs\python\python36-32\Lib\smtplib.py", line 1038, in _get_socket
+    server_hostname=self._host)
+  File "c:\users\marcos.santana\appdata\local\programs\python\python36-32\Lib\ssl.py", line 401, in wrap_socket
+    _context=self, _session=session)
+  File "c:\users\marcos.santana\appdata\local\programs\python\python36-32\Lib\ssl.py", line 808, in __init__
+    self.do_handshake()
+  File "c:\users\marcos.santana\appdata\local\programs\python\python36-32\Lib\ssl.py", line 1061, in do_handshake
+    self._sslobj.do_handshake()
+  File "c:\users\marcos.santana\appdata\local\programs\python\python36-32\Lib\ssl.py", line 683, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLError: [SSL: UNKNOWN_PROTOCOL] unknown protocol (_ssl.c:748)
+127.0.0.1 - - [02/Nov/2017 09:50:46] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2017 09:50:46] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2017 09:50:46] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2017 09:50:46] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2017 09:50:47] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Running on https://localhost:4000/ (Press CTRL+C to quit)
+ * Running on https://localhost:4000/ (Press CTRL+C to quit)
+^C
+(.winvenv) c:\xampp\htdocs\fedora\python\flask-mail-labs>
