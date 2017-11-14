@@ -98,6 +98,10 @@ sudo dnf install php-ldap
 sudo dnf search pear
 
 /* comandos docker */
+#docker examples
+https://hub.docker.com/_/fedora/
+https://github.com/dockerfile/mysql/blob/master/Dockerfile
+#docker =>
 sudo dnf install docker-engine --allowerasing
 https://docs.docker.com/engine/installation/linux/fedora/
 #comando para subir
