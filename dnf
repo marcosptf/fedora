@@ -101,16 +101,21 @@ sudo dnf search pear
 #docker examples
 https://hub.docker.com/_/fedora/
 https://github.com/dockerfile/mysql/blob/master/Dockerfile
+https://github.com/heddle317/docker-flask-example/blob/master/Dockerfile
+
 #docker =>
 sudo dnf install docker-engine --allowerasing
 https://docs.docker.com/engine/installation/linux/fedora/
+
 #comando para subir
 sudo dnf install docker-engine
 sudo systemctl enable docker.service
 sudo systemctl start docker
 sudo docker-compose up
+
 #comando para deletar/remover um conteiner
 sudo docker rm <nome-do-conteiner>
+
 #comando para fazer o build das dependencias do projeto
 docker-compose build
 -remover container que não usa:
