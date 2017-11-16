@@ -47,7 +47,20 @@ print("enviando request delete => task:maseratti")
 requests.delete(endpoint + "carro4")
 print("\n")
 
+
 print("obtendo dados da api-server-restFul =>")
 rq = requests.get(endpoint + todos_carros)
+resposta_request(rq)
+print("\n")
+
+
+print("enviando request head =>")
+rq = requests.head(endpoint + "carro4")
+print(rq.headers['content-type'])
+print("\n")
+
+
+print("enviando request options =>")
+rq = requests.options(endpoint + "carro4")
 resposta_request(rq)
 
