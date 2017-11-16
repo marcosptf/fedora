@@ -26,7 +26,6 @@ parser.add_argument('marca')
 class Carros(Resource):
 
     def get(self, carro_id):
-
         if carro_id == "todos":
             return TODOS_CARROS
 
@@ -49,6 +48,14 @@ class Carros(Resource):
         args = parser.parse_args()
         marca = {'marca': args['marca']}
         TODOS_CARROS[carro_id] = marca
+
+    def head(self, carro_id):
+        #pesquisar o tipo de retorno head para colocar aqui
+        return {'code': 'error125', 'message': 'resource not found'}
+    
+    def options(self, carro_id):
+        return {'methods': ['GET', 'HEAD', 'DELETE', 'POST', 'PUT', 'OPTIONS']}
+
 
 ## Actually setup the Api resource routing here
 api.add_resource(Carros, '/marcas/<carro_id>')
