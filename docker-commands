@@ -47,6 +47,13 @@ docker images -q
 #subir as instancias
 docker-compose up
 
+#entrar num docker
+docker images
+docker run -it <nome-da-magem> /bin/bash
+
 #Dockerfile examples
-#https://github.com/docker-library/python/blob/3f12f511910098f45951111aa5642fd935133afc/3.7-rc/stretch/Dockerfile
-#https://github.com/tianon/docker-brew-ubuntu-core/blob/5fce3945d95630c2fc03c21ef8665d92bd824642/artful/Dockerfile
+https://github.com/docker-library/python/blob/3f12f511910098f45951111aa5642fd935133afc/3.7-rc/stretch/Dockerfile
+https://github.com/tianon/docker-brew-ubuntu-core/blob/5fce3945d95630c2fc03c21ef8665d92bd824642/artful/Dockerfile
+
+#principais comandos
+https://woliveiras.com.br/posts/comandos-mais-utilizados-no-docker/
