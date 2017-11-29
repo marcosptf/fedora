@@ -1,3 +1,17 @@
+#instalacao flask-spyne com pip no fedora
+#docker pull fedora
+#docker run -it fedora /bin/bash
+#dnf install git python2 vim gcc libxml libxml2 python2 python2-virtualenv redhat-rpm-config elinks htop
+#git clone https://github.com/rayrapetyan/flask-spyne.git
+#cd flask-spyne/examples
+#touch requirements-spyne.txt
+#pip install -r requirements-spyne.txt
+#python server.py runserver &
+#python [enter]
+#>>> from suds.client import Client as SudsClient
+#>>> client = SudsClient(url='http://127.0.0.1:5000/soap/someservice?wsdl', cache=None)
+#>>> r = client.service.echo(str='hello world', cnt=3)
+#>>> print(r)
 lxml
 sqlalchemy
 pyzmq
@@ -15,14 +29,6 @@ sec-wall
 suds-jurko
 requests
 soap
-wsdl
-wsgi
-zeromq
-rest
 rpc
-json
 http
-msgpack
-xml
-yaml
 flask-spyne
