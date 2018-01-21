@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spy="spyne.examples.hello.http">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <spy:say_hello>
+         <!--Optional:-->
+         <spy:name>javascripter</spy:name>
+         <!--Optional:-->
+         <spy:times>12</spy:times>
+      </spy:say_hello>
+   </soapenv:Body>
+</soapenv:Envelope>
