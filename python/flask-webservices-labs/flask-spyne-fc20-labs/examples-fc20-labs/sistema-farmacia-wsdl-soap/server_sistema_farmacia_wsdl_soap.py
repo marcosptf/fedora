@@ -16,16 +16,30 @@ spyne = Spyne(app)
 
 class AnswerServiceResponse(ComplexModel):
     __namespace__ = 'tns'
-    dummy_str = Unicode(min_occurs=0, max_occurs=1, nillable=False)
+    dummy_str = Unicode(min_occurs=0, max_occurs=1, nillable=True)
     dummy_num = Integer(min_occurs=1, max_occurs=1, nillable=True)
-    
-    
+    medicamentos = Unicode(min_occurs=0, max_occurs=1, nillable=False)
 
 class SomeSoapServiceTwo(spyne.Service):
     __service_url_path__ = '/soap/someservicetwo'
     __target_namespace__ = 'custom_namespacetwo'
     __in_protocol__ = Soap11(validator='lxml')
     __out_protocol__ = Soap11()
+
+    @spyne.srpc(_returns=Iterable(Unicode))
+    #@spyne.srpc(_returns=AnswerServiceResponse)
+    def todos_medicamentos():
+        medicamentos_tabela = {
+            "Doril" : "1,99",
+            "Novalgina" : "1,99",
+            "Paracetamol" : "1,99",
+            "Buscopan" : "1,99",
+            "Dorflex" : "1,99"
+        }
+
+        for i in AnswerServiceResponse(medicamentos=medicamentos_tabela):
+            yield medicamentos_tabela
+        #return AnswerServiceResponse(medicamentos=medicamentos_tabela)
 
     @spyne.srpc(Unicode, Integer, _returns=Iterable(Unicode))
     def echo(str, cnt):
@@ -36,7 +50,6 @@ class SomeSoapServiceTwo(spyne.Service):
     def answer(str):
         print(str)
         return AnswerServiceResponse(dummy_str='answer is', dummy_num=42)
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
