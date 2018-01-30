@@ -1,0 +1,27 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+    volumes:
+      - ./.docker/mysql/schemas:/docker-entrypoint-initdb.d
+      - .data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+      - "3306"
+
+  api:
+    build: .
+    container_name: api
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/home/src
+    command: python main.py
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/home/src
+    depends_on:
+      - db
