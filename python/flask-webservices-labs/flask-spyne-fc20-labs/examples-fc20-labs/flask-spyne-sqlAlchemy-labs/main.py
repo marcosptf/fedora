@@ -29,6 +29,12 @@
 # EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+#comandos docker
+#https://hub.docker.com/_/python/
+#sudo docker build -t python:2.7.14 .
+#
+
+
 import logging
 logging.basicConfig(level=logging.DEBUG)
 logging.getLogger('spyne.protocol.xml').setLevel(logging.DEBUG)
