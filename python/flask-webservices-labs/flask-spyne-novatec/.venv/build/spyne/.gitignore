@@ -1,0 +1,99 @@
+# All files to globally ignore
+.data
+.cache
+
+# test cruft
+jython-installer-*
+Python-2.[67].*
+Python-3.[3456789].*
+
+# python cruft
+*.pyc
+*.pyo
+*$py.class
+*.egg
+*.egg-info
+.noseids
+.coverage
+pip-log.txt
+MANIFEST
+dist
+build
+doc/docs
+
+# 2to3 cruft
+*.bak
+
+# Mac cruft
+.DS_Store
+
+# wingware cruft
+*.wpu
+
+# emacs cruft
+*~
+*#*
+*flymake.py
+.ropeproject
+
+# wing cruft
+*.wpr
+
+# netbeans cruft
+nbproject
+
+# pycharm cruft
+.idea/
+
+# wsi-test
+wsi-test-tools
+WSI_Test_Java_Final_1.1.zip
+spyne/test/interop/config.xml
+spyne/test/config.xml
+
+# kate cruft
+*.kate-swp
+
+# sphinx cruft
+.buildinfo
+doc/docs
+
+# latex cruft
+get_utc_time.pdf
+pres.pdf
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.backup
+
+# trial cruft
+_trial_temp
+
+# output from examples/stream scripts
+examples/file_manager/files/
+*.ogg
+
+# kate cruft
+.kateproject.d
+
+# tox envs
+.tox
+
+# test output
+coverage.xml
+spyne/test/*.html
+spyne/test/store
+test_result*
+/html
+/store
+Test*.html
+
+# vim cruft
+*.swp
+
+# nuitka cruft
+*.build

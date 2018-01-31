@@ -1,0 +1,20 @@
+<soap11env:Envelope xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="spyne.examples.hello.http">
+   <soap11env:Body>
+      <tns:say_helloResponse>
+         <tns:say_helloResult>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+            <tns:string>Hello, javascripter</tns:string>
+         </tns:say_helloResult>
+      </tns:say_helloResponse>
+   </soap11env:Body>
+</soap11env:Envelope>

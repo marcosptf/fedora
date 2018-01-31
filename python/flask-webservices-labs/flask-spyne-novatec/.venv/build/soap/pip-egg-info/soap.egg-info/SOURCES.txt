@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.cfg
+pip-egg-info/soap.egg-info/PKG-INFO
+pip-egg-info/soap.egg-info/SOURCES.txt
+pip-egg-info/soap.egg-info/dependency_links.txt
+pip-egg-info/soap.egg-info/requires.txt
+pip-egg-info/soap.egg-info/top_level.txt
+soap/client/__init__.py
+soap/common/__init__.py
+soap/server/__init__.py

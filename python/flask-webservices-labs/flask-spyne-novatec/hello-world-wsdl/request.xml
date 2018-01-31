@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="tns">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tns:method_hello_world>
+         <!--Optional:-->
+         <tns:str>java</tns:str>
+         <!--Optional:-->
+         <tns:cnt>13</tns:cnt>
+      </tns:method_hello_world>
+   </soapenv:Body>
+</soapenv:Envelope>
