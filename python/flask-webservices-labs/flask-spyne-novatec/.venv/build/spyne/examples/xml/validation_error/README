@@ -1,3 +1,0 @@
-
-The scripts in this file illustrate how libxml's validation break when the Xml
-parser has resolve_entities disabled.

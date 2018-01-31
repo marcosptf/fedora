@@ -1,4 +1,0 @@
-pytest
-pytest_django
-junitxml
-lxml

@@ -1,4 +1,0 @@
-coverage
-nose
-unittest2
-pep8
