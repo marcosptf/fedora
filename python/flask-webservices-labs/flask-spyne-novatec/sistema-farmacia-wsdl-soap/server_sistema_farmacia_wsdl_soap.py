@@ -32,11 +32,12 @@ class SomeSoapServiceTwo(spyne.Service):
         medicamentos = ""
         medicamentos_tabela = {
             "Doril" : "1,99",
-            "Novalgina" : "1,99",
-            "Paracetamol" : "1,99",
-            "Buscopan" : "1,99",
-            "Dorflex" : "1,99"
-        }      
+            "Novalgina" : "2,99",
+            "Paracetamol" : "3,99",
+            "Buscopan" : "4,99",
+            "Dorflex" : "5,99"
+        }
+
         for i in medicamentos_tabela:
             medicamentos += "nome:" + i + " preco:"+ medicamentos_tabela[i] + ";    "
 
@@ -46,10 +47,10 @@ class SomeSoapServiceTwo(spyne.Service):
     def medicamento_preco(str):
         medicamentos_tabela = {
             "Doril" : "1,99",
-            "Novalgina" : "1,99",
-            "Paracetamol" : "1,99",
-            "Buscopan" : "1,99",
-            "Dorflex" : "1,99"
+            "Novalgina" : "2,99",
+            "Paracetamol" : "3,99",
+            "Buscopan" : "4,99",
+            "Dorflex" : "5,99"
         }      
 
         if str in medicamentos_tabela:

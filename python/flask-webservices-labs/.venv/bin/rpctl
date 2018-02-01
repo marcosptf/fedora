@@ -1,0 +1,6 @@
+#!/home/marcossantana/develop/fedora/python/flask-webservices-labs/.venv/bin/python2
+# -*- mode: python -*-
+from rpc.control import main
+
+if __name__ == '__main__':
+    main()

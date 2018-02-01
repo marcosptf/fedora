@@ -3,14 +3,15 @@ import requests
 
 url = 'http://127.0.0.1:5000/soap/someservicetwo?wsdl'
 client = SudsClient(url=url, cache=None)
-#r = client.service.echo(str='hello world', cnt=3)
-#print(r)
 
-#r = client.service.answer(str='some question')
-#print(r)
+todos_medicamentos = client.service.todos_medicamentos()
+doril_medicamento = client.service.medicamento_preco('Doril')
+medicamento_errado = client.service.medicamento_preco('joril')
 
-#r = client.service.todos_medicamentos()
-#r = client.service.medicamento_preco('Doril')
-r = client.service.medicamento_preco('joril')
-print(r)
-
+print("todos medicamentos:")
+print(todos_medicamentos)
+print("preco do doril:")
+print(doril_medicamento)
+print("medicamento errado:")
+print(medicamento_errado)
+print("")

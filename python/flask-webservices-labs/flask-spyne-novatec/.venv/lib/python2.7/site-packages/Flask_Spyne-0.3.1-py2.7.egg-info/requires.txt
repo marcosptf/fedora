@@ -1,7 +1,0 @@
-flask
-spyne
-sec-wall
-pyyaml
-lxml
-suds-jurko
-requests
