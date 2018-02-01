@@ -26,30 +26,37 @@ class SomeSoapServiceTwo(spyne.Service):
     __in_protocol__ = Soap11(validator='lxml')
     __out_protocol__ = Soap11()
 
-    @spyne.srpc(_returns=Iterable(Unicode))
-    #@spyne.srpc(_returns=AnswerServiceResponse)
+    @spyne.srpc(_returns=Unicode)
     def todos_medicamentos():
+        
+        medicamentos = ""
         medicamentos_tabela = {
             "Doril" : "1,99",
             "Novalgina" : "1,99",
             "Paracetamol" : "1,99",
             "Buscopan" : "1,99",
             "Dorflex" : "1,99"
-        }
+        }      
+        for i in medicamentos_tabela:
+            medicamentos += "nome:" + i + " preco:"+ medicamentos_tabela[i] + ";    "
 
-        for i in AnswerServiceResponse(medicamentos=medicamentos_tabela):
-            yield medicamentos_tabela
-        #return AnswerServiceResponse(medicamentos=medicamentos_tabela)
+        return medicamentos
 
-    @spyne.srpc(Unicode, Integer, _returns=Iterable(Unicode))
-    def echo(str, cnt):
-        for i in range(cnt):
-            yield str
+    @spyne.srpc(Unicode, _returns=Unicode)
+    def medicamento_preco(str):
+        medicamentos_tabela = {
+            "Doril" : "1,99",
+            "Novalgina" : "1,99",
+            "Paracetamol" : "1,99",
+            "Buscopan" : "1,99",
+            "Dorflex" : "1,99"
+        }      
 
-    @spyne.srpc(Unicode, _returns=AnswerServiceResponse)
-    def answer(str):
-        print(str)
-        return AnswerServiceResponse(dummy_str='answer is', dummy_num=42)
+        if str in medicamentos_tabela:
+            return medicamentos_tabela[str]
+        
+        return "medicamento nao encontrado, tente novamente!"
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
