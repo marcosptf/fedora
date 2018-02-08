@@ -3,6 +3,9 @@ scrapy runspider scrapy-sample.py
 
 https://blog.scrapinghub.com
 
+pip install -r requirements.txt
+pip install twisted==13.1.0
+
 """
 
 import scrapy
