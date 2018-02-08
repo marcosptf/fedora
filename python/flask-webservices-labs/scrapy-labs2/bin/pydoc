@@ -1,0 +1,5 @@
+#!/root/NetBeansProjects/fedora/python/flask-webservices-labs/scrapy-labs2/bin/python3
+if __name__ == '__main__':
+    import sys, pydoc
+    sys.exit(pydoc.cli())
+
