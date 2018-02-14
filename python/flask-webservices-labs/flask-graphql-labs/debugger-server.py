@@ -1,3 +1,20 @@
+"""
+https://travis-ci.org/graphql-python/flask-graphql/jobs/326153616
+
+#rodar testes no python 2.7
+export TOX_ENV=py27
+tox -e $TOX_ENV -- --cov=flask_graphql
+tox -e py27 -- --cov=flask_graphql
+tox -e python -- --cov=flask_graphql
+py.test tests --cov=flask_graphql
+
+#rodar testes no python 3.6
+export TOX_ENV=py36,import-order,flake8
+source ~/virtualenv/python3.6/bin/activate
+tox -e $TOX_ENV -- --cov=flask_graphql
+py.test tests --cov=flask_graphql
+
+"""
 from flask import Flask
 from flask_graphql import GraphQLView
 from graphql.type.definition import GraphQLArgument, GraphQLField, GraphQLNonNull, GraphQLObjectType
