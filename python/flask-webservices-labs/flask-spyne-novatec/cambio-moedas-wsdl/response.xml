@@ -1,0 +1,12 @@
+<soap11env:Envelope xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="tns">
+   <soap11env:Body>
+      <tns:method_hello_worldResponse>
+         <tns:method_hello_worldResult>
+            <tns:string>java</tns:string>
+            <tns:string>java</tns:string>
+            <tns:string>java</tns:string>
+            <tns:string>java</tns:string>
+         </tns:method_hello_worldResult>
+      </tns:method_hello_worldResponse>
+   </soap11env:Body>
+</soap11env:Envelope>

@@ -1,0 +1,4 @@
+{
+  "tests/test_graphiqlview.py": true, 
+  "tests/test_graphqlview.py::test_allows_get_with_query_param": true
+}

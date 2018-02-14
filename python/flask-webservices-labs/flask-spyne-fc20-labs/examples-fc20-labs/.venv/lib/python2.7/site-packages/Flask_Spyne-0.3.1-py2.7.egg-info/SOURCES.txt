@@ -1,0 +1,11 @@
+README.rst
+setup.cfg
+setup.py
+Flask_Spyne.egg-info/PKG-INFO
+Flask_Spyne.egg-info/SOURCES.txt
+Flask_Spyne.egg-info/dependency_links.txt
+Flask_Spyne.egg-info/not-zip-safe
+Flask_Spyne.egg-info/requires.txt
+Flask_Spyne.egg-info/top_level.txt
+flask_spyne/__init__.py
+flask_spyne/flask_spyne.py

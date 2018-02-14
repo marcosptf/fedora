@@ -1,0 +1,10 @@
+#!/root/NetBeansProjects/fedora/python/flask-webservices-labs/flask-spyne-fc20-labs/examples-fc20-labs/.venv/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'spyne==2.12.14','console_scripts','sort_wsdl'
+__requires__ = 'spyne==2.12.14'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('spyne==2.12.14', 'console_scripts', 'sort_wsdl')()
+    )

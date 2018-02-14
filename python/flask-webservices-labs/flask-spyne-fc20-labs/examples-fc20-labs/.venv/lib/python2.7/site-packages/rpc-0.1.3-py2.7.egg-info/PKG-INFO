@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: rpc
+Version: 0.1.3
+Summary: RPC Client/Server library
+Home-page: http://www.deadpansincerity.com/docs/rpc
+Author: David Miller
+Author-email: david@deadpansincerity.com
+License: UNKNOWN
+Description: Rpc gives you a consistent API for RPC protocols that doesn't suck!
+        
+        Because you too can have nice things
+        
+        ::
+        
+            >>> from rpc import thrifty
+            >>> import Service
+            >>> with thrifty.client("localhost:45678", Service) as c:
+            ...     print c.ping()
+        
+        Check out the documentation: http://www.deadpansincerity.com/docs/rpc
+        
+        .. image:: https://secure.travis-ci.org/davidmiller/rpc.png?branch=master
+           :alt: Build Status
+           :target: https://secure.travis-ci.org/davidmiller/rpc
+        
+        
+        History
+        -------
+        
+        0.1.3 (2012-04-28)
+        ++++++++++++++++++
+        
+        * Fixed dependency bugs from 0.1.1
+        
+        0.1.1 (2012-04-28)
+        ++++++++++++++++++
+        
+        * Added rpctl - support for creating well-behaved Unix Daemons for servers.
+        * Fixed bugs with protocol in JSON RPC client initialization
+        
+        0.1 (2012-04-07)
+        ++++++++++++++++
+        
+        * Added XML RPC support
+        * Thrift, JSON RPC and JSONP functional
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2.6
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
