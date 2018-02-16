@@ -1,0 +1,21 @@
+(.venv)![root@localhost sistema-de-espera]# 
+mysql -uroot -p123456 -v < mariadb/querys.sql 
+--------------
+create database sistema_de_espera
+--------------
+
+--------------
+create table painel (
+ id integer primary key auto_increment,
+ senha_prioridade integer default 0,
+ senha_atendida   integer default 0,
+ ultima_senha_atendida integer default 0
+)
+--------------
+
+--------------
+show tables
+--------------
+
+Tables_in_sistema_de_espera
+painel
