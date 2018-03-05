@@ -53,7 +53,7 @@ class Query_1(graphene.ObjectType):
         #return info.context.get(user)
         #return User(id=0, firstName="java", lastName="scripter")
         #return query.get(args.get('id'))
-        return args
+        #return args
 
 
 
