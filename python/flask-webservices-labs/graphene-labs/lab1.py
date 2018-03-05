@@ -20,8 +20,11 @@ schema = graphene.Schema(query=Query)
 
 #executa o schema chamando pelo nome da field a ser executada
 result = schema.execute('{ hello }')
-print("result-hello===>>>")
+print("result===>>>")
+print(result)
+print("result-data===>>>")
 print(result.data)
+print("result-data-hello===>>>")
 print(result.data['hello'])
 print("\n")
 result = schema.execute('{ java }')
