@@ -28,8 +28,8 @@ class User(graphene.ObjectType):
 #example2 - variables
 class Query_1(graphene.ObjectType):
     user = graphene.Field(User, id=graphene.Int())
-    
-    def resolve_user(self, args, context, info):
+
+    def resolve_user(self, args, context, info, id):
         #self.user.id = 0
         #self.user.firstName = "java"
         #self.user.lastName = "scripter"
@@ -52,7 +52,10 @@ class Query_1(graphene.ObjectType):
 
         #return info.context.get(user)
         #return User(id=0, firstName="java", lastName="scripter")
-        return query.get(args.get('id'))
+        #return query.get(args.get('id'))
+        return args
+
+
 
 schema = graphene.Schema(Query_1)
 query_ql_1 = '''
@@ -116,7 +119,9 @@ print(result.data['user'])
 print("\n")
 
 
-
+#print("debugger-Query-object")
+#q1 = Query_1()
+#resolve_user
 
 
 
