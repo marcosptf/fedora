@@ -3,6 +3,9 @@ service mongod stop
 service mongod status
 service mongod start
 
+/* setar hora n linux */
+date -s "14:00"
+
 /* Git Flow */
 git flow init
 git flow feature start DEMANDAS-7052
