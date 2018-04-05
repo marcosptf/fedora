@@ -1,3 +1,11 @@
+/* apache2 habilitando mod proxy */
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
+sudo service apache2 stop
+sudo service apache2 start
+
 /* mongodb status */
 service mongod stop
 service mongod status
