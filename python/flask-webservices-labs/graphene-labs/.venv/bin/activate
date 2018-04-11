@@ -34,10 +34,10 @@ deactivate () {
     fi
 }
 
-# unset irrelavent variables
+# unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/marcossantana/develop/fedora/python/flask-webservices-labs/graphene-labs/.venv"
+VIRTUAL_ENV="/home/marcosptf/developer/fedora/python/flask-webservices-labs/graphene-labs/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -9,10 +9,13 @@ sudo dnf install docker-engine --allowerasing
 https://docs.docker.com/engine/installation/linux/fedora/
 
 #comando para subir
-sudo dnf install docker-engine
+sudo dnf install docker-engine docker-devel docker-compose
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
 sudo systemctl enable docker.service
+sudo service docker restart
 sudo systemctl start docker
-sudo docker-compose up
+sudo docker-compose up &
 
 #comando para deletar/remover um conteiner
 sudo docker rm <nome-do-conteiner>
