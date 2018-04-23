@@ -1,9 +1,17 @@
 #http://docs.graphene-python.org/en/latest/types/mutations/
 import graphene
 
+#entity
 class Person(graphene.ObjectType):
     name = graphene.String()
     age = graphene.Int()
+    
+    def __init__(self, name, age):
+        self.name = "java"
+        self.age  = 18
+
+#class Personas(graphene.ObjectType):
+    #data    
 
 class CreatePerson(graphene.Mutation):
     class Arguments:
@@ -28,7 +36,7 @@ class Query(graphene.ObjectType):
 
 schema = graphene.Schema(query=Query, mutation=MyMutations)
 
-
+'''
 #Executing the Mutation
 mutation myFirstMutation {
     createPerson(name:"Peter") {
@@ -48,9 +56,22 @@ mutation myFirstMutation {
         "ok": true
     }
 }
+'''
 
+query = '''
+{
+    query getPerson{
+        person {
+          name
+        }
+    }
+}
+'''
 
-
-
+result = schema.execute(query)
+print("result-object====>>>>")
+print(result)
+print("result-data====>>>>")
+print(result.data)
 
 

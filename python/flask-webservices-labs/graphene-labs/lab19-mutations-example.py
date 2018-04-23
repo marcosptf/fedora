@@ -12,7 +12,14 @@ class GeoInput(graphene.InputObjectType):
     #another properties that return lat+lng
     @property
     def latlng(self):
-        return "({},{})".format(self.lat, self.lng)
+        print("def-latlng=>")
+        print("lat==>"+self.lat)
+        print("lng==>"+self.lng)
+        if self.lat and self.lng:
+            print("def-latlng-if")
+            result = "({},{})".format(self.lat, self.lng)
+        print("def-latlng-result=>"+result)    
+        return result
 
 
 
@@ -21,15 +28,7 @@ class Address(graphene.ObjectType):
     
     #properties used on queryQL to answer
     latlng = graphene.String()
-    
-    def __init__(latlng):
-        result = latlng
-        
-    def resp():
-        return result
-
-
-
+ 
 
 
 #query ObjectType graphene that has a properties address that use address class and GeoInput class required
