@@ -7,8 +7,8 @@ class Person(graphene.ObjectType):
     age = graphene.Int()
     
     def __init__(self, name, age):
-        self.name = "java"
-        self.age  = 18
+        self.name = name
+        self.age  = age
 
 #class Personas(graphene.ObjectType):
     #data    
@@ -33,8 +33,14 @@ class MyMutations(graphene.ObjectType):
 #We must define a query for our schema
 class Query(graphene.ObjectType):
     person = graphene.Field(Person)
+    
+    def resolve_person(self, info):
+        print("debugger=>")
+        print(info)
+        return info.context.get('person')
 
 schema = graphene.Schema(query=Query, mutation=MyMutations)
+#schema = graphene.Schema(query=Query)
 
 '''
 #Executing the Mutation
@@ -59,16 +65,16 @@ mutation myFirstMutation {
 '''
 
 query = '''
-{
-    query getPerson{
-        person {
-          name
-        }
+query getPerson{
+    person {
+        age
+        name
     }
 }
 '''
 
-result = schema.execute(query)
+person_instance = {'person' : Person(name="debugger=>0", age=13) }
+result = schema.execute(query, context_value=person_instance)
 print("result-object====>>>>")
 print(result)
 print("result-data====>>>>")
