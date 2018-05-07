@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/marcosptf/developer/fedora/python/flask-webservices-labs/graphene-labs/.venv"
+set -gx VIRTUAL_ENV "/home/marcosptf/develop/fedora/python/flask-webservices-labs/graphene-labs/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
