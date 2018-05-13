@@ -119,7 +119,18 @@ http://docs.graphene-python.org/en/latest/types/mutations/
 
 
 
-
+#anatomia de uma query
+{
+  
+  allEmployees {
+		edges{
+      node{
+        id
+        name
+      }
+    }
+  }
+}
 
 
 

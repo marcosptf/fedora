@@ -14,10 +14,12 @@ class Employee(SQLAlchemyObjectType):
         interfaces = (relay.Node, )
 
 class Query(graphene.ObjectType):
-    node = relay.Node.Field()
-    all_employees = SQLAlchemyConnectionField(Employee)
+    dados = relay.Node.Field()
+    todos_empregados = SQLAlchemyConnectionField(Employee)
+    todos_depart = SQLAlchemyConnectionField(Department)
 
 schema = graphene.Schema(query=Query)
+
 """ 
 #studyes about relay:
 https://facebook.github.io/relay/docs/en/quick-start-guide.html
@@ -26,7 +28,7 @@ escrever esta query
 {
   allEmployees {
     edges {
-      node {
+      dados {
         id
         name
         department {
