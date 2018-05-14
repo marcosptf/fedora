@@ -164,7 +164,8 @@ class Query_3(graphene.ObjectType):
 
 """
 we need to try this example:
-
+https://github.com/graphql-python/graphene-sqlalchemy/issues/16
+https://github.com/graphql-python/graphene-sqlalchemy/issues/27
 class Query(graphene.ObjectType):
     node = relay.Node.Field()
     all_employees = SQLAlchemyConnectionField(Employee)
