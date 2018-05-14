@@ -1,3 +1,4 @@
+# flask_sqlalchemy/models.py
 from sqlalchemy import *
 from sqlalchemy.orm import (scoped_session, sessionmaker, relationship,
                             backref)
@@ -30,5 +31,3 @@ class Employee(Base):
         backref=backref('employees',
                         uselist=True,
                         cascade='delete,all'))
-
-

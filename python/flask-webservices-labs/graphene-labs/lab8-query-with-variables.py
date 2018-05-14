@@ -62,8 +62,8 @@ class User1(graphene.ObjectType):
 
     def __init__(self, id, firstName, lastName):
         self.id = 0
-        self.firstName = "java"
-        self.lastName = "scripter"
+        self.firstName = "java=>0"
+        self.lastName = "scripter=>0"
 
 class Query_1(graphene.ObjectType):
     user = graphene.Field(User1)
@@ -82,7 +82,8 @@ query_ql_2 = '''
             }
         }'''
 
-result = schema.execute(query_ql_2, context_value={'user' : User1(id=1, firstName="java", lastName="scripter" )})
+#when pass values in context_value is used this value
+result = schema.execute(query_ql_2, context_value={'user' : User1(id=1, firstName="java=>1", lastName="scripter=>1" )})
 print("example=>1")
 print("result-simple-query-with-variable====>>>")
 print(result)
@@ -91,6 +92,111 @@ print(result.data)
 print("result-data-user====>>>>")
 print(result.data['user'])
 print("\n\n")
+
+
+
+
+
+#exemplo1 com variaveis variaveis funcionando ===>>>
+class User2(graphene.ObjectType):
+    id = graphene.ID()
+    firstName = graphene.String()
+    lastName = graphene.String()
+
+    def __init__(self, id, firstName, lastName):
+        self.id = 2
+        self.firstName = "java=>2"
+        self.lastName = "scripter=>2"
+
+class Query_2(graphene.ObjectType):
+    user = graphene.Field(User2)
+    
+    def resolve_user(self, info):
+        return info.context['user']
+
+schema = graphene.Schema(Query_2)
+
+query_ql_2 = '''
+        query getUser {
+            user {
+                id
+                firstName
+                lastName
+            }
+        }'''
+
+#when pass None to values, he use the self values defined in def __init__():
+result = schema.execute(query_ql_2, context_value={'user' : User2(id=None, firstName=None, lastName=None)})
+print("example=>2")
+print("result-simple-query-with-variable====>>>")
+print(result)
+print("result-data====>>>")
+print(result.data)
+print("result-data-user====>>>>")
+print(result.data['user'])
+print("\n\n")
+
+
+
+
+
+#exemplo1 com variaveis variaveis funcionando ===>>>
+class User3(graphene.ObjectType):
+    id = graphene.ID()
+    firstName = graphene.String()
+    lastName = graphene.String()
+
+    def __init__(self, id, firstName, lastName):
+        self.id = 3
+        self.firstName = "java=>3"
+        self.lastName = "scripter=>3"
+
+class Query_3(graphene.ObjectType):
+    user = graphene.Field(
+            User3, 
+            id=graphene.Int(), 
+            firstName=graphene.String(), 
+            lastName=graphene.String()
+        )
+    
+    #def resolve_user(self, info):
+        #return info.context['user']
+
+    def resolve_user(self, info, id):
+        return get_user(id)
+
+schema = graphene.Schema(Query_3)
+
+query_ql_2 = '''
+        query getUser {
+            user(id:'0') {
+                id
+                firstName
+                lastName
+            }
+        }'''
+
+#when pass None to values, he use the self values defined in def __init__():
+#result = schema.execute(query_ql_2, context_value={'user' : User3(id=None, firstName=None, lastName=None)})
+#result = schema.execute(query_ql_2, context_value={'user' : User3(id=id, firstName=firstName, lastName=lastName)})
+result = schema.execute(query_ql_2)
+print("example=>3")
+print("result-simple-query-with-variable====>>>")
+print(result)
+print("result-data====>>>")
+print(result.data)
+print("result-data-user====>>>>")
+print(result.data['user'])
+print("\n\n")
+
+
+
+
+
+
+
+
+
 
 
 #####################################################################
