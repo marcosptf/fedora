@@ -162,8 +162,29 @@ class Query_3(graphene.ObjectType):
     #def resolve_user(self, info):
         #return info.context['user']
 
-    def resolve_user(self, info, id):
-        return get_user(id)
+"""
+we need to try this example:
+
+class Query(graphene.ObjectType):
+    node = relay.Node.Field()
+    all_employees = SQLAlchemyConnectionField(Employee)
+    all_roles = SQLAlchemyConnectionField(Role)
+    role = relay.Node.Field(Role)
+
+query Role($id: ID!){
+  role(id: $id) {
+    id
+    name
+  }
+}
+
+"""
+
+
+
+    def resolve_user(self, args, context, info):
+        query = User3.get_query(context)
+        return query.get(args.get('id'))
 
 schema = graphene.Schema(Query_3)
 
