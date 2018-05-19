@@ -74,3 +74,9 @@ class UpdatePerson(graphene.Mutation):
         person = db_session.query(ModelPeople).filter_by(id=data['id']).first()
 
         return UpdatePerson(person=person)
+
+
+
+
+
+
