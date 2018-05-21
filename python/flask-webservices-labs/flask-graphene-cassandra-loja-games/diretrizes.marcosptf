@@ -11,6 +11,47 @@ tasks:
 
 
 
+
+
++criacao das tabelas no cassandra:
+    tabela-marca-video-games
+        id
+        nome_marca
+    
+    tabela-modelo-video-games
+        id
+        nome_modelo
+    
+    tabela-consoles-video-games
+        id
+        id_marca_video_game
+        id_modelo_video_game
+        console_preco
+        console_cor
+        console_descricao
+        console_quantidade_estoque
+        
+    tabela-jogos-video-games
+        id
+        jogo_nome
+        jogo_preco
+        jogo_descricao
+        jogo_quantidade_estoque
+        
+    tabela-jogos-consoles
+        id
+        id_jogos_video_games
+        id_marca_video_game
+        id_modelo_video_game
+
+
+
+
+
+
+
+
+
 #########################################################################################3
 #comands
 
