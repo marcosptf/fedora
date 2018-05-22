@@ -1,0 +1,21 @@
+https://www.dataquest.io/blog/introduction-functional-programming-python/
+https://www.youtube.com/results?search_query=aula+python+funcional
+https://docs.python.org/3.6/howto/functional.html
+
+#itens
+-recusao
+-imutabilidade
+-map
+-reduce
+-filter
+-lambda
+-composicao
+-funcoes menores
+-Formal provability.
+-Modularity.
+-Composability.
+-Ease of debugging and testing.
+-Iterators
+-Generator expressions and list comprehensions
+-generators
+-
