@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: Flask-JWTAuthorization
+Version: 0.0.5
+Summary: Authorization framework based on JWT for Flask applications
+Home-page: https://github.com/sergiofcasado/flask-jwtauthorization
+Author: Sergio Fernandez Casado
+Author-email: sfernand@cern.ch
+License: GPLv3
+Description: # flask-jwtauthorization
+        JWT Authorization library for Flask
+        
+Keywords: flask jwt json web token authorization
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
