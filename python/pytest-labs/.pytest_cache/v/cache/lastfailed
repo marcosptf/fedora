@@ -1,0 +1,9 @@
+{
+  "mock_lab_5.py::RemovalServiceTestCase::test_rm": true,
+  "mock_lab_5.py::test_rm": true,
+  "mock_lab_5.py::test_rm_refactor": true,
+  "mock_lab_6.py::RemovalServiceTestCase": true,
+  "mock_lab_6.py::UploadServiceTestCase": true,
+  "mock_lab_6.py::test_rm": true,
+  "mock_lab_7.py::UploadServiceTestCase::test_upload_complete": true
+}

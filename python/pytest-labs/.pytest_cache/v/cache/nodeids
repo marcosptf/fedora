@@ -1,0 +1,4 @@
+[
+  "mock_lab_7.py::RemovalServiceTestCase::test_rm",
+  "mock_lab_7.py::UploadServiceTestCase::test_upload_complete"
+]
