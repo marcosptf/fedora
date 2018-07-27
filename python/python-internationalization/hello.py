@@ -5,6 +5,5 @@ _ = lang.gettext
 
 lang.install()
 
-
 print (_("Hello World!!!"))
 
