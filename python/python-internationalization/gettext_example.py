@@ -1,3 +1,6 @@
+#dependencias
+sudo dnf install xgettext msgfmt
+
 #comando para extrair string de traducao
 #xgettext -o example.pot gettext_example.py
 
