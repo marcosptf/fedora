@@ -1,11 +1,5 @@
 #dependencias
-sudo dnf install xgettext msgfmt
-
-#comando para extrair string de traducao
-#xgettext -o example.pot gettext_example.py
-
-#comando para gerar a traducao
-#msgfmt -o example.mo example.po 
+#sudo dnf install xgettext msgfmt
 
 #criar diretorios para internationalization
 """
@@ -15,6 +9,13 @@ mkdir locale/en_US/LC_MESSAGES/
 mkdir locale/pt_BR/
 mkdir locale/pt_BR/LC_MESSAGES/
 """
+
+#comando para extrair string de traducao
+#xgettext -o example.pot gettext_example.py
+
+#comando para gerar a traducao
+#msgfmt -o example.mo example.po 
+
 
 
 import gettext
