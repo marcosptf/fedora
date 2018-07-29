@@ -4,6 +4,15 @@
 #comando para gerar a traducao
 #msgfmt -o example.mo example.po 
 
+#criar diretorios para internationalization
+"""
+mkdir locale/
+mkdir locale/en_US/
+mkdir locale/en_US/LC_MESSAGES/
+mkdir locale/pt_BR/
+mkdir locale/pt_BR/LC_MESSAGES/
+"""
+
 
 import gettext
 
