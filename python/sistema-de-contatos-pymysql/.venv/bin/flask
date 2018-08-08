@@ -1,4 +1,4 @@
-#!/root/NetBeansProjects/fedora/python/sistema-de-contatos/.venv/bin/python
+#!/home/marcossantana/NetBeansProjects/fedora/python/sistema-de-contatos-pymysql/.venv/bin/python3
 
 # -*- coding: utf-8 -*-
 import re

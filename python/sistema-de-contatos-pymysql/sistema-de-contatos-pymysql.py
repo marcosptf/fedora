@@ -109,7 +109,7 @@ def salva_contato_query(data_form):
     try:      
         with conn.cursor() as cursor:
             if(data_form['id'] == "" ):
-	        print("js==>7")
+
                 query_salva_contato = """
                 insert into contatos
                 (nome,email,whatsapp,facebook,twitter,website,endereco,bairro,cidade,estado)
@@ -152,8 +152,8 @@ def salva_contato_query(data_form):
                               data_form['contato_cidade'],
                               data_form['contato_estado'],
                               data_form['id'])                
-		print("js==>10")
-	    print(query_salva_contato)
+
+
             cursor.execute(query_salva_contato)
             print("js==>11")
             conn.commit()
