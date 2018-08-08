@@ -1,0 +1,4 @@
+
+#comando para gerar o translate.mo
+.venv/lib/python3.6/site-packages/pythongettext/msgfmt.py translate.po
+
