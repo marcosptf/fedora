@@ -1,0 +1,13 @@
+#este codigo exibe os reais motivos do php estar falhando
+error_reporting(E_ALL);
+function customError($errno, $errstr) {
+  echo "<b>Error:</b> [$errno] $errstr";
+}
+set_error_handler("customError");
+
+#comandos para rodar no fedora para liberar acesso ao smarty/php para escrever arquivos
+#em determinados diretorios de templates_c/ compilados
+sudo setenforce 0
+sudo setsebool -P httpd_enable_homedirs 1
+
+ 
