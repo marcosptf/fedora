@@ -11,10 +11,10 @@ divide a tela em duas janelas
 :q
 fecha a janela atual
 
-^Wj
+^Wj  => ctrl+shift+w+j
 move o cursor para a janela de baixo
 
-^Wk
+^Wk  => ctrl+shift+w+k
 move o cursor para a janela de cima
 
 :q!
