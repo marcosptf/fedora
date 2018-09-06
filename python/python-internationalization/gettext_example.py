@@ -24,9 +24,12 @@ import gettext
 t = gettext.translation(
     domain='example', 
     localedir='locale',
-    #languages='en_US',
-    languages=['pt_BR'],
-    fallback=False,
+    languages='en_US',
+    #languages=['pt_BR'],
+    #False => procura a traducao mas caso n encontre exibe um Traceback
+    #fallback=False, 
+    #True => procura traducao, caso n encontre exibe a default
+    fallback=True,    
 )
 _ = t.gettext
 
