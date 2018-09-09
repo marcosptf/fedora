@@ -17,6 +17,9 @@
 #doc to install on server completly:
 #https://metacpan.org/pod/distribution/DBD-mysql/lib/DBD/mysql/INSTALL.pod
 #
+#localhost offline doc
+#perldoc DBD::mysql
+#
  
 use strict;
 use warnings;

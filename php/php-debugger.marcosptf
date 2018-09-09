@@ -7,7 +7,55 @@ set_error_handler("customError");
 
 #comandos para rodar no fedora para liberar acesso ao smarty/php para escrever arquivos
 #em determinados diretorios de templates_c/ compilados
+#
+#lista todos os itens da selinux e seu status:
+sudo sestatus -b
+
+#libera escrita para o smart php
 sudo setenforce 0
 sudo setsebool -P httpd_enable_homedirs 1
+
+#libera escrita e varios acessos para o apache
+sudo setsebool -P httpd_anon_write 1
+sudo setsebool -P httpd_can_check_spam 1
+sudo setsebool -P httpd_can_connect_ftp 1
+sudo setsebool -P httpd_can_connect_ldap 1
+sudo setsebool -P httpd_can_connect_mythtv 1
+sudo setsebool -P httpd_can_connect_zabbix 1
+sudo setsebool -P httpd_can_network_connect 1
+sudo setsebool -P httpd_can_network_connect_cobbler 1
+sudo setsebool -P httpd_can_network_connect_db 1
+sudo setsebool -P httpd_can_network_memcache 1
+sudo setsebool -P httpd_can_network_relay 1
+sudo setsebool -P httpd_can_sendmail 1
+sudo setsebool -P httpd_dbus_avahi 1
+sudo setsebool -P httpd_dbus_sssd 1
+sudo setsebool -P httpd_dontaudit_search_dirs 1
+sudo setsebool -P httpd_enable_ftp_server 1
+sudo setsebool -P httpd_execmem 1
+sudo setsebool -P httpd_manage_ipa 1
+sudo setsebool -P httpd_mod_auth_ntlm_winbind 1
+sudo setsebool -P httpd_mod_auth_pam 1
+sudo setsebool -P httpd_read_user_content 1
+sudo setsebool -P httpd_run_ipa 1
+sudo setsebool -P httpd_run_preupgrade 1
+sudo setsebool -P httpd_run_stickshift 1
+sudo setsebool -P httpd_serve_cobbler_files 1
+sudo setsebool -P httpd_setrlimit 1
+sudo setsebool -P httpd_ssi_exec 1
+sudo setsebool -P httpd_sys_script_anon_write 1
+sudo setsebool -P httpd_tmp_exec 1
+sudo setsebool -P httpd_tty_comm 1
+sudo setsebool -P httpd_unified 1
+sudo setsebool -P httpd_use_cifs 1
+sudo setsebool -P httpd_use_fusefs 1
+sudo setsebool -P httpd_use_gpg 1
+sudo setsebool -P httpd_use_nfs 1
+sudo setsebool -P httpd_use_openstack 1
+sudo setsebool -P httpd_use_sasl 1
+sudo setsebool -P httpd_verify_dns 1
+
+
+
 
  
