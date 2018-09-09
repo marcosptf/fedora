@@ -55,7 +55,8 @@ sudo setsebool -P httpd_use_openstack 1
 sudo setsebool -P httpd_use_sasl 1
 sudo setsebool -P httpd_verify_dns 1
 
-
-
+#liberar acessso no mysql
+sudo setsebool -P mysql_connect_any 1
+sudo setsebool -P mysql_connect_http 1
 
  
