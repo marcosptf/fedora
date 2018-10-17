@@ -712,4 +712,51 @@ SOL-1: edit the /etc/selinux/config file and set SELINUX=disabled and reboot.
 SOL.2: Problem solved by changing "Windows UEFI" to "Other OS/Legacy" in motherboard Secure Boot options.
 
 
+
 =======================================================================================================
+#aumentar a memoria swap do linux - fedora
+http://www.dltec.com.br/blog/linux/aumentando-a-memoria-de-swap-no-linux-via-arquivo/
+[marcosptf@localhost html]$ 
+[marcosptf@localhost html]$ sudo su
+[sudo] password for marcosptf: 
+[root@localhost html]# cd
+[root@localhost ~]# dd if=/dev/zero of=/root/meuswap bs=1024 count=6291456
+6291456+0 records in
+6291456+0 records out
+6442450944 bytes (6.4 GB, 6.0 GiB) copied, 207.828 s, 31.0 MB/s
+[root@localhost ~]# mkswap meuswap
+mkswap: meuswap: insecure permissions 0644, 0600 suggested.
+Setting up swapspace version 1, size = 6 GiB (6442446848 bytes)
+no label, UUID=e0a24c87-d36a-4c42-bfe0-30a89c6c5084
+[root@localhost ~]# chown root:root meuswap
+[root@localhost ~]# chmod 0600 meuswap
+[root@localhost ~]# swapon meuswap
+[root@localhost ~]# vim /etc/fstab
+#foi adicionado no final do arquivo:
+root/meuswap swap swap defaults 0 0
+
+[root@localhost ~]# df -h
+Filesystem               Size  Used Avail Use% Mounted on
+devtmpfs                 464M     0  464M   0% /dev
+tmpfs                    479M   28M  452M   6% /dev/shm
+tmpfs                    479M  1.2M  478M   1% /run
+tmpfs                    479M     0  479M   0% /sys/fs/cgroup
+/dev/mapper/fedora-root   50G   41G  6.6G  87% /
+tmpfs                    479M   48K  479M   1% /tmp
+/dev/sda1                477M  147M  301M  33% /boot
+/dev/mapper/fedora-home   95G   51G   40G  57% /home
+tmpfs                     96M   28K   96M   1% /run/user/1000
+[root@localhost ~]# free -h
+              total        used        free      shared  buff/cache   available
+Mem:           957M        588M         72M         98M        295M         79M
+Swap:          8.0G        1.0G        7.0G
+[root@localhost ~]# 
+
+
+
+
+
+
+
+
+
