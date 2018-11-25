@@ -1,0 +1,3 @@
+[console_scripts]
+salad = salad.cli:main
+

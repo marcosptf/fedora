@@ -1,0 +1,4 @@
+lettuce
+salad
+django
+django-extensions

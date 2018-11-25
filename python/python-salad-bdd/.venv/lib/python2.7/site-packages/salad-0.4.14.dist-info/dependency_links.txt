@@ -1,0 +1,1 @@
+https://github.com/skoczen/lettuce/tarball/fork#egg=lettuce-0.2.10.1
