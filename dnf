@@ -31,9 +31,6 @@ sudo dnf mariadb stop
 sudo dnf mariadb start
 
 
-/usr/java/jdk1.8.0_171-amd64/
-
-
 /* setar hora n linux */
 date -s "14:00"
 
