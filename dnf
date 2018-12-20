@@ -663,23 +663,6 @@ when someone call '/root/Android/Sdk/platform-tools/adb' the ln will call '/usr/
 ls -lart
 lrwxrwxrwx.  1 root root      12 Feb 10 22:57 /root/Android/Sdk/platform-tools/adb -> /usr/bin/adb
 =======================================================================================================
-[root@localhost ~]# python
-Python 2.7.9 (default, Apr 15 2015, 12:08:00) 
-[GCC 5.0.0 20150319 (Red Hat 5.0.0-0.21)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
->>> idade = int(raw_input("coloque a sua idade"))
-coloque a sua idade12
->>> mensagem_menor = "voce eh menor, ainda nao pode dirigir"
->>> mensagem_maior = "voce eh maior, ja pode dirigir"
->>> mensagem = mensagem_maior
->>> if idade <= 17:
-...   mensagem = mensagem_menor
-... 
->>> print(mensagem)
-voce eh menor, ainda nao pode dirigir
-
-
-=======================================================================================================
 /* fedora 24 virtualbox */
 
 Making the bios change and edit the selinux solved my problem of installing virtualbox 5.11 over fedora 25. 
