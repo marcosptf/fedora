@@ -733,7 +733,22 @@ Swap:          8.0G        1.0G        7.0G
 [root@localhost ~]# 
 
 
+####################################################################################
+#desabilitar o kde wallet
+####################################################################################
+==>>>KDE 5/Plasma 5.8:
+Add the following lines to the end of ~/.config/kwalletrc
+[Wallet]
+Enabled=false
 
+===>>>KDE4:
+KDE Wallet is a core part of KDE, it's in the package kdebase-runtime.
+To disable it run kcmshell4 kwalletconfig and continue at step 3 or start from the beginning:
+1.Start System setings
+2.Open Account Details
+3.Go to the "KDE Wallet" tab
+4.Uncheck Enable the KDE Wallet subsystem
+5.Click Apply to apply the changes and close the settings window.
 
 
 
