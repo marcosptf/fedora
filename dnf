@@ -30,7 +30,6 @@ sudo rm -rfv /var/lib/mysql/*
 sudo dnf mariadb stop
 sudo dnf mariadb start
 
-
 /* setar hora n linux */
 date -s "14:00"
 
