@@ -1,9 +1,8 @@
 ###########################################
 #vim  commands                            #
-#                                         #
 ###########################################
 
-
+###########################################
 #split
 :split
 divide a tela em duas janelas
@@ -16,12 +15,37 @@ move o cursor para a janela de baixo
 
 ^Wk  => ctrl+shift+w+k
 move o cursor para a janela de cima
+###########################################
 
+
+###########################################
+#ctrl-z || 
+#em modo de comando o undo significa Crtl-z
+u
+#em modo de comando, para voltar alteracoes do undo
+ctrl-r
+
+##########################################
+#fechar o arquivo ou aba que esta sendo editado:
 :q!
-fecha a janela q esta o cursor
+:ZZ
+:tabclose
 
 
+#########################################
 #visual-mode - page 55
+#em modo de comando, acionar o botao v
+v
+#para selecionar conteudo apenas usar as setas
+<- ->
+#apos selecionar algum conteudo, podemos copia-lo:
+y
+#ou recorta-lo
+x
+#ou colar o conteudo:
+p
+
+
 
 #manipulando-buffers
 
