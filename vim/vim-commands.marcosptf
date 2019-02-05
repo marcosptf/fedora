@@ -50,10 +50,36 @@ p
 #manipulando-buffers
 
 #find
+#syntaxe para realizar buscas:
+:%s/<termo-a-ser-buscado>/g  => busca no arquivo inteiro
+:%s/<termo-a-ser-buscado>/gi => busca no arquivo inteiro nao se importando com camel-case
+#apos dar enter, para buscar o proximo iten, usar o botao n
 
-#find && replace
+#find && replace && regex
+#syntaxe do find-replace
+:%s/<termo-a-ser-buscado>/<termo-a-ser-usado-no-lugar>/g
+#exemplos de find-replace com regex no vim
+%s/\/\/isc_RPCResponseStart-->\[{affectedRows:0,data:\[/ use seguros; truncate table mock_download_vivo; insert into mock_download_vivo (name_file, key_value) values /g
+%s/\],endRow:[0-9][0-9][0-9][0-9],invalidateCache:false,isDSResponse:true,queueStatus:[0-9],startRow:[0-9][0-9],status:[0-9],totalRows:[0-9][0-9][0-9][0-9]\}\]\/\/isc_RPCResponseEnd/);/g
+%s/{mailboxPath:"\/",messageName:/(/g
+%s/size:[0-9]*,createDateTime:new Date([0-9]*),messageId:/"/g
+%s/},/"),/g
+%s/"/'/g
+%s/}/'/g
+%s/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*//g
+%s/^ [0-9]\.//g
+%s/^ [0-9][0-9]\.//g
+%s/^ [0-9][0-9][0-9]\.//g
+%s/^ [0-9][0-9][0-9][0-9]\.//g
+%s/row//gi
+%s/^ *$\n//gi
+%s/data: //gi
+
 
 #sh commands 
+:!ls
+:!date
+:sh cal
 
 #vim comands - page 32
 x  => apaga o caractere sob o cursor
