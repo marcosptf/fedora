@@ -1,0 +1,25 @@
+#para buscar radios stream
+1.entrar no site radios.com.br
+2.buscar a radio q queremos
+3.entrar no link dela
+4.no codigo fonte buscar por => type: "video/mp4",
+
+
+#radio jovem pan am stream
+http://playerservices.streamtheworld.com/api/livestream-redirect/JP_SP_AMAAC.aac
+http://playerservices.streamtheworld.com/api/livestream-redirect/JP_SP_AMAAC.aac?type=.flv
+
+#radio capital am stream
+http://audio4.capitalcomvoce.com.br/capital
+http://audio4.capitalcomvoce.com.br/capital?type=.flv
+
+#radio cultura fm sao paulo
+http://tvcultura.com.br/_radio/streaming.php?radio=fm
+http://tvcultura.com.br/_radio/streaming.php?radio=fm?type=.flv
+
+#radio cultura am sao paulo
+http://tvcultura.com.br/_radio/streaming.php?radio=am
+http://tvcultura.com.br/_radio/streaming.php?radio=am?type=.flv
+
+#pesquisar radios gauchesas 
+https://www.radios.com.br/busca/?q=gauchesca&qfilter=completo

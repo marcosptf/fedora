@@ -30,10 +30,6 @@ sudo rm -rfv /var/lib/mysql/*
 sudo dnf mariadb stop
 sudo dnf mariadb start
 
-
-/usr/java/jdk1.8.0_171-amd64/
-
-
 /* setar hora n linux */
 date -s "14:00"
 
@@ -666,23 +662,6 @@ when someone call '/root/Android/Sdk/platform-tools/adb' the ln will call '/usr/
 ls -lart
 lrwxrwxrwx.  1 root root      12 Feb 10 22:57 /root/Android/Sdk/platform-tools/adb -> /usr/bin/adb
 =======================================================================================================
-[root@localhost ~]# python
-Python 2.7.9 (default, Apr 15 2015, 12:08:00) 
-[GCC 5.0.0 20150319 (Red Hat 5.0.0-0.21)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
->>> idade = int(raw_input("coloque a sua idade"))
-coloque a sua idade12
->>> mensagem_menor = "voce eh menor, ainda nao pode dirigir"
->>> mensagem_maior = "voce eh maior, ja pode dirigir"
->>> mensagem = mensagem_maior
->>> if idade <= 17:
-...   mensagem = mensagem_menor
-... 
->>> print(mensagem)
-voce eh menor, ainda nao pode dirigir
-
-
-=======================================================================================================
 /* fedora 24 virtualbox */
 
 Making the bios change and edit the selinux solved my problem of installing virtualbox 5.11 over fedora 25. 
@@ -753,7 +732,22 @@ Swap:          8.0G        1.0G        7.0G
 [root@localhost ~]# 
 
 
+####################################################################################
+#desabilitar o kde wallet
+####################################################################################
+==>>>KDE 5/Plasma 5.8:
+Add the following lines to the end of ~/.config/kwalletrc
+[Wallet]
+Enabled=false
 
+===>>>KDE4:
+KDE Wallet is a core part of KDE, it's in the package kdebase-runtime.
+To disable it run kcmshell4 kwalletconfig and continue at step 3 or start from the beginning:
+1.Start System setings
+2.Open Account Details
+3.Go to the "KDE Wallet" tab
+4.Uncheck Enable the KDE Wallet subsystem
+5.Click Apply to apply the changes and close the settings window.
 
 
 
