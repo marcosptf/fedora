@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asx version="3">
+  <entry>
+    <ref href="../../../usr/share/kde4/apps/amarok/data/first_run_jingle.ogg"/>
+    <title>Art Of Nations (Amarok Theme)</title>
+    <author>allMeadow &amp; Rob Costlow</author>
+    <abstract>This Amarok theme was made by allMeadow &amp; Rob Costlow especially for Amarok. You can check out more of their projects at Magnatune.com or at www.reconstructionmusic.org</abstract>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_001_tecnologias_no_nubank.mp3"/>
+    <title>Hipsters Ponto Tech 01 - Tecnologias no Nubank</title>
+    <author>Hipster Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_002_vida_de_agencia.mp3"/>
+    <title>Hipsters Ponto Tech #02 - Vida de Agência</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_003_progressive_web_apps.mp3"/>
+    <title>Hipsters Ponto Tech #03 - Progressive Web Apps</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_004_historias_do_cloud.mp3"/>
+    <title>Hipsters Ponto Tech #04 - Histórias do Cloud</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_005_agilidade.mp3"/>
+    <title>Hipsters Ponto Tech #05 - Agilidade</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_006_web_components.mp3"/>
+    <title>Hipsters Ponto Tech #06 - Web Components</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_007_realidade_virtual_oculusrift.mp3"/>
+    <title>Hipsters Ponto Tech #07 - Oculus Rift e Realidade Virtual</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_008_squads.mp3"/>
+    <title>Hipsters Ponto Tech #08 - Squads não-suicidas</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_009_css.mp3"/>
+    <title>Hipsters Ponto Tech #09 - CSS: Cansei de Ser Simples</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_010_getninjas.mp3"/>
+    <title>Hipsters Ponto Tech #10 - Startups, Ninjas e Marketplaces</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_011_videos_globo.mp3"/>
+    <title>Hipsters Ponto Tech #11 - Por trás dos vídeos da Globo.com</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_012_monitoramento.mp3"/>
+    <title>Hipsters Ponto Tech #12 - Monitoramento: não receba mais telefonemas de madrugada!</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_013_http2.mp3"/>
+    <title>Hipsters Ponto Tech #13 - HTTP/2: Magia com o novo protocolo</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_014_ux.mp3"/>
+    <title>Hipsters Ponto Tech #14 - Heurísticas e Buzzwords de UX</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_015_startups_cubos_coworking.mp3"/>
+    <title>Hipsters Ponto Tech #15 - Startups, Cubos e Coworking</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_016_single_page_apps.mp3"/>
+    <title>Hipsters Ponto Tech #16 - Single Page Applications</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_017_microservicos.mp3"/>
+    <title>Hipsters Ponto Tech #17 - Microserviços</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_018_bancos.mp3?_=1"/>
+    <title>Hipsters Ponto Tech #18 - Bancos, Inovação e o Vale do Silício</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_019_xamarin.mp3"/>
+    <title>Hipsters Ponto Tech #19 - Xamarin: Desenvolvimento Multiplataforma</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_020_statups_mit_olhos.mp3"/>
+    <title>Hipsters Ponto Tech #20 - Startups, Olhos e MIT</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_021_acessibilidade.mp3"/>
+    <title>Hipsters Ponto Tech #21 - Acessibilidade Web</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_022_nosql.mp3"/>
+    <title>Hipsters Ponto Tech #22 - NoSQL</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_023_design_sprint.mp3"/>
+    <title>Hipsters Ponto Tech #23 - Design Sprint</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_024_indie_games.mp3"/>
+    <title>Hipsters Ponto Tech #24 - Indie Games</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_025_startups_musica_educacao.mp3"/>
+    <title>Hipsters Ponto Tech #25 - Startups, Música e Educação</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_026_dotnet.mp3"/>
+    <title>Hipsters Ponto Tech #26 - Passado e futuro do .NET...</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_027_java.mp3"/>
+    <title>Hipsters Ponto Tech #26 - ...e o futuro do Java!</title>
+    <author>Hipsters Ponto Tech</author>
+  </entry>
+  <entry>
+    <ref href="http://www.phpclasses.org/blog/post/498/file/793/name/Lately-In-PHP-78.mp3"/>
+    <title>Lately in PHP podcast episode 78</title>
+    <author>Manuel Lemos and Arturs Sosins</author>
+  </entry>
+  <entry>
+    <ref href="http://www.phpclasses.org/blog/post/509/file/805/name/Lately-In-PHP-79.mp3"/>
+    <title>Lately-In-PHP-79.mp3</title>
+    <author>Unknown</author>
+  </entry>
+  <entry>
+    <ref href="http://feeds.feedburner.com/CastalioPodcastMP3?format=xml"/>
+    <title>CastalioPodcastMP3</title>
+    <author>Unknown</author>
+  </entry>
+  <entry>
+    <ref href="https://talkpython.fm/episodes/download/2/python-and-mongodb.mp3"/>
+    <title>Python and MongoDB with Jesse Davis</title>
+    <author>Michael Kennedy (@mkennedy)</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_028_prototipacao.mp3"/>
+    <title>hipsters_028_prototipacao.mp3</title>
+    <author>Unknown</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_029_paypal.mp3"/>
+    <title>hipsters_029_paypal.mp3</title>
+    <author>Unknown</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_030_startups_marketplaces_desapego_olx.mp3"/>
+    <title>hipsters_030_startups_marketplaces_desapego_olx.mp3</title>
+    <author>Unknown</author>
+  </entry>
+  <entry>
+    <ref href="http://media.blubrry.com/hipsterstech/p/content.blubrry.com/hipsterstech/hipsters_031_carreira_em_tecnologia.mp3"/>
+    <title>hipsters_031_carreira_em_tecnologia.mp3</title>
+    <author>Unknown</author>
+  </entry>
+</asx>

@@ -1,0 +1,94 @@
+Open Source - Contributions
+
++I'm member of NetCat, team of QA in Project from Netbeans :
+https://netbeans.org/people/155724-marcos-paulo
+https://netbeans.org/bugzilla/show_bug.cgi?id=255283
+https://netbeans.org/bugzilla/show_bug.cgi?id=255022
+
++Java plugins to Netbeans IDE using java:
+http://plugins.netbeans.org/plugin/62803/stackoverflownetbeansplugin
+http://plugins.netbeans.org/plugin/59448/?show=true
+
++I'm so active commiter to php-src core language, writing QA codes and fixing bugs to this plataform:
+https://github.com/php/php-src/search?q=marcosptf
+https://github.com/php/php-src/pulls/marcosptf
+https://bugs.php.net/search.php?author_email=marcosptf%40yahoo.com.br&cmd=display&status=All&bug_type=All&
+project=All
+#em conjunto com o rasmus
+https://bugs.php.net/bug.php?id=70840
+
++I'm #10 top contributor php-src 2015
+https://github.com/php/php-src/graphs/contributors?from=2015-01-01&to=2015-12-31&type=c
+
++cpython contribution, fixing bugs and writing test scripts:
+http://bugs.python.org/issue24930
+
++I've won a hacker event develop a web game in javascript
+https://flic.kr/p/yAZtPN
+
+==================Keynote-en===================================
++Keynote python speaker
+-talk about flask in #pybr11 (Python Brazil Conference 2015)
+https://www.facebook.com/pythonbrasil/photos/a.802266406462553.1073741826.328258703863328/10414012292157
+35/?type=3
+-talk about flask in TDC 2016 Anhembi Morumbi
+https://www.facebook.com/PyLadiesSP/photos/a.1566261870344933.1073741843.1469656506672137/1566264470344
+673/?type=3&theater
+
++Keynote php speaker Novatec
+-talk about php7 and c language in #phparty7
+https://twitter.com/phpsp/status/665515671950909440
+-talk about php-src in #FISL2016
+https://twitter.com/FerPeralesM/status/753681318794371072
+
++Translate to french language
+-i've translate a microframework web site http://respect.github.io/
+https://github.com/Respect/respect.github.com/commit/fde030abb46af805ba54291b7f2138f83357497f
+
++Technical writer in famous blogs
+http://phpsp.org.br/author/marcosptf/
+http://www.phpclasses.org/blog/post/386-How-to-Contribute-to-PHP-Development-Writing-phpt-Tests.html
+https://www.oficinadanet.com.br/autor/428-marcos-paulo
+
++I'm in list of php7 core developer on Zend oficial blog
+http://devzone.zend.com/6956/php-7-core-contributors-thankyou/
+
++FISL17
+http://softwarelivre.org/fisl17
+http://conversas.softwarelivre.org/palestra/como-contribuir-em-projetos-open-source/
+http://hemingway.softwarelivre.org/fisl17/41c/sala41c-high-201607141700.ogv
+
++PHPConference 2016
+http://phpconf.com.br/trabalho/detalhar-trabalho/id/41
+http://phpconf.com.br/trabalho/detalhar-trabalho/id/42
+
+
+
+
+==============palestras-pt================
+-Tutorial de 2 horas sobre Flask Python na Python Brazil 11 em 2015 - São José dos Campos/SP
+http://2015.pythonbrasil.org.br/#schedule
+Criando um microblog com flask
+
+-Palestra de Flask Python no TDC 2016 da Anhembi Morumbi - São Paulo/SP
+http://www.thedevelopersconference.com.br/tdc/2016/saopaulo/trilha-python
+http://pt.slideshare.net/tdc-globalcode/tdc2016sp-flask-para-web
+
+-Palestra de PHP7, Linguagem C e PHPUNIT na Novatec - São Paulo/SP
+https://twitter.com/phpsp/status/665515671950909440
+
+-Palestra de como contribuir com projetos Open Source, especialmente PHP-SRC - Porto Alegre/RS
+https://twitter.com/FerPeralesM/status/753681318794371072
+
+-Palestra na PHP Conference Brazil 2016 - Osasco/SP
+https://www.facebook.com/photo.php?fbid=10208150857914827&set=rpd.720317678&type=3&theater
+
+-Palestra de Respect microframework na PHP Conference Brazil 2016 - Osasco/SP
+http://phpconference.com.br/trabalho/detalhar-trabalho/id/41
+
+-Palestra de PHPInternals com PHPUNIT na PHP Conference Brazil 2016 - Osasco/SP
+http://phpconference.com.br/trabalho/detalhar-trabalho/id/42
+
+-Palestra de como ser um programador melhor no Mercado Livre - Osasco/SP
+https://www.facebook.com/photo.php?fbid=1342263182493144&set=rpd.720317678&type=3&theater
+

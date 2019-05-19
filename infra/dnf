@@ -1,0 +1,756 @@
+/* apache2 habilitando mod proxy */
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
+sudo service apache2 stop
+sudo service apache2 start
+
+/* mongodb status */
+service mongod stop
+service mongod status
+service mongod start
+
+/* instalar netbeans no fedora28 */
+sudo vim /etc/profile
+export JAVA_HOME="/usr/java/jdk1.8.0_171-amd64/"
+export CLASSPATH="$JAVA_HOME/lib":$CLASSPATH
+export PATH="$JAVA_HOME/bin":$PATH
+export MANPATH="$JAVA_HOME/man":$MANPATH 
+
+#rodar este comando no terminal
+sudo ln -s /usr/java/jdk1.8.0_171-amd64/bin/java /usr/local/bin/
+sudo ln -s /usr/java/jdk1.8.0_171-amd64/bin/javac /usr/local/bin/
+
+#recovery mysql/mariadb crashing
+sudo dnf mariadb stop
+sudo dnf mariadb erasing
+sudo dnf install mariadb mariadb-server
+sudo rm -rfv /var/lib/mysql/*
+sudo dnf mariadb stop
+sudo dnf mariadb start
+
+/* setar hora n linux */
+date -s "14:00"
+
+/* Git Flow */
+git flow init
+git flow feature start DEMANDAS-7052
+git flow feature finish DEMANDAS-6752
+
++git flow hotfix
+git flow hotfix start <release>
+git commit -am ""
+git push origin hotfix/<release>
+git flow hotfix finish <release>
+git checkout develop
+git push origin develop
+git checkout master
+git push origin master
+git push origin tag <release>
+https://github.com/nvie/gitflow
+
+/* instalando pip && virtualenv windows - usando o cmd - nao funciona no powershell */
+wget https://bootstrap.pypa.io/get-pip.py [enter]
+python get-pip.py [enter]
+pip install virtualenv [enter]
+virtualenv .venv [enter]
+.venv\Scripts\activate [enter]
+
+#instalar no fedora netflix
+https://sourceforge.net/projects/chromium-bsu/
+dnf install kdegames
+dnf install kaffeine
+
+/*  Creating USB Media on the Linux command line  */
+$ dmesg|tail
+[288954.686557] usb 2-1.8: New USB device strings: Mfr=0, Product=1, SerialNumber=2
+[288954.686559] usb 2-1.8: Product: USB Storage
+[288954.686562] usb 2-1.8: SerialNumber: 000000009225
+[288954.712590] usb-storage 2-1.8:1.0: USB Mass Storage device detected
+[288954.712687] scsi host6: usb-storage 2-1.8:1.0
+[288954.712809] usbcore: registered new interface driver usb-storage
+[288954.716682] usbcore: registered new interface driver uas
+[288955.717140] scsi 6:0:0:0: Direct-Access     Generic  STORAGE DEVICE   9228 PQ: 0 ANSI: 0
+[288955.717745] sd 6:0:0:0: Attached scsi generic sg4 type 0
+[288961.876382] sd 6:0:0:0: [sdd] Attached SCSI removable disk
+# dd if=/path/to/Fedora-Live-Security-x86_64-21.iso of=/dev/sdd
+
+
+--SKIPIF--
+<?php
+if (getenv("SKIP_ONLINE_TESTS")) { die('skip: online test'); }
+?>
+if (!in_array("unix", stream_get_transports())) die("SKIP unix domain sockets unavailable");
+if (!stristr(PHP_OS, "Linux")) die('skip abstract namespace is a Linux-only feature');
+if (getenv("SKIP_ONLINE_TESTS")) { die('skip: online test'); }
+if (getenv("SKIP_SLOW_TESTS")) die("skip slow test");
+if (getenv("SKIP_ONLINE_TESTS")) die("skip test requiring internet connection");
+if (getenv("SKIP_ONLINE_TESTS")) die("skip online test");
+
+/* para listar itens disponiveis: */
+$ dnf list \*mysql\* | grep dev
+
+/* comandos linux */
+#lista a situação do uso da memoria em tempo real
+free -h
+
+#uso do espaço em disco em tempo real
+df -h
+
+#todas as informaçõe do processador
+cat /proc/cpuinfo
+
+#todas as informaçõe da memoria
+cat /proc/meminfo
+
+#todas as informaçõe das placas do computador
+lspci
+
+#onde esta o executavel do programa
+which gcc
+
+
+/* behat commands */
+#create feature basic to behat
+./vendor/behat/behat/bin/behat --init
+ 
+#run behat 
+./vendor/behat/behat/bin/behat
+
+/* comandos para resolver problemas de conexao fedora */
+systemctl restart NetworkManager
+nmcli con down [nome-da-conexao]
+nmcli con up [nome-da-conexao]
+
+/* dependendias para phpunit */
+sudo dnf install php-ldap
+sudo dnf search pear
+
+/* comandos docker */
+#docker examples
+https://hub.docker.com/_/fedora/
+https://github.com/dockerfile/mysql/blob/master/Dockerfile
+https://github.com/heddle317/docker-flask-example/blob/master/Dockerfile
+
+#docker =>
+sudo dnf install docker-engine --allowerasing
+https://docs.docker.com/engine/installation/linux/fedora/
+
+#comando para subir
+sudo dnf install docker-engine
+sudo systemctl enable docker.service
+sudo systemctl start docker
+sudo docker-compose up
+
+#comando para deletar/remover um conteiner
+sudo docker rm <nome-do-conteiner>
+
+#comando para fazer o build das dependencias do projeto
+docker-compose build
+-remover container que não usa:
+docker rm `docker ps --no-trunc -aq`
+
+-remover imagens:
+docker images -q |xargs docker rmi
+
+-Para todos os containers
+docker stop $(docker ps -a -q)
+
+-Remover todos os containers
+docker rm $(docker ps -a -q) 
+
+
+/* comandos symfony */
+sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+symfony new my_project 2.7
+sudo symfony new my_project 2.7
+symfony new my_project 2.7
+curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+symfony new my_project 2.7
+sudo chmod a+x /usr/local/bin/symfony
+symfony new projeto-exemplo 2.7
+chmod +777 * -R
+php app/console 
+php app/console generate:bundle
+php app/console doctrine:generate:entity
+php app/console doctrine:generate:crud
+php app/console doctrine:schema:update --force
+#comando symphony para linkar os templates css com o diretorio web
+sudo php app/console assets:install --symlink
+#comandos gerais:
+Symfony version 2.7.13 - app/dev/debug
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help               Display this help message
+  -q, --quiet              Do not output any message
+  -V, --version            Display this application version
+      --ansi               Force ANSI output
+      --no-ansi            Disable ANSI output
+  -n, --no-interaction     Do not ask any interactive question
+  -s, --shell              Launch the shell.
+      --process-isolation  Launch commands from shell as a separate process.
+  -e, --env=ENV            The Environment name. [default: "dev"]
+      --no-debug           Switches off debug mode.
+  -v|vv|vvv, --verbose     Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  help                                 Displays help for a command
+  list                                 Lists commands
+ assetic
+  assetic:dump                         Dumps all assets to the filesystem
+  assetic:watch                        Dumps assets to the filesystem as their source files are modified
+ assets
+  assets:install                       Installs bundles web assets under a public web directory
+ cache
+  cache:clear                          Clears the cache
+  cache:warmup                         Warms up an empty cache
+ config
+  config:debug                         Dumps the current configuration for an extension
+  config:dump-reference                Dumps the default configuration for an extension
+ container
+  container:debug                      Displays current services for an application
+ debug
+  debug:config                         Dumps the current configuration for an extension
+  debug:container                      Displays current services for an application
+  debug:event-dispatcher               Displays configured listeners for an application
+  debug:router                         Displays current routes for an application
+  debug:swiftmailer                    Displays current mailers for an application
+  debug:translation                    Displays translation messages information
+  debug:twig                           Shows a list of twig functions, filters, globals and tests
+ doctrine
+  doctrine:cache:clear-metadata        Clears all metadata cache for an entity manager
+  doctrine:cache:clear-query           Clears all query cache for an entity manager
+  doctrine:cache:clear-result          Clears result cache for an entity manager
+  doctrine:database:create             Creates the configured database
+  doctrine:database:drop               Drops the configured database
+  doctrine:ensure-production-settings  Verify that Doctrine is properly configured for a production environment.
+  doctrine:fixtures:load               Load data fixtures to your database.
+  doctrine:generate:crud               Generates a CRUD based on a Doctrine entity
+  doctrine:generate:entities           Generates entity classes and method stubs from your mapping information
+  doctrine:generate:entity             Generates a new Doctrine entity inside a bundle
+  doctrine:generate:form               Generates a form type class based on a Doctrine entity
+  doctrine:mapping:convert             Convert mapping information between supported formats.
+  doctrine:mapping:import              Imports mapping information from an existing database
+  doctrine:mapping:info                
+  doctrine:query:dql                   Executes arbitrary DQL directly from the command line.
+  doctrine:query:sql                   Executes arbitrary SQL directly from the command line.
+  doctrine:schema:create               Executes (or dumps) the SQL needed to generate the database schema
+  doctrine:schema:drop                 Executes (or dumps) the SQL needed to drop the current database schema
+  doctrine:schema:update               Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata.
+  doctrine:schema:validate             Validate the mapping files.
+ generate
+  generate:bundle                      Generates a bundle
+  generate:controller                  Generates a controller
+  generate:doctrine:crud               Generates a CRUD based on a Doctrine entity
+  generate:doctrine:entities           Generates entity classes and method stubs from your mapping information
+  generate:doctrine:entity             Generates a new Doctrine entity inside a bundle
+  generate:doctrine:form               Generates a form type class based on a Doctrine entity
+ lint
+  lint:twig                            Lints a template and outputs encountered errors
+  lint:yaml                            Lints a file and outputs encountered errors
+ orm
+  orm:convert:mapping                  Convert mapping information between supported formats.
+ router
+  router:debug                         Displays current routes for an application
+  router:dump-apache                   [DEPRECATED] Dumps all routes as Apache rewrite rules
+  router:match                         Helps debug routes by simulating a path info match
+ security
+  security:check                       Checks security issues in your project dependencies
+  security:encode-password             Encodes a password.
+ server
+  server:run                           Runs PHP built-in web server
+  server:start                         Starts PHP built-in web server in the background
+  server:status                        Outputs the status of the built-in web server for the given address
+  server:stop                          Stops PHP's built-in web server that was started with the server:start command
+ swiftmailer
+  swiftmailer:debug                    Displays current mailers for an application
+  swiftmailer:email:send               Send simple email message
+  swiftmailer:spool:send               Sends emails from the spool
+ translation
+  translation:debug                    Displays translation messages information
+  translation:update                   Updates the translation file
+ twig
+  twig:debug                           Shows a list of twig functions, filters, globals and tests
+  twig:lint                            Lints a template and outputs encountered errors
+ yaml
+  yaml:lint                            Lints a file and outputs encountered errors
+#$ sudo php app/console doctrine:generate:entity
+[sudo] password for desenvolvimento: 
+
+                                             
+  Welcome to the Doctrine2 entity generator  
+                                             
+
+
+This command helps you generate Doctrine2 entities.
+
+First, you need to give the entity name you want to generate.
+You must use the shortcut notation like AcmeBlogBundle:Post.
+
+The Entity shortcut name: repasse                                                                                                                     
+ The entity name must contain a : ("repasse" given, expecting something like AcmeBlogBundle:Blog/Post) 
+The Entity shortcut name: NameBundle:ComponentName
+
+Determine the format to use for the mapping information.
+
+Configuration format (yml, xml, php, or annotation) [annotation]: yml                                                                                 
+
+Instead of starting with a blank entity, you can add some fields now.
+Note that the primary key will be added automatically (named id).
+
+Available types: array, simple_array, json_array, object, 
+boolean, integer, smallint, bigint, string, text, datetime, datetimetz, 
+date, time, decimal, float, binary, blob, guid.
+
+New field name (press <return> to stop adding fields): name_column_id 
+Field type [integer]: ubteger                                                                                                                         
+ Invalid type "ubteger". 
+Field type [integer]: integer                                                                                                                         
+
+New field name (press <return> to stop adding fields): column_two
+Field type [string]: 
+Field length [255]: 30
+
+New field name (press <return> to stop adding fields): column_three
+Field type [string]: decimal                                                                                                                          
+
+New field name (press <return> to stop adding fields): contrato_data_ultima_atualizacao
+Field type [string]: datetime
+
+New field name (press <return> to stop adding fields): 
+
+Do you want to generate an empty repository class [no]? yes
+
+                             
+  Summary before generation  
+                             
+
+You are going to generate a "NameBundle:ComponentName" Doctrine2 entity
+using the "yml" format.
+
+Do you confirm generation [yes]? yes
+
+                     
+  Entity generation  
+                     
+
+Generating the entity code: OK
+
+                                               
+  You can now start using the generated code!  
+                           
+/* git config */
+git config --global user.name "marcosptf"
+git config --global user.email marcosptf@yahoo.com.br
+                                               
+/* comando git q previne o fast foward de modo que ele mante a referencia da arvore ao realizar o merge */
+git merge --no-ff
+
+/* comando git q previne o auto commit ao realizar o merge */
+git merge --no-commit
+
+/* comando git para ignorar o versionamento de permissoes */
+git config core.fileMode false  
+
+/* sobrepoe um arquivo com o de outra branch */
+git checkout origin/AnotherBranch algumArquivo.marcosptf
+
+/* compilar codigo fonte php */
+sudo su;cd ~apt-get updateapt-get install autoconf git make build-essential re2c bison libxml2-dev libssl-devgit clone https://github.com/php/php-src.git;cd php-srcsudo autoconf./buildconf --forcemkdir ~/php7./configure --prefix=/root/php7make;make installcd /root/php7/bin/./php -v
+PHP 7.0.4 (cli) (built: Mar 24 2016 19:50:36) ( NTS )
+Copyright (c) 1997-2016 The PHP Group
+Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
+
+/* isso roda blz na imagem official docker debian
+para quem nao ta por dentro do docker segue como criar o container */
+docker run -dt —name debian01 debiandocker exec -it debian01 bash
+
+/* adicionando novos repositorios, pode rodar todos em lote  */
+wget http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm
+rpm -ivh rpmfusion-free-release-18.noarch.rpm
+wget http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-18.noarch.rpm
+rpm -ivh rpmfusion-nonfree-release-18.noarch.rpm
+rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+rpm -Uvh http://rpms.famillecollet.com/remi-release-19.rpm
+rpm -Uvh http://rpms.famillecollet.com/remi-release-20.rpm
+rpm -Uvh http://rpms.famillecollet.com/remi-release-21.rpm
+rpm -Uvh http://rpms.famillecollet.com/remi-release-22.rpm
+
+/* criando um ambiente python dev */
+--instalar python-dev no fedora
+dnf install gcc
+dnf install gpp
+dnf install gcc g++ gcc-c++
+dnf install python-devel python-devel 
+dnf install python-pip
+dnf install openssl
+dnf install openssl-devel
+dnf install openssl-devel.i686
+dnf install openssl-perl.i686
+dnf install openssl-static.i686
+dnf install pyOpenSSL.i686
+dnf install pyOpenSSL-doc.noarch
+dnf install openssl.i686
+dnf install openssl-libs.i686
+dnf install MySQL-python.i686
+pip install setuptools
+pip install --upgrade setuptools
+wget https://bootstrap.pypa.io/ez_setup.py -O - | python
+pip install virtualenv
+pip install Flask
+pip install Flask-SQLAlchemy
+pip install Flask-Testing
+pip install ipdb
+pip install Flask-Admin
+pip install Flask-Babel
+pip install Flask-KVSession
+pip install Flask-Login
+pip install Flask-Migrate
+pip install Flask-Script
+pip install Flask-WTF
+pip install Flask-FeatureFlags
+pip install Flask-Cache
+pip install Flask-Mail
+pip install MySQL-python
+pip install SQLAlchemy-Utils
+pip install tablib
+pip install SQLAlchemy
+pip install pytest
+
+--ERROR 2002: Can't connect to local MySQL server
+# mysql_install_db
+# chown -R mysql.mysql /var/lib/mysql
+# safe_mysqld &
+# mysql
+# service mysqld stop
+# service mysqld start
+
+--install mysqld
+dnf install community-mysql community-mysql-test community-mysql-libs community-mysql-devel community-mysql-bench community-mysql-common community-mysql-server community-mysql-embedded community-mysql-embedded-devel python-devel mysql-devel
+ 
+--recovery password mysql
+service mysqld stop
+mysqld_safe --init-file=recoveryPasswordMysql.sql --skip-grant-tables
+mysqld_safe --skip-grant-tables
+mysqld_safe --skip-grant-tables
+mysql
+use mysql;
+update user set password=PASSWORD("123456") where User='root';
+select * from user where User='root';
+flush privileges;
+exit;
+ps -aux | grep mysqld
+kill -9 19373 19528 20790
+service mysqld start
+service mysqld status
+
+
+/* install php7 fedora 22 */
+dnf install php70-runtime-1.0-2.fc22.remi.x86_64.rpm php70-php-common-7.0.4-1.fc22.remi.x86_64.rpm php70-php-cli-7.0.4-1.fc22.remi.x86_64.rpm php70-1.0-2.fc22.remi.x86_64.rpm php70-php-json-7.0.4-1.fc22.remi.x86_64.rpm
+
+/* install php 5.6 e httpd */
+yum --enablerepo=remi,remi-php56 install httpd php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+#use restart after update
+systemctl start httpd.service 
+
+/* install php 5.5 com php-unit e php-soap */
+dnf install php php-ldap php-pear-Net-LDAP2 php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-gd php-mbstring php-mcrypt php-xml php-soap php-phpunit-PHPUnit.noarch
+
+/* para procurar um programa no yum  */
+dnf search java
+
+/* este argumento ira pular partes que estao em conflito e instalar somente o que pode  */
+dnf install --skip-broken  nome-do-programa
+
+/* yum kde */
+dnf install @kde-desktop
+dnf update @kde
+ 
+/* lista de repositorios instalados */
+dnf repolist
+
+/*  libs para assistir filmes mp4  */
+#adicionando repositorios do rpmfusion
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+#instalando todos os plugins necessarios para mp4
+dnf install gstreamer1-{ffmpeg,libav,plugins-{good,ugly,bad{,-free,-nonfree}}} --setopt=strict=0 xine-lib* k3b-extras-freeworld gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 dnf install vlc
+
+#instalacao de outros plugins opcionais =>>
+dnf -y install AtomicParsley.i686 flac.i686 freeimage.i686 jorbis.noarch libdv.i686 libfc14audiodecoder.i686 libfc14audiodecoder-devel.i686 nxtvepg.i686 crystalhd-firmware.noarch gstreamer-plugin-crystalhd.i686 mingw32-flac.noarch perl-MIME-Base32.noarch gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer-plugins-bad-free-extras.i686 gstreamer-plugins-bad-free.i686 gstreamer-plugins-bad-free-devel.i686 gstreamer-plugins-bad-free-devel-docs.i686 gstreamer1-plugins-bad-free-extras.i686 mingw32-gstreamer-plugins-bad-free.noarch mingw64-gstreamer-plugins-bad-free.noarch
+dnf install libmad 
+dnf install vlc
+dnf install mozilla-vlc (optional)
+
+/* suporte para .mp3 */
+dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools updates gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1
+dnf install xmms-mp3
+dnf install k3b-extras-freeworld 
+
+
+/* to remove packages installed by yum/dnf */
+dnf erase php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+or
+dnf remove php php-common php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+or
+rpm -qva |grep php > /tmp/php_list
+for P in `cat /tmp/php_list` ; do dnf remove $P; done
+
+
+
+/* Generating SSH keys */
+# Lists the files in your .ssh directory, if they exist
+ls -al ~/.ssh
+
+# Creates a new ssh key, using the provided email as a label
+# Generating public/private rsa key pair.
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+# start the ssh-agent in the background
+eval "$(ssh-agent -s)"
+
+# Agent pid 59566
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub 
+
+# Attempts to ssh to GitHub, test connect;
+ssh -T git@github.com
+
+#complete script to run==>
+ssh-keygen -t rsa -b 4096 -C "marcosptf@yahoo.com.br"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+#put key on github repository
+ssh -T git@github.com
+
+
+/* composer php */
+install 1
+php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
+php -r "if (hash('SHA384', file_get_contents('composer-setup.php')) === '41e71d86b40f28e771d4bb662b997f79625196afcca95a5abf44391188c695c6c1456e16154c75a211d238cc3bc5cb47') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+install 2
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
+php composer.phar require respect/data
+php composer.phar require respect/config
+php composer.phar require respect/relational
+
+/* php cli web server to develop  */
+php -S 0.0.0.0:8080 -t public/ public/index.php
+
+
+/* virtual host htpd || apache2 web server */
+<VirtualHost *:80>
+    ServerName site
+    DocumentRoot /var/www/html/site/public
+    <Directory /var/www/html/site/public>
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        <IfModule mod_authz_core.c>
+        Require all granted
+        </IfModule>
+    </Directory>
+</VirtualHost>
+
+/* exemplo de virtual host */
+<VirtualHost *:80>
+        ServerName regulacao.my
+        ServerAlias *.regulacao.my
+        DocumentRoot /home/lucas/workspace/regulacao
+<Directory /home/lucas/workspace/regulacao/>
+    Options All
+    AllowOverride all
+    Require all granted
+</Directory>
+</VirtualHost>
+
+
+========================================================================================================
+wget + SOAP
+
+como usar o wget para fazer post, e neste caso, autenticar, e enviar um xml para o servidor processar
+
+[root@localhost developer]# wget --http-user="usuario" --http-passwd="123456" --post-file="wsdl-teste-oi-tradeup.xml" http://endpoint.com --output-document="wsdl-debug"
+--2014-12-15 08:56:44--  http://endpoint.com
+Connecting to 200.225.84.43:80... connected.
+HTTP request sent, awaiting response... 401 Access Denied
+Connecting to 200.225.84.43:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 607 [Text/XML]
+Saving to: ‘wsdl-debug’
+
+wsdl-debug                                100%[=======================================================================================>]     607  --.-KB/s   in 0s     
+
+2014-12-15 08:56:47 (25.6 MB/s) - ‘wsdl-debug’ saved [607/607]
+
+[root@localhost developer]# cat wsdl-debug
+<?xml version='1.0'?><NSPRODUCTS><HEADER><VERSION>43mdv010</VERSION><PARTNER>NETBR55</PARTNER><RETURNCODE>1000</RETURNCODE><STATUS>SUCCESS</STATUS><MESSAGE>[1000] Transaction is successful </MESSAGE></HEADER><DATA><CONFIRMATION>NETBR55_141215105645_OIS332331770393</CONFIRMATION><REFERENCE>OI3661418646559815</REFERENCE><NSREF>NCS507562792</NSREF><CUSTOMERID>ois332331770393</CUSTOMERID><EMAIL>ois332331770393@oi.com.br</EMAIL><PASSWORD>yW2oB6sT1y</PASSWORD><MCAFFEURL>http://br.mcafee.com/</MCAFFEURL><ITEMS><ITEM SKU='907-66226-srvc_1umma' QTY='3'/></ITEMS></DATA></NSPRODUCTS>
+
++curl examples - curl http://curl.haxx.se
+Request com header + chave
+curl -i -H'Authorization: Login apikey="security.chave.subchave"' http://endpoint-web-service
+
+GET form:
+curl "www.hotmail.com/when/junk.cgi?birthyear=1905&press=OK"
+
+POST form:
+curl -d "username=usuario&password=senha" https://it.yahoo.com/
+
+File Upload POST:
+curl -F upload=@localfilename -F press=OK [URL]
+
+PUT:
+curl -T uploadfile www.uploadhttp.com/receive.cgi
+
+Auth:
+curl -uusuario:senha https://it.yahoo.com/
+
+
+========================================================================================================
+/* alguns padroes que usei para recuperar os nomes de varios arquivos de um codigo fonte de um repositorio no git */
+(" class="js-directory-link" id="[0-9a-z]*-[0-9a-z]*" title="[0-9]{4}-[0-9]{2}-[0-9]{2}_[A-Z0-9]*.xml">[0-9]{4}-[0-9]{2}-[0-9]{2}_[A-Z0-9]*.xml)
+([0-9]{4}-[0-9]{2}-[0-9]{2}_ISP[0-9]{3}.xml)$
+(" class="js-directory-link" id="[0-9a-z]*-[0-9a-z]*" title="[0-9]{4}-[0-9]{2}-[0-9]{2}_ISP[0-9]{3}.xml">)
+(" class="js-directory-link" id="[0-9a-z]-[0-9a-z]")
+(id="[0-9a-z]-[0-9a-z]")
+/* busca quebra d linha no final do texto em ambientes windows */
+\r\n
+/* busca quebra d linha no final do texto em ambientes unix */
+\n
+========================================================================================================
+/* how to install skype in fc  */
+dnf localinstall http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+dnf localinstall http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-1.el7.nux.noarch.rpm
+dnf localinstall http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+dnf install alsa-lib.i686 fontconfig.i686 freetype.i686 glib2.i686 libSM.i686 libXScrnSaver.i686 libXi.i686 libXrandr.i686 libXrender.i686 libXv.i686 libstdc++.i686 pulseaudio-libs.i686 qt.i686 qt-x11.i686 zlib.i686 qtwebkit.i686
+dnf install libcanberra-gtk2.i686 gtk2-engines.i686 PackageKit-gtk-module.i686
+
+wget --trust-server-names http://www.skype.com/go/getskype-linux-dynamic
+
+========================================================================================================
+/* php manual pear desktop */
+Install: pear install doc.php.net/pman
+Upgrade: pear upgrade doc.php.net/pman
+Example usage: pman strlen
+
+=======================================================================================================
+/* after install android studio run these commands  */
+dnf install openjdk
+dnf install jre-8u66-linux-i586.rpm
+export JAVA_HOME=/usr/java/jdk1.8.0_25
+echo $JAVA_HOME
+=======================================================================================================
+/* create simbolic link with ln command to solve a problem in andoid SDK */
+
+touch /root/Android/Sdk/platform-tools/adb
+ln -s  <original file> <file target link>
+ln -s  /usr/bin/adb /root/Android/Sdk/platform-tools/adb
+when someone call '/root/Android/Sdk/platform-tools/adb' the ln will call '/usr/bin/adb'
+
+ls -lart
+lrwxrwxrwx.  1 root root      12 Feb 10 22:57 /root/Android/Sdk/platform-tools/adb -> /usr/bin/adb
+=======================================================================================================
+/* fedora 24 virtualbox */
+
+Making the bios change and edit the selinux solved my problem of installing virtualbox 5.11 over fedora 25. 
+Thanks.
+
+There are the instructions that I've followed:
+
+# install virtualbox on fedora 25
+
+# start session as root; then open a terminal and 
+# install this prerrequisites
+
+dnf update
+dnf install binutils qt gcc make patch libgomp glibc-headers glibc-devel
+dnf install kernel-devel-$(uname -r)
+dnf install kernel-headers-$(uname -r)
+sudo dnf install redhat-rpm-config
+dnf install dkms
+
+# then start the config utillity
+sudo /sbin/vboxconfig
+
+# if there are errors, with the 'modprobe vboxdrv' command there 
+# are 2 solutions
+
+SOL-1: edit the /etc/selinux/config file and set SELINUX=disabled and reboot.
+SOL.2: Problem solved by changing "Windows UEFI" to "Other OS/Legacy" in motherboard Secure Boot options.
+
+
+
+=======================================================================================================
+#aumentar a memoria swap do linux - fedora
+http://www.dltec.com.br/blog/linux/aumentando-a-memoria-de-swap-no-linux-via-arquivo/
+[marcosptf@localhost html]$ 
+[marcosptf@localhost html]$ sudo su
+[sudo] password for marcosptf: 
+[root@localhost html]# cd
+[root@localhost ~]# dd if=/dev/zero of=/root/meuswap bs=1024 count=6291456
+6291456+0 records in
+6291456+0 records out
+6442450944 bytes (6.4 GB, 6.0 GiB) copied, 207.828 s, 31.0 MB/s
+[root@localhost ~]# mkswap meuswap
+mkswap: meuswap: insecure permissions 0644, 0600 suggested.
+Setting up swapspace version 1, size = 6 GiB (6442446848 bytes)
+no label, UUID=e0a24c87-d36a-4c42-bfe0-30a89c6c5084
+[root@localhost ~]# chown root:root meuswap
+[root@localhost ~]# chmod 0600 meuswap
+[root@localhost ~]# swapon meuswap
+[root@localhost ~]# vim /etc/fstab
+#foi adicionado no final do arquivo:
+root/meuswap swap swap defaults 0 0
+
+[root@localhost ~]# df -h
+Filesystem               Size  Used Avail Use% Mounted on
+devtmpfs                 464M     0  464M   0% /dev
+tmpfs                    479M   28M  452M   6% /dev/shm
+tmpfs                    479M  1.2M  478M   1% /run
+tmpfs                    479M     0  479M   0% /sys/fs/cgroup
+/dev/mapper/fedora-root   50G   41G  6.6G  87% /
+tmpfs                    479M   48K  479M   1% /tmp
+/dev/sda1                477M  147M  301M  33% /boot
+/dev/mapper/fedora-home   95G   51G   40G  57% /home
+tmpfs                     96M   28K   96M   1% /run/user/1000
+[root@localhost ~]# free -h
+              total        used        free      shared  buff/cache   available
+Mem:           957M        588M         72M         98M        295M         79M
+Swap:          8.0G        1.0G        7.0G
+[root@localhost ~]# 
+
+
+####################################################################################
+#desabilitar o kde wallet
+####################################################################################
+==>>>KDE 5/Plasma 5.8:
+Add the following lines to the end of ~/.config/kwalletrc
+[Wallet]
+Enabled=false
+
+===>>>KDE4:
+KDE Wallet is a core part of KDE, it's in the package kdebase-runtime.
+To disable it run kcmshell4 kwalletconfig and continue at step 3 or start from the beginning:
+1.Start System setings
+2.Open Account Details
+3.Go to the "KDE Wallet" tab
+4.Uncheck Enable the KDE Wallet subsystem
+5.Click Apply to apply the changes and close the settings window.
+
+
+
+
+
+

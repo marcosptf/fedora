@@ -1,0 +1,389 @@
++ para realizar a instalacao do mongo no fedora, primeiro 
+adicione este repositorio ao yum ou dnf:
+
+vim /etc/yum.repos.d/mongodb-org-3.4.repo
+[mongodb-org-3.4]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+
+para realizar a instalacao rode um dos comando abaixo:
+sudo yum install -y mongodb-org
+sudo dnf install -y mongodb-org
+
++ para subir uma instancia do mongodb em uma aba bash
+service mongod status
+service mongod start
+service mongod status
+
+sudo mkdir /data  
+sudo mkdir /data/db  
+sudo chmod -Rf 777 /data 
+mongod --dbpath /data/db
+
++python mongodb tutorial em outra aba bash:
+https://api.mongodb.com/python/current/tutorial.html
+https://docs.mongodb.com/getting-started/python/
+https://docs.mongodb.com/manual/introduction/
+
+[root@localhost pymongo-estudos]# . .venv/bin/activate
+(.venv)[root@localhost pymongo-estudos]# python
+Python 2.7.9 (default, Apr 15 2015, 12:08:00) 
+[GCC 5.0.0 20150319 (Red Hat 5.0.0-0.21)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from pymongo import MongoClient
+>>> client = MongoClient()
+
+>>> client
+MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True)
+>>> db = client.test_database
+
+>>> db
+Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database')
+>>> collection = db.test_collection
+>>> collection
+Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database'), u'test_collection')
+>>> 
+>>> import datetime
+>>> post = { "author": "Mike",
+... "text": "My first blog post!",
+... "tags": ["mongodb", "python", "pymongo"],
+... "date": datetime.datetime.utcnow()}
+>>> post
+{'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986215), 'text': 'My first blog post!', 'tags': ['mongodb', 'python', 'pymongo'], 'author': 'Mike'}
+>>> post
+{'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986215), 'text': 'My first blog post!', 'tags': ['mongodb', 'python', 'pymongo'], 'author': 'Mike'}
+>>> posts
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'posts' is not defined                                                                                       
+>>>                                                                                                                          
+>>> posts = db.posts                                                                                                         
+>>> db
+Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database')
+>>> post_id = posts.insert_one(post).inserted_id
+>>> post_id
+ObjectId('58b1eed3e138230d4122ef3a')
+>>> db.collection_names(include_system_collections=False)
+[u'posts']
+>>> db
+Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database')
+>>> 
+>>> import pprint
+>>> pprint.pprint(posts.find_one())
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+>>> 
+>>> pprint.pprint(posts.find_one({"author": "Mike"}))
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+>>> pprint.pprint(posts.find_one({"author": "java"}))
+None
+>>> pprint.pprint(posts.find_one({"_id": post_id}))
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+>>> post-id
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for -: 'dict' and 'builtin_function_or_method'
+>>> post_id
+ObjectId('58b1eed3e138230d4122ef3a')
+>>> pprint.pprint(posts.find_one({"_id": post_id}))
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+>>> 
+>>> from bson.objectid import ObjectId
+>>> def get(post_id):
+...     document = client.db.collection.find_one({"_id": ObjectId(post_id)})
+... 
+>>> get(post_id)
+>>> pprint.pprint(get(post_id))
+None
+>>> post_id
+ObjectId('58b1eed3e138230d4122ef3a')
+>>> 
+>>> 
+>>> 
+>>> new_posts = [{"author": "Make", "text": "another post!", "tags": ["bulk", "insert"], "date": datetime.datetime(2009, 11, 12,11,14)}, {"author": "Eliot", "title": "MongoDB is fun", "text": "and pretty easy too!", "date": datetime.datetime(2009,11,10,10,45) }]
+>>> 
+>>> result = posts.insert_many(new_posts)
+>>> result
+<pymongo.results.InsertManyResult object at 0x7f2067ca0280>
+>>> result.inserted_ids
+[ObjectId('58b1f967e138230d4122ef3b'), ObjectId('58b1f967e138230d4122ef3c')]
+>>> 
+>>> post
+{'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986215), 'text': 'My first blog post!', '_id': ObjectId('58b1eed3e138230d4122ef3a'), 'tags': ['mongodb', 'python', 'pymongo'], 'author': 'Mike'}
+>>> 
+>>> posts
+Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database'), u'posts')
+>>> 
+>>> 
+>>> for post in posts.find():
+...     pprint.pprint(post)
+... 
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+{u'_id': ObjectId('58b1f967e138230d4122ef3b'),
+ u'author': u'Make',
+ u'date': datetime.datetime(2009, 11, 12, 11, 14),
+ u'tags': [u'bulk', u'insert'],
+ u'text': u'another post!'}
+{u'_id': ObjectId('58b1f967e138230d4122ef3c'),
+ u'author': u'Eliot',
+ u'date': datetime.datetime(2009, 11, 10, 10, 45),
+ u'text': u'and pretty easy too!',
+ u'title': u'MongoDB is fun'}
+>>> 
+>>> 
+>>> for post in posts.find("author": "Mike"):
+  File "<stdin>", line 1
+    for post in posts.find("author": "Mike"):
+                                   ^
+SyntaxError: invalid syntax
+>>> for post in posts.find({"author": "Mike"}):
+...     pprint.pprint(post)
+... 
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+>>> 
+>>> pprint.pprint(post)
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+>>> pprint.pprint(posts)
+Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database'), u'posts')
+>>> 
+>>> post.count()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'dict' object has no attribute 'count'
+>>> 
+>>> 
+>>> posts.count()
+3
+>>> posts.find({"author": "Mike"}).count()
+1
+>>> 
+>>> 
+>>> 
+>>> 
+>>> result_index = db.profiles.create_index([("user_id", pymongo.ASCENDING)] unique=True)
+  File "<stdin>", line 1
+    result_index = db.profiles.create_index([("user_id", pymongo.ASCENDING)] unique=True)
+                                                                                  ^
+SyntaxError: invalid syntax
+>>> 
+>>> result_index = db.profiles.create_index([("user_id", pymongo.ASCENDING)], unique=True)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'pymongo' is not defined
+>>> 
+>>> import pymongo
+>>> result_index = db.profiles.create_index([("user_id", pymongo.ASCENDING)], unique=True)
+>>> sorted(list(db.profiles.index_information()))
+[u'_id_', u'user_id_1']
+>>> 
+>>> user_profiles = [{"user_id": 211, "name": "luke"},{"user_id": 212, "name": "ziltoid"}]
+>>> result = db.profiles.insert_many(user_profiles)
+>>> result
+<pymongo.results.InsertManyResult object at 0x7f2067ca01e0>
+>>> user_profiles
+[{'_id': ObjectId('58b1fd5de138230d4122ef3d'), 'user_id': 211, 'name': 'luke'}, {'_id': ObjectId('58b1fd5de138230d4122ef3e'), 'user_id': 212, 'name': 'ziltoid'}]
+>>> 
+
+
+
+estudar os exemplos tb:
+https://api.mongodb.com/python/current/examples/index.html
+https://api.mongodb.com/python/current/faq.html
+
+
+
+
+
+
+
+
+======================================================================================================
+======================================================================================================
+======================================================================================================
+======================================================================================================
+======================================================================================================
+#passo a passo para rodar o pymongo
+
+#este comando eh para ativar o virtualenv
+[root@localhost pymongo-estudos]# . .venv/bin/activate
+
+#entrando no python interativo
+(.venv)[root@localhost pymongo-estudos]# python
+Python 2.7.9 (default, Apr 15 2015, 12:08:00) 
+[GCC 5.0.0 20150319 (Red Hat 5.0.0-0.21)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+
+#importando e instanciando pymongo
+>>> from pymongo import MongoClient
+>>> client = MongoClient()
+
+#variavel client, visualizando o conteudo
+>>> client
+MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True)
+
+#criando um database para este client
+>>> db = client.test_database
+
+#visualizando banco criado
+>>> db
+Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database')
+
+#criando e visualizando uma nova collection
+>>> collection = db.test_collection
+>>> collection
+Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database'), u'test_collection')
+
+#criando um novo registro para ser inserido na collection
+>>> import datetime
+>>> post = { "author": "Mike",
+... "text": "My first blog post!",
+... "tags": ["mongodb", "python", "pymongo"],
+... "date": datetime.datetime.utcnow()}
+>>> post
+{'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986215), 'text': 'My first blog post!', 'tags': ['mongodb', 'python', 'pymongo'], 'author': 'Mike'}
+
+#cria se uma nova collection
+>>> posts = db.posts                                                                                                         
+>>> db
+Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database')
+
+#realiza um insert na collection
+>>> post_id = posts.insert_one(post).inserted_id
+
+#mostra o object id do ultimo insert realizado
+>>> post_id
+ObjectId('58b1eed3e138230d4122ef3a')
+
+#neste comando mostra as collections criadas
+>>> db.collection_names(include_system_collections=False)
+[u'posts']
+
+#mostra todos os dados relacionados ao database
+>>> db
+Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'test_database')
+
+#eh o var_dump() do php para mostrar os dados
+>>> import pprint
+
+#collection.find_one() encontra um registro
+>>> pprint.pprint(posts.find_one())
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+
+#collection.find_one({"chave" : "valor"})
+#encontra o registro relacionados
+>>> pprint.pprint(posts.find_one({"author": "Mike"}))
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+
+#collection.find_one({"_id" : "valor"})
+#encontra o registro relacionados ao id do registro
+>>> post_id
+ObjectId('58b1eed3e138230d4122ef3a')
+>>> pprint.pprint(posts.find_one({"_id": post_id}))
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+
+#realizando o insert de muitos registros ao mesmo tempo
+>>> new_posts = [{"author": "Make", "text": "another post!", "tags": ["bulk", "insert"], "date": datetime.datetime(2009, 11, 12,11,14)}, {"author": "Eliot", "title": "MongoDB is fun", "text": "and pretty easy too!", "date": datetime.datetime(2009,11,10,10,45) }]
+>>> result = posts.insert_many(new_posts)
+
+#trazendo os ids dos ultimos insertes realizados
+>>> result
+<pymongo.results.InsertManyResult object at 0x7f2067ca0280>
+>>> result.inserted_ids
+[ObjectId('58b1f967e138230d4122ef3b'), ObjectId('58b1f967e138230d4122ef3c')]
+
+#interator para registros de uma collection
+>>> for post in posts.find():
+...     pprint.pprint(post)
+... 
+{u'_id': ObjectId('58b1eed3e138230d4122ef3a'),
+ u'author': u'Mike',
+ u'date': datetime.datetime(2017, 2, 25, 20, 51, 36, 986000),
+ u'tags': [u'mongodb', u'python', u'pymongo'],
+ u'text': u'My first blog post!'}
+{u'_id': ObjectId('58b1f967e138230d4122ef3b'),
+ u'author': u'Make',
+ u'date': datetime.datetime(2009, 11, 12, 11, 14),
+ u'tags': [u'bulk', u'insert'],
+ u'text': u'another post!'}
+{u'_id': ObjectId('58b1f967e138230d4122ef3c'),
+ u'author': u'Eliot',
+ u'date': datetime.datetime(2009, 11, 10, 10, 45),
+ u'text': u'and pretty easy too!',
+ u'title': u'MongoDB is fun'}
+
+
+#contagem das collections
+>>> posts.count()
+3
+
+#contagem dos registros encontrados
+>>> posts.find({"author": "Mike"}).count()
+1
+
+#inserindo muitos registros
+>>> from pymongo import MongoClient
+>>> db = MongoClient().aggregation_example
+>>> result = db.things.insert_many([{"x": 1, "tags": ["dog", "cat"]},
+...                                 {"x": 2, "tags": ["cat"]},
+...                                 {"x": 2, "tags": ["mouse", "cat", "dog"]},
+...                                 {"x": 3, "tags": []}])
+>>> result.inserted_ids
+[ObjectId('...'), ObjectId('...'), ObjectId('...'), ObjectId('...')]
+
+#testar para ver se esta sintaxe remove()
+https://api.mongodb.com/python/current/examples/bulk.html
+
+#data type no mongodb
+https://api.mongodb.com/python/current/examples/datetimes.html
+
+#Geospatial Indexing Example
+https://api.mongodb.com/python/current/examples/geo.html
+
+#pymongo update
+https://docs.mongodb.com/manual/reference/method/db.collection.update/
+
+#pymongo delete
+https://docs.mongodb.com/manual/tutorial/remove-documents/
+

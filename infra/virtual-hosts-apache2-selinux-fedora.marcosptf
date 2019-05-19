@@ -1,0 +1,105 @@
+######################################################################################################
+#exemplo de como se implementa virtual hosts no apache para o php
+#####################################################################################################
+#/etc/httpd/conf/httpd.conf
+<VirtualHost *:80>
+    DocumentRoot "/var/www/rpmdobrasil.com.br"
+    ServerName rpmnovosite
+    ServerAlias rpmnovosite
+    DirectoryIndex index.php
+    <Directory "/var/www/rpmdobrasil.com.br">
+        Options Indexes FollowSymLinks
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    DocumentRoot "/var/www/html"
+    ServerName painel
+    ServerAlias painel
+    DirectoryIndex index.php
+    <Directory "/var/www/html">
+        Options Indexes FollowSymLinks
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+
+#[marcosptf@localhost ~]$ cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+127.0.0.2   rpmnovosite
+127.0.0.3   painel
+
+
+
+######################################################################################################################
+#para funcionar o smarty framework php no fedora, eh necessario desabilitar o selinux em maquina de develop
+#em maquina de prod, apenas liberar acesso de escrita para o selinux permitir o php ler/escrever/deletar 
+#o diretorio que esta os arquivos .tpl
+#para o smarty funcionar, podemos colocar os proprietarios do arquivo tanto o nobody quanto o apache2:
+######################################################################################################################
+sudo chown nobody:nobody -R smarty/*
+sudo chown nobody:nobody -R library/Smarty/View/libs/cache/*
+sudo chown nobody:nobody -R library/Smarty/View/libs/compile/*
+sudo chown nobody:nobody -R smarty/
+sudo chown nobody:nobody -R library/Smarty/View/libs/cache/
+sudo chown nobody:nobody -R library/Smarty/View/libs/compile/
+sudo chmod +0777 -R smarty/* 
+sudo chmod +0777 -R library/Smarty/View/libs/cache/*
+sudo chmod +0777 -R library/Smarty/View/libs/compile/*
+sudo chmod +0777 -R smarty/ 
+sudo chmod +0777 -R library/Smarty/View/libs/cache/
+sudo chmod +0777 -R library/Smarty/View/libs/compile/
+
+#seta apache para todos +0777
+sudo chown apache:apache -R .
+sudo chmod +0777 -R .
+
+
+
+###############################################################
+#desabilitando o selinux no fedora
+#
+###############################################################
+#comandos para mostrar como esta o status do selinux
+$ /usr/sbin/getenforce
+Enforcing => significa habilitado
+
+$ /usr/sbin/sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /selinux
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy version:                 23
+Policy from config file:        targeted
+
+
+
+#desabilitando o selinux
+sudo vim /etc/selinux/config:
+
+#setando esta variavel para disabled:
+SELINUX=disabled
+
+#apos isto eh necessario desligar e ligar o computador novamente:
+sudo poweroff
+
+#para ter certeza que o selinux esta desabilitado, o comando devera retornar assim:
+$ /usr/sbin/getenforce
+Disabled
+
+
+
+
+
+
+
+
