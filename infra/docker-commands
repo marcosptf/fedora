@@ -60,3 +60,14 @@ https://github.com/tianon/docker-brew-ubuntu-core/blob/5fce3945d95630c2fc03c21ef
 
 #principais comandos
 https://woliveiras.com.br/posts/comandos-mais-utilizados-no-docker/
+
+#comandos-kubernetes
+gcloud config get-value project
+gcloud container clusters get-credentials fs-kubernetes-homol --zone us-east1
+docker build ./ -t 'us.gcr.io/fs-gc-homol/python-flask:1'
+docker push us.gcr.io/fs-gc-homol/python-flask:1
+kubectl apply -f kubernetes/homol-config.yaml
+kubectl apply -f kubernetes/homol-deployment.yaml
+kubectl apply -f kubernetes/homol-service.yaml
+kubectl port-forward homol-python-flask-5d64dfc45c-wk7th 8888:5000 -n homol
+
