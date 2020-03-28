@@ -8,6 +8,8 @@ https://github.com/heddle317/docker-flask-example/blob/master/Dockerfile
 sudo dnf install docker-engine --allowerasing
 https://docs.docker.com/engine/installation/linux/fedora/
 
+
+
 #comando para subir
 sudo dnf install docker-engine docker-devel docker-compose
 sudo groupadd docker
@@ -16,6 +18,25 @@ sudo systemctl enable docker.service
 sudo service docker restart
 sudo systemctl start docker
 sudo docker-compose up &
+
+#comando para remover tudo, images/container
+#https://www.hostinger.com/tutorials/docker-remove-all-images-tutorial/
+sudo docker image prune
+sudo docker image prune –a
+sudo docker image prune -a --filter "until=24h" #especifica imagem
+
+sudo docker container prune
+sudo docker container prune --filter "until=24h"
+
+docker volume prune --filter "label!=keep"
+docker network prune
+docker network prune --filter "until=24h" 
+
+#remove todas as imagens
+docker system prune
+
+
+
 
 #comando para deletar/remover um conteiner
 sudo docker rm <nome-do-conteiner>
