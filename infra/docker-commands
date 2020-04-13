@@ -36,6 +36,13 @@ docker network prune --filter "until=24h"
 docker system prune
 
 
+#entrar dentro do conteiner
+docker-compose exec <servico> bash
+docker-compose exec vetor-zkm bash
+docker exec -it <conteiner_id> i<command>
+docker-compose exec proxy bash
+docker-compose exec proxy sh
+
 
 
 #comando para deletar/remover um conteiner
