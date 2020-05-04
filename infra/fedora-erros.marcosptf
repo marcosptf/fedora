@@ -1,0 +1,9 @@
+#fedora emergency mode hOW TO FiX?
+Fix for Fedora boot failure (entering emergency-exit shell to continue fixed)
+Type systemctl
+You'll get a list of logs, scroll till you find the error highlighted in red.
+Type fsck /dev/mapper/fedora-root
+Hit Y (yes)
+and you're good to go.
+
+
