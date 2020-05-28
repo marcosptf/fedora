@@ -8,6 +8,8 @@ https://github.com/heddle317/docker-flask-example/blob/master/Dockerfile
 sudo dnf install docker-engine --allowerasing
 https://docs.docker.com/engine/installation/linux/fedora/
 
+#rodar docker sem sudo:
+sudo usermod -aG docker $USER
 
 
 #comando para subir
@@ -35,6 +37,11 @@ docker network prune --filter "until=24h"
 #remove todas as imagens
 docker system prune
 
+#remove tudo de tudo de docker
+sudo docker volume prune
+sudo docker image prune
+sudo docker network prune
+sudo docker container prune
 
 #entrar dentro do conteiner
 docker-compose exec <servico> bash
@@ -81,6 +88,24 @@ docker-compose up
 #entrar num docker
 docker images
 docker run -it <nome-da-magem> /bin/bash
+
+#######################################
+#comandos para criar network no docker#
+#######################################
+#comando para criar nova network
+sudo docker network create api2-checklist
+#comando para listar os conteiners
+sudo docker ps
+#agora vamos conectar as nossa nova network com
+#os conteiners que temos
+sudo docker network connect api2-checklist 56e3
+sudo docker network connect api2-checklist 22e2
+#agora com este comando podemos ver como ficou a network que criamos
+sudo docker inspect api2-checklist
+#com o comando abaixo podemos entrar no conteiner e testar a integracao;
+sudo docker exec -it 22e2 sh
+
+
 
 #Dockerfile examples
 https://github.com/docker-library/python/blob/3f12f511910098f45951111aa5642fd935133afc/3.7-rc/stretch/Dockerfile
