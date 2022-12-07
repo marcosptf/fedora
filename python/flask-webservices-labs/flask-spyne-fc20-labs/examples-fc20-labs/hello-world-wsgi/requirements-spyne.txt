@@ -1,7 +1,7 @@
 #pip freeze do flask spyne instalado com pip
 attrs==17.3.0
 Automat==0.6.0
-certifi==2017.11.5
+certifi==2022.12.7
 chardet==3.0.4
 click==6.7
 constantly==15.1.0
