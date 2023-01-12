@@ -12,7 +12,7 @@ Flask-SQLAlchemy==1.0
 Flask-Script==0.6.2
 Flask-Testing==0.4
 Flask-WTF==0.9.3
-Jinja2==2.8
+Jinja2==2.11.3
 Mako==1.0.4
 MarkupSafe==0.23
 PyMySQL==0.7.5
