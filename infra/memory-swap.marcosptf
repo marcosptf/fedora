@@ -5,44 +5,39 @@
 ######################
 #1.executar 
 para verificar como esta a memoria atualmente
-[marcosptf@localhost html]# df -h
-
+[marcosptf@localhost ]$ df -h
 
 
 ######################
 #2.entrar como sudo
-[marcosptf@localhost html]$ sudo su
+[marcosptf@localhost ]$ sudo su
 [sudo] password for marcosptf: 
-[root@localhost html]# cd
 
 ######################################################
 #3.criar um novo diretorio onde sera memoria virtual
-dd if=/dev/zero of=/root/meuswap bs=1024 count=8589934592
+[root@localhost]# dd if=/dev/zero of=/root/meuswap bs=1024 count=8589934592
 
 
 ######################################################
 #4.converter este novo diretoiro em memoria swap
-mkswap meuswap
-mkswap: meuswap: insecure permissions 0644, 0600 suggested.
-Setting up swapspace version 1, size = 8 GiB (8589934592 bytes)
-no label, UUID=e0a24c87-d36a-4c42-bfe0-30a89c6c5084
+[root@localhost]# mkswap meuswap
 
 
 ##########################################################################
 #5.aplicar as devidas permissoes a este novo diretorio de memoria virtual
-chown root:root meuswap
-chmod 0600 meuswap
-swapon meuswap
+[root@localhost]# chown root:root meuswap
+[root@localhost]# chmod 0600 meuswap
+[root@localhost]# swapon meuswap
 
 
 ##########################################################################
 #6.criar uma nova config no fstab
-vim /etc/fstab
-#foi adicionado no final do arquivo:
+[root@localhost]# vim /etc/fstab
+#adicionar a linha abaixo no final do arquivo:
 root/meuswap swap swap defaults 0 0
 
 
 ##############################################################
 #7.executar agora para verificar se ja ativou a memoria swap
 para verificar como esta a memoria atualmente
-[marcosptf@localhost html]# df -h
+[root@localhost]# df -h
