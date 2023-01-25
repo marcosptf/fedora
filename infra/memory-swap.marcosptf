@@ -20,7 +20,7 @@ para verificar como esta a memoria atualmente
 
 ######################################################
 #4.converter este novo diretoiro em memoria swap
-[root@localhost]# cd /root/ meuswap
+[root@localhost]# cd /root/
 [root@localhost]# mkswap meuswap
 
 
