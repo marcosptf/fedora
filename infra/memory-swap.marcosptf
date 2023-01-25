@@ -15,11 +15,12 @@ para verificar como esta a memoria atualmente
 
 ######################################################
 #3.criar um novo diretorio onde sera memoria virtual
-[root@localhost]# dd if=/dev/zero of=/root/meuswap bs=1024 count=8589934592
+[root@localhost]# dd if=/dev/zero of=/root/meuswap bs=1024 count=8388608
 
 
 ######################################################
 #4.converter este novo diretoiro em memoria swap
+[root@localhost]# cd /root/ meuswap
 [root@localhost]# mkswap meuswap
 
 
@@ -34,7 +35,7 @@ para verificar como esta a memoria atualmente
 #6.criar uma nova config no fstab
 [root@localhost]# vim /etc/fstab
 #adicionar a linha abaixo no final do arquivo:
-root/meuswap swap swap defaults 0 0
+/root/meuswap swap swap defaults 0 0
 
 
 ##############################################################
