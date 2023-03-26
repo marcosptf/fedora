@@ -474,6 +474,21 @@ dnf update @kde
 /* lista de repositorios instalados */
 dnf repolist
 
+/* libs para assistir dvd fedora 35 */
+#precisa baixar uma lib rpm
+http://www.nosuchhost.net/~cheese/fedora/packages/35/x86_64/cheese-release.html
+http://www.nosuchhost.net/~cheese/fedora/packages/35/x86_64/cheese-release-35-1.fc35.noarch.rpm
+
+#instala a lib e repo de dependencias
+sudo dnf install -y cheese-release-35-1.fc35.noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+#agora instala o vlc com as outras dependencias
+sudo dnf install -y python-vlc npapi-vlc mozilla-vlc
+
+
+
 /*  libs para assistir filmes mp4  */
 #adicionando repositorios do rpmfusion
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
